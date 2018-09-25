@@ -112,6 +112,8 @@ import { stickyElement } from 'sticky-element';
 ```typescript
 //----- some-function.ts -----/
 export default function() { ... }
+
+//----- index.ts -----/
 import someFunction from 'some-function';
 ```
 
