@@ -3,7 +3,8 @@
 ## Type Assertion
 
 ```typescript
-let menu = document.querySelector('.menu'); // Okay
+let menu = document.querySelector('.menu'); // Bad
+let menu = <HTMLElement> document.querySelector('.menu'); //Okay
 let menu = document.querySelector('.menu') as HTMLElement; // Better
 ```
 
