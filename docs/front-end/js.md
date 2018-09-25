@@ -94,3 +94,33 @@ function doSomething(element: HTMLElement, isSpecial: boolean = false) {
 doSomething(element); // Returns element with "normal-class" added
 doSomething(element, true); // Returns element with "spacial-class" added
 ```
+
+## Modules
+Package code as re-usable modules.
+
+### Named exports
+```typescript
+//----- sticky-element.ts -----/
+export function stickyElement(el: HTMLElement) { ... }
+
+//----- index.ts -----/
+import { stickyElement } from 'sticky-element';
+```
+
+### Default exports
+```typescript
+//----- some-function.ts -----/
+export default function() { ... }
+import someFunction from 'some-function';
+```
+
+### Multiple exports
+```typescript
+//----- some-related-functions.ts -----/
+function functionA() { ... }
+function functionB() { ... }
+export { functionA, FunctionB };
+
+//----- index.ts -----/
+import { functionB } from 'some-related-functions';
+```
