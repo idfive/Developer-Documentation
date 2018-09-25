@@ -3,7 +3,7 @@
 ## WP-CLI
 Use [WP-CLI](https://wp-cli.org) to manage WordPress core and plugin updates.
 
-### Updating/Installing Plugins
+### Plugin management
 See all available plugin updates:
 ```bash
 wp plugin update --all --dry-run
@@ -17,6 +17,11 @@ wp plugin update jetpack
 Install plugin:
 ```bash
 wp plugin install jetpack
+```
+
+Uninstall plugin:
+```bash
+wp plugin uninstall jetpack
 ```
 
 ### Updating WordPress Core
