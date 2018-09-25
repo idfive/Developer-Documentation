@@ -7,6 +7,28 @@
   <meta name="description" content="Description">
   <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
   <link rel="stylesheet" href="//unpkg.com/docsify/lib/themes/vue.css">
+  <style>
+  .cover-main img {
+    max-width: 120px;
+  }
+  section.cover .cover-main>p:last-child a:last-child,
+  section.cover .cover-main>p:last-child a:last-child:hover {
+    color: #fff;
+    border-color: #fff;
+  }
+  .cover.show {
+    background: rgb(102,56,182) !important;
+  }
+  .cover-main {
+    color: #fff;
+  }
+  body[data-page="_navbar.md"] .app-nav li {
+    color: #fff;
+  }
+  body[data-page="_navbar.md"] .app-nav li li {
+    color: #34495e;
+  }
+  </style>
 </head>
 <body>
   <div id="app"></div>
@@ -14,9 +36,19 @@
     window.$docsify = {
       name: '',
       repo: '',
-      loadSidebar: true
+      loadNavbar: true,
+      alias: {
+        '/.*/_navbar.md': '/_navbar.md'
+      },
+      coverpage: true,
+      themeColor: '#6638b6',
+      onlyCover: false,
+      homepage: '_navbar.md',
     }
   </script>
   <script src="//unpkg.com/docsify/lib/docsify.min.js"></script>
+  <script src="//unpkg.com/prismjs/components/prism-typescript.min.js"></script>
+  <script src="//unpkg.com/prismjs/components/prism-sass.min.js"></script>
+  <script src="//unpkg.com/prismjs/components/prism-bash.min.js"></script>
 </body>
 </html>

@@ -2,14 +2,14 @@
 
 ## Type Assertion
 
-```js
+```typescript
 let menu = document.querySelector('.menu'); // Okay
 let menu = document.querySelector('.menu') as HTMLElement; // Better
 ```
 
 ## Type Hinting
 
-```js
+```typescript
 let isDone = false; // Okay
 let isDone: boolean = false; // Better
 
@@ -23,7 +23,7 @@ let myString: string = "Hello World"; // Better
 ## DOM Existence checking
 When selecting HTML elements, don't assume that they will always be present in the DOM.
 
-```js
+```typescript
 // Bad
 let menu = document.querySelector('.menu') as HTMLElement;
 menu.classList.add('menu--has-js');

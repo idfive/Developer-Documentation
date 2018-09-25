@@ -33,18 +33,55 @@ __Note:__ It’s okay to have an empty alt attribute. Not all images need to hav
 Managing code is work. The more code we write, the more we have to maintain (and the more that can go wrong). Focus on writing maintainable, readable code. Don’t be afraid to re-factor code when patterns start to emerge. Common functionality can be moved into functions, or pre-written packages can be included using [NPM](https://npmjs.com).
 
 ### Environment Variables
-Avoid writing code that requires manual edits to code for deployment to different environemnts e.g. production vs. staging URLs for APIs. Use environment variables or runtime variables with npm where possible.
+Avoid writing code that requires manual edits to code for deployment to different environments e.g. production vs. staging URLs for APIs. Use environment variables or runtime variables with npm where possible.
+
+```bash
+npm run watch --apiBase http://localhost.test/api/
+```
+```typescript
+let apiBase = process.env.apiBase || "http://productionurl.com/api";
+```
 
 ### Credentials
-Don’t commit credentials where possible. For Drupal and WordPress websites, favor the approach of including a settings.local.php or wp-config-local.php file to store credentials.
+Don’t commit credentials where possible. For Drupal and WordPress sites, favor the approach of including a settings.local.php or wp-config-local.php file to store credentials.
 
-### Comment your code
+### Document your code
+Use [JSDoc](http://usejsdoc.org) style comments for JavaScript
 
+```typescript
+/**
+ * Represents a book
+ * @param {string} title - Title of the book
+ * @param {string} author - Author of the book
+ */
+function Book(title: string, author: string) {
+}
+```
 
-Helpful commit messages that describe the fix. Copy bugify ticket URL or bug number.
-Remove commented out code
-Verbose function names are ok, they are being minified in production anyways
+Prefer verbose over vague function and variable names.
 
+```typescript
+let x = document.querySelector('.main-menu') as HTMLElement; /* Bad */
+let mainMenu = document.querySelector('.main-menu') as HTMLElement; /* Good */
+```
+
+```typescript
+function filter() {} /* Okay */
+function filterEvents() {} /* Better */
+```
+
+### Commiting code
+Commit code regularly, and in logical chunks e.g. Don't commit masses of WordPress plugin updates in one commit. Commit each plugin updsate individually.
+
+Provide helpful commit messages that describe the fix, and copy a bug/issue ticket number or URL where possible.
+
+```
+Bad: Fix bug
+```
+
+```
+Good: Fixes flickering menu at smaller screen sizes. References issue #4.
+```
 
 ## Performant
 Code should be written with performance in mind at all times. All CSS and JavaScript should be "bundled" and minified/uglified using Webpack, and images should be compressed and resized for the smallest possible size.
