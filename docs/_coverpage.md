@@ -1,5 +1,5 @@
 ![logo](_media/logo.svg)
 
-**Developer Documentation**
+**Documentation for Developers**
 
 [Get Started](#main)

@@ -71,7 +71,7 @@ function filterEvents() {} /* Better */
 ```
 
 ### Commiting code
-Commit code regularly, and in logical chunks e.g. Don't commit masses of WordPress plugin updates in one commit. Commit each plugin updsate individually.
+Commit code regularly, and in logical chunks e.g. Don't commit masses of updates in one commit. Commit each logical update individually.
 
 Provide helpful commit messages that describe the fix, and copy a bug/issue ticket number or URL where possible.
 
