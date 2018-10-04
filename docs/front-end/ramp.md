@@ -19,6 +19,22 @@ Writing semantic code is integral to accessibility, and has the added bonus of S
 ### Assume that JavaScript is unavailable
 By default, assume that JavaScript (JS) is unvailable. That paves the way to progressively enhance the experience where JS is available and honors our approach of making our content available to anyone, regardless of technology.
 
+For full JavaScript apps, provide a link on how to enable JavaScript.
+
+```html
+<noscript>
+  <p>This site requires JavaScript. See <a href="https://www.enable-javascript.com">how to enable JavaScript in your browser</a>.</p>
+</noscript>
+```
+
+For individual JavaScript components, consider providing a simple/lo-fi alternative using Drupal views or WordPress archive functionality (where possible).
+
+```html
+<noscript>
+  <p>This content requires JavaScript. See <a href="https://www.enable-javascript.com">how to enable JavaScript in your browser</a> or view an <a href="/link/to/alternate/version">alternate version of this content</a>.</p>
+</noscript>
+```
+
 ### Images
 Images should always have at least an empty alt attribute. Without an alt attribute some assistive devices may announce the full image path.
 
