@@ -21,10 +21,11 @@ Pantheon is the prefered platform to spin up DEV sites. Since lots of times, pan
 
 At this point, you have a local version of the blank site that is up on pantheon. Begin setting up themes/modules/etc as needed.
 
-#### Command line (via [terminus](https://pantheon.io/docs/terminus))
-Coming soon. See [Composer non CI](https://pantheon.io/docs/guides/drupal-8-composer-no-ci) for overview.
+#### Command line (via terminus)
+Uses pantheons command line tool, [terminus](https://pantheon.io/docs/terminus). Coming soon. See [Composer non CI](https://pantheon.io/docs/guides/drupal-8-composer-no-ci) for overview.
 
 ### Acquia
+coming soon...
 
 ### idfive DEV server
 If possible, all DEV site sandboxes should use pantheon. If the project absolutely requires that it be on an idfive DEV server, see Nick, or a senior developer for access/etc.
