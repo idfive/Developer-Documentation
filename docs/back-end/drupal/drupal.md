@@ -1,12 +1,12 @@
 # Drupal 8
-Unless specifically directed, all new D8 sites should attempt to use a composer based workflow for updates, and the [idfive Component Libray](https://bitbucket.org/idfivellc/idfive-component-library) for the frontend.
+Unless specifically directed, all new D8 sites should attempt to use a composer based workflow for updates, and the [idfive Component Libray](https://bitbucket.org/idfivellc/idfive-component-library) for the frontend. Some sites for specific clients, require different, specific workflows. This is not a substitute for that, rather, simply defines our "standard go tos".
 
 ## Prefered site spinup workflow
 
 ### Pantheon
 Pantheon is the prefered platform to spin up DEV sites. Since lots of times, pantheon is only the temporary home of projects while in development, we have not yet created a custom idfive upstream, though that is not out of the question. Utilize the following workflow, assuming you have been assigned to the idfive team on pantheon:
 
-#### Standard (via pantheon dashboard)
+#### Standard (via pantheon dashboard and lando)
 
   -  Create a new sandbox in pantheon. Be sure this is assigned to the idfive team, not your personal account, so all Devs may access.
   - Go ahead and set up that site on the DEV URL, ie install the site.
@@ -21,7 +21,7 @@ Pantheon is the prefered platform to spin up DEV sites. Since lots of times, pan
 
 At this point, you have a local version of the blank site that is up on pantheon. Begin setting up themes/modules/etc as needed.
 
-#### Command line (via terminus)
+#### Command line (via terminus and lando)
 Uses pantheons command line tool, [terminus](https://pantheon.io/docs/terminus). Coming soon. See [Composer non CI](https://pantheon.io/docs/guides/drupal-8-composer-no-ci) for overview.
 
 ### Acquia
