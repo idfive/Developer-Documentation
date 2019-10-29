@@ -1,3 +1,7 @@
+* General
+
+  * [git](general/git/standards.md)
+
 * Front-end
 
   * [RAMP](front-end/ramp.md)
