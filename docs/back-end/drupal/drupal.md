@@ -1,10 +1,18 @@
-# Drupal
+# Drupal 8
 
 ## idfive base theme
+The idfive base theme is intetionally pretty bare bones, but provides us with lots of behind the scenes functions we need. This theme is designed to act as a parent theme, and should never be enabled directly. See the [documentation](https://bitbucket.org/idfivellc/idfive-component-library-d8-theme) for how to best use this theme, and how to quickly and efficiently spin up a child theme for this project.
+
+The docroot and actual folders may vary, depending on your codebase, but in general, adding the idfive base theme, and creating your custom child theme will look like:
+  - `composer require idfive/idfive`
+  - `cd docroot/themes/custom/idfive/starterkits`
+  - `sudo bash generate_kit.sh` This will run a bash script, that prompts you for a human readable name, and a machine name for your custom child theme. From that, the script will generate a child theme, and install a fresh copy of the [idfive Component Libray](https://bitbucket.org/idfivellc/idfive-component-library) which is the prefered framework for all idfive projects. 
+  - enable your new child theme.
+
+You may need to adjust folders/etc as stated above, depending on the projects composer setup. See the [documentation](https://bitbucket.org/idfivellc/idfive-component-library-d8-theme) for more information.
 
 ## idfive paragraphs module
 
-## Recomended contrib modules
 
 ## Prefered site spinup workflow
 
@@ -28,3 +36,9 @@ At this point, you have a local version of the blank site that is up on pantheon
 
 ### idfive DEV server
 If possible, all DEV site sandboxes should use pantheon. This frees up our DEV server for other things we are doing there. If not possible, utilize the following:
+
+
+## Recomended contrib modules
+
+
+# Drupal 7
