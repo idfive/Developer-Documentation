@@ -22,7 +22,21 @@ Pantheon is the prefered platform to spin up DEV sites. Since lots of times, pan
 At this point, you have a local version of the blank site that is up on pantheon. Begin setting up themes/modules/etc as needed.
 
 #### Command line (via terminus and lando)
-Uses pantheons command line tool, [terminus](https://pantheon.io/docs/terminus). Coming soon. See [Composer non CI](https://pantheon.io/docs/guides/drupal-8-composer-no-ci) for overview.
+Uses pantheons command line tool, [terminus](https://pantheon.io/docs/terminus). Allows command line creation and install of pantheon site, then pulls down locally and runs via lando.
+
+  - Be sure [terminus](https://pantheon.io/docs/terminus) is installed and running locally. If the bin directory is unavailable on install, Terminus cannot be automatically set up as a command. A symlink or an alias to the Terminus executable must be made in either the ~/.bashrc or ~/.bash_profile files, a la `alias terminus="/usr/local/bin/terminus"`
+  - If you have not already, set up [lando](https://docs.lando.dev/) locally, and set it up for use with [pantheon](https://docs.lando.dev/config/pantheon.html). It will require a [machine token](https://pantheon.io/docs/machine-tokens#authenticate-into-terminus) and a few other things.
+  - `terminus site:create SITE-MACHINE-NAME 'SITE HUMAN NAME' drupal8 --org=idfive-llc` This will create a new site on pantheon, as drupal 8, under the idfive team.
+  - `terminus drush SITE-MACHINE-NAME.dev -- site:install --account-name=USERNAME --account-mail=EMAIL --account-pass=PASSWORD` run site install on site you just created, on dev environment of pantheon. You will receive the message "You are about to DROP all tables in your 'pantheon' database", this is normal, continue. Note there is an open bug against a password containing certain chars, like [!%&'](https://github.com/drush-ops/drush/issues/125).
+  - `terminus connection:set SITE-MACHINE-NAME.dev git` set connection to git
+  - `cd ~/Sites`
+  - `mkdir SITE-MACHINE-NAME-lando` (use the -lando at the end so you know this repo is served by lando)
+  - `cd SITE-MACHINE-NAME-lando`
+  - `lando init --source pantheon --pantheon-site "SITE-MACHINE-NAME"` and go through the prompts to select the site you created.
+  - `lando start` starts the app. It will also list the URL to access this locally.
+  - `lando pull` will pull DB/code/files from chosen environment through prompts.
+
+At this point, you have a local version of the blank site that is up on pantheon. Begin setting up themes/modules/etc as needed.
 
 ### Acquia
 coming soon...
