@@ -27,7 +27,7 @@ Uses pantheons command line tool, [terminus](https://pantheon.io/docs/terminus).
   - Be sure [terminus](https://pantheon.io/docs/terminus) is installed and running locally. If the bin directory is unavailable on install, Terminus cannot be automatically set up as a command. A symlink or an alias to the Terminus executable must be made in either the ~/.bashrc or ~/.bash_profile files, a la `alias terminus="/usr/local/bin/terminus"`
   - If you have not already, set up [lando](https://docs.lando.dev/) locally, and set it up for use with [pantheon](https://docs.lando.dev/config/pantheon.html). It will require a [machine token](https://pantheon.io/docs/machine-tokens#authenticate-into-terminus) and a few other things.
   - `terminus site:create SITE-MACHINE-NAME 'SITE HUMAN NAME' drupal8 --org=idfive-llc` This will create a new site on pantheon, as drupal 8, under the idfive team.
-  - `terminus drush SITE-MACHINE-NAME.dev -- site:install --account-name=USERNAME --account-mail=EMAIL --account-pass=PASSWORD` run site install on site you just created, on dev environment of pantheon. You will receive the message "You are about to DROP all tables in your 'pantheon' database", this is normal, continue. Note there is an open bug against a password containing certain chars, like [!%&'](https://github.com/drush-ops/drush/issues/125).
+  - `terminus drush SITE-MACHINE-NAME.dev -- site:install --site-name=SITE-MACHINE-NAME --account-name=USERNAME --account-mail=EMAIL --account-pass=PASSWORD` run site install on site you just created, on dev environment of pantheon. You will receive the message "You are about to DROP all tables in your 'pantheon' database", this is normal, continue. Note there is an open bug against a password containing certain chars, like [!%&'](https://github.com/drush-ops/drush/issues/125).
   - `terminus connection:set SITE-MACHINE-NAME.dev git` set connection to git
   - `cd ~/Sites`
   - `mkdir SITE-MACHINE-NAME-lando` (use the -lando at the end so you know this repo is served by lando)
@@ -37,6 +37,9 @@ Uses pantheons command line tool, [terminus](https://pantheon.io/docs/terminus).
   - `lando pull` will pull DB/code/files from chosen environment through prompts.
 
 At this point, you have a local version of the blank site that is up on pantheon. Begin setting up themes/modules/etc as needed.
+
+##### PRO LEVEL: 
+Copy the snippet provided by [Create new site on pantheon, and spin up locally](https://bitbucket.org/snippets/idfivellc/jLReGG/create-new-site-on-pantheon-and-spin-up), change line 45 to your desired usename/email/pass, and run that bash script anytime you wish to start a site. Adds all above lando/terminus commands into one file, that asks for machine name, and human name, then runs all above scripts automatically for you.
 
 ### Acquia
 coming soon...
