@@ -5,6 +5,7 @@ In general, we reccomend getting the following installed and running on your mac
  - [Acquia Dev Desktop](https://www.acquia.com/drupal/acquia-dev-desktop)
  - [terminus](https://pantheon.io/docs/terminus)
  - [lando](https://docs.lando.dev/)
+ - [valet](https://laravel.com/docs/5.8/valet) -- Optional/legacy
  - [composer](https://getcomposer.org/)
  - [NPM](https://www.npmjs.com/get-npm)
  - [NVM](https://github.com/nvm-sh/nvm/blob/master/README.md)
