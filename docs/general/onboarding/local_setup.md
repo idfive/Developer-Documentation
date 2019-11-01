@@ -1,7 +1,7 @@
 # Setup and Access
 
 ## Local Setup
-In general, we reccomend getting the following installed and running on your machine, to facilitae workflows we tend to use:
+In general, we reccomend getting the following installed and running on your machine, to facilitate workflows we tend to use:
  - [Acquia Dev Desktop](https://www.acquia.com/drupal/acquia-dev-desktop)
  - [terminus](https://pantheon.io/docs/terminus)
  - [lando](https://docs.lando.dev/)
