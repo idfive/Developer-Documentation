@@ -13,6 +13,7 @@ In general, we reccomend getting the following installed and running on your mac
  - [composer](https://getcomposer.org/)
  - [NPM](https://www.npmjs.com/get-npm)
  - [NVM](https://github.com/nvm-sh/nvm/blob/master/README.md)
+ - [xcode and xcode CLT](https://developer.apple.com/download/more/?=command%20line%20tools)
 
 ## Access
 You will also potentially need access to the following:
