@@ -1,0 +1,21 @@
+# Setup and Access
+
+## Local Setup
+In general, we reccomend getting the following installed and running on your machine, to facilitae workflows we tend to use:
+ - [Acquia Dev Desktop](https://www.acquia.com/drupal/acquia-dev-desktop)
+ - [terminus](https://pantheon.io/docs/terminus)
+ - [lando](https://docs.lando.dev/)
+ - [composer](https://getcomposer.org/)
+ - [NPM](https://www.npmjs.com/get-npm)
+ - [NVM](https://github.com/nvm-sh/nvm/blob/master/README.md)
+
+## Access
+You will also potentially need access to the following:
+ - Acquia Teams
+ - Pantheon Teams
+ - Packagist Teams
+ - [idfive bitbucket](https://bitbucket.org/)
+ - [idfive github](https://github.com/idfive)
+ - [buddy](https://app.buddy.works/idfive)
+
+These are generally assigned via individual accounts, so this could be to an existing account in some cases (if you have one) or one to be created under idfive email accounts.

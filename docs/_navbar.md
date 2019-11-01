@@ -1,5 +1,6 @@
 * General
 
+  * [Setup and Access](general/onboarding/local_setup.md)
   * [git](general/git/standards.md)
 
 * Front-end
