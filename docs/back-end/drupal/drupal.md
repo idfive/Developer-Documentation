@@ -1,15 +1,20 @@
 # Drupal 8
 Unless specifically directed, all new D8 sites should attempt to use a composer based workflow for updates, and the [idfive Component Libray](https://bitbucket.org/idfivellc/idfive-component-library) for the frontend. Some sites for specific clients, require different, specific workflows. This is not a substitute for that, rather, simply defines our "standard go tos".
 
-## Preferred local dev setup
-Please follow the [following drupal.org article](https://www.drupal.org/docs/develop/development-tools/configuring-visual-studio-code) to set up VS Code for better drupal development.
+## Local ENV Setup, and coding standards
 
-### PHP CodeSniffer/drupal Coder
+### Preferred local VS Code setup
+Please follow the [following drupal.org article](https://www.drupal.org/docs/develop/development-tools/configuring-visual-studio-code) to set up VS Code for better drupal development locally.
+
+### PHP CodeSniffer/Drupal Coder
 Before shipping custom themes and modules, run [drupal coder](https://www.drupal.org/node/1587138) in order to fix formatting issues/etc, and to ensure we ship code that matches the drupal coding standard.
  - Install [drupal coder](https://www.drupal.org/node/1419988) globally
  - See [coder example usage](https://www.drupal.org/node/1587138) for ideas on how to format/check custom code.
+ - Use phpcs: `phpcs --standard=Drupal --extensions=php,module,inc,install,test,profile,theme,css,info,txt,md MY_CUSTOM_MODULE` to check
+ - And then automated fixes via phpcbf: `phpcbf --standard=Drupal --extensions=php,module,inc,install,test,profile,theme,css,info,txt,md umd_terp_base`
+ - Be sure to double check code valitity/etc.
 
-## Prefered general site scaffolding
+### Prefered general site scaffolding
 Although exact setup will vary by client and environment, the ideal idfive d8 scaffolding resembles the following:
 Site Root
   composer.json | that wiill not be overwritten, where custom modules/etc can be added
