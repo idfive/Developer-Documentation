@@ -1,7 +1,31 @@
 # Drupal 8
 Unless specifically directed, all new D8 sites should attempt to use a composer based workflow for updates, and the [idfive Component Libray](https://bitbucket.org/idfivellc/idfive-component-library) for the frontend. Some sites for specific clients, require different, specific workflows. This is not a substitute for that, rather, simply defines our "standard go tos".
 
-## Prefered site spinup workflow
+## Preferred local dev setup
+Please follow the [following drupal.org article](https://www.drupal.org/docs/develop/development-tools/configuring-visual-studio-code) to set up VS Code for better drupal development.
+
+### PHP CodeSniffer/drupal Coder
+Before shipping custom themes and modules, run [drupal coder](https://www.drupal.org/node/1587138) in order to fix formatting issues/etc, and to ensure we ship code that matches the drupal coding standard.
+ - Install [drupal coder](https://www.drupal.org/node/1419988) globally
+ - See [coder example usage](https://www.drupal.org/node/1587138) for ideas on how to format/check custom code.
+
+## Prefered general site scaffolding
+Although exact setup will vary by client and environment, the ideal idfive d8 scaffolding resembles the following:
+Site Root
+  composer.json | that wiill not be overwritten, where custom modules/etc can be added
+  web/docroot | where all core and custom code lives
+    modules
+      contrib | Where all contrib/composer based modules go
+      custom | Where any custom modules for client/project go
+        CLIENT_BASE_MODULE | One overarching module for any customizations that generally go with the custom client theme, but need to be in a module.
+          modules | Submodules. Mainly, this will be Kitchen Sink widgets and the like. They should get their own submodules so updates can potentially happen in the future.
+    themes
+      contrib
+        idfive
+      custom
+        CLIENT_BASE_THEME | child theme of idfive
+`
+## Prefered general site spinup workflow
 Regardless of platform, the general SOP for idfive drupal sites is:
  - Create local and remote core installs.
  - Add standard idfive ICL Base theme.
@@ -11,9 +35,13 @@ Regardless of platform, the general SOP for idfive drupal sites is:
  - Add other contrib modules as needed, but dont go overboard.
 
 ### Pantheon
-Pantheon is the prefered platform to spin up DEV sites. Since lots of times, pantheon is only the temporary home of projects while in development, we have not yet created a custom idfive upstream, though that is not out of the question. For pantheon based sites, we utilize [lando](https://docs.lando.dev/) for local development, and to help keep sites in sync between local/remote/etc. Utilize the following workflow, assuming you have been assigned to the idfive team on pantheon:
+Pantheon is the prefered platform to spin up DEV sites. Since lots of times, pantheon is only the temporary home of projects while in development, we have not yet created a custom idfive upstream, though that is not out of the question. For pantheon based sites, we utilize [lando](https://docs.lando.dev/) for local development, and to help keep sites in sync between local/remote/etc. Utilize the following workflow, assuming you have been assigned to the idfive team on pantheon.
 
-#### Standard (via pantheon dashboard and lando)
+One issue with pantheon is that we dont get a true composer based workflow out of the box.
+ - Standard, non composer: This is a bit of a misnomer, as you can use composer to install modules and libraries, but they may be lost upon core updates/etc.
+ - Composer based: This is a little more tricky as there is currently not a "one click" solution for this, however, we have created some helper scripts below.
+
+#### Standard, non composer (via pantheon dashboard and lando)
 
   - Create a new sandbox in pantheon. Be sure this is assigned to the idfive team, not your personal account, so all Devs may access.
   - Go ahead and set up that site on the DEV URL, ie install the site.
@@ -28,7 +56,7 @@ Pantheon is the prefered platform to spin up DEV sites. Since lots of times, pan
 
 At this point, you have a local version of the blank site that is up on pantheon. Begin setting up themes/modules/etc as needed.
 
-#### Command line (via terminus and lando)
+#### Standard, non composer (via terminus and lando)
 Uses pantheons command line tool, [terminus](https://pantheon.io/docs/terminus). Allows command line creation and install of pantheon site, then pulls down locally and runs via lando.
 
   - Be sure [terminus](https://pantheon.io/docs/terminus) is installed and running locally. If the bin directory is unavailable on install, Terminus cannot be automatically set up as a command. A symlink or an alias to the Terminus executable must be made in either the ~/.bashrc or ~/.bash_profile files, a la `alias terminus="/usr/local/bin/terminus"`
@@ -45,7 +73,10 @@ Uses pantheons command line tool, [terminus](https://pantheon.io/docs/terminus).
 
 At this point, you have a local version of the blank site that is up on pantheon. Begin setting up themes/modules/etc as needed.
 
-##### PRO LEVEL: 
+#### Composer based, manually: 
+Follow the steps outlined for [composer based, non CI](https://pantheon.io/docs/guides/drupal-8-composer-no-ci) site setup. Or alternatively, [convert an existing site](https://pantheon.io/docs/guides/composer-convert) to a composer based build.
+
+#### Composer based, via the IAL: 
 Copy the snippet provided by [Create new site on pantheon, and spin up locally](https://bitbucket.org/snippets/idfivellc/jLReGG/create-new-site-on-pantheon-and-spin-up), change line 45 to your desired usename/email/pass, and run that bash script anytime you wish to start a site. Adds all above lando/terminus commands into one file, that asks for machine name, and human name, then runs all above scripts automatically for you.
 
 ### Acquia
@@ -54,7 +85,7 @@ For acquia based sites, we utilize [Acquia Dev Desktop](https://www.acquia.com/d
 ### idfive DEV server
 If possible, all DEV site sandboxes should use pantheon. If the project absolutely requires that it be on an idfive DEV server, see Nick, or a senior developer for access/etc. All deployments to the idfive server should have a repo setup on the [idfive bitbucket](https://bitbucket.org/), and CI deployments set up through [buddy](https://app.buddy.works/idfive). Be sure that someone has given you access to both accounts.
 
-## Composer
+## Composer Based D8 Cores
 D8 core uses composer, but depending on the environment this is going to, slightly different setups must be enacted.
 
 ### Pantheon
@@ -98,4 +129,10 @@ All D7 work is limited to maintenence on existing sites. Since the existing repo
 ## Notes on legacy setups
 
 ### Gulp
-gulp was used as a task runner/compiler by the idfive front end team for several years. It is important to note that gulp tasks built several years ago do not play nice with newer node versions. Rather than reconfigure to use a newer gulp syntax, simply buse [NVM](https://github.com/nvm-sh/nvm/blob/master/README.md) to temporarily roll back to an older version of node. You may also need to physically pin the gulp version to an older one, in package.json, if not already done.
+gulp was used as a task runner/compiler by the idfive front end team for several years. It is important to note that gulp tasks built several years ago do not play nice with newer node versions. Rather than reconfigure to use a newer gulp syntax, simply buse [NVM](https://github.com/nvm-sh/nvm/blob/master/README.md) to temporarily roll back to an older version of node (11.0 usually works fine). You may also need to physically pin the gulp version to an older one, in package.json, if not already done.
+
+### SILK/Silc, and others
+Several legacy D7 projects utilized these "first stabs" at an in-house library, to varying degrees of success. They should be considered legacy, and are not compatable with current ICL/etc.
+
+### WYSIWYG Plugins
+Pre Paragraphs adoption, several projects were done with complex custom WYSIWYG plugins. These should be ported to paragraphs on any project possible.
