@@ -11,11 +11,18 @@ Before shipping custom themes and modules, run [drupal coder](https://www.drupal
  - Install [drupal coder](https://www.drupal.org/node/1419988) globally
  - See [coder example usage](https://www.drupal.org/node/1587138) for ideas on how to format/check custom code.
  - Use phpcs: `phpcs --standard=Drupal --extensions=php,module,inc,install,test,profile,theme,css,info,txt,md MY_CUSTOM_MODULE` to check
- - And then automated fixes via phpcbf: `phpcbf --standard=Drupal --extensions=php,module,inc,install,test,profile,theme,css,info,txt,md umd_terp_base`
+ - And then automated fixes via phpcbf: `phpcbf --standard=Drupal --extensions=php,module,inc,install,test,profile,theme,css,info,txt,md MY_CUSTOM_MODULE`
  - Be sure to double check code valitity/etc.
+
+ ### Drupal Check
+ Install [drupal-check](https://github.com/mglaman/drupal-check), which will give you the ability to run checks on custom modules/code, to ensure you are not using any depreciated D8 functions that will be removed in D9/etc.
+  - Install globally via composer.
+  - Ensure the path or an alias is .bash_profile, ie `export PATH="$HOME/.composer/vendor/bin:$PATH"`
+  - Then run via `drupal-check PATH/TO/YOUR/CUSTOM/CODE`. To note, you may need to run this from outside a lando or other folders in order for the paths to not get wonky.
 
 ### Prefered general site scaffolding
 Although exact setup will vary by client and environment, the ideal idfive d8 scaffolding resembles the following:
+`
 Site Root
   composer.json | that wiill not be overwritten, where custom modules/etc can be added
   web/docroot | where all core and custom code lives
@@ -43,11 +50,12 @@ Regardless of platform, the general SOP for idfive drupal sites is:
 Pantheon is the prefered platform to spin up DEV sites. Since lots of times, pantheon is only the temporary home of projects while in development, we have not yet created a custom idfive upstream, though that is not out of the question. For pantheon based sites, we utilize [lando](https://docs.lando.dev/) for local development, and to help keep sites in sync between local/remote/etc. Utilize the following workflow, assuming you have been assigned to the idfive team on pantheon.
 
 One issue with pantheon is that we dont get a true composer based workflow out of the box.
- - Standard, non composer: This is a bit of a misnomer, as you can use composer to install modules and libraries, but they may be lost upon core updates/etc.
- - Composer based: This is a little more tricky as there is currently not a "one click" solution for this, however, we have created some helper scripts below.
+ - Standard, non composer: This is a bit of a misnomer, as you can use composer to install modules and libraries, but they may be lost upon core updates/etc. Client receives core upstream updates from pantheon.
+ - Composer based: This is a little more tricky as there is currently not a "one click" solution for this, however, we have created some helper scripts below. Client does not receive core upstream updates from pantheon, it has t update via composer manually.
+
+ For this reason, we as of now, normally spin up a standard install if a client will be continuing on with pantheon, as the updates happening automatically are extremely important.
 
 #### Standard, non composer (via pantheon dashboard and lando)
-
   - Create a new sandbox in pantheon. Be sure this is assigned to the idfive team, not your personal account, so all Devs may access.
   - Go ahead and set up that site on the DEV URL, ie install the site.
   - Change pantheon from SFTP mode to GIT mode for the new site in the pantheon dashboard.
@@ -78,11 +86,12 @@ Uses pantheons command line tool, [terminus](https://pantheon.io/docs/terminus).
 
 At this point, you have a local version of the blank site that is up on pantheon. Begin setting up themes/modules/etc as needed.
 
+#### Standard, via the IAL: 
+Copy the snippet provided by [Create new site on pantheon, and spin up locally](https://bitbucket.org/snippets/idfivellc/jLReGG/create-new-site-on-pantheon-and-spin-up), change line 45 to your desired usename/email/pass, and run that bash script anytime you wish to start a site. Adds all above lando/terminus commands into one file, that asks for machine name, and human name, then runs all above scripts automatically for you.
+
 #### Composer based, manually: 
 Follow the steps outlined for [composer based, non CI](https://pantheon.io/docs/guides/drupal-8-composer-no-ci) site setup. Or alternatively, [convert an existing site](https://pantheon.io/docs/guides/composer-convert) to a composer based build.
 
-#### Composer based, via the IAL: 
-Copy the snippet provided by [Create new site on pantheon, and spin up locally](https://bitbucket.org/snippets/idfivellc/jLReGG/create-new-site-on-pantheon-and-spin-up), change line 45 to your desired usename/email/pass, and run that bash script anytime you wish to start a site. Adds all above lando/terminus commands into one file, that asks for machine name, and human name, then runs all above scripts automatically for you.
 
 ### Acquia
 For acquia based sites, we utilize [Acquia Dev Desktop](https://www.acquia.com/drupal/acquia-dev-desktop) for local development, and to help keep sites in sync between local/remote/etc. Since acquia based sites are normally created, and controlled by our clients, it is best to look at project specific documentation for any acquia based site. For acquia in particular, "spinning up a new site" often means adding a site to a multisite setup.
