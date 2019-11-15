@@ -2,7 +2,7 @@
 
 ## Local Setup
 In general, we reccomend getting the following installed and running on your machine, to facilitate workflows we tend to use:
- - [Visual Studio](https://code.visualstudio.com/)
+ - [Visual Studio](https://code.visualstudio.com/) -- Required
  - [Sequel Pro](https://www.sequelpro.com/)
  - [Source Tree](https://www.sourcetreeapp.com/)
  - [Acquia Dev Desktop](https://www.acquia.com/drupal/acquia-dev-desktop)
