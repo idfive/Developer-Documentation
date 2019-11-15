@@ -51,7 +51,8 @@ Pantheon is the prefered platform to spin up DEV sites. Since lots of times, pan
 
 One issue with pantheon is that we dont get a true composer based workflow out of the box.
  - Standard, non composer: This is a bit of a misnomer, as you can use composer to install modules and libraries, but they may be lost upon core updates/etc. Client receives core upstream updates from pantheon.
- - Composer based: This is a little more tricky as there is currently not a "one click" solution for this, however, we have created some helper scripts below. Client does not receive core upstream updates from pantheon, it has t update via composer manually.
+ - Composer based: This is a little more tricky as there is currently not a "one click" solution for this, however, we have created some helper scripts below. Client does not receive core upstream updates from pantheon, it has to update via composer manually.
+ - Also consider installing [terminus Site Clone](https://github.com/pantheon-systems/terminus-site-clone-plugin) which can quickly clone sites for a starter.
 
  For this reason, we as of now, normally spin up a standard install if a client will be continuing on with pantheon, as the updates happening automatically are extremely important.
 
@@ -87,7 +88,9 @@ Uses pantheons command line tool, [terminus](https://pantheon.io/docs/terminus).
 At this point, you have a local version of the blank site that is up on pantheon. Begin setting up themes/modules/etc as needed.
 
 #### Standard, via the IAL: 
-Copy the snippet provided by [Create new site on pantheon, and spin up locally](https://bitbucket.org/snippets/idfivellc/jLReGG/create-new-site-on-pantheon-and-spin-up), change line 45 to your desired usename/email/pass, and run that bash script anytime you wish to start a site. Adds all above lando/terminus commands into one file, that asks for machine name, and human name, then runs all above scripts automatically for you.
+Install the [idfive Automation Library](https://bitbucket.org/idfivellc/idfive-automation-library) and run the [Create new site on pantheon, and spin up locally](https://bitbucket.org/idfivellc/idfive-automation-library/src/master/drupal/pantheon/create_new_pantheon_site.sh) script. Adds all above lando/terminus commands into one file, that asks for machine name, theme name and human name, then runs all above scripts as well as installs common modules, and creates a client subtheme.
+
+ - `sh ~/Sites/_ial/drupal/pantheon/create_new_pantheon_site.sh`
 
 #### Composer based, manually: 
 Follow the steps outlined for [composer based, non CI](https://pantheon.io/docs/guides/drupal-8-composer-no-ci) site setup. Or alternatively, [convert an existing site](https://pantheon.io/docs/guides/composer-convert) to a composer based build.
@@ -132,10 +135,26 @@ The docroot and actual folders may vary, depending on your codebase, but in gene
 
 You may need to adjust folders/etc as stated above, depending on the projects composer setup. See the [documentation](https://bitbucket.org/idfivellc/idfive-component-library-d8-theme) for more information.
 
+### via the IAL: 
+Install the [idfive Automation Library](https://bitbucket.org/idfivellc/idfive-automation-library) and run the [Add ICL Theme](https://bitbucket.org/idfivellc/idfive-automation-library/src/master/drupal/general/partials/add_icl_theme.sh) script. 
+
+ - `sh ~/Sites/_ial/drupal/general/partials/add_icl_theme.sh "YOUR CHILD THEME HR NAME" YOUR_CHILD_THEME_MACHINE_NAME`
+
 ## idfive ICL paragraphs module
+The [idfive Component Library D8 Paragraphs](https://bitbucket.org/idfivellc/idfive-component-library-d8-paragraphs) module, provides several common idfive ICL patterns as premade widgets, to add to a Kitchen Sink page.
+
+The docroot and actual folders may vary, depending on your codebase, but in general, adding the idfive ICL Paragraphs widget is best done via composer:
+
+ - `composer require idfive/idfive_paragraphs`
 
 ## Recomended contrib modules
+See the [idfive Automation Library](https://bitbucket.org/idfivellc/idfive-automation-library) script, [Add ICL Modules](https://bitbucket.org/idfivellc/idfive-automation-library/src/master/drupal/general/partials/add_icl_modules.sh) for an up to date list of what idfive reccomends as a baseline.
 
+### via the IAL: 
+Install the [idfive Automation Library](https://bitbucket.org/idfivellc/idfive-automation-library) and run the [Add ICL Modules](https://bitbucket.org/idfivellc/idfive-automation-library/src/master/drupal/general/partials/enable_icl_modules.sh) script. 
+
+ - `ssh ~/Sites/_ial/drupal/general/partials/add_icl_modules.sh`
+ - You may also then enable via `sh ~/Sites/_ial/drupal/general/partials/enable_icl_modules.sh`
 
 # Drupal 7
 All D7 work is limited to maintenence on existing sites. Since the existing repos vary far and wide as to how and where they are set up, its best to consult the documentation on each specific project.
