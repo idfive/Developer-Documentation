@@ -1,4 +1,4 @@
-# Documanting custom code, modules and themes
+# Documenting custom code, modules and themes
 In general, we utilize both a README.md for each project/sub project, as well as inline documentation.
 
 ## README.md
