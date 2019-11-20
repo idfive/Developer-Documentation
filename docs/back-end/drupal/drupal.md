@@ -13,6 +13,7 @@ Before shipping custom themes and modules, run [drupal coder](https://www.drupal
  - Use phpcs: `phpcs --standard=Drupal --extensions=php,module,inc,install,test,profile,theme,css,info,txt,md MY_CUSTOM_MODULE` to check
  - And then automated fixes via phpcbf: `phpcbf --standard=Drupal --extensions=php,module,inc,install,test,profile,theme,css,info,txt,md MY_CUSTOM_MODULE`
  - Be sure to double check code valitity/etc.
+ - Use `--ignore=static` to ignore front end code/etc in a themes static folder.
  - See [Advanced Usage](https://github.com/squizlabs/PHP_CodeSniffer/wiki/Advanced-Usage) for ignoring directories/etc.
 
  ### Drupal Check
