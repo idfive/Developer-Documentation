@@ -187,6 +187,23 @@ Install the [idfive Automation Library](https://bitbucket.org/idfivellc/idfive-a
 - `ssh ~/Sites/_ial/drupal/general/partials/add_icl_modules.sh`
 - You may also then enable via `sh ~/Sites/_ial/drupal/general/partials/enable_icl_modules.sh`
 
+## Custom Module/Theme Development
+
+### Versioning
+
+If commiting custom modules/themes for eventual composer builds, versioning must be enacted on the repo that deploys to composer. When ready to deploy, create a tag in github up one version from previous, with the starting version being 8.1.0:
+
+- Minor versions (non breaking changes): 8.1.1, 8.1.2, etc.
+- Major versions (breaking changes): 8.2.0, 8.3.0, etc.
+
+### Packagist
+
+If this module/theme is to be controlled via composer:
+
+- Create a package for it on packagist.org
+- Be sure a client contact/it dept/etc has access to the packagist repo as well
+- Set webhook to deploy to packagist on push, wherever the repo is located.
+
 # Drupal 7
 
 All D7 work is limited to maintenence on existing sites. Since the existing repos vary far and wide as to how and where they are set up, its best to consult the documentation on each specific project.
