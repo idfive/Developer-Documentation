@@ -11,21 +11,21 @@ Please follow the [following drupal.org article](https://www.drupal.org/docs/dev
 ### Prefered general site scaffolding
 
 Although exact setup will vary by client and environment, the ideal idfive d8 scaffolding resembles the following:
-`
-Site Root
-  composer.json | that wiill not be overwritten, where custom modules/etc can be added
-  web/docroot | where all core and custom code lives
-    modules
-      contrib | Where all contrib/composer based modules go
-      custom | Where any custom modules for client/project go
-        CLIENT_BASE_MODULE | One overarching module for any customizations that generally go with the custom client theme, but need to be in a module.
-          modules | Submodules. Mainly, this will be Kitchen Sink widgets and the like. They should get their own submodules so updates can potentially happen in the future.
-    themes
-      contrib
-        idfive
-      custom
-        CLIENT_BASE_THEME | child theme of idfive
-`
+```
+  Site Root
+    composer.json | that wiill not be overwritten, where custom modules/etc can be added
+    web/docroot | where all core and custom code lives
+      modules
+        contrib | Where all contrib/composer based modules go
+        custom | Where any custom modules for client/project go
+          CLIENT_BASE_MODULE | One overarching module for any customizations that generally go with the custom client theme, but need to be in a module.
+            modules | Submodules. Mainly, this will be Kitchen Sink widgets and the like. They should get their own submodules so updates can potentially happen in the future.
+      themes
+        contrib
+          idfive
+        custom
+          CLIENT_BASE_THEME | child theme of idfive
+```
 
 ## Prefered general site spinup workflow
 

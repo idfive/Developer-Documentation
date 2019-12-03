@@ -14,45 +14,45 @@
 
 #### Example settings.php acquia multisite conditional
 
-`
-// Check/modify any acquia environment specific modifications needed.
-if (isset($_ENV['AH_SITE_ENVIRONMENT'])) {
-  // Acquia specific stuff
-}
-else {
-  // Do something for a non-Acquia-hosted application, ie, load local dev settings.
-  if (file_exists($app_root . '/sites/development.settings.php')) {
-    include $app_root . '/sites/development.settings.php';
+```
+  // Check/modify any acquia environment specific modifications needed.
+  if (isset($_ENV['AH_SITE_ENVIRONMENT'])) {
+    // Acquia specific stuff
   }
-}
-`
+  else {
+    // Do something for a non-Acquia-hosted application, ie, load local dev settings.
+    if (file_exists($app_root . '/sites/development.settings.php')) {
+      include $app_root . '/sites/development.settings.php';
+    }
+  }
+```
 
 By loading in this way (globally for all local sites), all local dev sites get the more "dev env" settings, and you can still use settings.local.php for any actual local settings chages needed.
 
 #### Example settings.local.php, or development.settings.php
 
-`
-<?php
+```
+  <?php
 
-// @codingStandardsIgnoreFile
+  // @codingStandardsIgnoreFile
 
-/**
- * @file
- * Local development override configuration feature.
- */
+  /**
+  * @file
+  * Local development override configuration feature.
+  */
 
-assert_options(ASSERT_ACTIVE, TRUE);
-\Drupal\Component\Assertion\Handle::register();
+  assert_options(ASSERT_ACTIVE, TRUE);
+  \Drupal\Component\Assertion\Handle::register();
 
-$settings['container_yamls'][] = DRUPAL_ROOT . '/sites/development.services.yml';
-$config['system.logging']['error_level'] = 'verbose';
-$config['system.performance']['css']['preprocess'] = FALSE;
-$config['system.performance']['js']['preprocess'] = FALSE;
-$settings['cache']['bins']['render'] = 'cache.backend.null';
-$settings['cache']['bins']['page'] = 'cache.backend.null';
-$settings['rebuild_access'] = TRUE;
-$settings['skip_permissions_hardening'] = TRUE;
-`
+  $settings['container_yamls'][] = DRUPAL_ROOT . '/sites/development.services.yml';
+  $config['system.logging']['error_level'] = 'verbose';
+  $config['system.performance']['css']['preprocess'] = FALSE;
+  $config['system.performance']['js']['preprocess'] = FALSE;
+  $settings['cache']['bins']['render'] = 'cache.backend.null';
+  $settings['cache']['bins']['page'] = 'cache.backend.null';
+  $settings['rebuild_access'] = TRUE;
+  $settings['skip_permissions_hardening'] = TRUE;
+```
 
 ### services.yml
 
@@ -63,21 +63,21 @@ When possible, always add a development services.yml to the codebase. This will 
 
 #### Example development.services.yml
 
-`
-# Local development services.
-#
-# To activate this feature, follow the instructions at the top of the
-# 'example.settings.local.php' file, which sits next to this file.
-parameters:
-  http.response.debug_cacheability_headers: true
-  twig.config:
-    debug: true
-    auto_reload: true
-    cache: false
-services:
-  cache.backend.null:
-    class: Drupal\Core\Cache\NullBackendFactory
-`
+```
+  # Local development services.
+  #
+  # To activate this feature, follow the instructions at the top of the
+  # 'example.settings.local.php' file, which sits next to this file.
+  parameters:
+    http.response.debug_cacheability_headers: true
+    twig.config:
+      debug: true
+      auto_reload: true
+      cache: false
+  services:
+    cache.backend.null:
+      class: Drupal\Core\Cache\NullBackendFactory
+```
 
 ## idfive base theme
 
