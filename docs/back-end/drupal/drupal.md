@@ -1,4 +1,4 @@
-# Drupal 8
+# Drupal 8 General Codebase
 
 Unless specifically directed, all new D8 sites should attempt to use a composer based workflow for updates, and the [idfive Component Libray](https://bitbucket.org/idfivellc/idfive-component-library) for the frontend. Some sites for specific clients, require different, specific workflows. This is not a substitute for that, rather, simply defines our "standard go tos".
 
@@ -7,26 +7,6 @@ Unless specifically directed, all new D8 sites should attempt to use a composer 
 ### Preferred local VS Code setup
 
 Please follow the [following drupal.org article](https://www.drupal.org/docs/develop/development-tools/configuring-visual-studio-code) to set up VS Code for better drupal development locally.
-
-### PHP CodeSniffer/Drupal Coder
-
-Before shipping custom themes and modules, run [drupal coder](https://www.drupal.org/node/1587138) in order to fix formatting issues/etc, and to ensure we ship code that matches the drupal coding standard.
-
-- Install [drupal coder](https://www.drupal.org/node/1419988) globally
-- See [coder example usage](https://www.drupal.org/node/1587138) for ideas on how to format/check custom code.
-- Use phpcs: `phpcs --standard=Drupal --extensions=php,module,inc,install,test,profile,theme,css,info,txt,md MY_CUSTOM_MODULE` to check
-- And then automated fixes via phpcbf: `phpcbf --standard=Drupal --extensions=php,module,inc,install,test,profile,theme,css,info,txt,md MY_CUSTOM_MODULE`
-- Be sure to double check code valitity/etc.
-- Use `--ignore=static` to ignore front end code/etc in a themes static folder.
-- See [Advanced Usage](https://github.com/squizlabs/PHP_CodeSniffer/wiki/Advanced-Usage) for ignoring directories/etc.
-
-### Drupal Check
-
-Install [drupal-check](https://github.com/mglaman/drupal-check), which will give you the ability to run checks on custom modules/code, to ensure you are not using any depreciated D8 functions that will be removed in D9/etc.
-
-- Install globally via composer.
-- Ensure the path or an alias is .bash_profile, ie `export PATH="$HOME/.composer/vendor/bin:$PATH"`
-- Then run via `drupal-check PATH/TO/YOUR/CUSTOM/CODE`. To note, you may need to run this from outside a lando or other folders in order for the paths to not get wonky.
 
 ### Prefered general site scaffolding
 
@@ -148,76 +128,3 @@ coming soon...
 ### Others
 
 See [Using composer with drupal](https://www.drupal.org/docs/develop/using-composer/using-composer-with-drupal) for specifics.
-
-## idfive base theme
-
-The idfive base theme is intetionally pretty bare bones, but provides us with lots of behind the scenes functions we need. This theme is designed to act as a parent theme, and should never be enabled directly. See the [documentation](https://bitbucket.org/idfivellc/idfive-component-library-d8-theme) for how to best use this theme, and how to quickly and efficiently spin up a child theme for this project.
-
-The docroot and actual folders may vary, depending on your codebase, but in general, adding the idfive base theme, and creating your custom child theme will look like:
-
-- `composer require idfive/idfive`
-- `cd docroot/themes/custom/idfive/starterkits`
-- `sudo bash generate_kit.sh` This will run a bash script, that prompts you for a human readable name, and a machine name for your custom child theme. From that, the script will generate a child theme, and install a fresh copy of the [idfive Component Libray](https://bitbucket.org/idfivellc/idfive-component-library) which is the prefered framework for all idfive projects.
-- enable your new child theme.
-
-You may need to adjust folders/etc as stated above, depending on the projects composer setup. See the [documentation](https://bitbucket.org/idfivellc/idfive-component-library-d8-theme) for more information.
-
-### via the IAL
-
-Install the [idfive Automation Library](https://bitbucket.org/idfivellc/idfive-automation-library) and run the [Add ICL Theme](https://bitbucket.org/idfivellc/idfive-automation-library/src/master/drupal/general/partials/add_icl_theme.sh) script.
-
-- `sh ~/Sites/_ial/drupal/general/partials/add_icl_theme.sh "YOUR CHILD THEME HR NAME" YOUR_CHILD_THEME_MACHINE_NAME`
-
-## idfive ICL paragraphs module
-
-The [idfive Component Library D8 Paragraphs](https://bitbucket.org/idfivellc/idfive-component-library-d8-paragraphs) module, provides several common idfive ICL patterns as premade widgets, to add to a Kitchen Sink page.
-
-The docroot and actual folders may vary, depending on your codebase, but in general, adding the idfive ICL Paragraphs widget is best done via composer:
-
-- `composer require idfive/idfive_paragraphs`
-
-## Recomended contrib modules
-
-See the [idfive Automation Library](https://bitbucket.org/idfivellc/idfive-automation-library) script, [Add ICL Modules](https://bitbucket.org/idfivellc/idfive-automation-library/src/master/drupal/general/partials/add_icl_modules.sh) for an up to date list of what idfive reccomends as a baseline.
-
-### via the IAL
-
-Install the [idfive Automation Library](https://bitbucket.org/idfivellc/idfive-automation-library) and run the [Add ICL Modules](https://bitbucket.org/idfivellc/idfive-automation-library/src/master/drupal/general/partials/enable_icl_modules.sh) script.
-
-- `ssh ~/Sites/_ial/drupal/general/partials/add_icl_modules.sh`
-- You may also then enable via `sh ~/Sites/_ial/drupal/general/partials/enable_icl_modules.sh`
-
-## Custom Module/Theme Development
-
-### Versioning
-
-If commiting custom modules/themes for eventual composer builds, versioning must be enacted on the repo that deploys to composer. When ready to deploy, create a tag in github up one version from previous, with the starting version being 8.1.0:
-
-- Minor versions (non breaking changes): 8.1.1, 8.1.2, etc.
-- Major versions (breaking changes): 8.2.0, 8.3.0, etc.
-
-### Packagist
-
-If this module/theme is to be controlled via composer:
-
-- Create a package for it on packagist.org
-- Be sure a client contact/it dept/etc has access to the packagist repo as well
-- Set webhook to deploy to packagist on push, wherever the repo is located.
-
-# Drupal 7
-
-All D7 work is limited to maintenence on existing sites. Since the existing repos vary far and wide as to how and where they are set up, its best to consult the documentation on each specific project.
-
-## Notes on legacy setups
-
-### Gulp
-
-gulp was used as a task runner/compiler by the idfive front end team for several years. It is important to note that gulp tasks built several years ago do not play nice with newer node versions. Rather than reconfigure to use a newer gulp syntax, simply buse [NVM](https://github.com/nvm-sh/nvm/blob/master/README.md) to temporarily roll back to an older version of node (11.0 usually works fine). You may also need to physically pin the gulp version to an older one, in package.json, if not already done.
-
-### SILK/Silc, and others
-
-Several legacy D7 projects utilized these "first stabs" at an in-house library, to varying degrees of success. They should be considered legacy, and are not compatable with current ICL/etc.
-
-### WYSIWYG Plugins
-
-Pre Paragraphs adoption, several projects were done with complex custom WYSIWYG plugins. These should be ported to paragraphs on any project possible.
