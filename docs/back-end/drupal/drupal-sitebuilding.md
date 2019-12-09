@@ -14,7 +14,7 @@
 
 #### Example settings.php acquia multisite conditional
 
-```
+```php
   // Check/modify any acquia environment specific modifications needed.
   if (isset($_ENV['AH_SITE_ENVIRONMENT'])) {
     // Acquia specific stuff
@@ -31,7 +31,7 @@ By loading in this way (globally for all local sites), all local dev sites get t
 
 #### Example settings.local.php, or development.settings.php
 
-```
+```php
   <?php
 
   // @codingStandardsIgnoreFile
@@ -63,7 +63,7 @@ When possible, always add a development services.yml to the codebase. This will 
 
 #### Example development.services.yml
 
-```
+```php
   # Local development services.
   #
   # To activate this feature, follow the instructions at the top of the
@@ -89,10 +89,11 @@ The docroot and actual folders may vary, depending on your codebase, but in gene
 - `cd docroot/themes/custom/idfive/starterkits`
 - `sudo bash generate_kit.sh` This will run a bash script, that prompts you for a human readable name, and a machine name for your custom child theme. From that, the script will generate a child theme, and install a fresh copy of the [idfive Component Libray](https://bitbucket.org/idfivellc/idfive-component-library) which is the prefered framework for all idfive projects.
 - enable your new child theme.
+- You will need to adjust .gitignore in the idfive-component-library to track the "build" folder if no CI is used.
 
 You may need to adjust folders/etc as stated above, depending on the projects composer setup. See the [documentation](https://bitbucket.org/idfivellc/idfive-component-library-d8-theme) for more information.
 
-### via the IAL
+### idfive base theme via the IAL
 
 Install the [idfive Automation Library](https://bitbucket.org/idfivellc/idfive-automation-library) and run the [Add ICL Theme](https://bitbucket.org/idfivellc/idfive-automation-library/src/master/drupal/general/partials/add_icl_theme.sh) script.
 
@@ -110,7 +111,7 @@ The docroot and actual folders may vary, depending on your codebase, but in gene
 
 See the [idfive Automation Library](https://bitbucket.org/idfivellc/idfive-automation-library) script, [Add ICL Modules](https://bitbucket.org/idfivellc/idfive-automation-library/src/master/drupal/general/partials/add_icl_modules.sh) for an up to date list of what idfive reccomends as a baseline.
 
-### via the IAL
+### Recomended contrib modules via the IAL
 
 Install the [idfive Automation Library](https://bitbucket.org/idfivellc/idfive-automation-library) and run the [Add ICL Modules](https://bitbucket.org/idfivellc/idfive-automation-library/src/master/drupal/general/partials/enable_icl_modules.sh) script.
 

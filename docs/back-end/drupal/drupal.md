@@ -11,6 +11,7 @@ Please follow the [following drupal.org article](https://www.drupal.org/docs/dev
 ### Prefered general site scaffolding
 
 Although exact setup will vary by client and environment, the ideal idfive d8 scaffolding resembles the following:
+
 ```
   Site Root
     composer.json | that wiill not be overwritten, where custom modules/etc can be added
@@ -105,25 +106,17 @@ If possible, all DEV site sandboxes should use pantheon. If the project absolute
 
 D8 core uses composer, but depending on the environment this is going to, slightly different setups must be enacted.
 
-### Pantheon
+### Pantheon composer Based D8 Cores
 
-#### Non CI
+#### Pantheon Non CI
 
 Mostly, we work without a CI at the moment, as most clients do not opt for the extra expense. See [Composer non CI](https://pantheon.io/docs/guides/drupal-8-composer-no-ci) docs for further information on setting up a pantheon repo for composer. This uses composer to manage updates, but commits these files to the codebase, rather than relying on a CI or build tool.
 
-#### CI
+### Acquia composer Based D8 Cores
 
-coming soon...
-
-### Acquia
-
-#### Non CI
+#### Acquia Non CI
 
 Mostly, we work without a CI at the moment, as most clients do not opt for the extra expense. See [Composer non CI](https://support.acquia.com/hc/en-us/articles/360004451293-Migrate-an-existing-D8-site-into-a-Composer-managed-build) docs for further information on setting up an acquia repo for composer. This uses composer to manage updates, but commits these files to the codebase, rather than relying on a CI or build tool.
-
-#### CI
-
-coming soon...
 
 ### Others
 
