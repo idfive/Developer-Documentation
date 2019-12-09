@@ -126,7 +126,55 @@ Install the [idfive Automation Library](https://bitbucket.org/idfivellc/idfive-a
 
 ### Theme/Module best practices
 
-#### Image Styles
+#### Images
+
+##### Media
+
+Core media module shopuld be used for all D8 projects, unless there is a good reason not to.
+
+- The [idfive Component Library D8 Paragraphs](https://bitbucket.org/idfivellc/idfive-component-library-d8-paragraphs) module ships with several entity browsers. These should be used as the form display choice for media fields, as it narrows down by type, as well as adds an upload option.
+
+##### Image Optimize
+
+Use Image API Optimize (re.Smush.it, TinyPNG or other services) to optimize images as they are uploaded and used in image styles. It is important that these be set up/enabled early so that all images uploaded can benefit from optimization throughout the build proccess.
+
+##### Responsive Images
+
+The core responsive images module helps us to define different image styles for different breakpoints. This does require custom config setup of breakpoints. See [Working with Breakpoints](https://www.drupal.org/docs/8/theming-drupal-8/working-with-breakpoints-in-drupal-8). This requires a bit of setup so should be difined/used for the larger hero images/etc, but may not make sense for "All Images".
+
+- Enable responsive image module.
+- Compile a list of breakpoints, usually by looking at the static frontend.
+- Create YOUR_THEME_OR_MODULE.breakpoints.yml utilizing the above, located in the root of the custom module or themes root folder, and clear cache.
+- Add a new desired responsive image style
+- Add new view mode for Image Media Type, as "Responsive Image", using added breakpoints.
+- Set up display for image field in "Responsive Image" display to be Responsive Image, and the responsive image style you created.
+- Add media field of type image to content, under Manage display, choose Rendered entity > Render as Responsive Image.
+
+###### Example theme_name.breakpoints.yml
+
+```yml
+theme_name.imagesize.mobile:
+  label: Mobile
+  mediaQuery: ''
+  weight: 0
+  multipliers:
+    - 1x
+  group: THEME NAME Image Sizes
+theme_name.imagesize.tablet:
+  label: Tablet
+  mediaQuery: 'all and (min-width: 560px) and (max-width: 900px)'
+  weight: 1
+  multipliers:
+    - 1x
+  group: THEME NAME Image Sizes
+theme_name.imagesize.desktop:
+  label: Desktop
+  mediaQuery: 'all and (min-width: 901px)'
+  weight: 2
+  multipliers:
+    - 1x
+  group: THEME NAME Image Sizes
+```
 
 #### View Modes
 
@@ -171,3 +219,11 @@ Install [drupal-check](https://github.com/mglaman/drupal-check), which will give
 - Install globally via composer.
 - Ensure the path or an alias is .bash_profile, ie `export PATH="$HOME/.composer/vendor/bin:$PATH"`
 - Then run via `drupal-check PATH/TO/YOUR/CUSTOM/CODE`. To note, you may need to run this from outside a lando or other folders in order for the paths to not get wonky.
+
+#### ESLint
+
+Generally speaking we do not usually care about using ESLint for most JS files, as we normally have these going into a theme based JS file, which has its own linters/builds/etc. If you do need to write vanilla D8 JS for a module though, this can be a very useful tool to help get JS files to drupal standards. ESLint is in core, you just need to install it in order to run it against specified files.
+
+- `cd core && yarn install`
+- `core/node_modules/.bin/eslint PATH_TO_YOUR_CUSTOM_JS.js`
+- `core/node_modules/.bin/eslint PATH_TO_YOUR_CUSTOM_JS.js --fix`
