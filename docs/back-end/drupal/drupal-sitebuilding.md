@@ -106,6 +106,10 @@ The [idfive Component Library D8 Paragraphs](https://bitbucket.org/idfivellc/idf
 The docroot and actual folders may vary, depending on your codebase, but in general, adding the idfive ICL Paragraphs widget is best done via composer:
 
 - `composer require idfive/idfive_paragraphs`
+- Add a paragraphs field to desired content, be sure the widget is "Paragraphs Experimental" in the form display.
+- Be sure to exclude certain ICL widget types so marked in their descriptions, from this field.
+
+This is intentially bare bones, and simply designed to save time by adding a suite of common KS widgets from the ICL, such as tables accordions/etc.
 
 ## Recomended contrib modules
 
