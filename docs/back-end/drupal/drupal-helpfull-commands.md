@@ -7,6 +7,7 @@
 - `cd THE_MODULE_TO_PATCH`
 - `curl -O https://drupal.org/files/THE_PATCH.patch`
 - `git apply -v THE_PATCH.patch`
+- if the git apply doesnt work, use `patch -p1 < THE_PATCH.patch`
 
 ### Create a patch
 
