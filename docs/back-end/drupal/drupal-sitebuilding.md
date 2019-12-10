@@ -136,7 +136,7 @@ Core media module shopuld be used for all D8 projects, unless there is a good re
 
 ##### Image Optimize
 
-Use Image API Optimize (re.Smush.it, TinyPNG or other services) to optimize images as they are uploaded and used in image styles. It is important that these be set up/enabled early so that all images uploaded can benefit from optimization throughout the build proccess.
+Use [ImageAPI Optimize](https://www.drupal.org/project/imageapi_optimize) ([re.Smush.it](https://www.drupal.org/project/imageapi_optimize_resmushit), [TinyPNG](https://www.drupal.org/project/imageapi_optimize_tinypng) or other services) to optimize images as they are uploaded and used in image styles. It is important that these be set up/enabled early so that all images uploaded can benefit from optimization throughout the build proccess.
 
 ##### Responsive Images
 

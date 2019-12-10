@@ -19,4 +19,5 @@
 * Drupal
   * [Drupal General Codebase](back-end/drupal/drupal.md)
   * [Drupal Site Building](back-end/drupal/drupal-sitebuilding.md)
+  * [Drupal Helpfull Commands](back-end/drupal/drupal-helpfull-commands.md)
   * [Drupal Legacy](back-end/drupal/drupal-legacy.md)
