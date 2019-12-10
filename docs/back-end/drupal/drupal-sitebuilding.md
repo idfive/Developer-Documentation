@@ -178,7 +178,39 @@ theme_name.imagesize.desktop:
 
 #### View Modes
 
-#### Field Scoping
+#### Scoping
+
+In general, we want to scope most custom elements to the parent theme/module/etc, to include, but not limited to:
+
+- Fields
+- Functions
+- Variables
+
+##### Fields
+
+Fields should be scoped to the controlling entity. Fields can be shared in certain instances (like between submodules), but in that instance would be scoped to the parent module.
+For example, a text field used by the "CLIENT Paragrahs" module, could be scoped as machine names:
+
+- `field_cp_text`
+- `cp_text`
+- `client_paragraphs_text`
+
+##### Functions
+
+Custom functions belonging to modules or themes should be scoped as "underscore + module/theme name + description".
+For example, custom functions in the "CLIENT Paragrahs" module, could be scoped as:
+
+- `_client_paragraphs_format_into_list`
+- `_client_paragraphs_get_external_news`
+- `_client_paragraphs_get_external_events`
+
+##### Variables
+
+Custom variables should be scoped to the module/theme that creates them, and the entity that uses them.
+For example, if I were getting a list of events for the homepage, my variable for that could be scoped as:
+
+- `cp_homepage_events`
+- `client_paragraphs_events_for_homepage`
 
 #### Views/Lists
 
@@ -192,13 +224,13 @@ Preferably, all "lists of content" should use a view mode to display them. Ie, "
 
 If core views is used as a standalone, or with search API, be sure to crate the display type as "block" or similar (not page), so that these views can be insterted into standard KS pages using the ip_views_embed widget, thus allowing for custom text, headers, content, etc as well as the listing.
 
-#### If the view content is local does not require filters
+##### If the view content is local does not require filters
 
 - Consider using core views module.
 - Consider a custom EntityQuery (with caching).
 - Consider using the hook_preproccess for the entity in question to add these programatiaclly rather than using something like blocks.
 
-##### Views example
+###### Views example
 
 This shows a simple example of adding a created view to a page, after conditionally checking if it has results.
 Since views are already cached, there is no reason to add additional caching here. In this example,
@@ -223,7 +255,7 @@ function _MY_MODULE_test_view_for_results($variables, $view, $tab, $var1 = null,
 {% endif %}
 ```
 
-##### Custom cached node query
+###### Custom cached node query
 
 ```php
 // From within hook_preproccess of choice
@@ -253,13 +285,15 @@ function _MY_MODULE_get_things() {
 }
 ```
 
-#### If the content is NOT local
+##### If the content is NOT local
 
 - A custom call to an API/etc will be needed.
 - Consider leveraging relevant composer based PHP libraries if possible
 - Consider caching all results.
 
-##### Custom API Call example
+###### Custom API Call example
+
+This example passses a unique ID for the feed, but you would also likely pass parameters from custom fields/etc, to be able to reuse calls to the endpoint from multiple places.
 
 ```php
 // From within hook_preproccess of choice
@@ -289,6 +323,7 @@ function _MY_MODULE_get_stuff($id) {
 {% if MY_VARIABLES %}
   {% for stuff in MY_VARIABLES %}
     <h3>{{ stuff.title }}</h3>
+    {{ stuff.text }}
   {% endfor %}
 {% endif %}
 ```
