@@ -178,6 +178,52 @@ theme_name.imagesize.desktop:
 
 #### View Modes
 
+#### Configuration Management
+
+It is important before beginning a full site build project to identify how/where site config will be managed. This sometimes depends on the host, and following their best practices.
+
+##### Config management and modules
+
+If a more module based workflow is being employed, any config related to that module should be stored in the module itself.
+This is so that when users enable the module, all config that is relevant (fields/etc) are added.
+
+```
+MY_MODULE
+  config
+    install
+      ALL CONFIG YML FILES FOR MODULE HERE
+  MY_MODULE.module
+  MY_MODULE.info.yml
+```
+
+###### Config export for the module
+
+Normally, it is easiest to:
+
+- Export a full site export.
+- Move all needed config YML's for the module from that export to the relevant modules config/install folder.
+- Remove the UUID from each YML file in that folder.
+- Test on a new install.
+
+###### Config updates in modules
+
+To update a module that is used on multiple sites, you must:
+
+- Update all config YML files.This is so that any "new" install of the module gets the correct config.
+- Utilize hook_update in order to odify config on "existing" sites.
+
+An example hook_update to simply "reinstall all config for a GIVEN module".
+This assumes all YML files have been added/updated. You can also programatically add fields/etc, this is simply a quick way to update all config for a module.
+
+```php
+/**
+ * DESCRIPTIVE UPDATE TEXT HERE.
+ */
+function MY_MODULE_update_8001() {
+  \Drupal::service('config.installer')->installDefaultConfig('module', 'MY_MODULE');
+}
+```
+
 #### Scoping
 
 In general, we want to scope most custom elements to the parent theme/module/etc, to include, but not limited to:
