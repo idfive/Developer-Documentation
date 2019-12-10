@@ -182,8 +182,120 @@ theme_name.imagesize.desktop:
 
 #### Views/Lists
 
+Preferably, all "lists of content" should use a view mode to display them. Ie, "show me all content of type X, displayed as view mode 'search result'"
+
+##### If the view content is local and requires filters
+
+- Consider using core views module, with an exposed form.
+- If more complex, consider using core views along with [Search API module](https://www.drupal.org/project/search_api).
+- For smaller, custom sortable views, consider a vue.js app, that interacts with the jsonapi endpoint or similar.
+
+If core views is used as a standalone, or with search API, be sure to crate the display type as "block" or similar (not page), so that these views can be insterted into standard KS pages using the ip_views_embed widget, thus allowing for custom text, headers, content, etc as well as the listing.
+
+#### If the view content is local does not require filters
+
+- Consider using core views module.
+- Consider a custom EntityQuery (with caching).
+- Consider using the hook_preproccess for the entity in question to add these programatiaclly rather than using something like blocks.
+
+##### Views example
+
+This shows a simple example of adding a created view to a page, after conditionally checking if it has results.
+Since views are already cached, there is no reason to add additional caching here. In this example,
+we pass along the NID of the node as an additional var to the view, which is set up as a conditional filter in the view.
+
+```php
+// From within hook_preproccess of choice
+$variables['MY_VARIABLE'] = _MY_MODULE_test_view_for_results($variables, 'VIEW_MACHINE_NAME', 'VIEW_DISPLAY_MACHINE_NAME', $nid);
+
+// Function to test views to see if they have results before displaying
+function _MY_MODULE_test_view_for_results($variables, $view, $tab, $var1 = null, $var2 = null) {
+  $test = views_get_view_result($view, $tab, $var1, $var2);
+  if(count($test) > 0) {
+    return views_embed_view($view, $tab, $var1, $var2);
+  }
+  return null;
+}
+
+// Then in twig template
+{% if MY_VARIABLE %}
+  {{ MY_VARIABLE }}
+{% endif %}
+```
+
+##### Custom cached node query
+
+```php
+// From within hook_preproccess of choice
+$variables['MY_VARIABLES'] = _MY_MODULE_get_things();
+
+// Function to get nodes of type CONTENT_TYPE and sort by title
+function _MY_MODULE_get_things() {
+  if ($cache = \Drupal::cache()->get('my_module_get_things')) {
+    return $cache->data;
+  }
+  else {
+    $storage = Drupal::getContainer()->get('entity_type.manager')->getStorage('node');
+    $nids = $storage->getQuery();
+    $nids = $nids->condition('type', 'CONTENT_TYPE')
+      ->condition('status', 1)
+      ->sort('title')
+      ->execute();
+    $result = $storage->loadMultiple($nids);
+    if ($result) {
+      \Drupal::cache()->set('my_module_get_things', $result, time() + 7200);
+      return $result;
+    }
+    else {
+      return NULL;
+    }
+  }
+}
+```
+
+#### If the content is NOT local
+
+- A custom call to an API/etc will be needed.
+- Consider leveraging relevant composer based PHP libraries if possible
+- Consider caching all results.
+
+##### Custom API Call example
+
+```php
+// From within hook_preproccess of choice
+$variables['MY_VARIABLES'] = _MY_MODULE_get_stuff('UNIQUE_ID_FOR_THIS_CALL');
+
+// Function to test views to see if they have results before displaying
+function _MY_MODULE_get_stuff($id) {
+  if ($cache = \Drupal::cache()->get('my_module_get_stuff--' . $id)) {
+    return $cache->data;
+  }
+  else {
+    $url = "https://stuffendpoint/that/i/want";
+    $result = file_get_contents($url);
+    $result = json_decode($result, TRUE);
+    $result = $result['data'];
+    if ($result) {
+      \Drupal::cache()->set('my_module_get_stuff--' . $id, $result, time() + 7200);
+      return $result;
+    }
+    else {
+      return NULL;
+    }
+  }
+}
+
+// Then in twig template
+{% if MY_VARIABLES %}
+  {% for stuff in MY_VARIABLES %}
+    <h3>{{ stuff.title }}</h3>
+  {% endfor %}
+{% endif %}
+```
 
 ### Prepping to ship/launch
+
+Run through the entire idfive launch checklist for any site being launcehed by us. Additionally, consider the following:
 
 #### Versioning
 

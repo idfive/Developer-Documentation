@@ -16,6 +16,11 @@ See more detailed information on [Making a Drupal patch with Git](https://www.dr
 
 ## Drush
 
+### Show available aliases
+
+- `drush sa`
+- Update acquia aliases: `drush acquia-update`
+
 ### @sites
 
 The `@sites` command is especially useful on acquia multisites, as it targets "All Sites" on the install. This command needs to be run directly on the desired server however, as it does not play nice with drush aliases.
