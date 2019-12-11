@@ -21,7 +21,7 @@ Create a custom drupal 8 module that accomplishes the following:
 - Link to git repository containing the custom module only. Full commit history desired.
 - Link to D8 site showing finished product. This can be a pantheon sandbox, or really anywhere else, just need to see your block in place.
 
-## Code review criterea
+## Code review criteria
 
 - Any/All needed config should be within the module itself. You may manually assign the block to a region in your test site, but any field config/etc will need to be included.
 - All code should conform to drupal coding standards.
