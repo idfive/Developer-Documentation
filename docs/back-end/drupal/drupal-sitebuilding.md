@@ -190,7 +190,7 @@ It is important before beginning a full site build project to identify how/where
 
 ##### Config management and acquia
 
-Acquia config folder changes need to be loaded AFTER default settings in settings.php for acquia sites, for example:
+Acquia reccomends that the config folder be moved to be a sibling of docroot. Acquia config folder changes need to be loaded AFTER default settings in settings.php for acquia sites, for example:
 
 ```php
 // Acquias default settings for a site
@@ -198,7 +198,8 @@ if (file_exists('/var/www/site-php')) {
   require '/var/www/site-php/hud8/MYSITE-settings.inc';
 }
 
-// Keep config/sync settings after acquia loads defaults, otherwise it ignores them and uses loaded defaults.
+// Keep config/sync settings after acquia loads defaults.
+// Otherwise it ignores them and uses loaded defaults.
 $config_directories['vcs'] = $app_root . '/../config/MYSITE';
 $config_directories['sync'] = $app_root . '/../config/MYSITE';
 ```
