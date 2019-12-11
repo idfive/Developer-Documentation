@@ -29,3 +29,4 @@
 
   * Backend:
   * [drupal custom API module](challenges/drupal-api-module.md)
+  * [drupal custom paragraph module](challenges/drupal-paragraph-module.md)

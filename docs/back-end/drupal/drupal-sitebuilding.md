@@ -180,6 +180,33 @@ theme_name.imagesize.desktop:
 
 TBD
 
+#### Redirects
+
+If possible, high level URL redirects should be performed via settings.php, not in .htaccess. This is because .htaccess has the potential to be overridden during core updates.
+
+- All minor "old page to new page" redirects should be done via the redirect module.
+- This is for high level changes, like "x.mysite.edu and y.mysite.edu should all redirect to z.mysite.edu".
+- Be sure to wrap in a check for drush, so that drush requests are not redirected, via `if (!function_exists('drush_main')) {}`.
+
+##### Example on acquia
+
+```php
+// Check/modify any acquia environment specific modifications needed.
+if (isset($_ENV['AH_SITE_ENVIRONMENT'])) {
+  switch ($_ENV['AH_SITE_ENVIRONMENT']) {
+    case 'prod':
+      if (!function_exists('drush_main')) {
+        if ($_SERVER['HTTP_HOST'] != 'music.howard.edu') {
+          header('HTTP/1.0 301 Moved Permanently');
+          header('Location: https://' . 'music.howard.edu' . $_SERVER['REQUEST_URI']);
+          exit();
+        }
+      }
+      break;
+  }
+}
+```
+
 #### Configuration Management
 
 It is important before beginning a full site build project to identify how/where site config will be managed. It is not always neccesary to set up configuration sync folders, just be sure to think of the following if you do.
