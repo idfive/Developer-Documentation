@@ -10,7 +10,8 @@ Create a custom drupal 8 module that accomplishes the following:
 
 - Interacts with [The Star Wars API](https://swapi.co/), to show a listing of 3 Star Wars films from `https://swapi.co/api/films` in any order you desire.
 - These films should display in a block, that could be enabled on any region in a stock or custom theme.
-- Each individual film view should include: title, episode_id, director, producer, and release date fields at a minimum.
+- Each individual film view should include: title, episode_id, director, producer, and release_date fields at a minimum.
+- release_date field to be formatted in F j, Y format (ie "January 1, 1977") on frontend.
 - Conforms to current drupal coding standards.
 - Includes a Unit test for all custom functions.
 - Includes all needed documentation per drupal and idfive standards.
@@ -24,6 +25,7 @@ Create a custom drupal 8 module that accomplishes the following:
 ## Code review criteria
 
 - Any/All needed config should be within the module itself. You may manually assign the block to a region in your test site, but any field config/etc will need to be included.
+- release_date field to be formatted in F j, Y format.
 - All code should conform to drupal coding standards.
 - All custom functions should get a Unit test, at minimum.
 - All custom code, and the module itself should be documented to standard.
