@@ -1,5 +1,11 @@
 # Testing in drupal
 
+See [Testing](general/testing/overview.md) for more general testing information. At idfive we prefer Automated Testing with the following frameworks, for the following test types for drupal 8 and beyond:
+
+- Behavioral: Non Core, [behat](http://behat.org/en/latest/)
+- Functional: Core, PHPUnit-Functional
+- Unit: Core, PHPUnit-Unit
+
 ## Core testing frameworks
 
 Drupal has 4 different types of core testing frameworks that will stick around through D9. There is some overlap in functionality between the different frameworks. They may be refered to by different names depending on how you run them and in what context you're talking about them, but in general:
@@ -11,14 +17,12 @@ Drupal has 4 different types of core testing frameworks that will stick around t
 
 ### Choosing which framework to use
 
+At idfive we choose to focus on Unit, and Functional tests for the types of sites/modules we build, so we will focus on those.
+
 - What are you trying to test?
 - What is the framework that will consume the least amount of system resources, and finsh my tests the fastest?
 - Can you test the behavior in a unit test without a lot of core functions? If yes, you want to write a unit test.
-- If you need core behavior, can you test the behavior without performing HTTP requests? If yes, you want to write a kernel test.
 - If you need core behavior and you need to perform HTTP requests, then write a functional test.
-- If you're testing AJAX JS behavior within the browser, then write a functional JavaScript test.
-
-At idfive we choose to focus on Unit, and Functional tests for the types of sites/modules we build, so we will focus on those.
 
 ### Basic codebase example setup
 
