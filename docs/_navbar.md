@@ -2,6 +2,7 @@
 
   * [Setup and Access](general/onboarding/local_setup.md)
   * [git](general/git/standards.md)
+  * [Testing](general/testing/overview.md)
 
 * Front-end
 
@@ -15,7 +16,6 @@
   * [PHP](back-end/php/standards.md)
   * [WordPress](back-end/wordpress/wordpress.md)
   * [Documentation](back-end/documentation/documentation.md)
-  * [Testing](back-end/testing/overview.md)
 
 * Drupal
   * [Drupal General Codebase](back-end/drupal/drupal.md)
