@@ -182,7 +182,26 @@ TBD
 
 #### Configuration Management
 
-It is important before beginning a full site build project to identify how/where site config will be managed. This sometimes depends on the host, and following their best practices. Configuration Manager module may be enabled, or it could all happen via drush. Be sure all developers on the project know the plan, regardless of which route is chosen.
+It is important before beginning a full site build project to identify how/where site config will be managed. It is not always neccesary to set up configuration sync folders, just be sure to think of the following if you do.
+
+- The location folder sometimes depends on the host, and following their best practices.
+- Configuration Manager module may be enabled, or it could all happen via drush.
+- Be sure all developers on the project know the plan, regardless of which route is chosen.
+
+##### Config management and acquia
+
+Acquia config folder changes need to be loaded AFTER default settings in settings.php for acquia sites, for example:
+
+```php
+// Acquias default settings for a site
+if (file_exists('/var/www/site-php')) {
+  require '/var/www/site-php/hud8/MYSITE-settings.inc';
+}
+
+// Keep config/sync settings after acquia loads defaults, otherwise it ignores them and uses loaded defaults.
+$config_directories['vcs'] = $app_root . '/../config/MYSITE';
+$config_directories['sync'] = $app_root . '/../config/MYSITE';
+```
 
 ##### Config management and modules
 
