@@ -15,9 +15,11 @@
   * [PHP](back-end/php/standards.md)
   * [WordPress](back-end/wordpress/wordpress.md)
   * [Documentation](back-end/documentation/documentation.md)
+  * [Testing](back-end/testing/overview.md)
 
 * Drupal
   * [Drupal General Codebase](back-end/drupal/drupal.md)
   * [Drupal Site Building](back-end/drupal/drupal-sitebuilding.md)
-  * [Drupal Helpfull Commands](back-end/drupal/drupal-helpfull-commands.md)
+  * [Drupal Helpful Commands](back-end/drupal/drupal-helpfull-commands.md)
+  * [Drupal Testing](back-end/drupal/drupal-testing.md)
   * [Drupal Legacy](back-end/drupal/drupal-legacy.md)

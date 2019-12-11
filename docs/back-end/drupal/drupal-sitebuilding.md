@@ -128,7 +128,7 @@ Install the [idfive Automation Library](https://bitbucket.org/idfivellc/idfive-a
 
 #### Images
 
-##### Media
+##### Media Module
 
 Core media module shopuld be used for all D8 projects, unless there is a good reason not to.
 
@@ -178,9 +178,11 @@ theme_name.imagesize.desktop:
 
 #### View Modes
 
+TBD
+
 #### Configuration Management
 
-It is important before beginning a full site build project to identify how/where site config will be managed. This sometimes depends on the host, and following their best practices.
+It is important before beginning a full site build project to identify how/where site config will be managed. This sometimes depends on the host, and following their best practices. Configuration Manager module may be enabled, or it could all happen via drush. Be sure all developers on the project know the plan, regardless of which route is chosen.
 
 ##### Config management and modules
 
@@ -210,7 +212,7 @@ Normally, it is easiest to:
 To update a module that is used on multiple sites, you must:
 
 - Update all config YML files.This is so that any "new" install of the module gets the correct config.
-- Utilize hook_update in order to odify config on "existing" sites.
+- Utilize hook_update in order to modify config on "existing" sites.
 
 An example hook_update to simply "reinstall all config for a GIVEN module".
 This assumes all YML files have been added/updated. You can also programatically add fields/etc, this is simply a quick way to update all config for a module.

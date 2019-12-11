@@ -1,4 +1,4 @@
-# Helpfull Drupal Commands
+# Helpful Drupal Commands
 
 ## Patching
 
