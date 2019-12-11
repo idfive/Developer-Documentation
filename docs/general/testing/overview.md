@@ -37,7 +37,7 @@ CI takes the idea of automated testing a bit further. It usually meansthat a on 
 - If you can describe the test by saying something like: "If I look at the web site I should see the welcome message," then your test is likely a behavioral test.
 - Behavioral tests seldom address which specific technologies or configurations are present, and focus on what is happening, or what the user does.
 
-Frameworks like [behat](http://behat.org/en/latest/) are used for this type of testing.
+Frameworks like [behat](http://behat.org/en/latest/) or [zombie.js](http://zombie.js.org/) are used for this type of testing.
 
 ### Functional overview
 
@@ -46,9 +46,13 @@ Frameworks like [behat](http://behat.org/en/latest/) are used for this type of t
 
 Functional tests tend to be specific to technology and configuration, but can also be more generalized. They might seem similar to behavioral tests. For instance, if you write a Drupal module that specifies a new permission, you'd also write a test to verify that a user logged in without that permission can not perform a given task. However, we're not actually testing what the user does, we're testing what the systems do, and whether they limit the abilities of users without that permission.
 
+Frameworks like [PHPUnit](https://phpunit.de/) are used for this type of testing.
+
 ### Unit overview
 
 - Strictly speaking, a unit test is a test of the smallest unit of executable code. In PHP that's a method or function. In a less strict sense, unit tests have as few dependencies as possible in order to test expectations about a very limited part of the code.
 - So if you make a class, you'd write a unit test for each of the methods of that class which you want to be sure has a specific behavior.
 
 Generally, unit tests are there to prove that an atomic-level behavior is correct. In a trivial example, if you have a function named add() that adds numbers, you'd write a unit test to test only the behavior of this method and nothing else. Interactions with other systems or configuration would be minimized in order to make sure you're only testing the behavior of the add() method.
+
+Frameworks like [PHPUnit](https://phpunit.de/) are used for this type of testing.
