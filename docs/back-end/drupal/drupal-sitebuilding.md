@@ -389,11 +389,36 @@ If commiting custom modules/themes for eventual composer builds, versioning must
 
 #### Packagist
 
-If this module/theme is to be controlled via composer:
+If this module/theme is to be controlled via composer/packagist:
 
+- Ensure a proper composer.json is created in the repo.
 - Create a package for it on packagist.org
 - Be sure a client contact/it dept/etc has access to the packagist repo as well
 - Set webhook to deploy to packagist on push, wherever the repo is located.
+
+##### Example composer.json
+
+```json
+{
+  "name": "idfive/idfive_paragraphs",
+  "type": "drupal-module",
+  "description": "This module is designed to provide base idfive kitchen sink widgets.",
+  "keywords": ["Drupal"],
+  "homepage": "https://bitbucket.org/idfivellc/idfive-component-library-d8-paragraphs",
+  "license": "GPL-2.0+",
+  "authors": [
+    {
+      "name": "Dan Rogers",
+      "homepage": "https://www.drupal.org/u/dan_rogers",
+      "role": "Maintainer"
+    }
+  ],
+  "support": {
+    "issues": "https://bitbucket.org/idfivellc/idfive-component-library-d8-paragraphs/issues",
+    "source": "https://bitbucket.org/idfivellc/idfive-component-library-d8-paragraphs"
+  }
+}
+```
 
 #### PHP CodeSniffer/Drupal Coder
 
