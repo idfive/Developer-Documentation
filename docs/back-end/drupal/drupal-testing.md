@@ -168,7 +168,7 @@ class MyOtherTestCase extends BrowserTestBase {
 
 ### Running tests
 
-Be sure PHPUnit is installed via composer, it is in the core composer.json as a requirement. Test via `vendor/bin/phpunit --version`, adjust path as needed.
+Be sure PHPUnit is installed via composer, it is in the core composer.json as a requirement. Test via `vendor/bin/phpunit --version`, adjust path as needed. See [Running PHPUnit Tests](https://www.drupal.org/docs/8/phpunit/running-phpunit-tests) for complete setup instructions.
 
 - To run all tests (Unit, Kernel, Functional) from a particular module: `vendor/bin/phpunit -c core/phpunit.xml.dist modules/custom/MY_MODULE`
 - To run only all unit tests from a specific module: `vendor/bin/phpunit -c core/phpunit.xml.dist modules/custom/MY_MODULE/tests/src/Unit`
@@ -177,7 +177,7 @@ Be sure PHPUnit is installed via composer, it is in the core composer.json as a 
 
 #### Set up a custom PHPUnit.xml
 
-You can also set up custom test suites, as well as gain the ability to run from the module rood by adding a php-unit.xml to the module root like the following:
+You can also set up custom test suites, as well as gain the ability to run from the module rood by adding a php-unit.xml to the module root, by copying the php-unit.xml you set up above, and adding the following:
 
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>
