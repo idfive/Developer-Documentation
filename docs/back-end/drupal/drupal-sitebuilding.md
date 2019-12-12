@@ -126,6 +126,54 @@ Install the [idfive Automation Library](https://bitbucket.org/idfivellc/idfive-a
 
 ### Theme/Module best practices
 
+#### Help Text
+
+Help text is normally aimed at admins and site builders, and is neccesary to provide a great admin experience. It is easy to overlook this, but it is the key to providing a great admin experience, and sometimes even for developers to more readily understand what is going on when revisiting older projects.
+
+- All custom modules should, at a minimum utilize a `hook_help()` to show the modules (properly formatted) README.md.
+- Consider adding help text/etc to entity add/edit forms to explain how things work.
+- Consider adding markup fields to entities (like a homepage) to explain how things "not controlled within the form" work, like feeds from views and external API's. For example: "The blogs feed displays the 3 most recent blog posts tagged with X".
+- [drupal help text standards](https://www.drupal.org/docs/develop/documenting-your-project/help-text-standards)
+
+##### Hook_help example
+
+Displays the README.md as for the help page of a module. Loads markdown module for better formatting if present.
+
+```php
+<?php
+
+/**
+ * @file
+ * My custom module file.
+ */
+
+use Drupal\Core\Routing\RouteMatchInterface;
+
+/**
+ * Implements hook_help().
+ *
+ * @inheritdoc
+ */
+function MY_MODULE_help($route_name, RouteMatchInterface $route_match) {
+  switch ($route_name) {
+    case 'help.page.MY_MODULE':
+      $text = file_get_contents(dirname(__FILE__) . "/README.md");
+      if (!\Drupal::moduleHandler()->moduleExists('markdown')) {
+        return '<pre>' . $text . '</pre>';
+      }
+      else {
+        // Use the Markdown filter to render the README.
+        $filter_manager = \Drupal::service('plugin.manager.filter');
+        $settings = \Drupal::configFactory()->get('markdown.settings')->getRawData();
+        $config = ['settings' => $settings];
+        $filter = $filter_manager->createInstance('markdown', $config);
+        return $filter->process($text, 'en');
+      }
+  }
+  return NULL;
+}
+```
+
 #### Images
 
 ##### Media Module
