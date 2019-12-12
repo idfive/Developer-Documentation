@@ -14,7 +14,6 @@
 * Back-end (General)
 
   * [PHP](back-end/php/standards.md)
-  * [WordPress](back-end/wordpress/wordpress.md)
   * [Documentation](back-end/documentation/documentation.md)
 
 * Drupal
