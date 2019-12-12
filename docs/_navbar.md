@@ -25,8 +25,11 @@
   * [Drupal Testing](back-end/drupal/drupal-testing.md)
   * [Drupal Legacy](back-end/drupal/drupal-legacy.md)
 
+* Wordpress
+  * [Wordpress Command Line Interface](back-end/wordpress/wordpress.md)
+
 * Challenges
 
   * Backend:
-  * [drupal custom API module](challenges/drupal-api-module.md)
-  * [drupal custom paragraph module](challenges/drupal-paragraph-module.md)
+  * [Drupal custom API module](challenges/drupal-api-module.md)
+  * [Drupal custom paragraph module](challenges/drupal-paragraph-module.md)
