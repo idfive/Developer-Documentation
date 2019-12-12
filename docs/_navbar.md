@@ -25,7 +25,7 @@
   * [Drupal Testing](back-end/drupal/drupal-testing.md)
   * [Drupal Legacy](back-end/drupal/drupal-legacy.md)
 
-* Wordpress
+* WordPress
   * [WordPress CLI](back-end/wordpress/wordpress.md)
 
 * Challenges
