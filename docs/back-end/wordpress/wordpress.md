@@ -1,12 +1,65 @@
 # WordPress
 
-Intro
+Intro Coming
 
-## Local ENV Setup, and coding standards
+## WP-Boilerplate
 
+idfive has a boilerplate WordPress repo on [bitbucket](https://bitbucket.org/idfivellc/wp-boilerplate/src/master/) which serves as a starting point for WordPress projects. Like in other projects, idfive adopts the [Gitflow](general/git/standards.md) methodology for WordPress builds. As per Gitflow, there is a master and develop branch on the wp-boilerplate repo.
 
+## Preferred Methodology
 
-## Prefered general site spinup workflow
+idfive creates a flexible platform for development through a combination of the [Advanced Custom Fields Pro](https://www.advancedcustomfields.com/) ("ACF") plugin and the [Timber library](https://wordpress.org/plugins/timber-library/) and [Timber Starter Theme](https://github.com/timber/starter-theme). Timber leverages ACF Field Groups to build out components in pages and posts. idfive has a pro license for ACF. The license for ACF Pro can be accessed from the [Vault](https://vault.zoho.com/online/main).
+
+The [ACF documentation](https://www.advancedcustomfields.com/resources/getting-started-with-acf/) describes the basics for building out fields groups in the UI. The [Timber ACF Cookbook](https://timber.github.io/docs/guides/acf-cookbook/) page describes the methodology for displaying fields defined in ACF Field Groups.
+
+Timber provides a number of [functions](https://timber.github.io/docs/guides/functions/) that helps developers gain access to and manipulate data in ACF fields. In Timber, templates use the [Twig Template Engine](https://twig.symfony.com/) separate from PHP files, which helps organize and simplify code. The [Timber Starter Theme](https://timber.github.io/docs/getting-started/setup/#use-the-starter-theme) makes it easy for developers to build out templates for ACF Field Groups in Twig. Without Timber, fields are typically templated like this:
+
+```
+<?php if( have_rows('event') ): ?>
+    <ul>
+    <?php while( have_rows('event') ): the_row(); ?>
+        <li>
+            <a href="<?php the_sub_field('url'); ?>"><?php the_sub_field('title'); ?></a>
+        </li>
+    <?php endwhile; ?>
+    </ul>
+<?php endif; ?>
+```
+Twig, through Timber, provides an object oriented approach with a suite of [filters](https://twig.symfony.com/doc/3.x/filters/index.html) and [functions](https://twig.symfony.com/doc/3.x/functions/index.html) for manipulating field data. Template code in Timber looks like this:
+
+```
+<h2>{{ post.title }}</h2>
+<div class="my-list">
+    {% for item in post.meta('my_repeater') %}
+        <div class="item">
+            <h4>{{ item.name }}</h4>
+            <h6>{{ item.info }}</h6>
+            <img src="{{ Image(item.picture).src }}" />
+        </div>
+    {% endfor %}
+</div>
+```
+### idfive Component Library
+
+Coming
+
+## Alternate Tools and Methods
+
+idfive may alternatively build out a site without Timber if Timber does not meet the client needs. In the past, idfive has used other tools such as:
+- [Visual Composer](https://visualcomposer.com/)
+- [Divi Builder](https://www.elegantthemes.com/gallery/divi/)
+- [Elementor](https://elementor.com/)
+
+## Coding Standards
+
+Coding standards for WordPress reside in the WordPress Core Contributor Handbook:
+
+- [PHP Coding Standards](https://make.wordpress.org/core/handbook/best-practices/coding-standards/php/)
+- [HTML Coding Standards](https://make.wordpress.org/core/handbook/best-practices/coding-standards/html/)
+- [CSS Coding Standards](https://make.wordpress.org/core/handbook/best-practices/coding-standards/css/)
+- [Javascript Coding Standards](https://make.wordpress.org/core/handbook/best-practices/coding-standards/javascript/)
+
+## Pantheon
 
 Coming
 

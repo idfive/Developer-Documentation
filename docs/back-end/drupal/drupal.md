@@ -28,7 +28,7 @@ Although exact setup will vary by client and environment, the ideal idfive d8 sc
           CLIENT_BASE_THEME | child theme of idfive
 ```
 
-## Prefered general site spinup workflow
+## Preferred general site spinup workflow
 
 Regardless of platform, the general SOP for idfive drupal sites is:
 
