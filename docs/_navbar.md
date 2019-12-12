@@ -26,7 +26,7 @@
   * [Drupal Legacy](back-end/drupal/drupal-legacy.md)
 
 * Wordpress
-  * [Wordpress Command Line Interface](back-end/wordpress/wordpress.md)
+  * [WordPress CLI](back-end/wordpress/wordpress.md)
 
 * Challenges
 
