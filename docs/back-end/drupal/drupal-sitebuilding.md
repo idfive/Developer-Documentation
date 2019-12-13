@@ -111,6 +111,31 @@ The docroot and actual folders may vary, depending on your codebase, but in gene
 
 This is intentially bare bones, and simply designed to save time by adding a suite of common KS widgets from the ICL, such as tables accordions/etc.
 
+### Extending ICL paragraphs
+
+#### Section/widget wrappers
+
+The prefered method for adding wrappers, ie sections, or whatever, to ICL widgets, is with a field template override of the field used to add the widgets. This lets us change per content type/etc if needed.
+
+For example, if KS widgets are being added via `field_basic_page_ks_widgets`, field--node--field_basic_page_ks_widgets.html.twig could have the following:
+
+```php
+{% for item in items %}
+  {%
+    set classes = [
+      'section',
+      'section-' ~ element['#bundle'],
+      'section-' ~ item.content['#paragraph'].getType()
+    ]
+  %}
+  <div class="{{ classes|join(' ') }}">
+    {{ item.content }}
+  </div>
+{% endfor %}
+```
+
+This would result in an output of `<div class="section section-basic_page section-PARAGRAPH_TYPE">` as a wrapper for each widget.
+
 ## Recomended contrib modules
 
 See the [idfive Automation Library](https://bitbucket.org/idfivellc/idfive-automation-library) script, [Add ICL Modules](https://bitbucket.org/idfivellc/idfive-automation-library/src/master/drupal/general/partials/add_icl_modules.sh) for an up to date list of what idfive reccomends as a baseline.
