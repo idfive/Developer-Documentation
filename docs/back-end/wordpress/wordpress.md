@@ -1,7 +1,5 @@
 # WordPress
 
-Intro Coming
-
 ## WP-Boilerplate
 
 idfive has a boilerplate WordPress repo on [bitbucket](https://bitbucket.org/idfivellc/wp-boilerplate/src/master/) which serves as a starting point for WordPress projects. Like in other projects, idfive adopts the [Gitflow](general/git/standards.md) methodology for WordPress builds. As per Gitflow, there is a master and develop branch on the wp-boilerplate repo.
