@@ -36,3 +36,6 @@ __Note:__ [Wordfence is not currently compatible with the Pantheon platform](htt
 
 ### Remove unused plugins/themes
 Remove any unused plugins and/or themes to avoid potential security vulnerabilities.
+
+## WP Scaffolding
+In and effort to automate and standardize code, idfive encourages the use of [wp scaffold](https://developer.wordpress.org/cli/commands/scaffold/) to build out the structure for themes, post types, taxonomies, and plugins.

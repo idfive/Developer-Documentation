@@ -1,7 +1,5 @@
 # WordPress
 
-Intro Coming
-
 ## WP-Boilerplate
 
 idfive has a boilerplate WordPress repo on [bitbucket](https://bitbucket.org/idfivellc/wp-boilerplate/src/master/) which serves as a starting point for WordPress projects. Like in other projects, idfive adopts the [Gitflow](general/git/standards.md) methodology for WordPress builds. As per Gitflow, there is a master and develop branch on the wp-boilerplate repo.
@@ -61,5 +59,24 @@ Coding standards for WordPress reside in the WordPress Core Contributor Handbook
 
 ## Pantheon
 
-Coming
+idfive develops many sites, at least initially, on [Pantheon](https://pantheon.io/). [Lando](https://docs.lando.dev/) makes spinning up a local development environment easy. One of the many recipes thay ships with is for Pantheon.
+
+First, create a sandbox site on Pantheon. Once the site is created on Pantheon, you can initialize and download the site to your local machine using:
+
+```
+lando init
+```
+
+This command will respond with a series of questions. Select the Pantheon recipe, log in with your Pantheon credentials. The repo will be downloaded and initilialize in the current directory. Once that is complete, cd into the new directory and type:
+
+```
+lando pull
+```
+lando pull gives the option of pulling from any environment, code, database, and files. The init process only downloads the code. It is fine to skip pulling code at this point, but pulling the database and the fiels so that you have an exact match of the site on the server.
+
+### A Few More Commands
+
+1. 'lando start' will begin a server and begin serving the site.
+2. 'lando stop' will stop the server.
+3. Lando also provides tooling support using the wp-cli. To run wp commands via lando, simply enter 'lando wp <command>'
 
