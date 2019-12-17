@@ -333,6 +333,7 @@ To update a module that is used on multiple sites, you must:
 
 - Update all config YML files.This is so that any "new" install of the module gets the correct config.
 - Utilize hook_update in order to modify config on "existing" sites.
+- Be sure to add any dependencies in the modules MY_MODULE.info.yml, that the config needs, ie a field type created by a contrib module.
 
 An example hook_update to simply "reinstall all config for a GIVEN module".
 This assumes all YML files have been added/updated. You can also programmatically add fields/etc, this is simply a quick way to update all config for a module.
