@@ -7,7 +7,7 @@
 - `cd THE_MODULE_TO_PATCH`
 - `curl -O https://drupal.org/files/THE_PATCH.patch`
 - `git apply -v THE_PATCH.patch`
-- if the git apply doesnt work, use `patch -p1 < THE_PATCH.patch`
+- if the git apply doesn't work, use `patch -p1 < THE_PATCH.patch`
 
 ### Create a patch
 
@@ -24,7 +24,7 @@ See more detailed information on [Making a Drupal patch with Git](https://www.dr
 
 ### @sites
 
-The `@sites` command is especially useful on acquia multisites, as it targets "All Sites" on the install. This command needs to be run directly on the desired server however, as it does not play nice with drush aliases.
+The `@sites` command is especially useful on acquia multi-sites, as it targets "All Sites" on the install. This command needs to be run directly on the desired server however, as it does not play nice with drush aliases.
 
 - `drush @DESIRED_DRUSH_ALIAS ssh`
 - `drush @sites cr`
@@ -44,8 +44,20 @@ This is extremely helpful if admin account credentials are lost or unavailable, 
 
 ### Partial configuration installs
 
-This is helpful in certain instances to update a sincle config accross all sites in say a multisite. In acquia/others, needs to be run directly on server, not via drush aliases, as the @sites does not play nice with aliases.
+This is helpful in certain instances to update a single config across all sites in say a multi-site. In acquia/others, needs to be run directly on server, not via drush aliases, as the @sites does not play nice with aliases.
 
 - `drush @DESIRED_DRUSH_ALIAS ssh`
 - `drush @sites cim --partial --source=modules/contrib/PATH/TO/YOUR/CONFIG_FILE.yml`
 - `drush @sites updb`
+
+## Composer
+
+### Helpful composer commands
+
+- `composer clearcache` clears local composer caches if you just pushed an update to composer repo and need to pull it.
+- If you want to know all packages that will be updated by the update command, use the `--dry-run` option first.
+
+### Update drupal core
+
+- `composer update drupal/core --with-dependencies`
+- See [Update core via composer](https://www.drupal.org/docs/8/update/update-core-via-composer).

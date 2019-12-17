@@ -10,9 +10,9 @@
 }`
 - Be sure `docroot/sites/*/settings.local.php` is in the .gitignore.
 - Mostly, this will allow caches/aggregation/etc to be disabled for easier developing.
-- For things like acquia multisites, this can also be set in settings.php in a conditional block, as an include to development.settings.php, so that all local sites get it.
+- For things like acquia multi-sites, this can also be set in settings.php in a conditional block, as an include to development.settings.php, so that all local sites get it.
 
-#### Example settings.php acquia multisite conditional
+#### Example settings.php acquia multi-site conditional
 
 ```php
   // Check/modify any acquia environment specific modifications needed.
@@ -27,7 +27,7 @@
   }
 ```
 
-By loading in this way (globally for all local sites), all local dev sites get the more "dev env" settings, and you can still use settings.local.php for any actual local settings chages needed.
+By loading in this way (globally for all local sites), all local dev sites get the more "dev env" settings, and you can still use settings.local.php for any actual local settings changes needed.
 
 #### Example settings.local.php, or development.settings.php
 
@@ -58,8 +58,8 @@ By loading in this way (globally for all local sites), all local dev sites get t
 
 When possible, always add a development services.yml to the codebase. This will set up the local dev env to show twig templates/etc, and make it easier to develop.
 
-- Be sure it is in the '/docroot/sites/development.services.yml' or similar, so it may be used acccross multisites.
-- Be sure `$settings['container_yamls'][] = DRUPAL_ROOT . '/sites/development.services.yml';`, with the proper path, is set in the settings.local.php. For multisites, especially on acquia, this can also be set in development.settings.php.
+- Be sure it is in the '/docroot/sites/development.services.yml' or similar, so it may be used across multi-sites.
+- Be sure `$settings['container_yamls'][] = DRUPAL_ROOT . '/sites/development.services.yml';`, with the proper path, is set in the settings.local.php. For multi-sites, especially on acquia, this can also be set in development.settings.php.
 
 #### Example development.services.yml
 
@@ -81,13 +81,13 @@ When possible, always add a development services.yml to the codebase. This will 
 
 ## idfive base theme
 
-The idfive base theme is intetionally pretty bare bones, but provides us with lots of behind the scenes functions we need. This theme is designed to act as a parent theme, and should never be enabled directly. See the [documentation](https://bitbucket.org/idfivellc/idfive-component-library-d8-theme) for how to best use this theme, and how to quickly and efficiently spin up a child theme for this project.
+The idfive base theme is intentionally pretty bare bones, but provides us with lots of behind the scenes functions we need. This theme is designed to act as a parent theme, and should never be enabled directly. See the [documentation](https://bitbucket.org/idfivellc/idfive-component-library-d8-theme) for how to best use this theme, and how to quickly and efficiently spin up a child theme for this project.
 
 The docroot and actual folders may vary, depending on your codebase, but in general, adding the idfive base theme, and creating your custom child theme will look like:
 
 - `composer require idfive/idfive`
 - `cd docroot/themes/custom/idfive/starterkits`
-- `sudo bash generate_kit.sh` This will run a bash script, that prompts you for a human readable name, and a machine name for your custom child theme. From that, the script will generate a child theme, and install a fresh copy of the [idfive Component Libray](https://bitbucket.org/idfivellc/idfive-component-library) which is the prefered framework for all idfive projects.
+- `sudo bash generate_kit.sh` This will run a bash script, that prompts you for a human readable name, and a machine name for your custom child theme. From that, the script will generate a child theme, and install a fresh copy of the [idfive Component Libray](https://bitbucket.org/idfivellc/idfive-component-library) which is the preferred framework for all idfive projects.
 - enable your new child theme.
 - You will need to adjust .gitignore in the idfive-component-library to track the "build" folder if no CI is used.
 
@@ -101,7 +101,7 @@ Install the [idfive Automation Library](https://bitbucket.org/idfivellc/idfive-a
 
 ## idfive ICL paragraphs module
 
-The [idfive Component Library D8 Paragraphs](https://bitbucket.org/idfivellc/idfive-component-library-d8-paragraphs) module, provides several common idfive ICL patterns as premade widgets, to add to a Kitchen Sink page.
+The [idfive Component Library D8 Paragraphs](https://bitbucket.org/idfivellc/idfive-component-library-d8-paragraphs) module, provides several common idfive ICL patterns as pre-made widgets, to add to a Kitchen Sink page.
 
 The docroot and actual folders may vary, depending on your codebase, but in general, adding the idfive ICL Paragraphs widget is best done via composer:
 
@@ -109,13 +109,13 @@ The docroot and actual folders may vary, depending on your codebase, but in gene
 - Add a paragraphs field to desired content, be sure the widget is "Paragraphs Experimental" in the form display.
 - Be sure to exclude certain ICL widget types so marked in their descriptions, from this field.
 
-This is intentially bare bones, and simply designed to save time by adding a suite of common KS widgets from the ICL, such as tables accordions/etc.
+This is intentionally bare bones, and simply designed to save time by adding a suite of common KS widgets from the ICL, such as tables accordions/etc.
 
 ### Extending ICL paragraphs
 
 #### Section/widget wrappers
 
-The prefered method for adding wrappers, ie sections, or whatever, to ICL widgets, is with a field template override of the field used to add the widgets. This lets us change per content type/etc if needed.
+The preferred method for adding wrappers, ie sections, or whatever, to ICL widgets, is with a field template override of the field used to add the widgets. This lets us change per content type/etc if needed.
 
 For example, if KS widgets are being added via `field_basic_page_ks_widgets`, field--node--field_basic_page_ks_widgets.html.twig could have the following:
 
@@ -136,11 +136,11 @@ For example, if KS widgets are being added via `field_basic_page_ks_widgets`, fi
 
 This would result in an output of `<div class="section section-basic_page section-PARAGRAPH_TYPE">` as a wrapper for each widget.
 
-## Recomended contrib modules
+## Recommended contrib modules
 
-See the [idfive Automation Library](https://bitbucket.org/idfivellc/idfive-automation-library) script, [Add ICL Modules](https://bitbucket.org/idfivellc/idfive-automation-library/src/master/drupal/general/partials/add_icl_modules.sh) for an up to date list of what idfive reccomends as a baseline.
+See the [idfive Automation Library](https://bitbucket.org/idfivellc/idfive-automation-library) script, [Add ICL Modules](https://bitbucket.org/idfivellc/idfive-automation-library/src/master/drupal/general/partials/add_icl_modules.sh) for an up to date list of what idfive recommends as a baseline.
 
-### Recomended contrib modules via the IAL
+### Recommended contrib modules via the IAL
 
 Install the [idfive Automation Library](https://bitbucket.org/idfivellc/idfive-automation-library) and run the [Add ICL Modules](https://bitbucket.org/idfivellc/idfive-automation-library/src/master/drupal/general/partials/enable_icl_modules.sh) script.
 
@@ -153,7 +153,7 @@ Install the [idfive Automation Library](https://bitbucket.org/idfivellc/idfive-a
 
 #### Help Text
 
-Help text is normally aimed at admins and site builders, and is neccesary to provide a great admin experience. It is easy to overlook this, but it is the key to providing a great admin experience, and sometimes even for developers to more readily understand what is going on when revisiting older projects.
+Help text is normally aimed at admins and site builders, and is necessary to provide a great admin experience. It is easy to overlook this, but it is the key to providing a great admin experience, and sometimes even for developers to more readily understand what is going on when revisiting older projects.
 
 - All custom modules should, at a minimum utilize a `hook_help()` to show the modules (properly formatted) README.md.
 - Consider adding help text/etc to entity add/edit forms to explain how things work.
@@ -209,11 +209,11 @@ Core media module shopuld be used for all D8 projects, unless there is a good re
 
 ##### Image Optimize
 
-Use [ImageAPI Optimize](https://www.drupal.org/project/imageapi_optimize) ([re.Smush.it](https://www.drupal.org/project/imageapi_optimize_resmushit), [TinyPNG](https://www.drupal.org/project/imageapi_optimize_tinypng) or other services) to optimize images as they are uploaded and used in image styles. It is important that these be set up/enabled early so that all images uploaded can benefit from optimization throughout the build proccess.
+Use [ImageAPI Optimize](https://www.drupal.org/project/imageapi_optimize) ([re.Smush.it](https://www.drupal.org/project/imageapi_optimize_resmushit), [TinyPNG](https://www.drupal.org/project/imageapi_optimize_tinypng) or other services) to optimize images as they are uploaded and used in image styles. It is important that these be set up/enabled early so that all images uploaded can benefit from optimization throughout the build process.
 
 ##### Responsive Images
 
-The core responsive images module helps us to define different image styles for different breakpoints. This does require custom config setup of breakpoints. See [Working with Breakpoints](https://www.drupal.org/docs/8/theming-drupal-8/working-with-breakpoints-in-drupal-8). This requires a bit of setup so should be difined/used for the larger hero images/etc, but may not make sense for "All Images".
+The core responsive images module helps us to define different image styles for different breakpoints. This does require custom config setup of breakpoints. See [Working with Breakpoints](https://www.drupal.org/docs/8/theming-drupal-8/working-with-breakpoints-in-drupal-8). This requires a bit of setup so should be defined/used for the larger hero images/etc, but may not make sense for "All Images".
 
 - Enable responsive image module.
 - Compile a list of breakpoints, usually by looking at the static frontend.
@@ -282,7 +282,7 @@ if (isset($_ENV['AH_SITE_ENVIRONMENT'])) {
 
 #### Configuration Management
 
-It is important before beginning a full site build project to identify how/where site config will be managed. It is not always neccesary to set up configuration sync folders, just be sure to think of the following if you do.
+It is important before beginning a full site build project to identify how/where site config will be managed. It is not always necessary to set up configuration sync folders, just be sure to think of the following if you do.
 
 - The location folder sometimes depends on the host, and following their best practices.
 - Configuration Manager module may be enabled, or it could all happen via drush.
@@ -335,7 +335,7 @@ To update a module that is used on multiple sites, you must:
 - Utilize hook_update in order to modify config on "existing" sites.
 
 An example hook_update to simply "reinstall all config for a GIVEN module".
-This assumes all YML files have been added/updated. You can also programatically add fields/etc, this is simply a quick way to update all config for a module.
+This assumes all YML files have been added/updated. You can also programmatically add fields/etc, this is simply a quick way to update all config for a module.
 
 ```php
 /**
@@ -356,8 +356,8 @@ In general, we want to scope most custom elements to the parent theme/module/etc
 
 ##### Fields
 
-Fields should be scoped to the controlling entity. Fields can be shared in certain instances (like between submodules), but in that instance would be scoped to the parent module.
-For example, a text field used by the "CLIENT Paragrahs" module, could be scoped as machine names:
+Fields should be scoped to the controlling entity. Fields can be shared in certain instances (like between sub-modules), but in that instance would be scoped to the parent module.
+For example, a text field used by the "CLIENT Paragraphs" module, could be scoped as machine names:
 
 - `field_cp_text`
 - `cp_text`
@@ -366,7 +366,7 @@ For example, a text field used by the "CLIENT Paragrahs" module, could be scoped
 ##### Functions
 
 Custom functions belonging to modules or themes should be scoped as "underscore + module/theme name + description".
-For example, custom functions in the "CLIENT Paragrahs" module, could be scoped as:
+For example, custom functions in the "CLIENT Paragraphs" module, could be scoped as:
 
 - `_client_paragraphs_format_into_list`
 - `_client_paragraphs_get_external_news`
@@ -390,13 +390,13 @@ Preferably, all "lists of content" should use a view mode to display them. Ie, "
 - If more complex, consider using core views along with [Search API module](https://www.drupal.org/project/search_api).
 - For smaller, custom sortable views, consider a vue.js app, that interacts with the jsonapi endpoint or similar.
 
-If core views is used as a standalone, or with search API, be sure to crate the display type as "block" or similar (not page), so that these views can be insterted into standard KS pages using the ip_views_embed widget, thus allowing for custom text, headers, content, etc as well as the listing.
+If core views is used as a standalone, or with search API, be sure to crate the display type as "block" or similar (not page), so that these views can be inserted into standard KS pages using the ip_views_embed widget, thus allowing for custom text, headers, content, etc as well as the listing.
 
 ##### If the view content is local does not require filters
 
 - Consider using core views module.
 - Consider a custom EntityQuery (with caching).
-- Consider using the hook_preproccess for the entity in question to add these programatiaclly rather than using something like blocks.
+- Consider using the hook_preprocess for the entity in question to add these programmatically rather than using something like blocks.
 
 ###### Views example
 
@@ -405,7 +405,7 @@ Since views are already cached, there is no reason to add additional caching her
 we pass along the NID of the node as an additional var to the view, which is set up as a conditional filter in the view.
 
 ```php
-// From within hook_preproccess of choice
+// From within hook_preprocess of choice
 $variables['MY_VARIABLE'] = _MY_MODULE_test_view_for_results($variables, 'VIEW_MACHINE_NAME', 'VIEW_DISPLAY_MACHINE_NAME', $nid);
 
 // Function to test views to see if they have results before displaying
@@ -426,7 +426,7 @@ function _MY_MODULE_test_view_for_results($variables, $view, $tab, $var1 = null,
 ###### Custom cached node query
 
 ```php
-// From within hook_preproccess of choice
+// From within hook_preprocess of choice
 $variables['MY_VARIABLES'] = _MY_MODULE_get_things();
 
 // Function to get nodes of type CONTENT_TYPE and sort by title
@@ -461,10 +461,10 @@ function _MY_MODULE_get_things() {
 
 ###### Custom API Call example
 
-This example passses a unique ID for the feed, but you would also likely pass parameters from custom fields/etc, to be able to reuse calls to the endpoint from multiple places.
+This example passes a unique ID for the feed, but you would also likely pass parameters from custom fields/etc, to be able to reuse calls to the endpoint from multiple places.
 
 ```php
-// From within hook_preproccess of choice
+// From within hook_preprocess of choice
 $variables['MY_VARIABLES'] = _MY_MODULE_get_stuff('UNIQUE_ID_FOR_THIS_CALL');
 
 // Function to test views to see if they have results before displaying
@@ -498,11 +498,22 @@ function _MY_MODULE_get_stuff($id) {
 
 ### Prepping to ship/launch
 
-Run through the entire idfive launch checklist for any site being launcehed by us. Additionally, consider the following:
+Run through the entire idfive launch checklist for any site being launched by us. Additionally, consider the following:
+
+#### Dependencies
+
+Does your custom module rely on other custom or contrib modules?
+
+```yml
+dependencies:
+  - paragraphs
+  - SOME_OTHER_CUSTOM_MODULE
+  - link_attributes
+```
 
 #### Versioning
 
-If commiting custom modules/themes for eventual composer builds, versioning must be enacted on the repo that deploys to composer. When ready to deploy, create a tag in github up one version from previous, with the starting version being 8.1.0:
+If committing custom modules/themes for eventual composer builds, versioning must be enacted on the repo that deploys to composer. When ready to deploy, create a tag in github up one version from previous, with the starting version being 8.1.0:
 
 - Minor versions (non breaking changes): 8.1.1, 8.1.2, etc.
 - Major versions (breaking changes): 8.2.0, 8.3.0, etc.
@@ -515,6 +526,8 @@ If this module/theme is to be controlled via composer/packagist:
 - Create a package for it on packagist.org
 - Be sure a client contact/it dept/etc has access to the packagist repo as well
 - Set webhook to deploy to packagist on push, wherever the repo is located.
+- Note any required drupal modules in the "require" section so they also get added via composer.
+- Be sure to tag a version number when ready to deploy or update, see versioning notes, but for D8 we prefer 8.1.0, 8.1.1, etc.
 
 ##### Example composer.json
 
@@ -533,6 +546,14 @@ If this module/theme is to be controlled via composer/packagist:
       "role": "Maintainer"
     }
   ],
+  "require": {
+    "drupal/external_data_source": "*",
+    "drupal/link_attributes": "*",
+    "drupal/paragraphs": "*",
+    "drupal/tablefield": "*",
+    "drupal/viewsreference": "*",
+    "drupal/webform": "*"
+  },
   "support": {
     "issues": "https://bitbucket.org/idfivellc/idfive-component-library-d8-paragraphs/issues",
     "source": "https://bitbucket.org/idfivellc/idfive-component-library-d8-paragraphs"

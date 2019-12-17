@@ -6,9 +6,10 @@ Unless specifically directed, all new D8 sites should attempt to use a composer 
 
 ### Preferred local VS Code setup
 
-Please follow the [following drupal.org article](https://www.drupal.org/docs/develop/development-tools/configuring-visual-studio-code) to set up VS Code for better drupal development locally.
+- Please follow the [following drupal.org article](https://www.drupal.org/docs/develop/development-tools/configuring-visual-studio-code) to set up VS Code for better drupal development locally.
+- Additionally, consider installing a spell checker plugin for VS Code.
 
-### Prefered general site scaffolding
+### Preferred general site scaffolding
 
 Although exact setup will vary by client and environment, the ideal idfive d8 scaffolding resembles the following:
 
@@ -20,7 +21,7 @@ Although exact setup will vary by client and environment, the ideal idfive d8 sc
         contrib | Where all contrib/composer based modules go
         custom | Where any custom modules for client/project go
           CLIENT_BASE_MODULE | One overarching module for any customizations that generally go with the custom client theme, but need to be in a module.
-            modules | Submodules. Mainly, this will be Kitchen Sink widgets and the like. They should get their own submodules so updates can potentially happen in the future.
+            modules | Submodules. Mainly, this will be Kitchen Sink widgets and the like. They should get their own sub-modules so updates can potentially happen in the future.
       themes
         contrib
           idfive
@@ -28,7 +29,7 @@ Although exact setup will vary by client and environment, the ideal idfive d8 sc
           CLIENT_BASE_THEME | child theme of idfive
 ```
 
-## Preferred general site spinup workflow
+## Preferred general site spin-up workflow
 
 Regardless of platform, the general SOP for idfive drupal sites is:
 
@@ -37,13 +38,13 @@ Regardless of platform, the general SOP for idfive drupal sites is:
 - Create custom child theme for client. All custom front end/etc go here.
 - Create a custom module/module suite for the client. All module related development and possibly config will go here.
 - Add core suite of idfive approved contrib modules.
-- Add other contrib modules as needed, but dont go overboard.
+- Add other contrib modules as needed, but don't go overboard.
 
 ### Pantheon
 
-Pantheon is the prefered platform to spin up DEV sites. Since lots of times, pantheon is only the temporary home of projects while in development, we have not yet created a custom idfive upstream, though that is not out of the question. For pantheon based sites, we utilize [lando](https://docs.lando.dev/) for local development, and to help keep sites in sync between local/remote/etc. Utilize the following workflow, assuming you have been assigned to the idfive team on pantheon.
+Pantheon is the preferred platform to spin up DEV sites. Since lots of times, pantheon is only the temporary home of projects while in development, we have not yet created a custom idfive upstream, though that is not out of the question. For pantheon based sites, we utilize [lando](https://docs.lando.dev/) for local development, and to help keep sites in sync between local/remote/etc. Utilize the following workflow, assuming you have been assigned to the idfive team on pantheon.
 
-One issue with pantheon is that we dont get a true composer based workflow out of the box.
+One issue with pantheon is that we don't get a true composer based workflow out of the box.
 
 - Standard, non composer: This is a bit of a misnomer, as you can use composer to install modules and libraries, but they may be lost upon core updates/etc. Client receives core upstream updates from pantheon.
 - Composer based: This is a little more tricky as there is currently not a "one click" solution for this, however, we have created some helper scripts below. Client does not receive core upstream updates from pantheon, it has to update via composer manually.
@@ -86,7 +87,7 @@ At this point, you have a local version of the blank site that is up on pantheon
 
 #### Standard, via the IAL
 
-Install the [idfive Automation Library](https://bitbucket.org/idfivellc/idfive-automation-library) and run the [Create new site on pantheon, and spin up locally](https://bitbucket.org/idfivellc/idfive-automation-library/src/master/drupal/pantheon/create_new_pantheon_site.sh) script. Adds all above lando/terminus commands into one file, that asks for machine name, theme name and human name, then runs all above scripts as well as installs common modules, and creates a client subtheme.
+Install the [idfive Automation Library](https://bitbucket.org/idfivellc/idfive-automation-library) and run the [Create new site on pantheon, and spin up locally](https://bitbucket.org/idfivellc/idfive-automation-library/src/master/drupal/pantheon/create_new_pantheon_site.sh) script. Adds all above lando/terminus commands into one file, that asks for machine name, theme name and human name, then runs all above scripts as well as installs common modules, and creates a client sub-theme.
 
 - `sh ~/Sites/_ial/drupal/pantheon/create_new_pantheon_site.sh`
 
@@ -96,7 +97,7 @@ Follow the steps outlined for [composer based, non CI](https://pantheon.io/docs/
 
 ### Acquia
 
-For acquia based sites, we utilize [Acquia Dev Desktop](https://www.acquia.com/drupal/acquia-dev-desktop) for local development, and to help keep sites in sync between local/remote/etc. Since acquia based sites are normally created, and controlled by our clients, it is best to look at project specific documentation for any acquia based site. For acquia in particular, "spinning up a new site" often means adding a site to a multisite setup.
+For acquia based sites, we utilize [Acquia Dev Desktop](https://www.acquia.com/drupal/acquia-dev-desktop) for local development, and to help keep sites in sync between local/remote/etc. Since acquia based sites are normally created, and controlled by our clients, it is best to look at project specific documentation for any acquia based site. For acquia in particular, "spinning up a new site" often means adding a site to a multi-site setup.
 
 ### idfive DEV server
 
