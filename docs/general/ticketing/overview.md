@@ -65,7 +65,10 @@ I.e., someone unfamiliar with the project can ascertain the issue you are having
 
 ### Have I documented
 
-- The fix I enacted, in broad strokes, so another developer: Understands what is going on? Can modify it later, pick up the ticket, etc.? The full breadth of the issue and fix, in case it comes up again?
+- The fix I enacted, in broad strokes, so another developer:
+  - Understands what is going on?
+  - Can modify it later, pick up the ticket, etc.?
+  - The full breadth of the issue and fix, in case it comes up again?
 - Next steps to get this to production?
 
 ## Before a ticket is closed
