@@ -2,6 +2,7 @@
 
   * [Setup and Access](general/onboarding/local_setup.md)
   * [git](general/git/standards.md)
+  * [Ticketing](general/ticketing/overview.md)
   * [Testing](general/testing/overview.md)
 
 * Front-end
