@@ -1,5 +1,10 @@
 # Support Ticketing
 
+## Platform specific steps
+
+- [Acquia RA](general/ticketing/acquia_ra.md)
+- [Trello](general/ticketing/trello.md)
+
 ## Ticketing tips
 
 ### Good tickets are
