@@ -2,7 +2,7 @@
 
 ## Local Setup
 
-In general, we reccomend getting the following installed and running on your machine, to facilitate workflows we tend to use:
+In general, we recommend getting the following installed and running on your machine, to facilitate workflows we tend to use:
 
 - [Visual Studio](https://code.visualstudio.com/) -- Required
 - [Sequel Pro](https://www.sequelpro.com/)
@@ -19,7 +19,17 @@ In general, we reccomend getting the following installed and running on your mac
 - [NVM](https://github.com/nvm-sh/nvm/blob/master/README.md)
 - [xcode and xcode CLT](https://developer.apple.com/download/more/?=command%20line%20tools)
 
-## Access
+### Visual Studio Extensions
+
+The following are recommended and required VS Code extensions.
+
+- Code Spell Checker -- Required
+- Debugger for Chrome
+- Live Share
+- markdownlint
+- For drupal developers, please follow the [following drupal.org article](https://www.drupal.org/docs/develop/development-tools/configuring-visual-studio-code) to set up VS Code for better drupal development locally.
+
+## Access to repositories/accounts/etc
 
 You will also potentially need access to the following:
 
