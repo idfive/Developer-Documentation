@@ -269,81 +269,14 @@ if (isset($_ENV['AH_SITE_ENVIRONMENT'])) {
   switch ($_ENV['AH_SITE_ENVIRONMENT']) {
     case 'prod':
       if (!function_exists('drush_main')) {
-        if ($_SERVER['HTTP_HOST'] != 'music.howard.edu') {
+        if ($_SERVER['HTTP_HOST'] != 'MYSITE.com') {
           header('HTTP/1.0 301 Moved Permanently');
-          header('Location: https://' . 'music.howard.edu' . $_SERVER['REQUEST_URI']);
+          header('Location: https://' . 'MYSITE.com' . $_SERVER['REQUEST_URI']);
           exit();
         }
       }
       break;
   }
-}
-```
-
-#### Configuration Management
-
-It is important before beginning a full site build project to identify how/where site config will be managed. It is not always necessary to set up configuration sync folders, just be sure to think of the following if you do.
-
-- The location folder sometimes depends on the host, and following their best practices.
-- Configuration Manager module may be enabled, or it could all happen via drush.
-- Be sure all developers on the project know the plan, regardless of which route is chosen.
-
-##### Config management and acquia
-
-Acquia reccomends that the config folder be moved to be a sibling of docroot. Acquia config folder changes need to be loaded AFTER default settings in settings.php for acquia sites, for example:
-
-```php
-// Acquias default settings for a site
-if (file_exists('/var/www/site-php')) {
-  require '/var/www/site-php/hud8/MYSITE-settings.inc';
-}
-
-// Keep config/sync settings after acquia loads defaults.
-// Otherwise it ignores them and uses loaded defaults.
-$config_directories['vcs'] = $app_root . '/../config/MYSITE';
-$config_directories['sync'] = $app_root . '/../config/MYSITE';
-```
-
-##### Config management and modules
-
-If a more module based workflow is being employed, any config related to that module should be stored in the module itself.
-This is so that when users enable the module, all config that is relevant (fields/etc) are added.
-
-```
-MY_MODULE
-  config
-    install
-      ALL CONFIG YML FILES FOR MODULE HERE
-  MY_MODULE.module
-  MY_MODULE.info.yml
-```
-
-###### Config export for the module
-
-Normally, it is easiest to:
-
-- Export a full site export.
-- Move all needed config YML's for the module from that export to the relevant modules config/install folder.
-- Remove the UUID from each YML file in that folder.
-- Test on a new install.
-
-###### Config updates in modules
-
-To update a module that is used on multiple sites, you must:
-
-- Update all config YML files.This is so that any "new" install of the module gets the correct config.
-- Utilize hook_update in order to modify config on "existing" sites.
-- Be sure to add any dependencies in the modules MY_MODULE.info.yml, that the config needs, ie a field type created by a contrib module.
-
-An example hook_update to simply "reinstall all config for a GIVEN module".
-This assumes all YML files have been added/updated. You can also programmatically add fields/etc, this is simply a quick way to update all config for a module.
-
-```php
-/**
- * DESCRIPTIVE UPDATE TEXT HERE.
- */
-function MY_MODULE_update_8001() {
-  \Drupal::service('config.installer')->installDefaultConfig('module', 'MY_MODULE');
 }
 ```
 

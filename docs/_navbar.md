@@ -21,6 +21,7 @@
 
   * [Drupal General Codebase](back-end/drupal/drupal.md)
   * [Drupal Site Building](back-end/drupal/drupal-sitebuilding.md)
+  * [Drupal Config Management](back-end/drupal/drupal-config-management.md)
   * [Drupal Helpful Commands](back-end/drupal/drupal-helpfull-commands.md)
   * [Drupal Testing](back-end/drupal/drupal-testing.md)
   * [Drupal Legacy](back-end/drupal/drupal-legacy.md)
