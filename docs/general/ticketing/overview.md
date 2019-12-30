@@ -55,6 +55,7 @@ I.e., someone unfamiliar with the project can ascertain the issue you are having
 - Widgets, Layout Updates
 - Larger implications on the site environment APIs, Styles and Themes
 - Alterations to legacy sites
+- Discussions on scope and budget. Not "can we do this" but "should we do this"
 
 ## Before a ticket is considered ready for QC
 
