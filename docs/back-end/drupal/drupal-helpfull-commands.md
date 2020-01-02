@@ -1,5 +1,41 @@
 # Helpful Drupal Commands
 
+## Templating
+
+### Reveal all variables in a twig template
+
+#### Dump
+
+- Be sure local development settings are set up, so twig will use dump
+- `{{ dump(_context|keys) }}`
+- `{{ dump(variable_key_name) }}`
+
+#### Devel
+
+##### In twig template
+
+- Be sure [devel module](https://www.drupal.org/project/devel) is installed and enabled.
+- Be sure kint submodule enabled.
+- `{{ kint(_context|keys) }}`
+- `{{ kint(variable_key_name) }}`
+
+##### In a hook_preprocess
+
+- Be sure [devel module](https://www.drupal.org/project/devel) is installed and enabled.
+- `dsm(MY_VAR);` from within the function.
+
+#### Xdebug
+
+If running xdebug, you can use a preprocess function to set a breakpoint:
+
+```php
+function MY_THEME_preprocess(&$variables, $hook) {
+  if ($hook == 'node') {
+    xdebug_break();
+  }
+}
+```
+
 ## Patching
 
 ### Apply a patch

@@ -81,7 +81,9 @@ When possible, always add a development services.yml to the codebase. This will 
 
 ## idfive base theme
 
-The idfive base theme is intentionally pretty bare bones, but provides us with lots of behind the scenes functions we need. This theme is designed to act as a parent theme, and should never be enabled directly. See the [documentation](https://bitbucket.org/idfivellc/idfive-component-library-d8-theme) for how to best use this theme, and how to quickly and efficiently spin up a child theme for this project.
+The idfive base theme is intentionally pretty bare bones, but provides us with lots of behind the scenes functions we need. This theme is designed to act as a parent theme, and should never be enabled directly. See the [documentation](https://bitbucket.org/idfivellc/idfive-component-library-d8-theme) for how to best use this theme, and how to quickly and efficiently spin up a child theme for any client project.
+
+It uses the core stable theme as a base (drupal assigns this automatically to all themes that do not specify a base). This is to ensure some level of backwards template compatibility throughout the drupal 7/8 life cycle.
 
 The docroot and actual folders may vary, depending on your codebase, but in general, adding the idfive base theme, and creating your custom child theme will look like:
 
@@ -199,11 +201,78 @@ function MY_MODULE_help($route_name, RouteMatchInterface $route_match) {
 }
 ```
 
+#### Libraries
+
+Most times, any custom css/js should be attached globally. There are a few instances where this may not be desireable, for instance if there were extremely large css/js files that only ran one specific function on specific pages, like a homepage.
+
+##### Global, via a .info.yml
+
+```yml
+name: MY_THEME
+type: theme
+description: An amazingly awesome theme I just built.
+core: 8.x
+libraries:
+  - MY_THEME/something-homepage-specific
+```
+
+##### Via a hook_preprocess
+
+Choose this if you want to add to pages of multiple, types, maybe based on a URL path or the like.
+
+```php
+function MY_THEME_preprocess_page(&$variables) {
+  // Example of a check here, for front page, but could be anything.
+  if ($variables['is_front'] == TRUE) {
+    $variables['#attached']['library'][] = 'MY_THEME/something-homepage-specific';
+  }
+}
+```
+
+##### In twig template
+
+Use this if the library in question is only needed on this particular template, and no others. Specifically helpful for things like custom paragraphs.
+
+```twig
+{# only attach our retro library if this is node 1 #}
+{% if node.id == 1 %}
+  {{ attach_library('MY_THEME/something-homepage-specific') }}
+{% endif %}
+```
+
+#### Javascript variables from the server
+
+Pass a dynamic value from the server (PHP) to client-side JavaScript using the drupalSettings library. Sometimes this is needed in order for some custom JS to run, but in general, shy away if possible.
+
+```php
+function MY_THEME_page_attachments_alter(array &$page) {
+  // We're going to pass along the user's display name to our front-end code.
+  $account = \Drupal::currentUser();
+  if ($account->isAuthenticated()) {
+    $page['#attached']['library'][] = 'MY_THEME/my-custom-js';
+    // We pass along our dynamic value.
+    // This will then be available in our JavaScript as drupalSettings.friendly.name.
+    $page['#attached']['drupalSettings']['MY_THEME']['name'] = $account->getDisplayName();
+  }
+}
+```
+
+In this case `drupalSettings.MY_THEME.name` will now be available to the JavaScript file in our asset library.
+
+```js
+(function (Drupal) {
+  if (drupalSettings.MY_THEME.name) {
+    var siteName = document.getElementsByClassName('site-branding__name')[0];
+    siteName.getElementsByTagName('a')[0].innerHTML = '<h1>Howdy, ' + drupalSettings.MY_THEME.name + '!</h1>';
+  }
+})(Drupal);
+```
+
 #### Images
 
 ##### Media Module
 
-Core media module shopuld be used for all D8 projects, unless there is a good reason not to.
+Core media module should be used for all D8 projects, unless there is a good reason not to.
 
 - The [idfive Component Library D8 Paragraphs](https://bitbucket.org/idfivellc/idfive-component-library-d8-paragraphs) module ships with several entity browsers. These should be used as the form display choice for media fields, as it narrows down by type, as well as adds an upload option.
 
@@ -252,6 +321,30 @@ theme_name.imagesize.desktop:
 #### View Modes
 
 TBD
+
+#### Regions and blocks
+
+In general, we prefer not to use blocks excessively in drupal sites. The blocks we generally use, are limited mainly to:
+
+- Menu Blocks
+- Breadcrumbs
+- Main Content
+- Messages
+- Admin tabs (though the admin menu edit tab mods in the idfive theme mainly eliminate this need)
+
+We find that setting custom content (views/lists/related articles/etc) is better accomplished at the entity_preprocess level, and added to the templates, per entity type, where needed, rather than relying on lots of blocks.
+
+With that in mind, since regions are mainly to hold blocks, regions within the theme are usually created in regards to where breadcrumbs, or menus need to be. As an example, the following regions are set in the [idfive base theme](https://bitbucket.org/idfivellc/idfive-component-library-d8-theme), and are a good example:
+
+- primary_menu: 'Primary menu'
+- secondary_menu: 'Secondary menu'
+- utility_menu: 'Utility menu'
+- breadcrumbs: 'Breadcrumbs'
+- page_sidebar: 'Page Sidebar'
+- content: 'Content'
+- footer_menu: 'Footer menu'
+
+It is also worth noting, that the [idfive base theme](https://bitbucket.org/idfivellc/idfive-component-library-d8-theme) includes preprocess functions to make these regions available to the node template as well, so things like the sidebar, can be added in the node template, rather than page template, to simplify design ingestion.
 
 #### Redirects
 
