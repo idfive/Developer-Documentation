@@ -222,7 +222,7 @@ function MY_MODULE_field_widget_paragraphs_form_alter(&$element, &$form_state, $
     $markup .= '<li><strong>Use an overly long quote.</strong> Often block quotes use font sizes/weights that can be overwhelming if used for copy that is very long.</li>';
     $markup .= '<li><strong>Place a blockquote as the last element on the page.</strong></li>';
     $markup .= '</ul>';
-    $markup .= '<p><a target="_blank" href="/admin/help/ip_blockquote">Blockquote Module Help</a></p>';
+    $markup .= '<p><a target="_blank" href="/admin/help/MY_MODULE">My Module Help</a></p>';
     $element['MY_PARAGRAPH_tips'] = [
       '#type' => 'details',
       '#title' => t('MY_PARAGRAPH Content Tips'),
