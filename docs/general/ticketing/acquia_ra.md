@@ -1,6 +1,6 @@
 # Acquia RA Ticketing
 
-In general, some clients on acquia require assistance with acquias automated ticketing process. The RA ticketing on acquia only targets security updates, and will only be run automatically for contrib modules/core at current major version of that installed. If you need to update "non security policy" versions, or if you need to go up major versions, manual update is required.
+In general, some clients on acquia require assistance with acquia's automated ticketing process. The RA ticketing on acquia only targets security updates, and will only be run automatically for contrib modules/core at current major version of that installed. If you need to update "non security policy" versions, or if you need to go up major versions, manual update is required.
 
 ## If client support ticketing controlled via Trello
 

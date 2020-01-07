@@ -234,7 +234,7 @@ function MY_THEME_preprocess_page(&$variables) {
 Use this if the library in question is only needed on this particular template, and no others. Specifically helpful for things like custom paragraphs.
 
 ```twig
-{# only attach our retro library if this is node 1 #}
+{# only attach our library if this is node 1 #}
 {% if node.id == 1 %}
   {{ attach_library('MY_THEME/something-homepage-specific') }}
 {% endif %}
@@ -280,6 +280,10 @@ Core media module should be used for all D8 projects, unless there is a good rea
 
 Use [ImageAPI Optimize](https://www.drupal.org/project/imageapi_optimize) ([re.Smush.it](https://www.drupal.org/project/imageapi_optimize_resmushit), [TinyPNG](https://www.drupal.org/project/imageapi_optimize_tinypng) or other services) to optimize images as they are uploaded and used in image styles. It is important that these be set up/enabled early so that all images uploaded can benefit from optimization throughout the build process.
 
+##### Image Styles
+
+Image styles should be utilized for all images being output in a template. This allows us to set parameters for size/etc, as well as ImageApi Optimize.
+
 ##### Responsive Images
 
 The core responsive images module helps us to define different image styles for different breakpoints. This does require custom config setup of breakpoints. See [Working with Breakpoints](https://www.drupal.org/docs/8/theming-drupal-8/working-with-breakpoints-in-drupal-8). This requires a bit of setup so should be defined/used for the larger hero images/etc, but may not make sense for "All Images".
@@ -320,7 +324,32 @@ theme_name.imagesize.desktop:
 
 #### View Modes
 
-TBD
+How an entity (such as content, a user , etc) is displayed, depends on the context in which it is shown. This context is known as a view mode. Examples of view modes for one content type (article) is:
+
+- Full article
+- Teaser article view
+- Card article view
+
+The main idea being, in combined views of content, you can now say "show me 3 articles that match XYZ, and display as cards". Now, when using  things like views, we don't need to customize the output, we simply tell it which view mode to display.
+
+##### Adding view modes
+
+- View modes can be added `/admin/structure/display-modes/view`. Ideally, the names should span content types, so that something like a "card view" can be used for articles, events, etc.
+- On `/admin/structure/types/manage/MY_ENTITY/display`, under "custom display settings", choose the desired view modes.
+- Configure the display of each view mode, for each desired entity.
+
+##### View mode templates
+
+Each view mode can get its own template within the theme. Generally, we prefer to group them by entity and bundle, so that all view modes for a particular entity/bundle are in the same folder within the theme. The naming convention is `ENTITY--BUNDLE--VIEW-MODE.html.twig`.
+
+```
+templates
+  node
+    NODE-TYPE
+      node--NODE-TYPE--card.html.twig
+      node--NODE-TYPE--teaser.html.twig
+      node--NODE-TYPE.html.twig
+```
 
 #### Regions and blocks
 

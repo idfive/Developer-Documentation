@@ -1,6 +1,7 @@
 * General
 
   * [Setup and Access](general/onboarding/local_setup.md)
+  * [Resources](general/onboarding/resources.md)
   * [git](general/git/standards.md)
   * [Ticketing](general/ticketing/overview.md)
   * [Testing](general/testing/overview.md)
@@ -25,6 +26,7 @@
   * [Drupal Helpful Commands](back-end/drupal/drupal-helpfull-commands.md)
   * [Drupal Testing](back-end/drupal/drupal-testing.md)
   * [Drupal Legacy](back-end/drupal/drupal-legacy.md)
+  * [Drupal Performance](back-end/drupal/drupal-performance.md)
 
 * WordPress
 
