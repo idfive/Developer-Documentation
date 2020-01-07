@@ -158,7 +158,7 @@ Install the [idfive Automation Library](https://bitbucket.org/idfivellc/idfive-a
 Help text is normally aimed at admins and site builders, and is necessary to provide a great admin experience. It is easy to overlook this, but it is the key to providing a great admin experience, and sometimes even for developers to more readily understand what is going on when revisiting older projects.
 
 - All custom modules should, at a minimum utilize a `hook_help()` to show the modules (properly formatted) README.md.
-- Consider adding help text/etc to entity add/edit forms to explain how things work.
+- Consider adding help text/etc to entity add/edit forms to explain how things work, and best practices.
 - Consider adding markup fields to entities (like a homepage) to explain how things "not controlled within the form" work, like feeds from views and external API's. For example: "The blogs feed displays the 3 most recent blog posts tagged with X".
 - [drupal help text standards](https://www.drupal.org/docs/develop/documenting-your-project/help-text-standards)
 
@@ -198,6 +198,38 @@ function MY_MODULE_help($route_name, RouteMatchInterface $route_match) {
       }
   }
   return NULL;
+}
+```
+
+##### Hook_field_WIDGET_TYPE_paragraphs_form_alter
+
+Provides customized help text for a custom paragraphs module, so that you may point clients in the right direction and provide tips, best practices, and context. To note the following only works with the new paragraphs display, if using legacy, you will need to change to the appropriate widget type in the following hook.
+
+```php
+/**
+ * Implements hook_field_WIDGET_TYPE_paragraphs_form_alter().
+ *
+ * Adds "Content Tips from idfive" helper text to the paragraph.
+ */
+function MY_MODULE_field_widget_paragraphs_form_alter(&$element, &$form_state, $context) {
+  if ($element['#paragraph_type'] == 'MY_PARAGRAPH') {
+    // Tips text from idfive.
+    $markup = '<h3>Do:</h3><ul>';
+    $markup .= '<li><strong>Use blockquotes to break up long copy.</strong> A brief quote can provide visual interest and offset larger text blocks.</li>';
+    $markup .= '<li><strong>Use plain text.</strong> Avoid including links or other styled elements.</li>';
+    $markup .= '</ul>';
+    $markup .= '<h3>Dont:</h3><ul>';
+    $markup .= '<li><strong>Use an overly long quote.</strong> Often block quotes use font sizes/weights that can be overwhelming if used for copy that is very long.</li>';
+    $markup .= '<li><strong>Place a blockquote as the last element on the page.</strong></li>';
+    $markup .= '</ul>';
+    $markup .= '<p><a target="_blank" href="/admin/help/ip_blockquote">Blockquote Module Help</a></p>';
+    $element['ip_blockquote_tips'] = [
+      '#type' => 'details',
+      '#title' => t('Blockquote Content Tips'),
+      '#weight' => -1000,
+    ];
+    $element['ip_blockquote_tips']['#markup'] = $markup;
+  }
 }
 ```
 
