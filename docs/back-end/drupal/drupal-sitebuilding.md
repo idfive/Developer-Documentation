@@ -209,7 +209,7 @@ Provides customized help text for a custom paragraphs module, so that you may po
 /**
  * Implements hook_field_WIDGET_TYPE_paragraphs_form_alter().
  *
- * Adds "Content Tips from idfive" helper text to the paragraph.
+ * Adds helper text to the paragraph.
  */
 function MY_MODULE_field_widget_paragraphs_form_alter(&$element, &$form_state, $context) {
   if ($element['#paragraph_type'] == 'MY_PARAGRAPH') {
@@ -223,12 +223,12 @@ function MY_MODULE_field_widget_paragraphs_form_alter(&$element, &$form_state, $
     $markup .= '<li><strong>Place a blockquote as the last element on the page.</strong></li>';
     $markup .= '</ul>';
     $markup .= '<p><a target="_blank" href="/admin/help/ip_blockquote">Blockquote Module Help</a></p>';
-    $element['ip_blockquote_tips'] = [
+    $element['MY_PARAGRAPH_tips'] = [
       '#type' => 'details',
-      '#title' => t('Blockquote Content Tips'),
+      '#title' => t('MY_PARAGRAPH Content Tips'),
       '#weight' => -1000,
     ];
-    $element['ip_blockquote_tips']['#markup'] = $markup;
+    $element['MY_PARAGRAPH_tips']['#markup'] = $markup;
   }
 }
 ```
