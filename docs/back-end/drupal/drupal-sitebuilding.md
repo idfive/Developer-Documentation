@@ -312,6 +312,10 @@ Core media module should be used for all D8 projects, unless there is a good rea
 
 Use [ImageAPI Optimize](https://www.drupal.org/project/imageapi_optimize) ([re.Smush.it](https://www.drupal.org/project/imageapi_optimize_resmushit), [TinyPNG](https://www.drupal.org/project/imageapi_optimize_tinypng) or other services) to optimize images as they are uploaded and used in image styles. It is important that these be set up/enabled early so that all images uploaded can benefit from optimization throughout the build process.
 
+##### Lazy Loading
+
+If the build uses the ICL, consider enabling the [idfive Lazyload](https://bitbucket.org/idfivellc/idfive-component-library-d8-paragraphs/src/8.x-2.x/modules/idfive_lazyload/) module. Note: The lazyload JS must be in the theme for this to wok.
+
 ##### Image Styles
 
 Image styles should be utilized for all images being output in a template. This allows us to set parameters for size/etc, as well as ImageApi Optimize.

@@ -24,6 +24,7 @@
   * [Drupal Site Building](back-end/drupal/drupal-sitebuilding.md)
   * [Drupal Config Management](back-end/drupal/drupal-config-management.md)
   * [Drupal Helpful Commands](back-end/drupal/drupal-helpfull-commands.md)
+  * [Drupal Field Snippets](back-end/drupal/drupal-field-snippets.md)
   * [Drupal Testing](back-end/drupal/drupal-testing.md)
   * [Drupal Legacy](back-end/drupal/drupal-legacy.md)
   * [Drupal Performance](back-end/drupal/drupal-performance.md)
