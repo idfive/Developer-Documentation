@@ -153,6 +153,13 @@ Install the [idfive Automation Library](https://bitbucket.org/idfivellc/idfive-a
 
 ### Theme/Module best practices
 
+#### Admin UX
+
+When adding/arranging fields on entities and forms, give careful consideration to how things are ordered/labeled/layed out. It is extremely important that the admin UX be as clean, and straightforward as possible for admins to use the site effectively.
+
+- Consider using field groups in display to group fields into collapsed details/fieldsets.
+- Consider setting up tabs for large, complex entities, with the tabs corresponding to naming seen on frontend sections.
+
 #### Help Text
 
 Help text is normally aimed at admins and site builders, and is necessary to provide a great admin experience. It is easy to overlook this, but it is the key to providing a great admin experience, and sometimes even for developers to more readily understand what is going on when revisiting older projects.
