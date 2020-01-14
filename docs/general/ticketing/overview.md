@@ -13,7 +13,7 @@
 - Limited in scope to the issue at hand
 - Informational
 
-I.e., someone unfamiliar with the project can ascertain the issue you are having, or the feature you desire.
+I.e., someone unfamiliar with the project can ascertain the issue you are having, or the feature you desire. "I am attempting to do X on page (link), I have tried to do Y, but am seeing Z (screenshot) instead of the desired result."
 
 ### Good tickets contain
 
