@@ -12,7 +12,7 @@ It is important to remember that some tests (behavioral mainly) require fully fu
 
 ## Testing levels for idfive drupal projects
 
-- **Level 1**: Unit Testing for custom PHP functions. Write unit tests for any custom PHP functions created in themes/modules.
+- **Level 1**: Unit Testing for custom PHP functions. Write unit tests for any custom PHP functions created in themes/modules. This will require that all custom functionality be implemented in classes.
 - **Level 2**: Level 1, plus: Behavioral tests written for major site interactions, including logging in/out, and loading homepage along with one of each custom content type and check to see that no major pages fail to load.
 - **Level 3**: Level 1 and 2, plus: Checking any needed major API endpoints/etc, to ensure applications that rely on this CMS's API do not fail.
 
@@ -45,9 +45,9 @@ MY_MODULE
   tests
     src
       Unit
-        MyTestCase.php
+        MyClassTest.php
       Functional
-        MyOtherTestCase.php
+        MyClassTest.php
   MY_MODULE.module
   MY_MODULE.info.yml
   ```
@@ -55,6 +55,8 @@ MY_MODULE
 #### Keep in mind
 
 - In order for PHPUnit to run a test class there must be a method that starts with the word "test". So "testTheSiteStillWorks()" works, but "doesTheSiteStillWork()" does not.
+- All functionality should be class based.
+- Naming conventions matter, a lot. The file to test "MyClass.php" should be "MyClassTest.php", and comments/etc inside need to match.
 
 ### Unit
 
@@ -94,7 +96,7 @@ use Drupal\MY_MODULE\MyClass;
  *
  * @group MY_MODULE
  */
-class MyTestCase extends UnitTestCase {
+class MyClassTest extends UnitTestCase {
   protected $myclass;
   /**
    * Before a test method is run, setUp() is invoked.
@@ -189,7 +191,7 @@ Be sure PHPUnit is installed via composer, it is in the core composer.json as a 
 
 #### Set up a custom PHPUnit.xml
 
-You can also set up custom test suites, as well as gain the ability to run from the module rood by adding a php-unit.xml to the module root, by copying the php-unit.xml you set up above, and adding the following:
+You can also set up custom test suites, as well as gain the ability to run from the module rood by adding a phpunit.xml to the module root, by copying the phpunit.xml you set up above, and adding the following:
 
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>
