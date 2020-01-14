@@ -137,18 +137,16 @@ All iframes should have a `title` attribute that describes the content.
 
 ## Links
 
-### Reasons not to open links in a new tab
+### Reasons NOT TO open links in a new tab
 
 - It can be disorienting for people, especially for novice web users or people who have difficulty perceiving visual content.
-- They might not realise that a new tab or window has opened and might experience difficulty switching between windows.
 - It breaks the navigational flow for visitors who visit the website using assistive technologies.
 - Opening a new tab on mobile phone can be even more disorienting, as it's especially difficult for the user to go back to the website they were originally browsing.
 - Taking away any control from the visitor can have a negative impact on the user experience.
-- We like to let the visitors decide whether or not they want to open a link in a new tab.
 - Besides the impact on accessibility, there is also a possible security issue to keep in mind. Using the attribute target="_blank" you are leaving your visitors open to possible phishing attacks. The other page can access the window object with the window.opener property. This exposes an attack surface because the other page can potentially redirect your page to a malicious URL.
 - If nothing else, remember this principle is also documented as a guideline in the [WCAG (Web Content Accessibility Guidelines)](https://www.w3.org/TR/WCAG20-TECHS/G200.html).
 
-### Exceptions
+### Reasons TO open links in a new tab
 
 Notable exceptions defined by [WCAG (Web Content Accessibility Guidelines)](https://www.w3.org/TR/WCAG20-TECHS/G200.html):
 
