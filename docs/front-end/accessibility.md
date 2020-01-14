@@ -65,15 +65,19 @@ Section elements must have an appropriate `aria-label` attribute, or reference a
 ```
 
 ## Keyboard navigation
+
 Keyboard navigation is typically used by non-sighted users and users with motor disabilities.
 
 ### Keyboard focus indicator
+
 A sighted keyboard user must be provided with a visual indicator of the element that currently has keyboard focus. A basic focus indicator is provided automatically by the web browser and is typically shown as a border (called an outline) around the focused element. It is possible to style the indicator, but you should never apply `outline:0` or `outline:none`.
 
 ### Focus functionality for hover
+
 In situations where content is revealed on hover, the same content should also be made visible when focusing.
 
 ### Tabbing index
+
 By default, the tabbing index of an element is controlled by the order in which the element appears in the document flow. However, it is possible to manually specificy an elements tabbing index using the `tabindex` attribute.
 
 _Note_: Elements with defined `tabindex` values receive focus first, in the order of their values. After navigating past all elements with a defined `tabindex` with a value of 1 or greater, the user will navigate to all other focusable elements, skipping over elements that have already received focus.
@@ -122,6 +126,7 @@ _Note_: Because "Articles" and "Resources" have defined `tabindex` values, they 
 [Read more about tabindex](https://webaim.org/techniques/keyboard/tabindex)
 
 ## iFrames
+
 All iframes should have a `title` attribute that describes the content.
 
 **Example 1:** iframe title attribute
@@ -129,3 +134,25 @@ All iframes should have a `title` attribute that describes the content.
 ```html
 <iframe title="Video: How to create accessible websites" src="https://linktocontent.com/videoid">
 ```
+
+## Links
+
+### Reasons not to open links in a new tab
+
+- It can be disorienting for people, especially for novice web users or people who have difficulty perceiving visual content.
+- They might not realise that a new tab or window has opened and might experience difficulty switching between windows.
+- It breaks the navigational flow for visitors who visit the website using assistive technologies.
+- Opening a new tab on mobile phone can be even more disorienting, as it's especially difficult for the user to go back to the website they were originally browsing.
+- Taking away any control from the visitor can have a negative impact on the user experience.
+- We like to let the visitors decide whether or not they want to open a link in a new tab.
+- Besides the impact on accessibility, there is also a possible security issue to keep in mind. Using the attribute target="_blank" you are leaving your visitors open to possible phishing attacks. The other page can access the window object with the window.opener property. This exposes an attack surface because the other page can potentially redirect your page to a malicious URL.
+- If nothing else, remember this principle is also documented as a guideline in the [WCAG (Web Content Accessibility Guidelines)](https://www.w3.org/TR/WCAG20-TECHS/G200.html).
+
+### Exceptions
+
+Notable exceptions defined by [WCAG (Web Content Accessibility Guidelines)](https://www.w3.org/TR/WCAG20-TECHS/G200.html):
+
+- Opening a page containing context-sensitive information, such as help instructions, or an alternate means of completing a form, such as a calendar-based date picker, will significantly disrupt a multi-step workflow, such as filling in and submitting a form, if the page is opened in the same window or tab.
+- The user is logged into a secured area of a site, and following a link to a page outside of the secured area would terminate the user's logon. In this case opening external links in an external window allows the user to access such references while keeping their login active in the original window.
+
+It is recommended that when links are opened in a new window, there is advance warning.
