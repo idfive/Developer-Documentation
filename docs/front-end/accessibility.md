@@ -137,6 +137,12 @@ All iframes should have a `title` attribute that describes the content.
 
 ## Links
 
+### All links should
+
+- Use meaningful link text.
+- Avoid the use of text like "click here", per the [w3](https://www.w3.org/QA/Tips/noClickHere).
+- Avoid target _blank whenever possible. See below.
+
 ### Reasons NOT TO open links in a new tab
 
 - It can be disorienting for people, especially for novice web users or people who have difficulty perceiving visual content.
