@@ -373,7 +373,7 @@ Default metatags (from the metatags module) are usually fine. One caveat is the 
 - Consider overriding that, or adding to, for content like news and events.
 - Since we use media module, utilize a token within the og:image metatag, like: `[node:MEDIA_FIELD_ON_NODE:entity:field_media_image:DESIRED_IMAGE_STYLE:url]`
 - Multiple images may be added in this field, and the particular service (twitter/facebook/etc) will choose the one it wants, usually the largest. For this reason, be sure the chosen image style of the media field is physically larger than the site default share image.
-- A complete example for the og:image metatag field, could look like: `/themes/custom/umd_innovation/social/UMD_Innovation_Social_Share_FB.jpg, [node:field_featured_image:entity:field_media_image:large:url]`.
+- A complete example for the og:image metatag field, could look like: `/themes/custom/MY_AWESOME_THEME/social/MY_AWESOME_SOCIAL_SHARE_DEFAULT.jpg, [node:field_featured_image:entity:field_media_image:large:url]`.
 
 #### View Modes
 
