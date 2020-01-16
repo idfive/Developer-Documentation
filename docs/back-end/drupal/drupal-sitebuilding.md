@@ -365,6 +365,16 @@ theme_name.imagesize.desktop:
   group: THEME NAME Image Sizes
 ```
 
+#### Metatags
+
+Default metatags (from the metatags module) are usually fine. One caveat is the og:image tag.
+
+- Consider adding a default social share image for the entire site.
+- Consider overriding that, or adding to, for content like news and events.
+- Since we use media module, utilize a token within the og:image metatag, like: `[node:MEDIA_FIELD_ON_NODE:entity:field_media_image:DESIRED_IMAGE_STYLE:url]`
+- Multiple images may be added in this field, and the particular service (twitter/facebook/etc) will choose the one it wants, usually the largest. For this reason, be sure the chosen image style of the media field is physically larger than the site default share image.
+- A complete example for the og:image metatag field, could look like: `/themes/custom/umd_innovation/social/UMD_Innovation_Social_Share_FB.jpg, [node:field_featured_image:entity:field_media_image:large:url]`.
+
 #### View Modes
 
 How an entity (such as content, a user , etc) is displayed, depends on the context in which it is shown. This context is known as a view mode. Examples of view modes for one content type (article) is:
