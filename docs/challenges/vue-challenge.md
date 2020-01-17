@@ -31,4 +31,4 @@ __Results should include:__
 * Link to Source (if available) Character-Limited Description Image (if available)
 * Link to Article Human-Readable Publish Date
 
-[Sample Wireframes for Displays](/challenges/wireframes.pdf)
+[Sample Wireframes for Displays](https://developers.idfive.com/challenges/wireframes.pdf)
