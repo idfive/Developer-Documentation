@@ -29,6 +29,7 @@
   * [Drupal Testing](back-end/drupal/drupal-testing.md)
   * [Drupal Legacy](back-end/drupal/drupal-legacy.md)
   * [Drupal Performance](back-end/drupal/drupal-performance.md)
+  * [Drupal Services](back-end/drupal/drupal-services.md)
 
 * WordPress
 
