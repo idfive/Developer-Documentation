@@ -10,7 +10,8 @@ The services.yml file names and defines the service. The file should be named mo
 
 For example:
 
-```services:
+```star_wars_api_test.services.yml
+services:
   star_wars_api_test.client:
     class: Drupal\star_wars_api_test\StarWarsClientService
     arguments: ['@http_client']
@@ -22,7 +23,8 @@ creates a service names 'star_wars_api_test.client.' The arguments here injects 
 
 The PHP file containing the code for the service resides in the src directory in the main module directory. In the __construct method of the service, the injected service becomes a property of the class:
 
-```class StarWarsClientService
+```Service class
+class StarWarsClientService
 {
 protected $client;
 
@@ -34,7 +36,8 @@ public function __construct(Client $client)
 
 Then methods can be written to retrieve json data from a REST API:
 
-```public function getMovies($num)
+```functions
+public function getMovies($num)
 {
     $random_movies = [];
     $url = 'https://swapi.co/api/films/';
@@ -52,6 +55,7 @@ Then methods can be written to retrieve json data from a REST API:
 
 Once the service is defined and the code in place, instantiating the registered service passing the static core Drupal service method and calling the included methods:
 
-```$client = \Drupal::service('star_wars_api_test.client');
+```Get service
+$client = \Drupal::service('star_wars_api_test.client');
 $movies = $client->getMovies(3);
 ```
