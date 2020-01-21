@@ -10,10 +10,11 @@ The services.yml file names and defines the service. The file should be named mo
 
 For example:
 
-`services:
+```services:
   star_wars_api_test.client:
     class: Drupal\star_wars_api_test\StarWarsClientService
-    arguments: ['@http_client']`
+    arguments: ['@http_client']
+```
 
 creates a service names 'star_wars_api_test.client.' The arguments here injects the core Drupal http_client service into this new custom service. Just like any array, multiple arguments can be passed to the service. See the [Drupal documentation](https://www.drupal.org/docs/8/api/services-and-dependency-injection/structure-of-a-service-file) for the full list of service properties. The '@' sign here tells Drupal that the argument is a service.
 
@@ -21,18 +22,19 @@ creates a service names 'star_wars_api_test.client.' The arguments here injects 
 
 The PHP file containing the code for the service resides in the src directory in the main module directory. In the __construct method of the service, the injected service becomes a property of the class:
 
-`class StarWarsClientService
+```class StarWarsClientService
 {
 protected $client;
 
 public function __construct(Client $client)
 {
     $this->client = $client;
-}`
+}
+```
 
 Then methods can be written to retrieve json data from a REST API:
 
-`public function getMovies($num)
+```public function getMovies($num)
 {
     $random_movies = [];
     $url = 'https://swapi.co/api/films/';
@@ -43,11 +45,13 @@ Then methods can be written to retrieve json data from a REST API:
         array_push($random_movies, $results[$key]);
     }
     return $random_movies;
-}`
+}
+```
 
 ## Using the service.
 
 Once the service is defined and the code in place, instantiating the registered service passing the static core Drupal service method and calling the included methods:
 
-`$client = \Drupal::service('star_wars_api_test.client');
-$movies = $client->getMovies(3);`
+```$client = \Drupal::service('star_wars_api_test.client');
+$movies = $client->getMovies(3);
+```
