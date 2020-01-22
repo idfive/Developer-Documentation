@@ -29,6 +29,7 @@
   * [Drupal Testing](back-end/drupal/drupal-testing.md)
   * [Drupal Legacy](back-end/drupal/drupal-legacy.md)
   * [Drupal Performance](back-end/drupal/drupal-performance.md)
+  * [Drupal Services](back-end/drupal/drupal-services.md)
 
 * WordPress
 
@@ -40,3 +41,5 @@
   * Backend:
   * [Drupal custom API module](challenges/drupal-api-module.md)
   * [Drupal custom paragraph module](challenges/drupal-paragraph-module.md)
+  * Frontend:
+  * [Vue News App Challenge](challenges/vue-challenge.md)
