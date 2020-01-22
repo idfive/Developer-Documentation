@@ -79,6 +79,33 @@ When possible, always add a development services.yml to the codebase. This will 
       class: Drupal\Core\Cache\NullBackendFactory
 ```
 
+#### Redirects
+
+If possible, high level URL redirects should be performed via settings.php, not in .htaccess. This is because .htaccess has the potential to be overridden during core updates.
+
+- All minor "old page to new page" redirects should be done via the redirect module.
+- This is for high level changes, like "x.mysite.edu and y.mysite.edu should all redirect to z.mysite.edu".
+- Be sure to wrap in a check for drush, so that drush requests are not redirected, via `if (!function_exists('drush_main')) {}`.
+
+##### Example on acquia
+
+```php
+// Check/modify any acquia environment specific modifications needed.
+if (isset($_ENV['AH_SITE_ENVIRONMENT'])) {
+  switch ($_ENV['AH_SITE_ENVIRONMENT']) {
+    case 'prod':
+      if (!function_exists('drush_main')) {
+        if ($_SERVER['HTTP_HOST'] != 'MYSITE.com') {
+          header('HTTP/1.0 301 Moved Permanently');
+          header('Location: https://' . 'MYSITE.com' . $_SERVER['REQUEST_URI']);
+          exit();
+        }
+      }
+      break;
+  }
+}
+```
+
 ## idfive base theme
 
 The idfive base theme is intentionally pretty bare bones, but provides us with lots of behind the scenes functions we need. This theme is designed to act as a parent theme, and should never be enabled directly. See the [documentation](https://bitbucket.org/idfivellc/idfive-component-library-d8-theme) for how to best use this theme, and how to quickly and efficiently spin up a child theme for any client project.
@@ -427,33 +454,6 @@ With that in mind, since regions are mainly to hold blocks, regions within the t
 - footer_menu: 'Footer menu'
 
 It is also worth noting, that the [idfive base theme](https://bitbucket.org/idfivellc/idfive-component-library-d8-theme) includes preprocess functions to make these regions available to the node template as well, so things like the sidebar, can be added in the node template, rather than page template, to simplify design ingestion.
-
-#### Redirects
-
-If possible, high level URL redirects should be performed via settings.php, not in .htaccess. This is because .htaccess has the potential to be overridden during core updates.
-
-- All minor "old page to new page" redirects should be done via the redirect module.
-- This is for high level changes, like "x.mysite.edu and y.mysite.edu should all redirect to z.mysite.edu".
-- Be sure to wrap in a check for drush, so that drush requests are not redirected, via `if (!function_exists('drush_main')) {}`.
-
-##### Example on acquia
-
-```php
-// Check/modify any acquia environment specific modifications needed.
-if (isset($_ENV['AH_SITE_ENVIRONMENT'])) {
-  switch ($_ENV['AH_SITE_ENVIRONMENT']) {
-    case 'prod':
-      if (!function_exists('drush_main')) {
-        if ($_SERVER['HTTP_HOST'] != 'MYSITE.com') {
-          header('HTTP/1.0 301 Moved Permanently');
-          header('Location: https://' . 'MYSITE.com' . $_SERVER['REQUEST_URI']);
-          exit();
-        }
-      }
-      break;
-  }
-}
-```
 
 #### Scoping
 
