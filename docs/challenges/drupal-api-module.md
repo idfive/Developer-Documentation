@@ -8,7 +8,7 @@ A challenge for current, and potential idfive Backend developers, to assess know
 
 Create a custom Drupal 8 module that accomplishes the following:
 
-- Interacts with [The Star Wars API](https://swapi.co/), to show a listing of 3 Star Wars films from `https://swapi.co/api/films` in any order you desire.
+- Interacts with [The Star Wars API](https://swapi.co/), to show a listing of at least 3 Star Wars films from `https://swapi.co/api/films` in any order you desire.
 - These films should display in a block, that could be enabled on any region in a stock or custom theme.
 - Each individual film view should include: title, episode_id, director, producer, and release_date fields at a minimum.
 - release_date field to be formatted in F j, Y format (ie "January 1, 1977") on frontend.
@@ -37,6 +37,8 @@ Create a custom Drupal 8 module that accomplishes the following:
 - Module should be able to be enabled on any D8 site, by downloading module, enabling, and assigning the block to a region.
 - No frontend styles needed, but bonus points if you do.
 - Bonus points for Behavioral, or Functional tests.
+- Bonus points for making the block configuration able to limit the number of movies displayed.
+- Bonus points for creating a twig template for the block.
 
 ## Time
 

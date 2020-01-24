@@ -252,7 +252,7 @@ function MY_MODULE_field_widget_paragraphs_form_alter(&$element, &$form_state, $
     $markup .= '<li><strong>Use blockquotes to break up long copy.</strong> A brief quote can provide visual interest and offset larger text blocks.</li>';
     $markup .= '<li><strong>Use plain text.</strong> Avoid including links or other styled elements.</li>';
     $markup .= '</ul>';
-    $markup .= '<h3>Dont:</h3><ul>';
+    $markup .= '<h3>Do Not:</h3><ul>';
     $markup .= '<li><strong>Use an overly long quote.</strong> Often block quotes use font sizes/weights that can be overwhelming if used for copy that is very long.</li>';
     $markup .= '<li><strong>Place a blockquote as the last element on the page.</strong></li>';
     $markup .= '</ul>';
@@ -570,7 +570,7 @@ function _MY_MODULE_get_things() {
 
 ###### Custom API Call example
 
-This example passes a unique ID for the feed, but you would also likely pass parameters from custom fields/etc, to be able to reuse calls to the endpoint from multiple places.
+This example passes a unique ID for the feed, but you would also likely pass parameters from custom fields/etc, to be able to reuse calls to the endpoint from multiple places. To note, external API calls may better be accomplished by writing a service, but the example below also works.
 
 ```php
 // From within hook_preprocess of choice
