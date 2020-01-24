@@ -37,7 +37,7 @@ All content, as they say, is not created equal. The difficulty of migrating each
 Some common fields that take us longer:
 
 - Terms/tags/vocabularies. It really depends on how we can get a data export. If we can get a comma separated list of say, tags, per node, this is easily done. If we only have ID's, or similar, we would need to first create a separate importer for all those terms, and maintain legacy ID's/etc.
-- WYSIWG internal links. It is really hard to try and parse text for old URL's, and match them to new ones. Mainly, because usually the structure and menus change at the same time.
+- Internal links. It is really hard to try and parse text or even fields for old URL's, and match them to new ones. Mainly, because usually the structure and menus change at the same time.
 - Non standard WYSIWYG markup. Things like wordpress, and legacy drupal tended to use things like short-codes in body text to do things like show carousels/etc. These are quite hard to pull over in the way they are designed.
 - Blocks. If legacy D7 site, it sometimes relies on blocks for content. These are hard to migrate, because they rely on (usually) URL patterns or content type visibility to display unrelated content across pages.
 - Images. Images, per say, are not complex, the complexities lie in that we normally want to migrate theme to something like a media entity in D8, so that they are reusable/etc.
@@ -51,12 +51,21 @@ Different CMS's have levels of import/export capabilities that vary from non-exi
 - What CMS is the content going in to. Platforms like drupal 8 have almost infinite flexibility for custom importers, others, well, do not.
 - If not currently in a CMS, some options do exist, but generally require more time and effort.
 
-### What's changing, what's not
+### 4. What's changing, what's not
 
 Since "migration" usually happens at the same time as a major rebuild, and reorganization, it's tough to know what is staying, and what is going, content wise.
 
 - If the above 3 questions are answered, it can be somewhat straightforward to say "what will it take to move content type x over to the new site, basically how it exists now". However, more often, the question is "what will it take to move content type x over to the new site, and do a bunch of stuff we haven't really defined yet".
 - Try and get a sense, wherever possible, if their are opportunities for consolidation, or removal of extraneous content, or content types.
+- Consider the URL structure. Will it change? Are bulk redirects needed?
+
+### 5. Assets
+
+Legacy sites mean legacy files, usually, a lot of poorly managed ones. Since we usually use the migration/site build as an opportunity for cleanup, this deserves a long, hard look.
+
+- Are there links directly to things like .pdf's that need to be maintained?
+- Is the assets folder, as it currently exists, something we can move to the new CMS?
+- What types of assets, other than images and docs, exist an need to be accounted for?
 
 ## Content exporting CMS specifics
 
@@ -85,7 +94,7 @@ In general, this is less than desireable. While possible to scrape a site, and p
 
 ### Drupal 8 content importing
 
-For importing into drupal 8 sites, two major options exist, [Feeds](https://www.drupal.org/project/feeds) and [Migrate](https://www.drupal.org/project/migrate).
+For importing into drupal 8 sites, two major options exist, [Feeds](https://www.drupal.org/project/feeds) and [Migrate](https://www.drupal.org/docs/8/api/migrate-api/migrate-api-overview).
 
 #### Feeds
 
