@@ -1,6 +1,6 @@
 # Content Migration Overview
 
-Content migrations are, in all honesty, fickle, challenging, and labor-intensive. When we say "content migration", we mean a (usually automated) transfer of existing content from an old site to a new one. This also usually happens at the same time as a CMS upgrade, as well as content restructuring.
+Content migrations are, in all honesty, fickle, challenging, and labor-intensive. When we say "content migration", we mean a transfer of existing content from an old site to a new one, and/or actually building different pages on the site from Copy Docs. This also usually happens at the same time as a CMS upgrade, as well as content restructuring. For the purposes of this document, we are focusing on what can, or cannot be automated for those migrations.
 
 ## Some considerations
 
@@ -16,15 +16,26 @@ Content migrations are, in all honesty, fickle, challenging, and labor-intensive
 - Are there taxonomies that need to be maintained?
 - Are there URL's that need to be maintained?
 
+Consider looking into content migration as part of the TechScan to answer the questions we have laid out here as early in the project as possible, to adjust expectation ASAP.
+
+Use the SiteMap as soon as we have one to ensure/find a solution for some of the proposed “existing content” sections. There might be an opportunity there to either find which areas can have “automatic migration” and which will have to be manual.
+
 ## Estimating content migrations
 
 First, lets acknowledge, that the question "how long will it take to migrate this site", is one that gets asked, but will in no way get you an accurate answer. Oftentimes, people assume that the "number of pages" is the key factor here, and oftentimes, they are wrong. Simply speaking, the number of content types, and their individual complexity, is the determining factor. The time to build an importer for a content type is the same, whether I am importing 10 pieces of content or 1,000, and the time lies, in building and testing each importer. Page "number", only really comes into play when attempting to answer the question "Is this worth building an importer for, or can we manually migrate?".
 
-There are several key questions we need to know the answer to, or have a ballpark on, before we can even begin to get in the neighborhood of an estimation.
+Some extremely rough ballparks to keep in mind:
+
+- Manual migrations: 3 pages per hour, simple pages.
+- Manual migrations: 1-2 hours per page, complex pages.
+- Automated migrations: 2-4 hours per content type, simple content type.
+- Automated migrations: 4-? hours per content type, complex content type.
+
+There are several key questions we need to know the answer to, or have a some details on, before we can even begin to get in the neighborhood of a decent estimation.
 
 ### 1. How many content types are there
 
-Unless we are specifically provided with them, or we have access to the backend of a clients existing CMS to try and figure it out, this is by all means, a guess. Looking at the frontend of an existing website, and sorting out the types of content available can be both time consuming, and inaccurate. Automation of this is also not really possible, as their is no real "standard" for what say an article, or event looks like in code. That being said, here are some tools to help:
+Unless we are specifically provided with them, or we have access to the backend of clients existing CMS to try and figure it out, this is, by all means, a guess. Looking at the frontend of an existing website, and sorting out the types of content available can be both time consuming, and inaccurate. Automation of this is also not really possible, as there is no real "standard" for what say an article, or event looks like in code. That being said, here are some tools to help:
 
 - Look to the main navigation. Often times it will attempt to outline major sections of the site, like news, events, etc. Often times these will be unique content types.
 - Older websites will often have many pages that are not accessible from the main navigation. Create a content inventory of the current site to get a sense of what/how much content exists. Use something like [Screaming Frog](https://www.screamingfrog.co.uk/seo-spider/) to crawl the site, and list its inventory. Depending on the size of the site, this crawl could take several hours, and does require a license key. Be prepared to wade through some garbage if it is an older legacy site.
@@ -43,9 +54,9 @@ Some common fields that take us longer:
 - Images. Images, per say, are not complex, the complexities lie in that we normally want to migrate theme to something like a media entity in D8, so that they are reusable/etc.
 - Entity references. These get tricky, fast. Essentially, we need to (usually) create any referenced entities first, with the same ID as prior. For example, if an event has a reference to say, an article, that article needs to exist in the system before we can create the event in question.
 
-### 3. What CMS's are involved
+### 3. What CMSs are involved
 
-Different CMS's have levels of import/export capabilities that vary from non-existent, to adequate, to robust. One we throw closed source CMS's like Omni Update, or T4 into the mix, things get complex as well, because we cannot always readily access documentation on their closed source systems, and what may/may not be available.
+Different CMSs have levels of import/export capabilities that vary from non-existent, to adequate, to robust. One we throw closed source CMSs like Omni Update, or T4 into the mix, things get complex as well, because we cannot always readily access documentation on their closed source systems, and what may/may not be available.
 
 - What is the content currently in. Can we export both it, and any files, vocabularies, entities easily?
 - What CMS is the content going in to. Platforms like drupal 8 have almost infinite flexibility for custom importers, others, well, do not.
