@@ -38,7 +38,7 @@ Some common fields that take us longer:
 
 - Terms/tags/vocabularies. It really depends on how we can get a data export. If we can get a comma separated list of say, tags, per node, this is easily done. If we only have ID's, or similar, we would need to first create a separate importer for all those terms, and maintain legacy ID's/etc.
 - Internal links. It is really hard to try and parse text or even fields for old URL's, and match them to new ones. Mainly, because usually the structure and menus change at the same time.
-- Non standard WYSIWYG markup. Things like wordpress, and legacy drupal tended to use things like short-codes in body text to do things like show carousels/etc. These are quite hard to pull over in the way they are designed.
+- Non standard WYSIWYG markup. Things like WordPress, and legacy drupal tended to use things like short-codes in body text to do things like show carousels/etc. These are quite hard to pull over in the way they are designed.
 - Blocks. If legacy D7 site, it sometimes relies on blocks for content. These are hard to migrate, because they rely on (usually) URL patterns or content type visibility to display unrelated content across pages.
 - Images. Images, per say, are not complex, the complexities lie in that we normally want to migrate theme to something like a media entity in D8, so that they are reusable/etc.
 - Entity references. These get tricky, fast. Essentially, we need to (usually) create any referenced entities first, with the same ID as prior. For example, if an event has a reference to say, an article, that article needs to exist in the system before we can create the event in question.
@@ -69,9 +69,9 @@ Legacy sites mean legacy files, usually, a lot of poorly managed ones. Since we 
 
 ## Content exporting CMS specifics
 
-### Wordpress content exporting
+### WordPress content exporting
 
-- If the site you will be importing on is another Wordpress site, simply look at the built in tools/export feature.
+- If the site you will be importing on is another WordPress site, simply look at the built in tools/export feature.
 
 ### Drupal 7 content exporting
 
@@ -88,9 +88,15 @@ In general, this is less than desireable. While possible to scrape a site, and p
 
 ## Content importing specifics
 
-### Wordpress content importing
+### WordPress content importing
 
-- If the content you will be importing is from another wordpress site (via tools/export), simply look at the built in tools/import feature.
+- If the content you will be importing is from another WordPress site (via tools/export), simply look at the built in tools/import feature.
+- WordPress' native import function will only import media from remote _if_ a full export has been done. Exports of specific content types will not allow for a media import even if the checkbox is checked. A few plugins might be able to mitigate this.
+
+#### Plugins
+
+- WP All Import Pro includes a GUI for content mapping across fields. Combined with WP All Export, one can export existing WordPress content from an older site into the field mapping of a new site. 
+
 
 ### Drupal 8 content importing
 
