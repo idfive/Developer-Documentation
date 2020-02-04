@@ -4,7 +4,7 @@
   * [Resources](general/onboarding/resources.md)
   * [git](general/git/standards.md)
   * [Ticketing](general/ticketing/overview.md)
-  * [Ticketing](general/ticketing/ticket_qc.md)
+  * [Ticket QC](general/ticketing/ticket_qc.md)
   * [Testing](general/testing/overview.md)
   * [Content Migration](general/content_migration/overview.md)
 
