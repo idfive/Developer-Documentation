@@ -2,7 +2,9 @@
 
 ## WP-Boilerplate
 
-idfive has a boilerplate WordPress repo on [bitbucket](https://bitbucket.org/idfivellc/wp-boilerplate/src/master/) which serves as a starting point for WordPress projects. Like in other projects, idfive adopts the [Gitflow](general/git/standards.md) methodology for WordPress builds. As per Gitflow, there is a master and develop branch on the wp-boilerplate repo.
+idfive has a [WordPress Starter repo on bitbucket](https://bitbucket.org/idfivellc/wordpress-starter/src/develop/) which serves as a starting point for WordPress projects. This repository includes commonly used plugins. The detailed instructions to get started are included in that repo's [readme](https://bitbucket.org/idfivellc/wordpress-starter/src/develop/README.md) file and reflect the preferred methodology described in the subsequent sections. 
+
+Like in other projects, idfive adopts the [Gitflow](general/git/standards.md) methodology for WordPress builds. As per Gitflow, there is a master and develop branch on the wp-boilerplate repo.
 
 ## Preferred Methodology
 
@@ -79,4 +81,3 @@ lando pull gives the option of pulling from any environment, code, database, and
 1. 'lando start' will begin a server and begin serving the site.
 2. 'lando stop' will stop the server.
 3. Lando also provides tooling support using the wp-cli. To run wp commands via lando, simply enter 'lando wp <command>'
-

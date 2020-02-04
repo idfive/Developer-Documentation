@@ -36,6 +36,8 @@
 
   * [WordPress](back-end/wordpress/wordpress.md)
   * [WordPress CLI](back-end/wordpress/wordpress-cli.md)
+  * [WordPress Maintenance](back-end/wordpress/wordpress-maintenance.md)
+  * [Commonly Used and Maintained WordPress Plugins](back-end/wordpress/wordpress-plugins.md)
 
 * Challenges
 
