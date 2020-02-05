@@ -61,7 +61,7 @@ On the configuration page (for example: /admin/config/search/metatags/config/nod
 
 ### Drupal 8
 
-Only slightly different from Drupal 7, the configuration for the metetag module in Drupal 8 is at: /admin/config/search/metatag. To add a news configuration for an entity type, click on the "Add Default Metatags" button, like in the Drupal 7 module. Just as with Drupal 7, configure the Open Graph or Twitter Card sharing format by associating tags with tokens representing entity fields.
+Only slightly different from Drupal 7, the configuration for the metetag module in Drupal 8 is at: /admin/config/search/metatag. To add a news configuration for an entity type, click on the "Add Default Metatags" button, like in the Drupal 7 module. Just as with Drupal 7, configure the Open Graph or Twitter Card sharing format by associating tags with tokens representing entity fields. [Drupal online documentation](https://www.drupal.org/docs/8/modules/metatag/features-of-metatag-for-drupal-8) includes a full description of the module's features.
 
 ## Linters
 
