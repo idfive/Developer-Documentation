@@ -75,4 +75,4 @@ Each service provides a page for checking and debugging shared posts.
 
 #### _Note on current use at Howard.edu_
 
-Howard University relies heavily on the use of REST APIs to distribute information across associated sites. The newsroom is an angular app. Articles posted on the newsroom site have an "article" URL which, through use of a rewrite rule in an .htaccess file, displays content from a "static" URL. Debugging any issues where posts seem to not display correctly should begin with looking at the .htaccess file.
+(As of 2/20) Howard University relies heavily on the use of REST APIs to distribute information across associated sites. The newsroom is an angular app. Articles posted on the newsroom site have an "article" URL which, through use of a rewrite rule in an .htaccess file, displays content from a "static" URL. Debugging any issues where posts seem to not display correctly should begin with looking at the .htaccess file.
