@@ -55,7 +55,7 @@ Tags can be added to webpages using the [metatag module](https://www.drupal.org/
 
 ### Drupal 7
 
-The metatag module is installed in the normal way. Meteatag:OpenGraph and Metatag: Twitter Card are submodules that must be installed in addition to the main Maetatag module. Configuration for the module is set at "/admin/config/search/metatags." Click on "Add Default Metatags" to config metatags for a particular type, entity, or taxonomy.
+The metatag module is installed in the normal way. Metatag:OpenGraph and Metatag: Twitter Card are submodules that must be installed in addition to the main Metatag module. Configuration for the module is set at "/admin/config/search/metatags." Click on "Add Default Metatags" to config metatags for a particular type, entity, or taxonomy.
 
 On the configuration page (for example: /admin/config/search/metatags/config/node) there are sections for Open Graph and for Twitter Card. In each section there is a list of tags that can be associated with an entity field. For example, a featured image field can be associated with the open graph image (ie: [node:field_image] ).
 
