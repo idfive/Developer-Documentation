@@ -76,7 +76,7 @@ LinkedIn:
 - If your image width is less than 200px, it will appear as a thumbnail on the left side of the post.
 - Images on mobile won’t be cropped. Images of other ratios will show in full with subtle white padding.
 
-Generally, this means that images with a 1.91:1 to a 2:1 ratio will look fine shared. Images should be between 600 and 2000 pixels wide. On Drupal 8, create an image style to make sure that images conform to the standard here: admin/config/media/image-styles.
+Generally, this means that images with a 1.91:1 to a 2:1 ratio will look fine shared. Images should be between 600 and 2000 pixels wide. When defining the image in Drupal, set the maximum and minimum dimensions with explicit instructions for sizing for best use by social media platforms.
 
 ## Drupal modules
 
