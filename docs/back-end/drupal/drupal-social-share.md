@@ -53,6 +53,30 @@ The Twitter card tags are self explanatory, save for twitter:card tag and the tw
 <meta name="twitter:description" content="Short description of page content goes here." />
 <meta name="twitter:image" content="https://MY_AWESOME_SITE/files/field/image/SOCIAL_IMAGE.jpg" />
 ```
+## Image standards
+
+[Facebook](https://developers.facebook.com/docs/sharing/webmasters/images/), [Twitter](https://developer.twitter.com/en/docs/tweets/optimize-with-cards/overview/summary-card-with-large-image) (for Summary with Large Image card), and [LinkedIn](https://www.linkedin.com/help/linkedin/answer/70781/image-specifications-for-your-linkedin-pages-and-career-pages?lang=en) (See "Custom Image Specifications" at the bottom) all provide guidelines for image dimensions for shared posts.
+
+Facebook:
+
+- The minimum allowed image dimension is 200 x 200 pixels.
+- The size of the image file must not exceed 8 MB.
+- Use images that are at least 1200 x 630 pixels for the best display on high resolution devices. At the minimum, you should use images that are 600 x 315 pixels to display link page posts with larger images.
+
+Twitter:
+
+- Images for this Card support an aspect ratio of 2:1 with minimum dimensions of 300x157 or maximum of 4096x4096 pixels.
+- Images must be less than 5MB in size.
+- JPG, PNG, WEBP and GIF formats are supported. Only the first frame of an animated GIF will be used. SVG is not supported.
+
+LinkedIn:
+
+- Use a 1.91:1 ratio (1200x627 px).
+- Image must be more than 200px wide.
+- If your image width is less than 200px, it will appear as a thumbnail on the left side of the post.
+- Images on mobile won’t be cropped. Images of other ratios will show in full with subtle white padding.
+
+Generally, this means that images with a 1.91:1 to a 2:1 ratio will look fine shared. Images should be between 600 and 2000 pixels wide. On Drupal 8, create an image style to make sure that images conform to the standard here: admin/config/media/image-styles.
 
 ## Drupal modules
 
