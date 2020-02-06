@@ -14,18 +14,18 @@ Metatags in the page source code directs social media services how to render the
 
 Open Graph only requires the following tags for sharing:
 
-- og:title
-- og:image
-- og:description
-- og:url
+- `og:title`
+- `og:image`
+- `og:description`
+- `og:url`
 
 Twitter cards work similarly, with the following as the suggested minimum tags:
 
-- twitter:card
-- twitter:site
-- twitter:description
-- twitter:image
-- twitter:image:alt
+- `twitter:card`
+- `twitter:site`
+- `twitter:description`
+- `twitter:image`
+- `twitter:image:alt`
 
 The Twitter card tags are self explanatory, save for twitter:card tag and the twitter:site. Twitter:card identifies the card type to use. Twitter provides four formats to choose from for shares: [summary](https://developer.twitter.com/en/docs/tweets/optimize-with-cards/overview/summary), [summary card with large image](https://developer.twitter.com/en/docs/tweets/optimize-with-cards/overview/summary-card-with-large-image), [app card](https://developer.twitter.com/en/docs/tweets/optimize-with-cards/overview/app-card), and [player card](https://developer.twitter.com/en/docs/tweets/optimize-with-cards/overview/player-card). Twitter:site contains the Twitter username the card should be attributed to.
 
