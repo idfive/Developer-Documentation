@@ -92,6 +92,24 @@ On the configuration page (for example: /admin/config/search/metatags/config/nod
 
 Only slightly different from Drupal 7, the configuration for the metatag module in Drupal 8 is at: /admin/config/search/metatag. To add a news configuration for an entity type, click on the "Add Default Metatags" button, like in the Drupal 7 module. Just as with Drupal 7, configure the Open Graph or Twitter Card sharing format by associating tags with tokens representing entity fields. [Drupal online documentation](https://www.drupal.org/docs/8/modules/metatag/features-of-metatag-for-drupal-8) includes a full description of the module's features.
 
+### Adding default images
+
+Default share images can be added ina preprocess function. Add a new metatag by adding to the $variables['page']['#attached']['html_head'] array in the _template_preprocess_html_ function. The metatag is an array containing a tag type and an array of attributes containing the name and content attributes of the tag.
+
+For example
+```php
+
+$metatag = [
+    '#tag' => 'meta',
+    '#attributes' => [
+        'name' => 'twitter:image',
+        'content' => 'https://path/img/twitterimage.jpg'
+    ],
+];
+
+$variables['page']['#attached']['html_head'][] = [$metatag, "twitter:image"];
+```
+
 ## Linters
 
 Each service provides a page for checking and debugging shared posts.
