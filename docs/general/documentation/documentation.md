@@ -1,4 +1,4 @@
-# Documenting custom code, modules and themes
+# Documenting custom code
 
 In general, we utilize both a README.md for each project/sub project, as well as inline documentation. Some CMS's, like drupal and wordpress, have their own recommended formats, and those should be followed whenever possible.
 
@@ -75,7 +75,7 @@ Add additional notes about how to deploy this on a live system.
 ## Built With
 ​
 * [idfive Component Library](https://bitbucket.org/idfivellc/idfive-component-library)
-* List other technologies used.s
+* List other technologies used.
 ​
 ## Versioning
 ​
