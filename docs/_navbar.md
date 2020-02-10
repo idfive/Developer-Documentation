@@ -7,6 +7,7 @@
   * [Ticket QC](general/ticketing/ticket_qc.md)
   * [Testing](general/testing/overview.md)
   * [Content Migration](general/content_migration/overview.md)
+  * [Documentation](general/documentation/documentation.md)
 
 * Front-end
 
@@ -18,7 +19,6 @@
 * Back-end (General)
 
   * [PHP](back-end/php/standards.md)
-  * [Documentation](back-end/documentation/documentation.md)
 
 * Drupal
 
