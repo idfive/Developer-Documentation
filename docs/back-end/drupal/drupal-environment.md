@@ -21,7 +21,7 @@ Since Acquia and Pantheon are both optimized to run drupal sites, we rely on the
 
 Most of the time, this is for universities or organizations with their own IT department and servers. If we need to utilize a client server, we will need the following, at a minimum:
 
-- Meets minimum [system Requirements](https://www.drupal.org/docs/8/system-requirements).
+- Meets minimum [system requirements](https://www.drupal.org/docs/8/system-requirements).
 - We can access. This sometimes takes the form of requiring VPN instructions, SSO accounts, etc.
 - DEV/STG/PROD environments set up. These should have their own Databases/file structures/etc.
 - A git repo with deployments (via CI or similar) to each/all environments.
@@ -56,7 +56,11 @@ We can, of course, provide a non CI/CD codebase and workflow if desired, it may 
 
 ## Default idfive drupal setup
 
-### Framework
+### Core
+
+If CI/CD used, we prefer to use a composer based setup for D8 core.
+
+### Front end framework
 
 While we can accommodate any modern framework (if requested), we prefer to use the [idfive Component Library](https://bitbucket.org/idfivellc/idfive-component-library) for scaffolding the look and feel of client sites. We find that this minimal library we created lets us start with commonly used components in an intentionally un-styled state, to let us enact custom designs more rapidly.
 
@@ -68,6 +72,7 @@ While we can accommodate any modern framework (if requested), we prefer to use t
 ### Modules
 
 - idfive maintains a list of common contrib modules that we add to most projects. [Add ICL Modules](https://bitbucket.org/idfivellc/idfive-automation-library/src/master/drupal/general/partials/add_icl_modules.sh) has an up to date list of what idfive recommends as a baseline.
+- Any contrib modules that provide project specific functionality, and have been vetted by idfive DEV team.
 - [idfive Component Library D8 Paragraphs](https://bitbucket.org/idfivellc/idfive-component-library-d8-paragraphs). Provides a common starter to add things like accordions, tabs, etc.
 - Custom client base module. To hold any common custom functions/classes/etc, that need to be loaded via a module.
 - Further custom modules, as needed, for major functionality.
