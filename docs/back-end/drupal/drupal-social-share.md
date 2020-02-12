@@ -10,7 +10,11 @@ Each social media platform has its own way of scraping/previewing, which may pot
 
 Metatags in the page source code directs social media services how to render the shared page on social media. Facebook and LinkedIn use the [Open Graph Protocol](https://ogp.me/). Open Graph metatags have the prefix 'og.' Twitter uses it's own proprietary set of tags with the prefix 'twitter.' Twitter specifically calls shared content formats 'cards.' Open Graph prefers to say that og metatags turns webpages into open graph objects that can be used by social media services.
 
-[Twitter](https://developer.twitter.com/en/docs/tweets/optimize-with-cards/overview/abouts-cards), [Facebook](https://developers.facebook.com/docs/sharing/webmasters/), and [LinkedIn](https://www.linkedin.com/help/linkedin/answer/46687/making-your-website-shareable-on-linkedin?lang=en) all provide sharing guides for developers.
+Common service sharing guides for developers:
+
+- [Twitter](https://developer.twitter.com/en/docs/tweets/optimize-with-cards/overview/abouts-cards)
+- [Facebook](https://developers.facebook.com/docs/sharing/webmasters/)
+- [LinkedIn](https://www.linkedin.com/help/linkedin/answer/46687/making-your-website-shareable-on-linkedin?lang=en)
 
 Open Graph only requires the following tags for sharing:
 
@@ -53,23 +57,22 @@ The Twitter card tags are self explanatory, save for twitter:card tag and the tw
 <meta name="twitter:description" content="Short description of page content goes here." />
 <meta name="twitter:image" content="https://MY_AWESOME_SITE/files/field/image/SOCIAL_IMAGE.jpg" />
 ```
+
 ## Image standards
 
-[Facebook](https://developers.facebook.com/docs/sharing/webmasters/images/), [Twitter](https://developer.twitter.com/en/docs/tweets/optimize-with-cards/overview/summary-card-with-large-image) (for Summary with Large Image card), and [LinkedIn](https://www.linkedin.com/help/linkedin/answer/70781/image-specifications-for-your-linkedin-pages-and-career-pages?lang=en) (See "Custom Image Specifications" at the bottom) all provide guidelines for image dimensions for shared posts.
-
-Facebook:
+[Facebook](https://developers.facebook.com/docs/sharing/webmasters/images/):
 
 - The minimum allowed image dimension is 200 x 200 pixels.
 - The size of the image file must not exceed 8 MB.
 - Use images that are at least 1200 x 630 pixels for the best display on high resolution devices. At the minimum, you should use images that are 600 x 315 pixels to display link page posts with larger images.
 
-Twitter:
+[Twitter](https://developer.twitter.com/en/docs/tweets/optimize-with-cards/overview/summary-card-with-large-image):
 
 - Images for this Card support an aspect ratio of 2:1 with minimum dimensions of 300x157 or maximum of 4096x4096 pixels.
 - Images must be less than 5MB in size.
 - JPG, PNG, WEBP and GIF formats are supported. Only the first frame of an animated GIF will be used. SVG is not supported.
 
-LinkedIn:
+[LinkedIn](https://www.linkedin.com/help/linkedin/answer/70781/image-specifications-for-your-linkedin-pages-and-career-pages?lang=en):
 
 - Use a 1.91:1 ratio (1200x627 px).
 - Image must be more than 200px wide.
@@ -80,58 +83,62 @@ Generally, this means that images with a 1.91:1 to a 2:1 ratio will look fine sh
 
 ## Drupal modules
 
-Tags can be added to webpages using the [metatag module](https://www.drupal.org/project/metatag). Versions are available for both Drupal 7 and Drupal 8. The basic process for both versions is the same: entity fields are associated with tags in the metatags.
+For drupal projects, the first step is to figure out the desired level of customization and control needed. Some options:
 
-### Drupal 7
+- Simply provide a default image/images for the entire site.
+- Provide a default image for all, and use an existing field to customize a single content type, like articles/etc.
+- Add a specific field to some/all content types, just for the social share image.
 
-The metatag module is installed in the normal way. Metatag:OpenGraph and Metatag: Twitter Card are submodules that must be installed in addition to the main Metatag module. Configuration for the module is set at "/admin/config/search/metatags." Click on "Add Default Metatags" to config metatags for a particular type, entity, or taxonomy.
+Once you figure out the approach, metatags can be added to webpages using the [metatag module](https://www.drupal.org/project/metatag). Versions are available for both Drupal 7 and Drupal 8. The basic process for both versions is the same: entity fields are associated with tags in the metatags.
 
-On the configuration page (for example: /admin/config/search/metatags/config/node) there are sections for Open Graph and for Twitter Card. In each section there is a list of tags that can be associated with an entity field. For example, a featured image field can be associated with the open graph image (ie: [node:field_image] ).
+The configuration for the metatag module in Drupal 8 is at: /admin/config/search/metatag. If a media or image field (media field preferred) is to be added to "all" content types, the standard content entry can be used.
 
-### Drupal 8
+To add a new configuration for an entity type, either to override the "content" metatags, or do something special per content type:
 
-Only slightly different from Drupal 7, the configuration for the metatag module in Drupal 8 is at: /admin/config/search/metatag. To add a news configuration for an entity type, click on the "Add Default Metatags" button, like in the Drupal 7 module. Just as with Drupal 7, configure the Open Graph or Twitter Card sharing format by associating tags with tokens representing entity fields. [Drupal online documentation](https://www.drupal.org/docs/8/modules/metatag/features-of-metatag-for-drupal-8) includes a full description of the module's features.
+- Click on the "Add Default Metatags" button.
+- Configure the Open Graph or Twitter Card sharing format by associating tags with tokens representing entity fields.
+- [Drupal online documentation](https://www.drupal.org/docs/8/modules/metatag/features-of-metatag-for-drupal-8) includes a full description of the module's features.
+- Media Field token example: `[node:FIELD_MY_MEDIA_FIELD:entity:field_media_image:large:url]`. Notice the "large" which is an image style. This can be left out if wanted, or custom image style created.
+- Image Field token example: `[node:FIELD_MY_IMAGE_FIELD:entity:url]`.
 
 ### Adding default images
 
-Default share images can be added ina preprocess function. Add a new metatag by adding to the $variables['page']['#attached']['html_head'] array in the _template_preprocess_html_ function. The metatag is an array containing a tag type and an array of attributes containing the name and content attributes of the tag.
+Default share images can be added in a preprocess function. We find this to be the best way to "only add a default if a field is empty/etc". The stock way to do this, would be to provide 2 images in the metatag module, but we find this to be less than ideal. Add a new metatag by adding to the `$variables['page']['#attached']['html_head']` array in the `hook_preprocess_html` function. The metatag is an array containing a tag type and an array of attributes containing the name and content attributes of the tag.
 
-For example
+For example:
+
 ```php
-
 $metatag = [
-    '#tag' => 'meta',
-    '#attributes' => [
-        'name' => 'twitter:image',
-        'content' => 'https://path/img/twitterimage.jpg'
-    ],
+  '#tag' => 'meta',
+  '#attributes' => [
+      'name' => 'og:image',
+      'content' => 'https://path/to/desired/image.jpg'
+  ],
 ];
-
 $variables['page']['#attached']['html_head'][] = [$metatag, "twitter:image"];
 ```
-Preprocess html does not provide the node entity, so it has to be gotten. Then, simply make sure that the image field is empty before adding the meta tag. For example:
+
+Unfortunately, `hook_preprocess_html` does not provide the node entity, so it has to be fetched. Then, it can be checked for type, or simply make sure that the image field is empty before adding the meta tag. For example:
 
 ```php
-
-  // Get the node
-  $node = \Drupal::request()->attributes->get('node');
-  if ($node) {
-
-    // Get content type
-    $type = $node->getType();
-
-    if ($type == "TYPE TO ADD TAG" && $node->field_SOCIAL MEDIA_IMAGE_FIELD->isEmpty()) {
-      $metatag = [
-        '#tag' => 'meta',
-        '#attributes' => [
-            'name' => 'twitter:image',
-            'content' => 'https://path/img/twitterimage.jpg'
-        ],
-      ]
-      $variables['page']['#attached']['html_head'][] = [$metatag, "twitter:image"];
-    }
+// Get the node
+$node = \Drupal::request()->attributes->get('node');
+if ($node) {
+  // Get content type
+  $type = $node->getType();
+  // If is desired content type, and field holding media/image is empty
+  if ($type == "CONTENT_TYPE" && $node->FIELD_MY_IMAGE_OR_MEDIA_FIELD->isEmpty()) {
+    $metatag = [
+      '#tag' => 'meta',
+      '#attributes' => [
+          'name' => 'twitter:image',
+          'content' => 'https://path/to/desired/image.jpg'
+      ],
+    ]
+    $variables['page']['#attached']['html_head'][] = [$metatag, "twitter:image"];
   }
-  ```
+}
+```
 
 ## Linters
 
@@ -139,7 +146,7 @@ Each service provides a page for checking and debugging shared posts.
 
 - [Twitter Card Validator](https://cards-dev.twitter.com/validator)
 - [LinkedIn Post Inspector](https://www.linkedin.com/post-inspector/)
-- [Facebook Sharing Degbugger](https://developers.facebook.com/tools/debug/)
+- [Facebook Sharing Debugger](https://developers.facebook.com/tools/debug/)
 
 ### _Note on current use for clients using MVC Apps_
 
