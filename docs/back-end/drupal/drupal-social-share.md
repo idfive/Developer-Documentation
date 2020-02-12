@@ -109,6 +109,29 @@ $metatag = [
 
 $variables['page']['#attached']['html_head'][] = [$metatag, "twitter:image"];
 ```
+Preprocess html does not provide the node entity, so it has to be gotten. Then, simply make sure that the image field is empty before adding the meta tag. For example:
+
+```php
+
+  // Get the node
+  $node = \Drupal::request()->attributes->get('node');
+  if ($node) {
+
+    // Get content type
+    $type = $node->getType();
+
+    if ($type == "TYPE TO ADD TAG" && $node->field_SOCIAL MEDIA_IMAGE_FIELD->isEmpty()) {
+      $metatag = [
+        '#tag' => 'meta',
+        '#attributes' => [
+            'name' => 'twitter:image',
+            'content' => 'https://path/img/twitterimage.jpg'
+        ],
+      ]
+      $variables['page']['#attached']['html_head'][] = [$metatag, "twitter:image"];
+    }
+  }
+  ```
 
 ## Linters
 
