@@ -122,3 +122,34 @@ Mostly, we work without a CI at the moment, as most clients do not opt for the e
 ### Others
 
 See [Using composer with drupal](https://www.drupal.org/docs/develop/using-composer/using-composer-with-drupal) for specifics.
+
+## Using lando with an existing code repository
+
+- Move desired DB export to root of application, be sure to add `*.sql` to .gitignore, if applicable.
+- `lando init --recipe drupal7` or `--recipe drupal8`.
+- Follow the provided prompts. Choose current directory, and webroot, then name your app.
+- `lando start`
+- `lando db-import mysql_dump_file.sql` also works for gziped and zipped files.
+
+### Example settings.php
+
+If needed, set up settings.php with the following. This could also go in as an include/etc if getting committed/etc:
+
+```php
+<?php
+
+$databases = [];
+if (getenv('LANDO') === 'ON') {
+  $lando_info = json_decode(getenv('LANDO_INFO'), TRUE);
+  $settings['trusted_host_patterns'] = ['.*'];
+  $settings['hash_salt'] = md5(getenv('LANDO_HOST_IP'));
+  $databases['default']['default'] = [
+    'driver' => 'mysql',
+    'database' => $lando_info['database']['creds']['database'],
+    'username' => $lando_info['database']['creds']['user'],
+    'password' => $lando_info['database']['creds']['password'],
+    'host' => $lando_info['database']['internal_connection']['host'],
+    'port' => $lando_info['database']['internal_connection']['port'],
+  ];
+}
+```
