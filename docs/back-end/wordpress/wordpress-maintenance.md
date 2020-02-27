@@ -16,7 +16,7 @@ Depending on a client's institutional server set-up, access policies, or hosting
  - **Pantheon** - Update using the upstream GUI in the Dev environment in Pantheon, and then pull down and update your local repository.  
  You can also follow the instruction under the WordPress tab on [Pantheon's documentation](https://pantheon.io/docs/core-updates#overwrite-core).
  - **WP Engine** - WP Engine will periodically update WordPress core on their staging and live environments; if you keep the environment up to date they will skip their update. 
- - **JHU Docker** - _majority_ of WordPress sites on the JHU Docker Network receive core updates automatically. If a retainer agreement allows, _test_ the RC1 version of a major release ([term definition]([https://make.wordpress.org/core/handbook/about/release-cycle/version-numbering/](https://make.wordpress.org/core/handbook/about/release-cycle/version-numbering/))) on your local machine to alert clients of any issues that may arise. For specific clients, review information on their specific Jeeves entry. 
+ - **JHU Docker** - _majority_ of WordPress sites on the JHU Docker Network receive core updates automatically. If a retainer agreement allows, _test_ the RC1 version of a major release ([term definition](https://make.wordpress.org/core/handbook/about/release-cycle/version-numbering/](https://make.wordpress.org/core/handbook/about/release-cycle/version-numbering/)) on your local machine to alert clients of any issues that may arise. For specific clients, review information on their specific Jeeves entry. 
 
 ## WP Plugins
 
