@@ -30,7 +30,7 @@ Most of the time, this is for universities or organizations with their own IT de
 - Information on how to get current files/DB's/etc locally when onboarding new Developers.
 - Ideally, a docker or similar container duplicating the server for local testing.
 
-Essentially, **idfive can accommodate almost any modern server, but it will usually require significantly more overhead to do so, over a service like Acquia or Pantheon**. Additionally, we find that they also force us to rely on IT personnel to manage some aspects, decreasing our ability to respond rapidly to any issues.
+Essentially, **idfive can accommodate almost any modern server, but it will usually require significantly more overhead to do so, over a service like Acquia or Pantheon**. Additionally, we find that they also force us to rely on client IT personnel to manage some aspects, decreasing our ability to respond rapidly to any issues.
 
 #### Server specs and setup
 
@@ -42,6 +42,8 @@ While idfive developers maintain basic sysadmin skills, we do not set up servers
 - Because of this, idfive does not provide specific recommendations for server setup (ie file storage size, memory size, etc), other than the general requirements stated above, unless specifically agreed to in the SOW by idfive.
 - If a client server is utilized, it will be on the client to provide an environment/environments set up by someone versed in drupal best practices, performance, and the scope of the project, in order to make accurate and informed decisions as to exact specs of server/environment setup.
 - It is for these reasons we recommend specific platforms, like acquia and pantheon, as they are tuned to scale for performance drupal sites. If these are not chosen, in favor of in-house assets, those assets are responsible for defining, and configuring the server environments as they see fit.
+- Essentially, server environments are necessary for the code to run, but require a skill-set for setup, performance, and maintenance that is quite different than that of a developer, especially for enterprise level projects.
+- We like to think of it like this: Michael Jordan is an amazing basketball player, but you likely would not ask him to also build the court he plays on. They are separate skills.
 
 ## Git repositories Continuous Integration (CI), and Continuous Deployment (CD)
 
