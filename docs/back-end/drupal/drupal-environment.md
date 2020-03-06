@@ -32,7 +32,16 @@ Most of the time, this is for universities or organizations with their own IT de
 
 Essentially, **idfive can accommodate almost any modern server, but it will usually require significantly more overhead to do so, over a service like Acquia or Pantheon**. Additionally, we find that they also force us to rely on IT personnel to manage some aspects, decreasing our ability to respond rapidly to any issues.
 
-While idfive developers maintain basic sysadmin skills, we do not normally set up servers for clients. If we are required to use a client server, we request that clients provide a sysadmin POC for any questions or issues that arise.
+#### Server specs and setup
+
+While idfive developers maintain basic sysadmin skills, we do not set up servers for clients. If we are required to use a client server, we request that clients provide a sysadmin POC for the server who is knowledgeable in drupal best practices, and has been briefed on the project, and its scale.
+
+**Additionally:**
+
+- There are many variables that go into making an enterprise level drupal system perform smoothly, and efficiently.
+- Because of this, idfive does not provide specific recommendations for server setup (ie file storage size, memory size, etc), other than the general requirements stated above, unless specifically agreed to in the SOW by idfive.
+- If a client server is utilized, it will be on the client to provide an environment/environments set up by someone versed in drupal best practices, performance, and the scope of the project, in order to make accurate and informed decisions as to exact specs of server/environment setup.
+- It is for these reasons we recommend specific platforms, like acquia and pantheon, as they are tuned to scale for performance drupal sites. If these are not chosen, in favor of in-house assets, those assets are responsible for defining, and configuring the server environments as they see fit.
 
 ## Git repositories Continuous Integration (CI), and Continuous Deployment (CD)
 
