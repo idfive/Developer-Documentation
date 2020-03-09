@@ -95,6 +95,10 @@ Install the [idfive Automation Library](https://bitbucket.org/idfivellc/idfive-a
 
 Follow the steps outlined for [composer based, non CI](https://pantheon.io/docs/guides/drupal-8-composer-no-ci) site setup. Or alternatively, [convert an existing site](https://pantheon.io/docs/guides/composer-convert) to a composer based build.
 
+#### Set up buddy deploys to pantheon
+
+- See [vimeo overview from Nick](https://vimeo.com/391350603).
+
 ### Acquia
 
 For acquia based sites, we utilize [Acquia Dev Desktop](https://www.acquia.com/drupal/acquia-dev-desktop) for local development, and to help keep sites in sync between local/remote/etc. Since acquia based sites are normally created, and controlled by our clients, it is best to look at project specific documentation for any acquia based site. For acquia in particular, "spinning up a new site" often means adding a site to a multi-site setup.
