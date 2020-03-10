@@ -157,3 +157,24 @@ if (getenv('LANDO') === 'ON') {
   ];
 }
 ```
+
+### Connect to lando DB via sql pro
+
+Sometimes you need or want to access the DB in order to do some operations. This also helps for some larger DB imports, that may timeout through `lando db-import`.
+
+- `lando info`
+- Look for `external_connection` host and port, and add to sql pro
+- The port may change, but you can add to .landofile as portforward so it stays the same.
+- connect via sql pro, 127.0.0.1, and specify port. db then available as drupal7, drupal8, etc.
+
+#### Example .landofile portforward
+
+Run `lando rebuild` and `lando info` after adding.
+
+```cnf
+name: my-lando-app
+recipe: drupal8
+services:
+  database:
+    portforward: 37001
+```
