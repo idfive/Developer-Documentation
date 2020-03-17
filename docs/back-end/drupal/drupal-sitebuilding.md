@@ -509,15 +509,20 @@ If core views is used as a standalone, or with search API, be sure to crate the 
 
 ###### Views example
 
-This shows a simple example of adding a created view to a page, after conditionally checking if it has results.
-Since views are already cached, there is no reason to add additional caching here. In this example,
+This shows a simple example of adding a created view to a page, after conditionally checking if it has results. Since views are already cached, there is no reason to add additional caching here. In this example,
 we pass along the NID of the node as an additional var to the view, which is set up as a conditional filter in the view.
+
+This then makes the variable {{ MY_VARIABLE }} available in the node--bundle-name.html.twig template, or similar, which is the rendered view.
 
 ```php
 // From within hook_preprocess of choice
 $variables['MY_VARIABLE'] = _MY_MODULE_test_view_for_results($variables, 'VIEW_MACHINE_NAME', 'VIEW_DISPLAY_MACHINE_NAME', $nid);
 
-// Function to test views to see if they have results before displaying
+/**
+ * Test views to see if they have results before displaying.
+ * Function takes the variables array, the name of the view, the display machine name (ie. 'page_1' or 'block_1') and
+ * any arguments to pass to the view (contextual filters/etc).
+ */
 function _MY_MODULE_test_view_for_results($variables, $view, $tab, $var1 = null, $var2 = null) {
   $test = views_get_view_result($view, $tab, $var1, $var2);
   if(count($test) > 0) {
@@ -697,39 +702,3 @@ Generally speaking we do not usually care about using ESLint for most JS files, 
 - `cd core && yarn install`
 - `core/node_modules/.bin/eslint PATH_TO_YOUR_CUSTOM_JS.js`
 - `core/node_modules/.bin/eslint PATH_TO_YOUR_CUSTOM_JS.js --fix`
-
-#### Embedding Views in Pages
-
-Views can be added to nodes using a preprocess function to add the render array for a view into the variables array.
-
-The following example uses a function to test if the view returns results before setting the render array to a variable for a particular content type:
-
-```php
-function THEME_preprocess_node(&$variables)
-{
-    $node = $variables['elements']['#node'];
-    $bundle = $node->bundle();
-    $nid = $node->id();
-
-    if ($bundle == 'BUNDLE_NAME') { //Set variable only for this content type.
-        // Grab View, passing contextual filter.
-        $variables['embedded_view'] = _THEME_test_view_for_results($variables, 'view_machine_name', 'block_1', $nid);
-    }
-}
-
-/**
- * Test views to see if they have results before displaying.
- * Function takes the variable array, the name of the view, the display machine name (ie. 'page_1' or 'block_1') and
- * arguments to pass to the view.
- */
-function _THEME_test_view_for_results($variables, $view, $tab, $var1 = NULL, $var2 = NULL)
-{
-    $test = views_get_view_result($view, $tab, $var1, $var2);
-    if (count($test) > 0) {
-        return views_embed_view($view, $tab, $var1, $var2);
-    }
-    return NULL;
-}
-```
-
-This makes the variable {{ embedded_view }} available in the node--bundle-name.html.twig template. Arguments passed to the view can act as filters to the view results. For example, a node id or a term id or user id can be used to limit the results to relevant results.
