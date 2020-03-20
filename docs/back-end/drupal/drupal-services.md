@@ -25,11 +25,11 @@ creates a service names 'MY_CUSTOM_CLIENT.client.' The arguments here injects th
 
 ## The PHP class file
 
-The PHP file containing the code for the service resides in the src directory in the main module directory. In the __construct method of the service, the injected service becomes a property of the class:
+The PHP file containing the code for the service resides in the src/Services directory in the main module directory. In the __construct method of the service, the injected service becomes a property of the class:
 
 ### HTTP PHP example
 
-MY_MODULE/src/MyCustomClientService.php:
+MY_MODULE/src/Services/MyCustomClientService.php:
 
 ```php
 class MyCustomClientService
