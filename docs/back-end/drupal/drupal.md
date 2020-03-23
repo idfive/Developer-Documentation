@@ -178,3 +178,45 @@ services:
   database:
     portforward: 37001
 ```
+
+## Setting up xdebug with vscode
+
+### Lando
+
+Add the following in a .vscode folder in the project root. This can be committed, or .gitignored, as needed based on project.
+
+#### launch.json
+
+```json
+{
+  "version": "0.2.0",
+  "configurations": [
+
+    {
+    "name": "Listen for XDebug",
+    "type": "php",
+    "request": "launch",
+    "port": 9000,
+    "log": true,
+    "pathMappings": {
+      "/app/": "${workspaceFolder}/",
+    }
+  }]
+}
+```
+
+#### php.ini
+
+```ini
+xdebug.max_nesting_level = 256
+xdebug.show_exception_trace = 0
+xdebug.collect_params = 0
+xdebug.remote_enable = 1
+xdebug.remote_autostart = 1
+xdebug.remote_host = ${LANDO_HOST_IP}
+xdebug.remote_log = /tmp/xdebug.log
+```
+
+### Dev Desktop
+
+Follow the first portion of [Configuring dev desktop with xdebug](https://docs.acquia.com/dev-desktop/sites/phpstorm/#configuring-acquia-dev-desktop-with-xdebug), to get dev desktop itself setup to use xdebug.
