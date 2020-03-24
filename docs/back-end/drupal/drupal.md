@@ -183,7 +183,21 @@ services:
 
 ### Lando
 
-Add the following in a .vscode folder in the project root. This can be committed, or .gitignored, as needed based on project.
+Adjust your .lando.yml to add xdebug, and a reference to a custom php.ini, so it looks similar to the following:
+
+```yml
+name: YOUR Site
+recipe: pantheon
+config:
+  framework: drupal8
+  site: your_site
+  id: your_id
+  xdebug: true
+  conf:
+    php: .vscode/php.ini
+```
+
+Then add the following in a .vscode folder in the project root, then run `lando rebuild -y`. This can be committed, or .gitignored, as needed based on project.
 
 #### launch.json
 
