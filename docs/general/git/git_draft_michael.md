@@ -14,7 +14,6 @@ _Screen for creating a new repository on Github._
 
 [https://github.com/michaelscraven1972/learning](https://github.com/michaelscraven1972/learning)
 
-Added a README.
 
 
 ### Clone Repository Locally From Command Line
@@ -93,7 +92,7 @@ When the user clicks the pull button, a dialog box comes up:
 ![alt_text](images/image7.png "image_tooltip")
 
 
-_The dialog box allows selection of which branch and repository to pull from. _
+_The dialog box allows selection of which branch and repository to pull from._
 
 
 ## Add/Commit
@@ -350,7 +349,7 @@ _Adding a tag and the list of tags in the left panel._
 idfivw uses the gitflow methodology for development. Gitflow defines a set of branches and specific purposes for each kind of branch. In addition to  the master branch, gitflow uses a develop branch, feature branches, release branches, and hotfix branches.
 
 *   **develop**  - which is the starting branch for all **feature** branches. Develop can be very dynamic, with new feature code being merged in all the time.
-*   **feature ** - feature branches are created to work on new functionality.They are merged back to develop when complete.
+*   **feature** - feature branches are created to work on new functionality.They are merged back to develop when complete.
 *   **master** -  is very stable, is always production ready. No feature branches are made from master.
 *    **release**  - a branch created from **develop** when a new set of features is ready to be merged into master
 *   **hotfixes** -  created from master to repair bugs found in the production code after a release.

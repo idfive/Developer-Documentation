@@ -26,17 +26,41 @@ _The composer init command leads the user through the creation of a composer.jso
 The interactive init command allows the developer to define dependencies at init time. But dependencies can also be added using the require command.
 
 
+
+## The Composer.json File
+
+
+
+![alt_text](images/image3.png "image_tooltip")
+
+
+_The composer.json file for the howard content types Drupal module lists metadata for the project_
+
+The init command builds the composer.json file. The official [Composer documentation](https://getcomposer.org/doc/04-schema.md) lists all the properties that may be added to composer.json. The only properties that are required are the name and description fields. However, there are a number of other properties that can be added to give more information about the project. These include:
+
+
+
+*   **authors** - an array of author objects, which may each have name, email, homepage, and role property
+*   **support** - a object containing various ways to get support including irc, email, issue tracker, etc.
+*   **license** - under which license(s) is the package distributed
+*   **homepage** - the homepage of the project
+
+Other information in the composer.json file lists information about dependencies of the package.
+
+*   **require** - (see above) lists the dependencies of this package. As long as a nonconflicting versions of packages can be found that meets the constraints in composer.json, they will be downloaded on install.
+*   **minimum-stability** - sets a minimum for how stable packages need to be to be included. Possible values are dev, alpha, beta, RC, and stable, Defaults to stable
+
 ## Require/Remove
 
 After the `init` command has been run, dependencies can be added and removed from the composer.json file with the `require` and `remove` commands. Composer `require` adds a new dependency to the project and `remove` removes it.
 
 
 ```
-$composer require <group/name>
+$composer require <vendor/name>
 ```
 
 
-Where the group is the collection (in the case of Howard U repos _howard_) and name is the name of this particular package. For example, the howard_paragraphs project has the following requirements:
+Where the vendor is the collection (in the case of Howard U repos _howard_) and name is the name of this particular package. For example, the howard_paragraphs project has the following requirements:
 
 
 ```
@@ -93,31 +117,9 @@ Will also allow updates up to version 2, because all releases within one major r
 
 Version ranges can also be scoped by comparison operators ( >, >=, &lt;, &lt;=, !=). More than one range can be combined, either with a space ( ) or a (,), which will be treated as an AND, or with a double pipe (||), which will be treated as an OR.
 
-
-## The Composer.json File
-
-
-
-![alt_text](images/image3.png "image_tooltip")
-
-
-_The composer.json file for the howard content types Drupal module lists metadata for the project_
-
-The official [Composer documentation](https://getcomposer.org/doc/04-schema.md) lists all the properties that may be added to composer.json. The only properties that are required are the name and description fields. However, there are a number of other properties that can be added to give more information about the project. These include:
-
-
-
-*   **authors - **an array of author objects, which may each have name, email, homepage, and role property
-*   **support** - a object containing various ways to get support including irc, email, issue tracker, etc.
-*   **license** - under which license(s) is the package distributed
-*   **homepage** - the homepage of the project
-
-Other information in the composer.json file lists information about dependencies of the package.
-
-
 ## Deploy
 
-[Packagist](https://packagist.org) is the main repository for Composer. I aggregates public PHP projects for installation via composer. We submit code distributed through composer to Packagist. The official Packagist documentation has a [page](https://packagist.org/about#naming-your-package) for how to submit packages. The steps it lists are:
+[Packagist](https://packagist.org) is the main repository for Composer. It aggregates public PHP projects for installation via composer. We submit code distributed through composer to Packagist. The official Packagist documentation has a [page](https://packagist.org/about#naming-your-package) for how to submit packages. The steps it lists are:
 
 
 
