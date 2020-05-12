@@ -11,7 +11,7 @@
 Composer projects are generally created by entering the command:
 
 ```sh
-$composer init
+composer init
 ```
 
 This command (run from within the project directory), leads the developer through the creation of a composer.json file.
@@ -45,7 +45,7 @@ Other information in the composer.json file lists information about dependencies
 After the `init` command has been run, dependencies can be added and removed from the composer.json file with the `require` and `remove` commands. Composer `require` adds a new dependency to the project and `remove` removes it.
 
 ```sh
-$composer require VENDOR/PROJECT
+composer require VENDOR/PROJECT
 ```
 
 Where the vendor is the collection within composer, usually the company, individual, or organization (in the case of Howard University repos _howard_) and project is the name of this particular package. For example, the howard_paragraphs (howard/howard/paragraphs) project has the following requirements:
@@ -69,13 +69,13 @@ You can require specific versions of packages to be installed on a project, but 
 The **tilde** (~) version range allows updating through the next version of higher specificity. For example:
 
 ```sh
-$composer require drupal/thing "~1.4"
+composer require drupal/thing "~1.4"
 ```
 
 Will allow an update up to version 2; whereas:
 
 ```sh
-$composer require drupal/thing "~1.4.3"
+composer require drupal/thing "~1.4.3"
 ```
 
 Will allows updates up to version 1.5.
@@ -85,13 +85,13 @@ Will allows updates up to version 1.5.
 The **caret** (^) version range always allows updating up to the last non-breaking release. Under composer conventions, that means up to the next major release. So:
 
 ```sh
-$composer require drupal/thing "^1.4"
+composer require drupal/thing "^1.4"
 ```
 
 Will behave the same as the tilde version range because 2 is the next major release. Whereas:
 
 ```sh
-$composer require drupal/thing "^1.4.3"
+composer require drupal/thing "^1.4.3"
 ```
 
 Will also allow updates up to version 2, because all releases within one major release should be backwards compatible. When using the caret version range, the issue more often what is the minimum version required by the application, which may be more specific than a minor release.
@@ -134,7 +134,7 @@ New tags pushed to the Github repository immediately triggers a new release.
 In the root of a composer project is a composer.json file and a composer.lock file (The [composer documentation](https://getcomposer.org/doc/01-basic-usage.md#commit-your-composer-lock-file-to-version-control) says composer.lock should be put under version control so that collaborators install the right version of each dependency). There may also be a vendor directory if composer install has been run. To check if there are updates to dependencies, run the outdated command:
 
 ```sh
-$composer outdated
+composer outdated
 ```
 
 Outdated will query Packagist and then list the packages that have available updates. The output is color coded. Output that is coded yellow has a new version that may not be backwards compatible to the current version. Upgrading may involve debugging code. Output that is coded red is semver-compatible and you should upgrade it.
@@ -148,13 +148,13 @@ _Color coding of the composer outdated command._
 To upgrade, use the update command:
 
 ```sh
-$composer update VENDOR/PROJECT
+composer update VENDOR/PROJECT
 ```
 
 Composer will update the package listed in the command so long as it is not prohibited by constraints in composer.json or other dependencies. To update every package, leave off the package name, though be careful making such a big change. Wildcards are also allowed in the update command. For example:
 
 ```sh
-$composer update VENDOR/*
+composer update VENDOR/*
 ```
 
 Will update all packages of the named vendor.
@@ -162,7 +162,7 @@ Will update all packages of the named vendor.
 To see why a package cannot be updated, use the prohibits command.
 
 ```sh
-$composer prohibits symfony/polyfill-php72
+composer prohibits symfony/polyfill-php72
 ```
 
 Which returns:
@@ -184,7 +184,7 @@ Drupal can be downloaded and installed with composer and drush. In part to encou
 The official Drupal documentation has a good page on creating and managing a Drupal project with composer. To begin:
 
 ```sh
-$composer create-project drupal/recommended-project <project directory>
+composer create-project drupal/recommended-project <project directory>
 ```
 
 Will create a new Drupal project in the _project directory_ with the recommended-project template. The recommended-project template is the recommended composer template as of Drupal 8.8.
@@ -202,7 +202,7 @@ Drush site:install (si) asks a series of questions to set up the project, includ
 All modules and drupal core should be managed with composer. On the [Lullabot blog](https://www.lullabot.com/articles/drupal-8-composer-best-practices) James Sansbury makes a case for how complicated dependency management is and composer, with its ability to manage both first level dependencies and nested dependencies.
 
 ```sh
-$composer update --with-dependencies drupal/MODULE_NAME
+composer update --with-dependencies drupal/MODULE_NAME
 ```
 
 Will update not only the module, but the dependencies of the module. Composer update updates code and the composer.lock file, which will need to be pushed to the repository. After running update, running git status will show the new code to stage, commit, and push.
