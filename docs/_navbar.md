@@ -3,7 +3,7 @@
   * [Setup and Access](general/onboarding/local_setup.md)
   * [Resources](general/onboarding/resources.md)
   * [git](general/git/standards.md)
-    * [Special Considerations for Pantheon](general/git/pantheon.md)
+  * [git Pantheon](general/git/pantheon.md)
   * [Ticketing](general/ticketing/overview.md)
   * [Ticket QC](general/ticketing/ticket_qc.md)
   * [Testing](general/testing/overview.md)
@@ -20,7 +20,7 @@
 * Back-end (General)
 
   * [PHP](back-end/php/standards.md)
-    * [Composer](back-end/php/composer.md)
+  * [Composer](back-end/php/composer.md)
 
 * Drupal
 
