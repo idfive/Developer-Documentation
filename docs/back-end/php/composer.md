@@ -1,11 +1,5 @@
 # Composer
 
-## DR Notes
-
-- download a markdown editor for vscode to help format. I use markdownlint.
-- be consistent with markup, sometimes you use single code wrappers, sometimes blocks. code blocks should also have the lang attached. Either can be used, but it should be more or less consistent.
-- lets move to php section here, and adjust nav/naming/etc and make live.
-
 ## Create
 
 Composer projects are generally created by entering the command:
@@ -177,7 +171,7 @@ Composer update will also update the composer.lock file, thus capturing a snapsh
 
 [Drupal uses Composer](https://www.drupal.org/docs/develop/using-composer) to manage the various libraries it uses and it is a good idea to use Composer to manage the modules that make up a Drupal project.
 
-## Set up
+## Set Up
 
 Drupal can be downloaded and installed with composer and drush. In part to encourage the use of composer as a dependency manager, drush in Drupal 8 does not include the `dl` command.
 
