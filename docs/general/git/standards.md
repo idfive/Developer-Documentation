@@ -10,7 +10,6 @@
 
 _Screen for creating a new repository on Github._
 
-[https://github.com/michaelscraven1972/learning](https://github.com/michaelscraven1972/learning)
 
 ### Clone Repository Locally from the Command Line
 
