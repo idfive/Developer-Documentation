@@ -93,7 +93,7 @@ Legacy sites mean legacy files, usually, a lot of poorly managed ones. Since we 
 
 In general, this is less than desireable. While possible to scrape a site, and parse things, it is problematic for many reasons. The "best case" for this, would be something like articles, or blog posts, that have structured fields, and (hopefully) a defined, distinct template. If at all possible, exports from a CMS or similar are preferred.
 
-- See [a video we did](https://www.dropbox.com/s/rfg1mjo5aijatte/scrapr-demo.mp4?dl=0) on testing of [importer.io](http://importer.io).
+- See [a video we did](https://www.dropbox.com/s/rfg1mjo5aijatte/scrapr-demo.mp4?dl=0) on testing of [import.io](http://import.io).
 - This has lots of possibilities  to scrape static content, but does require subscription, and does require configuration and familiarization with the tool.
 - Requires URL structure to be logical.
 
@@ -106,7 +106,7 @@ In general, this is less than desireable. While possible to scrape a site, and p
 
 #### Plugins
 
-- WP All Import Pro includes a GUI for content mapping across fields. Combined with WP All Export, one can export existing WordPress content from an older site into the field mapping of a new site. 
+- WP All Import Pro includes a GUI for content mapping across fields. Combined with WP All Export, one can export existing WordPress content from an older site into the field mapping of a new site.
 
 
 ### Drupal 8 content importing
