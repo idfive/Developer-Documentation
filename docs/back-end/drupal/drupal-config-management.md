@@ -73,6 +73,15 @@ $config_directories['vcs'] = $app_root . '/../config/MYSITE';
 $config_directories['sync'] = $app_root . '/../config/MYSITE';
 ```
 
+## One time config overrides via drush
+
+You can use [drush cset](https://drushcommands.com/drush-8x/config/config-set/) to run one time updates on sites if needed. Note that booleans will need to be set as 1/0.
+
+- See all config: `drush config-list`
+- Narrow down: `drush config-list simplesamlphp_auth.settings`
+- And set: `drush config-set simplesamlphp_auth.settings role.eval_every_time 0`
+- For acquia multi-sites, from ssh on server: `drush @sites config-set simplesamlphp_auth.settings role.eval_every_time 0`
+
 ## Config management and modules
 
 If a more module based workflow is being employed, any config related to that module should be stored in the module itself. This is so that when users enable the module, all config that is relevant (fields/etc) are added.
