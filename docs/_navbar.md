@@ -35,6 +35,7 @@
   * [Drupal Performance](back-end/drupal/drupal-performance.md)
   * [Drupal Services](back-end/drupal/drupal-services.md)
   * [Drupal Social Share](back-end/drupal/drupal-social-share.md)
+  * [Drupal Views](back-end/drupal/drupal-views.md)
 
 * WordPress
 
