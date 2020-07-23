@@ -100,12 +100,14 @@ Sample overridden exposed form, `views-exposed-form--VIEW-NAME.html.twig`:
 <div class="some_class">
   <div class="search_class">
     {{ form.search }}
-    {{ form|without('search', 'title', 'taxonomy_field') }}
+    {{ form.actions|without('reset') }}
   </div>
   <div class="filters_class">
     <h4>filter by...</h4>
+    {{ form.actions|without('submit') }}
     {{ form.taxonomy_field }}
   </div>
+  {{ form|without('search', 'title', 'taxonomy_field', 'actions') }}
 </div>
 ```
 
@@ -113,6 +115,7 @@ You can see how markup could then be intermixed into the exposed for. In this in
 
 - `form.search`: A search API fulltext search field, with the Filter identifier of 'search' within the view.
 - `form.taxonomy_field`: An exposed taxonomy select, with the Filter identifier of 'taxonomy_field' within the view.
+- `{{ form.actions|without('reset') }}` can be used to show submit.
+- `{{ form.actions|without('submit') }}` can be used to show reset, if added within view.
 - Notice we also render `form|without`, which in this case provides our submit button/etc.
 - `q` markup is needed for cleanurl's, and should be kept in at top of template.
-
