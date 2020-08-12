@@ -1,6 +1,6 @@
 # Case Scenarios for CMS Maintenance
 
-## CMS Maintenance: Carte blanche for updates
+## CMS Maintenance: Standing order for updates
 
  1.  Update notification arrives    
  2.  Determine affected sites    

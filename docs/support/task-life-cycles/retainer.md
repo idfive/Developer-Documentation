@@ -36,8 +36,6 @@ E.g. “I want a new page layout or add a different index of content types” in
     8.  PM reviews work.    
     9.  PM submits work for client review.    
     10.  Client approves push to production.
-    
-
   
 
 ## Retainer Work: End-of-Life Updates
