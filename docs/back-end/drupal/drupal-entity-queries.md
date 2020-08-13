@@ -27,10 +27,10 @@ Example function, with caching, to be called via custom service. See [drupal Ser
    */
   public function getStuff($id = NULL, $limit = 3) {
     if ($id == NULL) {
-      $cid = 'apl_local_NODE_MACHINE_NAME_all-' . $limit;
+      $cid = 'MY_MODULE:local_NODE_MACHINE_NAME_all-' . $limit;
     }
     else {
-      $cid = 'apl_local_NODE_MACHINE_NAME_' . $id . '-' . $limit;
+      $cid = 'MY_MODULE:local_NODE_MACHINE_NAME_' . $id . '-' . $limit;
     }
     if ($cache = \Drupal::cache()->get($cid)) {
       return $cache->data;

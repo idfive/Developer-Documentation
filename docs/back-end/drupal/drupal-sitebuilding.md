@@ -545,7 +545,7 @@ $variables['MY_VARIABLES'] = _MY_MODULE_get_things();
 
 // Function to get nodes of type CONTENT_TYPE and sort by title
 function _MY_MODULE_get_things() {
-  if ($cache = \Drupal::cache()->get('my_module_get_things')) {
+  if ($cache = \Drupal::cache()->get('MY_MODULE:get_things')) {
     return $cache->data;
   }
   else {
@@ -557,7 +557,7 @@ function _MY_MODULE_get_things() {
       ->execute();
     $result = $storage->loadMultiple($nids);
     if ($result) {
-      \Drupal::cache()->set('my_module_get_things', $result, time() + 7200);
+      \Drupal::cache()->set('MY_MODULE:get_things', $result, time() + 7200);
       return $result;
     }
     else {
@@ -583,7 +583,7 @@ $variables['MY_VARIABLES'] = _MY_MODULE_get_stuff('UNIQUE_ID_FOR_THIS_CALL');
 
 // Function to test views to see if they have results before displaying
 function _MY_MODULE_get_stuff($id) {
-  if ($cache = \Drupal::cache()->get('my_module_get_stuff--' . $id)) {
+  if ($cache = \Drupal::cache()->get('MY_MODULE:get_stuff--' . $id)) {
     return $cache->data;
   }
   else {
@@ -592,7 +592,7 @@ function _MY_MODULE_get_stuff($id) {
     $result = json_decode($result, TRUE);
     $result = $result['data'];
     if ($result) {
-      \Drupal::cache()->set('my_module_get_stuff--' . $id, $result, time() + 7200);
+      \Drupal::cache()->set('MY_MODULE:get_stuff--' . $id, $result, time() + 7200);
       return $result;
     }
     else {
