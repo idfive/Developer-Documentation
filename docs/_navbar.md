@@ -25,16 +25,18 @@
 * Drupal
 
   * [Drupal General Codebase](back-end/drupal/drupal.md)
+  * [Drupal Helpful Commands](back-end/drupal/drupal-helpfull-commands.md)
   * [Drupal Environment & Stack](back-end/drupal/drupal-environment.md)
   * [Drupal Site Building](back-end/drupal/drupal-sitebuilding.md)
   * [Drupal Config Management](back-end/drupal/drupal-config-management.md)
-  * [Drupal Helpful Commands](back-end/drupal/drupal-helpfull-commands.md)
+  * [Drupal Caching](back-end/drupal/drupal-caching.md)
+  * [Drupal Entity Queries](back-end/drupal/drupal-entity-queries.md)
   * [Drupal Field Snippets](back-end/drupal/drupal-field-snippets.md)
-  * [Drupal Testing](back-end/drupal/drupal-testing.md)
   * [Drupal Legacy](back-end/drupal/drupal-legacy.md)
   * [Drupal Performance](back-end/drupal/drupal-performance.md)
   * [Drupal Services](back-end/drupal/drupal-services.md)
   * [Drupal Social Share](back-end/drupal/drupal-social-share.md)
+  * [Drupal Testing](back-end/drupal/drupal-testing.md)
   * [Drupal Views](back-end/drupal/drupal-views.md)
 
 * WordPress
