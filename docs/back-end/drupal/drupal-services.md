@@ -100,3 +100,7 @@ Once the service is defined and the code in place, instantiating the registered 
 $client = \Drupal::service('MY_CUSTOM_CLIENT.client');
 $stuff = $client->getStuff(3);
 ```
+
+## Further knowledge
+
+- See [idfive Instagram Basic Display API Service](https://bitbucket.org/idfivellc/idfive-instagram-basic-display-api-service/src/8.x-1.x/) for a more complex integration, using external libraries/etc.
