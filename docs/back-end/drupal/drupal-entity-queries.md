@@ -19,7 +19,7 @@ foreach ($results as $node) {
 
 ## Complex example
 
-Example function, with caching, to be called via custom service. See [drupal Services](drupal-services.md) for more details on services:
+Example function, with caching, to be called via custom service. See [drupal Services](/back-end/drupal/drupal-services) for more details on services:
 
 ```php
 /**
