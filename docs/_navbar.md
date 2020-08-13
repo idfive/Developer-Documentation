@@ -53,3 +53,10 @@
   * [Drupal custom paragraph module](challenges/drupal-paragraph-module.md)
   * Frontend:
   * [Vue News App Challenge](challenges/vue-challenge.md)
+
+* Support
+
+  * [Intro](support/introduction.md)
+  * [Retainer](support/task-life-cycles/retainer.md)
+  * [Maintenance](support/task-life-cycles/maintenance.md)
+  * [Other Tasks](support/task-life-cycles/other.md)

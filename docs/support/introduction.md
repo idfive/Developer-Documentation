@@ -1,0 +1,3 @@
+# Ongoing Client Support 
+
+This section details procedures for ongoing client support, after a project has launched. This process is intended to streamline operations by encouraging standing orders from client to perform updates on a regular basis without having to request permission with each action. The Retainer Work section details the process by which new tasks are approached. Other Tasks details additional opportunities for developers to offer support to the team outside of regular site builds.
