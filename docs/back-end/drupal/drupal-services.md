@@ -1,8 +1,8 @@
 # Drupal 8 Services
 
-One of the concepts introduced in Drupal 8 is *services*. "As a developer, services are used to perform operations like accessing the database or sending an e-mail." [*Drupal Documentation*](https://www.drupal.org/docs/8/api/services-and-dependency-injection/services-and-dependency-injection-in-drupal-8) Drupal core provides [numerous services](https://api.drupal.org/api/drupal/core%21core.services.yml/8.2.x) for use by developers. For example, Drupal core includes an [http client](https://api.drupal.org/api/drupal/core%21core.services.yml/service/http_client/8.2.x) that can be used in modules and injected into services, plugins, or controllers.
+One of the concepts introduced in Drupal 8 is Services. "As a developer, services are used to perform operations like accessing the database, accessing an external API, or sending an e-mail." [*Drupal Documentation*](https://www.drupal.org/docs/8/api/services-and-dependency-injection/services-and-dependency-injection-in-drupal-8) Drupal core provides [numerous services](https://api.drupal.org/api/drupal/core%21core.services.yml/8.2.x) for use by developers. For example, Drupal core includes an [http client](https://api.drupal.org/api/drupal/core%21core.services.yml/service/http_client/8.2.x) that can be used in modules and injected into services, plugins, or controllers.
 
-In general, we at idfive prefer to use services for external API calls/etc whenever possible.
+In general, we at idfive prefer to use services for external API calls, or custom DB based calls whenever possible.
 
 There are two files necessary for creating a service: a services.yml file and a php file that includes the code providing the service.
 
@@ -17,7 +17,7 @@ MY_MODULE/MY_MODULE.services.yml:
 ```yml
 services:
   MY_CUSTOM_CLIENT.client:
-    class: Drupal\MY_MODULE\MyCustomClientService
+    class: Drupal\MY_MODULE\Services\MyCustomClientService
     arguments: ['@http_client']
 ```
 
