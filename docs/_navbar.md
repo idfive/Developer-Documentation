@@ -30,6 +30,7 @@
   * [Drupal Site Building](back-end/drupal/drupal-sitebuilding.md)
   * [Drupal Config Management](back-end/drupal/drupal-config-management.md)
   * [Drupal Caching](back-end/drupal/drupal-caching.md)
+  * [Drupal Entities](back-end/drupal/drupal-entities.md)
   * [Drupal Entity Queries](back-end/drupal/drupal-entity-queries.md)
   * [Drupal Field Snippets](back-end/drupal/drupal-field-snippets.md)
   * [Drupal Legacy](back-end/drupal/drupal-legacy.md)

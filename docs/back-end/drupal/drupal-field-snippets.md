@@ -29,24 +29,39 @@ Then in twig template:
 
 ### Comma separated fancy, in node.html.twig
 
+If, for whatever reason you do not wish to override a field template, links can be accessed in the entity template.
+
 - If 1 value: My first term
 - If 2 values: My first term and My second term
 - If 3+ values: My first term, My second term, My third term and My fourth term
 
 ```twig
-{% if content.field_hc_resource_category %}
-  <div class="hc-article--categories">
-    <h3>Categories</h3>
-    {%- for item in content.field_hc_resource_category['#items'] -%}
-      {%- if loop.first -%}
-        {{- item.entity.name.value -}}
-      {%- elseif loop.last -%}
-        {{- ' and ' ~ item.entity.name.value -}}
-      {%- else -%}
-        {{- ', ' ~ item.entity.name.value -}}
-      {%- endif -%}
-    {%- endfor -%}
-  </div>
+{% if content.MY_TERM_REFERENCE_FIELD %}
+  {%- for item in content.MY_TERM_REFERENCE_FIELD['#items'] -%}
+    {%- if loop.first -%}
+      {{- item.entity.name.value -}}
+    {%- elseif loop.last -%}
+      {{- ' and ' ~ item.entity.name.value -}}
+    {%- else -%}
+      {{- ', ' ~ item.entity.name.value -}}
+    {%- endif -%}
+  {%- endfor -%}
+{% endif %}
+```
+
+- If 1 value: My first term
+- If 2 values: My first term,My second term
+- If 3+ values: My first term, My second term, My third term, My fourth term
+
+```twig
+{% if content.MY_TERM_REFERENCE_FIELD %}
+  {%- for item in content.MY_TERM_REFERENCE_FIELD['#items'] -%}
+    {%- if loop.last -%}
+      {{- item.entity.name.value -}}
+    {%- else -%}
+      {{-  item.entity.name.value ~ ', ' -}}
+    {%- endif -%}
+  {%- endfor -%}
 {% endif %}
 ```
 
@@ -54,11 +69,13 @@ Then in twig template:
 
 ### With attributes, in node.html.twig
 
+If, for whatever reason you do not wish to override a field template, links can be accessed in the entity template.
+
 - For "Link with target" form field
 
 ```twig
-{% if content.field_hc_resource_cta_link %}
-  {% for key, item in content.field_hc_resource_cta_link if key|first != '#' %}
+{% if content.MY_LINK_FIELD %}
+  {% for key, item in content.MY_LINK_FIELD if key|first != '#' %}
     <a href="{{ item['#url'] }}" class="btn" {% if item['#options'].attributes.target %} target="{{ item['#options'].attributes.target }}" {% endif %}>
       {{ item['#title'] }}
     </a>
