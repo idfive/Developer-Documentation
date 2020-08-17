@@ -212,7 +212,7 @@ function MY_MODULE_entity_presave(EntityInterface $entity) {
 Then create the paragraph and attach to the entity, and deliver entity back to the update/similar hook.
 
 ```php
-function _msac_profiles_create_awards_paragraph($entity) {
+function _MY_MODULE_create_awards_paragraph($entity) {
   // Process the $entity for any needed values/logic/etc, from a trigger field on the entity/node.
   $trigger = $entity->FIELD_MY_TRIGGER_FIELD->value;
 
