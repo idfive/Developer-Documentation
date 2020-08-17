@@ -133,6 +133,25 @@ $node->MY_TEXT_FIELD->value;
 $node->MY_IMAGE_FIELD->target_id;
 ```
 
+#### Get media image URL from media reference field
+
+Always load image/media URLS as an appropriate image style.
+
+```php
+use Drupal\media\Entity\Media;
+use Drupal\image\Entity\ImageStyle;
+
+if ($node->hasField('MY_HERO_IMAGE_MEDIA_FIELD')) {
+  $image = $node->get('MY_HERO_IMAGE_MEDIA_FIELD')->getValue();
+  if ($image && !empty($image)) {
+    $entity = Media::load($image[0]['target_id']);
+    if (isset($entity) && $entity->field_media_image->entity !== NULL && $entity->field_media_image->entity->getFileUri() !== NULL) {
+      $variables['hero_image_url'] = ImageStyle::load('MY_HERO_IMAGE_STYLE')->buildUrl($entity->field_media_image->entity->getFileUri());
+    }
+  }
+}
+```
+
 #### Set field values from a loaded $node
 
 ```php
@@ -163,5 +182,54 @@ foreach($nids as $nid)
   $node = $node_storage->load($nid);
   // Do something else here if needed.
   $node->delete();
+}
+```
+
+## Paragraphs
+
+### Programmatically create a paragraph
+
+We sometimes find ourselves in the situation of needing to create referenced entities (usually paragraphs) based on if a field on a node/etc is filled out. Here is a basic example.
+
+```php
+use Drupal\paragraphs\Entity\Paragraph;
+use Drupal\Core\Entity\EntityInterface;
+
+/**
+ * Implements hook_entity_presave().
+ */
+function MY_MODULE_entity_presave(EntityInterface $entity) {
+  switch ($entity->bundle()) {
+    case 'MY_NODE_BUNDLE':
+      if ($entity->field_artist_iaa_recipient->getValue()) {
+        $entity = _my_module_create_paragraph($entity);
+      }
+      break;
+  }
+}
+```
+
+Then create the paragraph and attach to the entity, and deliver entity back to the update/similar hook.
+
+```php
+function _msac_profiles_create_awards_paragraph($entity) {
+  // Process the $entity for any needed values/logic/etc, from a trigger field on the entity/node.
+  $trigger = $entity->FIELD_MY_TRIGGER_FIELD->value;
+
+  // Create paragraph
+  $paragraph = Paragraph::create(['type' => 'MY_PARAGRAPH_BUNDLE']);
+  $paragraph->set('FIELD_MY_FIELD', $trigger);
+  $paragraph->isNew();
+  $paragraph->save();
+  // Grab any existing paragraphs from the node, and add this one
+  $current = $entity->get('FIELD_REFERENCE_FIELD_ON_NODE')->getValue();
+  $current[] = array(
+      'target_id' => $paragraph->id(),
+      'target_revision_id' => $paragraph->getRevisionId(),
+    );
+  $entity->set('FIELD_REFERENCE_FIELD_ON_NODE', $current);
+  // If needed, Unset trigger field so does not run again.
+  $entity->set('FIELD_MY_TRIGGER_FIELD', []);
+  return $entity;
 }
 ```
