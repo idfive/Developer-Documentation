@@ -68,7 +68,8 @@ A more complex example that shows arguments, and returns a combined list of two 
 In this example we will:
 
 - Use a custom Service for the logic of getting content, as is a better practice.
-- Pass an argument to the REST endpoint, in this case a TID
+- Pass an argument to the REST endpoint, in this case a TID.
+- Construct a global variable.
 - Get a list of content of type CONTENT_TYPE_ONE tagged with that TID.
 - Get a list of content of type CONTENT_TYPE_TWO tagged with that TID.
 - Format the response to a few simple fields.
@@ -83,6 +84,7 @@ namespace Drupal\MY_MODULE\Plugin\rest\resource;
 
 use Drupal\rest\Plugin\ResourceBase;
 use Drupal\rest\ResourceResponse;
+use Psr\Log\LoggerInterface;
 use Drupal\MY_MODULE\Services\MyGeneralService;
 
 /**
@@ -98,6 +100,23 @@ use Drupal\MY_MODULE\Services\MyGeneralService;
  */
 class MyCustomEndpoint extends ResourceBase {
 
+  public $content_types;
+
+  /**
+   * Constructs a new content types object.
+   */
+  public function __construct(array $configuration, $plugin_id, $plugin_definition, array $serializer_formats, LoggerInterface $logger) {
+    parent::__construct($configuration, $plugin_id, $plugin_definition, $serializer_formats, $logger);
+    $this->content_types = [
+     [
+       'machine_name' => 'CONTENT_TYPE_ONE',
+     ],
+     [
+       'machine_name' => 'CONTENT_TYPE_ONE',
+     ],
+    ];
+  }
+
   /**
    * Responds to GET requests.
    *
@@ -110,8 +129,9 @@ class MyCustomEndpoint extends ResourceBase {
   public function get($custom_arg = NULL) {
     if ($custom_arg) {
       $response = [];
-      $response['CONTENT_TYPE_ONE'] = MyGeneralService::getStuff($custom_arg, 'CONTENT_TYPE_ONE');
-      $response['CONTENT_TYPE_TWO'] = MyGeneralService::getStuff($custom_arg, 'CONTENT_TYPE_TWO');
+      foreach ($this->content_types as $key => $content_type) {
+        $response[$content_type['machine_name']] = MyGeneralService::getStuff($custom_arg, $content_type['machine_name']);
+      }
       return new ResourceResponse($response);
     }
   }
