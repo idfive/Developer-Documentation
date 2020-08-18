@@ -2,6 +2,19 @@
 
 Helpful snippets for displaying different fields.
 
+## Truncate
+
+Use the built in [Unicode truncate function](https://api.drupal.org/api/drupal/core%21lib%21Drupal%21Component%21Utility%21Unicode.php/function/Unicode%3A%3Atruncate/8.2.x).
+
+```php
+use Drupal\Component\Utility\Unicode;
+
+// Truncates a UTF-8-encoded string safely to a number of characters.
+$truncate = Unicode::truncate($string, $max_length, $wordsafe, $add_ellipsis, $min_wordsafe_length);
+
+$truncate = Unicode::truncate($MY_STRING, 200, TRUE, TRUE, 5);
+```
+
 ## Hiding fields/sections/whatever using a boolean field
 
 Sometimes it in necessary to use a boolean to hide/show different parts of a page. This can be accomplished by adding a field check in the proper entity hook (node/paragraph/whatever), and creating a custom variable. In this example we added a boolean that says "Hide something" to a node. In general, we prefer to say "hide something", rather than "show something", that way, all things can be displayed by default, and the feeling is more "this one instance is special and I am taking action to do something unique".

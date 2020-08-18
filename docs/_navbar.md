@@ -35,6 +35,7 @@
   * [Drupal Field Snippets](back-end/drupal/drupal-field-snippets.md)
   * [Drupal Legacy](back-end/drupal/drupal-legacy.md)
   * [Drupal Performance](back-end/drupal/drupal-performance.md)
+  * [Drupal Custom REST](back-end/drupal/drupal-rest-custom.md)
   * [Drupal Services](back-end/drupal/drupal-services.md)
   * [Drupal Social Share](back-end/drupal/drupal-social-share.md)
   * [Drupal Testing](back-end/drupal/drupal-testing.md)
