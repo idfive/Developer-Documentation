@@ -1,6 +1,13 @@
 # Custom REST endpoints
 
-While stock REST endpoints in drupal can be used in most scenarios, sometimes we need to get tricky.
+While stock REST endpoints in drupal can (and should) be used in most scenarios, sometimes we need to get tricky.
+
+Some common scenarios that may warrant a custom endpoint:
+
+- The need to match existing JSON, or for a custom json structure.
+- The need for complex logic in the query.
+- The need for a simplified return.
+- The need to combine queries into a single return.
 
 ## Basic Overview
 
@@ -8,6 +15,8 @@ While stock REST endpoints in drupal can be used in most scenarios, sometimes we
 - Enable endpoint and add permissions to access.
 
 ## Create custom Plugin
+
+A simple endpoint that returns static content. Can be modified with queries/etc as needed.
 
 ### Simple example
 
@@ -53,6 +62,8 @@ class MyCustomEndpoint extends ResourceBase {
 ```
 
 ### Complex example
+
+A more complex example that shows arguments, and returns a combined list of two separate queries.
 
 In this example we will:
 
@@ -136,7 +147,7 @@ class AplGeneralService {
         ->execute();
       if ($nids) {
         $nodes = Node::loadMultiple($nids);
-        $articles = self::formatStuffForRest($nodes, $type);
+        $articles = self::formatStuffForRest($nodes);
       }
     }
     return $articles;
@@ -146,7 +157,7 @@ class AplGeneralService {
    * Format nodes for rest return.
    * @return Array articles
    */
-  public function formatStuffForRest($results, $type) {
+  public function formatStuffForRest($results) {
     $articles = [];
     foreach ($results as $result) {
       $article = [];
