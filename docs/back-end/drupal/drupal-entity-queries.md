@@ -37,11 +37,11 @@ Example function, with caching, to be called via custom service. See [drupal Ser
     }
     else {
       $storage = \Drupal::getContainer()->get('entity_type.manager')->getStorage('node');
-      $nids = $storage->getQuery();
-      $nids = $nids->condition('type', 'NODE_MACHINE_NAME')
+      $query = $storage->getQuery();
+      $query = $query->condition('type', 'NODE_MACHINE_NAME')
         ->condition('status', 1)
-        ->sort('created', 'DESC')
-        ->execute();
+        ->sort('created', 'DESC');
+      $nids = $query->execute();
       $results = $storage->loadMultiple($nids);
       if ($results) {
         $parsed_results = [];
@@ -111,4 +111,21 @@ $tids = \Drupal::entityQuery('taxonomy_term')
 ->condition('status', 1) // Entity is published
 ->condition('type', 'NODE_MACHINE_NAME') // Entity is of type
 ->condition('FIELD_TAXONOMY_REFERENCE', $tid); // A taxonomy reference field is equal to $tid (NUM)
+->condition('FIELD_TAXONOMY_REFERENCE', [$tids], 'IN'); // A taxonomy reference field is equal to one of several $tids (NUM, comma separated)
+->condition('nid', $nid, 'NOT IN'); // Exclude a node, by ID
+```
+
+#### Conditions groups
+
+Conditions groups can be further added in order to adjust the conditions queries.
+
+- AND: andConditionGroup()
+- OR: orConditionGroup()
+- See more in [drupal.org docs](https://www.drupal.org/docs/8/api/database-api/dynamic-queries/conditions#s-condition-groups).
+
+```php
+$and = $query->andConditionGroup();
+$and->condition('FIELD_TAXONOMY_ONE_REFERENCE', [TID], 'IN');
+$and->condition('FIELD_TAXONOMY_TWO_REFERENCE', [TID], 'IN');
+$query->condition($and);
 ```
