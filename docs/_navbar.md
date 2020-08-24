@@ -33,6 +33,7 @@
   * [Drupal Entities](back-end/drupal/drupal-entities.md)
   * [Drupal Entity Queries](back-end/drupal/drupal-entity-queries.md)
   * [Drupal Field Snippets](back-end/drupal/drupal-field-snippets.md)
+  * [Drupal Hybrid Content Types](back-end/drupal/drupal-hybrid-content-types.md)
   * [Drupal Legacy](back-end/drupal/drupal-legacy.md)
   * [Drupal Performance](back-end/drupal/drupal-performance.md)
   * [Drupal Custom REST](back-end/drupal/drupal-rest-custom.md)
