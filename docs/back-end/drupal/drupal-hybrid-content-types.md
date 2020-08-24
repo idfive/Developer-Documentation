@@ -15,6 +15,8 @@ This gives us the benefit of having content locally, in order to add local field
 
 A client has an API endpoint for faculty. Each faculty member has a large bio, as well as a publications list that could be 60-100 individual publications, as well as other complex fields. The client also needs to be able to use entity relations to these faculty members from other pieces of content within drupal.
 
+Since we only need things like photo, name, shortened bio, and some local categorizations in the "all faculty" view, we would rather not spend time and effort adding things like "publications" into the drupal DB, but rather, simply grab them from the API directly when needed, on the detail page. This lets us not duplicate complex content locally, and keeps the "source of truth" as the direct source.
+
 ### The implementation
 
 - Create a "Faculty Member" content type within drupal.
@@ -120,7 +122,7 @@ class MyCustomService {
     }
     catch (RequestException $e) {
       $message = 'Error connecting to APL API via URL:' . $url;
-      \Drupal::logger('APL API')->error($message);
+      \Drupal::logger('My Custom Service')->error($message);
       return;
     }
     return $result;
