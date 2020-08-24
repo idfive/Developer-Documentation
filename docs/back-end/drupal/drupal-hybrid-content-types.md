@@ -25,7 +25,7 @@ A client has an API endpoint for faculty. Each faculty member has a large bio, a
 - Use views or similar, to create filterable view of "all faculty", using all fields available locally.
 - Load publications, full bio, etc directly from API when full faculty profile is viewed.
 
-## Basic Overview
+## Basic overview
 
 - Create shell content type.
 - Add fields for Minimum Viable Tracked Content (MVTC) from API, and needed local fields.
