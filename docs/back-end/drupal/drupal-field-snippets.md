@@ -2,6 +2,14 @@
 
 Helpful snippets for displaying different fields.
 
+## Dates
+
+### Format date in preproccess
+
+```php
+$variables['created'] = \Drupal::service('date.formatter')->format($variables['node']->getCreatedTime(), 'MY_DATE_FORMAT');
+```
+
 ## Truncate
 
 Use the built in [Unicode truncate function](https://api.drupal.org/api/drupal/core%21lib%21Drupal%21Component%21Utility%21Unicode.php/function/Unicode%3A%3Atruncate/8.2.x).

@@ -1,6 +1,6 @@
 # Hybrid Content Types
 
-Often times, we get asked to create Hybrid content types in drupal. Essentially, a hybrid content type is:
+Often times, we get asked to create Hybrid content types in drupal. Essentially, a hybrid content type is a content type that:
 
 - Has a single "source of truth", that is API based.
 - Mirrors "some of this content" locally in drupal.
@@ -85,6 +85,7 @@ See [Drupal Services](/back-end/drupal/drupal-services.md) section of this site 
 namespace Drupal\MY_MODULE\Services;
 
 use GuzzleHttp\Client;
+use GuzzleHttp\Exception\RequestException;
 
 /**
  * Class MyCustomService.
