@@ -55,6 +55,7 @@
   * [Drupal custom API module](challenges/drupal-api-module.md)
   * [Drupal custom paragraph module](challenges/drupal-paragraph-module.md)
   * Frontend:
+  * [JS Accordion](challenges/js-accordion.md)
   * [Vue News App Challenge](challenges/vue-challenge.md)
 
 * Support
