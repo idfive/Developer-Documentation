@@ -20,7 +20,7 @@ Create a simple, reusable accordion component that accomplishes the following:
 ## Deliverables
 
 - Link to git repository containing the custom module only. Full commit history desired.
-- Link to a working example on Github Pages showcasing multiple instances of the component on a single page to verify state is encapsulated on a per-component basis.
+- Link to a working example on GitHub Pages showcasing multiple instances of the component on a single page to verify state is encapsulated on a per-component basis.
 
 ## Code review criteria
 
