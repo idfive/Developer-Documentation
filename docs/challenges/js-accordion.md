@@ -2,7 +2,7 @@
 
 ## Overview
 
-A challenge for current, and potential idfive Frontend developers, this assesses basic knowledge of JS fundamentals like scope and closures, design patterns, etc to create reusable, modular JS components.
+A challenge for current, and potential idfive Frontend developers, this assesses basic knowledge of JS fundamentals like scope and closures, design patterns, etc to create reusable, modular JS components. Also assess basic HTML/CSS, as well as baseline .git habits.
 
 ## Requirements
 
