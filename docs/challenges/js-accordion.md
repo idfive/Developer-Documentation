@@ -6,7 +6,9 @@ A challenge for current, and potential idfive Frontend developers, this assesses
 
 ## Requirements
 
-Create a simple, reusable accordion component that accomplishes the following:
+Create a simple, reusable accordion component that matches the style shown, accomplishes the following:
+
+![alt_text](images/accordion.png "Accordion Styles")
 
 - Manages its own internal state to demonstrate understanding of scope/closures.
 - Use any pattern you'd like (constructor, module, etc) but structure the component in a way that you can easily instantiate multiple accordions on a single page, each with their own contained internal state.
