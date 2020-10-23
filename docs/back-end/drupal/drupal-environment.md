@@ -82,7 +82,7 @@ While idfive developers maintain basic sysadmin skills, we do not set up servers
 
 ### Git
 
-idfive maintains a [bitbucket account](https://bitbucket.org/), capable of private repositories, which we utilize for builds and maintenance for those with retainers. We can accommodate other vendors, such as GitHub or GitLab, under client accounts, if requested.
+idfive maintains a [bitbucket](https://bitbucket.org/) account, capable of private repositories, which we utilize for builds and maintenance for those with retainers. We can accommodate other vendors, such as GitHub or GitLab, under client accounts, if requested.
 
 ### CI/CD
 
