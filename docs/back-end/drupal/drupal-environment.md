@@ -40,7 +40,7 @@ While idfive developers maintain basic sysadmin skills, we do not set up servers
 
 ##### Example setup
 
-- Development, Staging, and Production environments set up on server. This normally takes the form of three separate folders on the server, each with a fully functioning codebase, file system, and Database.
+- Separate Development, Staging, and Production environments set up on server. This normally takes the form of three separate folders on the server, each with a fully functioning codebase, file system, and Database.
 - Code repository set up on github, bitbucket, or similar.
 - CI/CD chosen/enacted, to auto deploy certain branches (usually dev/stg/master) to respective environments on server.
 - An easy way to import/export Database and files of each site. This is used most often in the form of pulling DB/files prod > dev, which we need to do almost every time we make updates/add new features/etc.
@@ -48,21 +48,21 @@ While idfive developers maintain basic sysadmin skills, we do not set up servers
 
 ##### Example use
 
-###### Development (dev)
+###### Development (DEV)
 
 - CI/CD auto deploys "develop" branch of code repo to server.
 - Prod database and files able to be copied down on demand, so that we can essentially replicate current prod site, on dev site. We need to do this for almost every update/fix.
 - This environment is used mainly to test new functionality requested, troubleshoot bug fixes, and test core/contrib updates.
 - Essentially, this environment is for the developers.
 
-###### Staging (stg)
+###### Staging (STG)
 
 - CI/CD auto deploys specific branch of code repo to server. This generally is used in a more "ad-hoc" fashion.
 - Prod database and files able to be copied down on demand, so that we can essentially replicate current prod site, on stg site.
 - This environment is used mainly "as needed".
 - Essentially, this environment is an "all around extra" sandbox, that can be used to train admins, test content, or as an additional development environment for larger features. It can also be used to stage large amounts of content/etc, however prod content freezes/etc would all need to be thought through.
 
-###### Production (prod)
+###### Production (PROD)
 
 - CI/CD auto deploys "master" branch of code repo to server.
 - This environment is used as the live site.
@@ -86,7 +86,7 @@ idfive maintains a [bitbucket account](https://bitbucket.org/), capable of priva
 
 ### CI/CD
 
-Wherever possible, we prefer to use CI tools to automate builds and deployments. For larger builds, we usually recommend that clients use their own accounts, to ensure seamless deployments in the future, if not being maintained by us. idfive maintains a [buddy](https://buddy.works/) which we utilize for builds and maintenance for those with retainers.
+Wherever possible, we prefer to use CI tools to automate builds and deployments. For larger builds, we usually recommend that clients use their own accounts, to ensure seamless deployments in the future, if not being maintained by us. idfive maintains a [buddy](https://buddy.works/) account which we utilize for builds and maintenance for those with retainers.
 
 We commonly use CI to do the following:
 
