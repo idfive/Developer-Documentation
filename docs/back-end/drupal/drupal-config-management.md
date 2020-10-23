@@ -116,6 +116,8 @@ To update a module that is used on multiple sites, you must:
 - Utilize hook_update in order to modify config on "existing" sites.
 - Be sure to add any dependencies in the modules MY_MODULE.info.yml, that the config needs, ie a field type created by a contrib module.
 
+#### Update all config
+
 An example hook_update to simply "reinstall all config for a GIVEN module".
 This assumes all YML files have been added/updated. You can also programmatically add fields/etc, this is simply a quick way to update all config for a module.
 
@@ -125,6 +127,27 @@ This assumes all YML files have been added/updated. You can also programmaticall
  */
 function MY_MODULE_update_8001() {
   \Drupal::service('config.installer')->installDefaultConfig('module', 'MY_MODULE');
+}
+```
+
+#### Programmatically remove fields
+
+"Update all config" as shown above, has the caveat tht it will not REMOVE fields, it simply leaves them in place.
+
+```php
+use Drupal\field\Entity\FieldStorageConfig;
+use Drupal\field\Entity\FieldConfig;
+
+ /**
+ * DESCRIPTIVE UPDATE TEXT HERE.
+ */
+function MY_MODULE_update_8001() {
+  // Deleting old field field storage and field.
+  if (FieldStorageConfig::loadByName('ENTITY_TYPE', 'MY_FIELD')) {
+    FieldStorageConfig::loadByName('ENTITY_TYPE', 'MY_FIELD')->delete();
+    FieldConfig::loadByName('ENTITY_TYPE', 'BUNDLE', 'MY_FIELD')->delete();
+  }
+
 }
 ```
 

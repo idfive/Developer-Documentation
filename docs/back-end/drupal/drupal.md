@@ -158,7 +158,15 @@ if (getenv('LANDO') === 'ON') {
 }
 ```
 
-### Connect to lando DB via sql pro
+### Databases and lando
+
+#### Import direct from a dump file
+
+- .zip: `lando db-import MY_DB_DUMP.sql.gz`
+- .gz: `lando db-import MY_DB_DUMP.sql.gz`
+- raw sql file: `lando db-import MY_DB_DUMP.sql`
+
+#### Connect to lando DB via sql pro
 
 Sometimes you need or want to access the DB in order to do some operations. This also helps for some larger DB imports, that may timeout through `lando db-import`.
 
