@@ -103,3 +103,12 @@ If, for whatever reason you do not wish to override a field template, links can 
   {% endfor %}
 {% endif %}
 ```
+
+A note on titles: It may sometimes be necessary to override the stock drupal title behavior if a default is needed to be provided. By default, if empty, it outputs the relative path as text.
+
+```twig
+{% set title = item.content['#title'] %}
+{% if item.content['#url']|render == title %}
+  {% set title = 'Read More' %}
+{% endif %}
+```

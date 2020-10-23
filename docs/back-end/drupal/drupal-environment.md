@@ -2,7 +2,7 @@
 
 ## Servers and environments
 
-In general, we commonly work on the following SASS/Servers for drupal:
+In general, we commonly work on the following Paas (Platform as a service)/Servers for drupal:
 
 - Acquia
 - Pantheon
@@ -35,6 +35,39 @@ Essentially, **idfive can accommodate almost any modern server, but it will usua
 #### Server specs and setup
 
 While idfive developers maintain basic sysadmin skills, we do not set up servers for clients. If we are required to use a client server, we request that clients provide a sysadmin POC for the server who is knowledgeable in drupal best practices, and has been briefed on the project, and its scale.
+
+#### Example client server best practices
+
+##### Example setup
+
+- Development, Staging, and Production environments set up on server. This normally takes the form of three separate folders on the server, each with a fully functioning codebase, file system, and Database.
+- Code repository set up on github, bitbucket, or similar.
+- CI/CD chosen/enacted, to auto deploy certain branches (usually dev/stg/master) to respective environments on server.
+- An easy way to import/export Database and files of each site. This is used most often in the form of pulling DB/files prod > dev, which we need to do almost every time we make updates/add new features/etc.
+- Automated backups happening on all 3 environments.
+
+##### Example use
+
+###### Development (dev)
+
+- CI/CD auto deploys "develop" branch of code repo to server.
+- Prod database and files able to be copied down on demand, so that we can essentially replicate current prod site, on dev site. We need to do this for almost every update/fix.
+- This environment is used mainly to test new functionality requested, troubleshoot bug fixes, and test core/contrib updates.
+- Essentially, this environment is for the developers.
+
+###### Staging (stg)
+
+- CI/CD auto deploys specific branch of code repo to server. This generally is used in a more "ad-hoc" fashion.
+- Prod database and files able to be copied down on demand, so that we can essentially replicate current prod site, on stg site.
+- This environment is used mainly "as needed".
+- Essentially, this environment is an "all around extra" sandbox, that can be used to train admins, test content, or as an additional development environment for larger features. It can also be used to stage large amounts of content/etc, however prod content freezes/etc would all need to be thought through.
+
+###### Production (prod)
+
+- CI/CD auto deploys "master" branch of code repo to server.
+- This environment is used as the live site.
+- New content, edits, etc happen directly here.
+- "Essentially, this environment is the "source of approved truth" for content and code.
 
 **Additionally:**
 
