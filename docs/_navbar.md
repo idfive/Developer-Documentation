@@ -4,6 +4,7 @@
   * [Resources](general/onboarding/resources.md)
   * [git](general/git/standards.md)
   * [git Pantheon](general/git/pantheon.md)
+  * [Tasking](general/ticketing/tasking.md)
   * [Ticketing](general/ticketing/overview.md)
   * [Ticket QC](general/ticketing/ticket_qc.md)
   * [Testing](general/testing/overview.md)
