@@ -1,6 +1,6 @@
 # Tasking the Development Team
 
-Generally, we consider taskings to be smaller tasks, not full projects, and do not require a full blown project brief. However, there still needs to be a tasking completed to the individual team member to complete what is required. This becomes extremely important when shuffling resources into projects they are not familiar with. This is needed for every developer being brought on board, or if switching developers mid task.
+Generally, we consider taskings to be smaller tasks, not full projects, and do not require a full blown project brief. However, there still needs to be a tasking completed to the individual team member to complete what is required. This becomes extremely important when shuffling resources into projects they are not familiar with. **This is needed for every developer being brought on board, or if switching developers mid task.**
 
 ## Tasker (PM/AE/Etc.)
 
