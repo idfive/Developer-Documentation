@@ -135,19 +135,16 @@ function MY_MODULE_update_8001() {
 "Update all config" as shown above, has the caveat tht it will not REMOVE fields, it simply leaves them in place.
 
 ```php
-use Drupal\field\Entity\FieldStorageConfig;
 use Drupal\field\Entity\FieldConfig;
 
  /**
  * DESCRIPTIVE UPDATE TEXT HERE.
  */
 function MY_MODULE_update_8001() {
-  // Deleting old field field storage and field.
-  if (FieldStorageConfig::loadByName('ENTITY_TYPE', 'MY_FIELD')) {
-    FieldStorageConfig::loadByName('ENTITY_TYPE', 'MY_FIELD')->delete();
+  // Deleting old field.
+  if (FieldConfig::loadByName('ENTITY_TYPE', 'BUNDLE', 'MY_FIELD') !== NULL ) {
     FieldConfig::loadByName('ENTITY_TYPE', 'BUNDLE', 'MY_FIELD')->delete();
   }
-
 }
 ```
 
