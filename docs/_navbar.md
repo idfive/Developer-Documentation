@@ -42,6 +42,7 @@
   * [Drupal Social Share](back-end/drupal/drupal-social-share.md)
   * [Drupal Testing](back-end/drupal/drupal-testing.md)
   * [Drupal Views](back-end/drupal/drupal-views.md)
+  * [Drupal JS](back-end/drupal/drupal-js.md)
 
 * WordPress
 
