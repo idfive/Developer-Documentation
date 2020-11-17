@@ -6,6 +6,7 @@ Core updates are to be enacted with composer. Though some scaffolding systems ma
 
 ### Sample core update workflow
 
+- Backup Database/etc as needed.
 - `composer outdated "drupal/*"` Shows if core/contrib is out of date.
 - `composer update drupal/core --with-dependencies`
 - `drush updb` Update local DB, if required.
@@ -45,6 +46,7 @@ Contrib updates are to be enacted with composer. Though some scaffolding systems
 
 ### Sample contrib update workflow
 
+- Backup Database/etc as needed.
 - `composer outdated "drupal/*"` Shows if core/contrib is out of date.
 - `composer update drupal/* --with-dependencies` Will update all (including core if it needs it).
 - `composer update drupal/MODULE_NAME` will do a specific module.
