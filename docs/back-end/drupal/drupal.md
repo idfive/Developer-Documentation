@@ -158,6 +158,26 @@ if (getenv('LANDO') === 'ON') {
 }
 ```
 
+### Email and lando
+
+To test emails on lando, first enable [MailHog](https://github.com/mailhog/MailHog), by adding the following to .lando.yml:
+
+```cnf
+proxy:
+  mailhog:
+    - mail.MY_SITE.lndo.site
+services:
+  mailhog:
+    type: mailhog
+    hogfrom:
+      - appserver
+```
+
+- Run `lando rebuild`
+- Run `lando restart`
+- You will then see the mailhog url appear along with the site url, like `http://mail.MY_SITE.lndo.site:8080/`
+- From that interface, you may check mail that is being sent.
+
 ### Databases and lando
 
 #### Import direct from a dump file
