@@ -49,7 +49,7 @@ __Note:__ At least one (not one of each) source, query, country, or category MUS
 ## Deliverables
 
 - Link to git repository containing the custom application only. Full commit history desired.
-- Link to a hosted version of the application, can be on GitHub Pages or whatever is easiest.
+- Instructions (included in readme or similar) on any local build steps required. Due to API limitations (for the free version), we need to test this locally, rather than a publicly hosted site.
 
 ## Code review criteria
 
