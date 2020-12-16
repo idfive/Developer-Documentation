@@ -103,7 +103,12 @@ To add a new configuration for an entity type, either to override the "content" 
 
 ### The default idfive D8 metatag setup
 
-The following metatags usually does the trick quite well, for most sites:
+The following metatags usually does the trick quite well, for most sites. At the outset, it is helpful to narrow down:
+
+- Which content types require custom sharing images/etc
+- What media/image field on each content type will be used.
+
+Once you have that, using the metatags module:
 
 - Under site default, set an og:image to be the standard sharing image, ie: `/sites/default/themes/custom/MY_THEME/images/social_share.png`
 - For each content type you wish to use a field present on the content, add an override for the og:image that provides both the field image, and the default (Give it two): `[node:FIELD_MY_MEDIA_FIELD:entity:field_media_image:large:url], /sites/default/themes/custom/MY_THEME/images/social_share.png`
