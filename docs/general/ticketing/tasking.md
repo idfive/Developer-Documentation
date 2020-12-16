@@ -38,13 +38,15 @@ I.e., someone unfamiliar with the project can ascertain the issue you are having
 - Create succinct email or trello/bugify ticket, as makes sense for task.
 - Address all needed points from above.
 
-##### Example tasking
+##### Example minimum tasking
 
 - **Client**: Client Name
 - **Billing code**: XXX-XXX-XXX
 - **Access**: Clients site is on pantheon, you should have access.
 - **Context**: [Team Member] is out today, and need assistance with a priority request for Client before they send out a priority communication. I know you have not worked on this site/project before, please take time to spin up local version of site, and look into below issue.
 - **Task**: There is a small mistake in the header styles, as seen [link to page]. Styles should reflect final approved design, seen here [link to flat]. Since this is a minor change, client expressed they do not wish to take time to approve on dev/stg before going to production. Please push to production once complete, and confirm fix.
+- **Pertinent Links**: Project folder lives on drive XXX, relevant designs/etc seen on drive XXX.
+- **Deadline**: Due by COB XXXXX.
 - **Next steps**: Notify [Team Member], who will then alert client.
 
 ## Taskee (Dev Team)
