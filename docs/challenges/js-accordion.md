@@ -16,6 +16,7 @@ Create a simple, reusable accordion component that matches the style shown, acco
 - Uses semantic HTML and accounts for general accessibility requirements (keyboard navigability, ARIA functionality, etc).
 - Uses modular CSS (I.E. BEM, SMACSS, etc) and includes animations for sections expanding and collapsing (bonus points if you use transforms).
 - Uses modern ES6 syntax and is transpiled to ES5 code that works down to IE11.
+- Provides fallback of full content for non JS users.
 - Passes [WAVE](http://wave.webaim.org/) AA level testing.
 - Passes [W3C Validator](https://validator.w3.org/) testing.
 
@@ -27,6 +28,7 @@ Create a simple, reusable accordion component that matches the style shown, acco
 ## Code review criteria
 
 - All custom code, no NPM modules aside from build tools like Babel, Webpack, etc.
+- Meets all above requirements.
 - Passes [WAVE](http://wave.webaim.org/) AA level testing.
 - Passes [W3C Validator](https://validator.w3.org/) testing.
 

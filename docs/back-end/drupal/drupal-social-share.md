@@ -101,7 +101,19 @@ To add a new configuration for an entity type, either to override the "content" 
 - Media Field token example: `[node:FIELD_MY_MEDIA_FIELD:entity:field_media_image:large:url]`. Notice the "large" which is an image style. This can be left out if wanted, or custom image style created.
 - Image Field token example: `[node:FIELD_MY_IMAGE_FIELD:entity:url]`.
 
-### Adding default images
+### The usual idfive D8 metatag setup
+
+The following metatags usually does the trick quite well:
+
+- under site default, set an og:image to be the standard sharing image, ie: `/sites/default/themes/custom/MY_THEME/images/social_share.png`
+- For each content type you wish to use a field present on the content, add an override for the og:image that provides both the field image, and the default (Give it two): `[node:FIELD_MY_MEDIA_FIELD:entity:field_media_image:large:url], /sites/default/themes/custom/MY_THEME/images/social_share.png`
+
+This tends to work well generally, however the caveat is that the "platform" chooses which one to use ultimately. Tricks to "persuade it to choose the custom one" include:
+
+- Add it as the first one in the list
+- Make it larger than the standard default
+
+### Adding default images (programatically)
 
 Default share images can be added in a preprocess function. We find this to be the best way to "only add a default if a field is empty/etc". The stock way to do this, would be to provide 2 images in the metatag module, but we find this to be less than ideal. Add a new metatag by adding to the `$variables['page']['#attached']['html_head']` array in the `hook_preprocess_html` function. The metatag is an array containing a tag type and an array of attributes containing the name and content attributes of the tag.
 

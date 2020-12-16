@@ -79,6 +79,7 @@ You can use [drush cset](https://drushcommands.com/drush-8x/config/config-set/) 
 
 - See all config: `drush config-list`
 - Narrow down: `drush config-list simplesamlphp_auth.settings`
+- See Items (if needed): `drush config-get simplesamlphp_auth.settings`
 - And set: `drush config-set simplesamlphp_auth.settings role.eval_every_time 0`
 - For acquia multi-sites, from ssh on server: `drush @sites config-set simplesamlphp_auth.settings role.eval_every_time 0`
 
@@ -115,6 +116,35 @@ To update a module that is used on multiple sites, you must:
 - Update all config YML files.This is so that any "new" install of the module gets the correct config.
 - Utilize hook_update in order to modify config on "existing" sites.
 - Be sure to add any dependencies in the modules MY_MODULE.info.yml, that the config needs, ie a field type created by a contrib module.
+
+#### Update specific config via an update hook
+
+Normal single value field:
+
+```php
+/**
+ * Updates to something like a single value.
+ */
+function MY_MODULE_update_8001() {
+  $config = \Drupal::service('config.factory')->getEditable('CONFIG.TO_LOAD');
+  $config->set('VALUE.TO_SET', 'bar');
+  $config->save();
+}
+```
+
+Multivalue settings:
+
+```php
+/**
+ * Updates to something like a media browser.
+ */
+function MY_MODULE_update_8001() {
+  $config = \Drupal::service('config.factory')->getEditable('CONFIG.TO_LOAD');
+  $data = ['VALUE', 'ANOTHER VALUE'];
+  $config->set('VALUE.TO_SET', $data);
+  $config->save();
+}
+```
 
 #### Update all config
 
