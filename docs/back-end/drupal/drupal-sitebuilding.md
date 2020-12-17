@@ -346,6 +346,14 @@ Core media module should be used for all D8 projects, unless there is a good rea
 
 Use [ImageAPI Optimize](https://www.drupal.org/project/imageapi_optimize) ([re.Smush.it](https://www.drupal.org/project/imageapi_optimize_resmushit), [TinyPNG](https://www.drupal.org/project/imageapi_optimize_tinypng) or other services) to optimize images as they are uploaded and used in image styles. It is important that these be set up/enabled early so that all images uploaded can benefit from optimization throughout the build process.
 
+##### Focal Point
+
+Use the [Focal Point](https://www.drupal.org/project/focal_point) module on projects when a single image may be used across multiple image styles/crops. Once installed:
+
+- Change the widget of the media:image entity form display (`/admin/structure/media/manage/image/form-display`) to "Image (Focal Point)".
+- For any image style you wish to use this feature on, adjust the effects to use either "Focal Point Crop" or "Focal Point Scale and Crop".
+- Now when adding a media:image entity, you will be presented with the focal point thumbnail where you may define a focal point, and any image styles throughout the site that use a focal point effect, should be available via the "preview" link.
+
 ##### Lazy Loading
 
 If the build uses the ICL, consider enabling the [idfive Lazyload](https://bitbucket.org/idfivellc/idfive-component-library-d8-paragraphs/src/8.x-2.x/modules/idfive_lazyload/) module. Note: The lazyload JS must be in the theme for this to wok.
