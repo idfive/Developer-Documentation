@@ -135,7 +135,7 @@ See [Using composer with drupal](https://www.drupal.org/docs/develop/using-compo
 - `lando start`
 - `lando db-import mysql_dump_file.sql` also works for gziped and zipped files.
 
-### Example settings.php
+### Example settings.php for lando
 
 If needed, set up settings.php with the following. This could also go in as an include/etc if getting committed/etc:
 
@@ -155,6 +155,15 @@ if (getenv('LANDO') === 'ON') {
     'host' => $lando_info['database']['internal_connection']['host'],
     'port' => $lando_info['database']['internal_connection']['port'],
   ];
+}
+```
+
+This is usually best done via a local settings include in settings.php. In this case, above would be added to settings.local.php:
+
+```php
+$local_settings = __DIR__ . "/settings.local.php";
+if (file_exists($local_settings)) {
+  include $local_settings;
 }
 ```
 
