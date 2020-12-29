@@ -10,6 +10,7 @@
   * [Testing](general/testing/overview.md)
   * [Content Migration](general/content_migration/overview.md)
   * [Documentation](general/documentation/documentation.md)
+  * [TechnicalScan](general/documentation/techscan.md)
 
 * Front-end
 
