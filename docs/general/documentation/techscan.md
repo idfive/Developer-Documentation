@@ -21,7 +21,7 @@ The answer unfortunately, is "it depends". Generally though, you would want to p
 - Any initial RFP from the client. If no RFP, any documents, email, etc where they go over "the ask", in detail.
 - The idfive RFP response. This will have some generalities, but should also loosely define the project, and project scope.
 - Any other documentation or direction provided by the project manger of the project, or the client.
-- Starter template available on (the idfive drive)[https://docs.google.com/document/d/1MJ_71PAhHpMDymWEEzJdioVVqBmuPyQXyE0On1LJicQ/edit?usp=sharing].
+- Starter template available on [the idfive drive](https://docs.google.com/document/d/1MJ_71PAhHpMDymWEEzJdioVVqBmuPyQXyE0On1LJicQ/edit?usp=sharing).
 
 ## What to include
 
@@ -127,6 +127,6 @@ If known, define here, if not, loosely define best practices, as well as what wo
 
 ## Examples
 
-- An example for drupal, with custom integrations: (JHU APL)[https://docs.google.com/document/d/1jThy6-8tMq32U0T0M9-xZkGRYuNlg3-Opn2imaZ9YQ0/edit?usp=sharing]
-- An example for wordpress, with custom integrations: (Carroll)[https://docs.google.com/document/d/1GdVx95iO0pBvoK2hkIb4uIT05YG_mm4_NSxxb1OLDNw/edit?usp=sharing]
-- An example for frontend only: (Carthage)[https://docs.google.com/document/d/1-4Ow2I7xCOKcdf41oked6jnqoftBmWZxsS6roLmRIXE/edit?usp=sharing]
+- An example for drupal, with custom integrations: [JHU APL](https://docs.google.com/document/d/1jThy6-8tMq32U0T0M9-xZkGRYuNlg3-Opn2imaZ9YQ0/edit?usp=sharing)
+- An example for wordpress, with custom integrations: [Carroll](https://docs.google.com/document/d/1GdVx95iO0pBvoK2hkIb4uIT05YG_mm4_NSxxb1OLDNw/edit?usp=sharing)
+- An example for frontend only: [Carthage](https://docs.google.com/document/d/1-4Ow2I7xCOKcdf41oked6jnqoftBmWZxsS6roLmRIXE/edit?usp=sharing)
