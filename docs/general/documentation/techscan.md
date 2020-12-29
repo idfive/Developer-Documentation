@@ -14,6 +14,12 @@ or something like
 
 > We determine the finer points and requirements of the website you wish to have. We will also provide hosting recommendations based on your selected open source CMS and which current modules will either need to be recreated (in Drupal) or updated (in WordPress), etc. Additionally, we’ll assist with any necessary development systems setup (local code base, source control, production sandbox, etc.)
 
+## Examples
+
+- An example for drupal, with custom integrations: [JHU APL](https://docs.google.com/document/d/1jThy6-8tMq32U0T0M9-xZkGRYuNlg3-Opn2imaZ9YQ0/edit?usp=sharing)
+- An example for wordpress, with custom integrations: [Carroll](https://docs.google.com/document/d/1GdVx95iO0pBvoK2hkIb4uIT05YG_mm4_NSxxb1OLDNw/edit?usp=sharing)
+- An example for frontend only: [Carthage](https://docs.google.com/document/d/1-4Ow2I7xCOKcdf41oked6jnqoftBmWZxsS6roLmRIXE/edit?usp=sharing)
+
 ## Where to start
 
 The answer unfortunately, is "it depends". Generally though, you would want to pull up the following, and comb through:
@@ -124,9 +130,3 @@ Details of any recommendation, or predefined host here. Specifically, if RFP sta
 ### Version control and deployments
 
 If known, define here, if not, loosely define best practices, as well as what would be preferred by idfive. If client controlled server, note that most of this will need to be defined by their IT team/etc. Lots of this could/will be related to [CI/CD Notes](https://developers.idfive.com/#/back-end/drupal/drupal-environment?id=git-repositories-continuous-integration-ci-and-continuous-deployment-cd).
-
-## Examples
-
-- An example for drupal, with custom integrations: [JHU APL](https://docs.google.com/document/d/1jThy6-8tMq32U0T0M9-xZkGRYuNlg3-Opn2imaZ9YQ0/edit?usp=sharing)
-- An example for wordpress, with custom integrations: [Carroll](https://docs.google.com/document/d/1GdVx95iO0pBvoK2hkIb4uIT05YG_mm4_NSxxb1OLDNw/edit?usp=sharing)
-- An example for frontend only: [Carthage](https://docs.google.com/document/d/1-4Ow2I7xCOKcdf41oked6jnqoftBmWZxsS6roLmRIXE/edit?usp=sharing)
