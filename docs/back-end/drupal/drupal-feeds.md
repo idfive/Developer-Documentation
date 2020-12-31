@@ -1,5 +1,7 @@
 # Feeds module
 
+Feeds is a good way to import content into sites that are either already built, or where migrated content types require quite a bit of changes, or the site being "migrated from" is not a previous version of drupal, where something like the Migrate API may make more sense.
+
 ## Helpful modules
 
 - [Feeds](https://www.drupal.org/project/feeds)
@@ -12,6 +14,7 @@ At its simplest, creating content via feeds looks like:
 
 - Create a Feed Type.
 - Create an Importer that uses that type.
+- Save and run that importer.
 
 However, things get more complex once things like relationships, and files get involved.
 
@@ -21,19 +24,21 @@ However, things get more complex once things like relationships, and files get i
 - **Any separate entity that the node references will need to be imported first**, then looked for via either name or id when you run the actual node importer.
 - Shortcodes, and other embeds/etc within things like WYSIWYG's do not always translate.
 
-## Importing Media
+## Importing Media/files
 
 - Whenever possible, keep the same ID's.
-- Whenever possible, import d7 images as media
+- Whenever possible, import D7 files as media entities. This will help keep things tidy going forward.
 - You may need to choose update/replace in feed settings in order to override any ID's that exist/etc.
 
 ### Media importer mappings
 
 #### Image
 
+The most common media type is image. All other media types (file, video, audio, etc) are similar, but may require different field mapping than below.
+
 ##### Export
 
-Example export of files from d7, to be converted to media in new site. This was created with a simple views data export, of:
+Example export of image files from d7, to be converted to media (type: image) in new site. This was created with a simple views data export in D7, of:
 
 - Name
 - Alt Text
@@ -46,7 +51,7 @@ Example export of files from d7, to be converted to media in new site. This was 
 "img_2.png","alt text here","21","https://MY_D7_SITE.com/sites/programs.howard.edu/files/img_2.png"
 ```
 
-Regardless of the source, something similar to the above is what is needed to create media entities in drupal.
+Regardless of the source, something similar to the above CSV is what is needed to create media entities in drupal. You can also do JSON or another format if desired.
 
 ##### Feed config
 
@@ -75,11 +80,11 @@ TBD
 
 ## Parsing JSON
 
-Feeds Extensible Parser gives us the opportunity to parse json feeds. This is handy when creating content from an existing API or similar.
+Feeds Extensible Parser gives us the opportunity to parse json feeds. This is handy when creating content from an existing API or similar. We find the JsonPath parser usually is the easiest to work with.
 
 ### Context
 
-Using jsonpath, we need to provide context for the feeds importer. This can be a bit confusing, but it is a defined standard, so several online sources can help you better understand it.
+Using JsonPath, we need to provide context for the feeds importer. This can be a bit confusing, but it is a defined standard, so several online sources can help you better understand it, such as [jsonpath.com](https://jsonpath.com/).
 
 #### For the feed itself
 
@@ -115,4 +120,4 @@ Individual fields can also be run on a loop by providing context. For a link fie
 ]
 ```
 
-Would be entered into the field mappings for a multi-value link field as `resources.*.url`, and `resources.*.url` respectively. This would then create a new link for each item, upon import.
+Would be entered into the field mappings for a multi-value link field as `resources.*.url`, and `resources.*.title` respectively. This would then create a new link for each item, upon import.
