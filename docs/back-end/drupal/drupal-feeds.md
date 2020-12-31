@@ -76,7 +76,61 @@ You now have media in the system. You can now pass either the id, or name, to th
 
 ## Importing Paragraphs
 
-TBD
+### Importing d7 field collections as d8 paragraphs
+
+- Import all entities that are using paragraphs first. It is important that the entity ID's be the same as on the D7 site, so we can reference them.
+- Create a temporary custom module and add an insert hook, see below, and enable.
+- Create a d7 views data export of the field collections, with the following:
+  - Any fields needed.
+  - Field Collection ID. You may wish/need to prepend this with a larger number, to ensure it doesnt conflict with anything else. For example, in the view, simply rewrite the FCID field to something like `555[item_id]`.
+  - A relationship to the parent entity of the field collection, and a field that then displays the parent entity ID.
+- Create a feed type and select "Paragraph" as processor.
+- Add a text field to the feed type, call it for example "Entity type".
+- Add another text field to the feed type, call it for example "Entity field name".
+- On the mapping page, map "Feed: Entity type" to "Parent type" and "Feed: Entity field name" to "Parent field name".
+- Make sure you map a source to "Parent ID" as well, whatever field you have the parent entity ID in your CSV.
+- Setup all other mappings that you need.
+- Create a feed and in the "Entity type" textfield type the machine name of the entity type you imported before. For example: "node". In "Entity field name" type the machine name of the paragraph reference field of the entity type you imported before. For example: "FIELD_MY_CUSTOM_FIELD".
+- Import, and troubleshoot.
+
+In order for the above to work, a temporary hook needs to be added to a custom module:
+
+```php
+<?php
+
+/**
+ * @file
+ * Custom temporary functionality for allowing separately imported paragraphs to be attached to nodes.
+ */
+
+ use Drupal\Core\Entity\EntityInterface;
+
+/**
+ * Implements hook_ENTITY_TYPE_insert() for 'paragraph'.
+ */
+function MY_MODULE_paragraph_insert(EntityInterface $paragraph) {
+  $parent_type = $paragraph->parent_type->value;
+  $parent_field_name = $paragraph->parent_field_name->value;
+  $parent_id = $paragraph->parent_id->value;
+  // This is node here, but could be other entity if required.
+  if ($parent_type == 'node') {
+    $ent = \Drupal::entityTypeManager()->getStorage($parent_type)->load($parent_id);
+    if ($ent) {
+      // Check if ent already has a reference to this paragraph.
+      foreach ($ent->{$parent_field_name} as $item) {
+        if ($item->target_id == $paragraph->id()) {
+          // Paragraph found. Abort.
+          return;
+        }
+      }
+      $ent->{$parent_field_name}[] = $paragraph;
+      $ent->save();
+    }
+  }
+}
+```
+
+This should be removed after you run all needed importers. Be aware that you may wind up with orphaned paragraphs if you play around and adjust ID's/etc, which you may need to account for.
 
 ## Parsing JSON
 
