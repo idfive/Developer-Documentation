@@ -112,7 +112,7 @@ class MyCustomEndpoint extends ResourceBase {
        'machine_name' => 'CONTENT_TYPE_ONE',
      ],
      [
-       'machine_name' => 'CONTENT_TYPE_ONE',
+       'machine_name' => 'CONTENT_TYPE_TWO',
      ],
     ];
   }

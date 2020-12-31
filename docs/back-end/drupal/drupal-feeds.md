@@ -38,7 +38,7 @@ The most common media type is image. All other media types (file, video, audio, 
 
 ##### Export
 
-Example export of image files from d7, to be converted to media (type: image) in new site. This was created with a simple views data export in D7, of:
+Example export of image files from D7, to be converted to media (type: image) in new site. This was created with a simple views data export in D7, of:
 
 - Name
 - Alt Text
