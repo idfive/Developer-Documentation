@@ -2,23 +2,23 @@
 
 ## Helpful modules
 
-- Feeds
-- Feeds Extensible Parser | Allows parsing of json/others
-- Feeds tamper | Allows things like an "explode" on comma separated strings/etc.
+- [Feeds](https://www.drupal.org/project/feeds)
+- [Feeds Extensible Parser](https://www.drupal.org/project/feeds_ex) | Allows parsing of json/others
+- [Feeds Tamper](https://www.drupal.org/project/feeds_tamper) | Allows things like an "explode" on comma separated strings/etc.
 
 ## General overview
 
 At its simplest, creating content via feeds looks like:
 
-- Create a Feed Type
-- Create an Importer that uses that type
+- Create a Feed Type.
+- Create an Importer that uses that type.
 
 However, things get more complex once things like relationships, and files get involved.
 
 ## Importing Nodes
 
 - Whenever possible, keep the same ID's.
-- Any separate entity that the node references will need to be imported first, then looked for via either name or id when you run the node importer.
+- **Any separate entity that the node references will need to be imported first**, then looked for via either name or id when you run the actual node importer.
 - Shortcodes, and other embeds/etc within things like WYSIWYG's do not always translate.
 
 ## Importing Media
@@ -70,6 +70,8 @@ When the importer runs, it will then:
 You now have media in the system. You can now pass either the id, or name, to the greater entity importer you wish to use these on.
 
 ## Importing Paragraphs
+
+TBD
 
 ## Parsing JSON
 
