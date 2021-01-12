@@ -1,6 +1,6 @@
-# Tasking the Development Team
+# Tasking the Creative Team
 
-Generally, we consider taskings to be smaller tasks, not full projects, and do not require a full blown project brief. However, there still needs to be a tasking completed to the individual team member to complete what is required. This becomes extremely important when shuffling resources into projects they are not familiar with. **This is needed for every developer being brought on board, or if switching developers mid task.**
+Generally, we consider taskings to be smaller tasks, not full projects, and do not require a full blown project brief. However, there still needs to be a tasking completed to onboard the individual team member doing the job, to successfully complete what is required. This becomes extremely important when shuffling resources into projects they are not familiar with. **This is needed for every creative team member being brought on board, or if switching team members mid task.** Some information may be ommited if the Team Member is extremely familiar with the project, but as a general rule, if in doubt, write it out.
 
 ## Tasker (PM/AE/Etc.)
 
@@ -10,24 +10,24 @@ Generally, we consider taskings to be smaller tasks, not full projects, and do n
 - Informational
 - Limited in scope to the issue at hand
 
-I.e., someone unfamiliar with the project can ascertain the issue you are having, or the feature you desire.
+I.e., someone unfamiliar with the project can quickly ascertain the issue you are having, or the feature you desire.
 
 ### Good taskings contain
 
 - Context. Who is this client, where do I bill this, what are the relevant details as they relate to this task.
 - Links. Relevant corresponding files, including: screenshots, design mockups, SOW, pages on site, etc.
-- Clear Direction. When a developer tells you "this tasking is complete", what do you expect will have happened.
+- Clear Direction. When a team member tells you "this tasking is complete", what do you expect will have happened.
 
-### Before tasking a developer
+### Before tasking a team member (TM)
 
 #### Ask yourself
 
 - Do I have a clear idea of the desired outcome, and have I stated that?
-- Does the developer need time to set up local environments or onboard with the project?
-- Does the developer have the *access* needed to **assess** the issue?
-- Does the developer have the *context* needed to **assess** the issue?
-- Does the developer have the *access* needed to **fix** the issue?
-- Does the developer have the *context* needed to **fix** the issue?
+- Does the TM need time to set up local environments or onboard with the project?
+- Does the TM have the *access* needed to **assess** the issue?
+- Does the TM have the *context* needed to **assess** the issue?
+- Does the TM have the *access* needed to **fix** the issue?
+- Does the TM have the *context* needed to **fix** the issue?
 - Are there any related tickets/issues to be aware of?
 - What are the budget / timeline constraints, if any?
 - Have I provided information related to if client is reviewing/etc?
@@ -35,10 +35,24 @@ I.e., someone unfamiliar with the project can ascertain the issue you are having
 
 #### Follow through
 
-- Create succinct email or trello/bugify ticket, as makes sense for task.
+- Create succinct email or trello/bugify ticket, as makes sense for the specific client and task.
+  - DEV: Generally works better adding to a ticketing system, ie trello or bugify.
+  - Design: Generally works better as an email.
 - Address all needed points from above.
+- Using this a lot for emails? [Create an email template](https://support.google.com/a/users/answer/9308990?hl=en) to help speed this up.
 
-##### Example minimum tasking
+##### Minimum tasking template
+
+- **Client**: What client is this for.
+- **Billing code**: The billing code(s) you wish this billed to.
+- **Access**: Specific to DEV. Where the codebase/etc lives, if team member is unfamiliar or this is yet to be documented/etc.
+- **Context**: This can be either a synopsis of needed context, or links, emails, etc. The important thing is that it provide context for the request.
+- **Task**: What exactly is the task to be done. What do you expect will have happened, if someone was to tell you, "this is complete".
+- **Pertinent Links**: Links to any relevant files, designs, etc.
+- **Deadline**: What is the timeline.
+- **Next steps**: When "done" what should happen. Does this need to be reviewed, etc.
+
+##### Example minimum tasking, developer
 
 - **Client**: Client Name
 - **Billing code**: XXX-XXX-XXX
@@ -49,11 +63,22 @@ I.e., someone unfamiliar with the project can ascertain the issue you are having
 - **Deadline**: Due by COB XXXXX.
 - **Next steps**: Notify [Team Member], who will then alert client.
 
-## Taskee (Dev Team)
+##### Example minimum tasking, designer
+
+- **Client**: Client Name
+- **Billing code**: XXX-XXX-XXX
+- **Access**:
+- **Context**:
+- **Task**:
+- **Pertinent Links**:
+- **Deadline**:
+- **Next steps**:
+
+## Tasked Team Member
 
 ### Ask yourself
 
-- Do I have the information, tools, context and access I need?
-- Are there any older tickets/communications related to this issue?
+- Do I have the information, tools, context and access I need to complete this task?
+- Are there any older tickets/communications related to this task?
 - Do I feel I have clear direction?
 - Do I have enough to get started?
