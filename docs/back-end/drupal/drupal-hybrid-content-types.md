@@ -7,7 +7,7 @@ Often times, we get asked to create Hybrid content types in drupal. Essentially,
 - Loads more details directly from the API upon full view.
 - Has extra fields locally in order to categorize/etc.
 
-This gives us the benefit of having content locally, in order to add local fields, create views. etc, without trying to map complex fields from the API and duplicate large amounts of data.
+This gives us the benefit of having content locally, in order to add local fields, create views. etc, without trying to map complex fields from the API and duplicate large amounts of data. See a presentation we did on this for [Drupal Flyover Camp](https://www.youtube.com/watch?v=JGKl8VuWA28&list).
 
 ## A simple, real world example
 
