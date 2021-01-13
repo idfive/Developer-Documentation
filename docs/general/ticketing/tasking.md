@@ -67,16 +67,15 @@ I.e., someone unfamiliar with the project can quickly ascertain the issue you ar
 
 - **Client**: Client Name
 - **Billing code**: XXX-XXX-XXX
-- **Access**:
 - **Context**:
 - **Task**:
 - **Pertinent Links**:
-- **Deadline**:
-- **Next steps**:
+- **Deadline**: Due by COB XXXXX.
+- **Next steps**: Notify [Team Member], who will then alert client to review.
 
 ## Tasked Team Member
 
-### Ask yourself
+### Before starting, ask yourself
 
 - Do I have the information, tools, context and access I need to complete this task?
 - Are there any older tickets/communications related to this task?

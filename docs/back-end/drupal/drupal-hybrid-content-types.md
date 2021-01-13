@@ -51,7 +51,7 @@ Additionally, besides visible fields, we need to store some sort of unique ID fo
 
 ## Ingest MVTC into drupal
 
-There are many ways to ingest content into D8/9, one of the simplest is to use the [feeds module](https://www.drupal.org/project/feeds). The loose idea, is to set uyp feeds to ingests MVTC into drupal on a regular basis, so that MVTC is kept up to date with the API.
+There are many ways to ingest content into D8/9, one of the simplest is to use the [feeds module](https://www.drupal.org/project/feeds). The loose idea, is to set up feeds to ingests MVTC into drupal on a regular basis, so that MVTC is kept up to date with the API.
 
 Exact implementation is based on the endpoint for the API being ingested, but options exist for xml/json/etc. Custom fetchers can also be created if things like keys/etc need to be passed to the API.
 
@@ -159,7 +159,7 @@ function MY_MODULE_preprocess_node(&$variables) {
 
 ### Use your variable in twig
 
-One the hook runs, `MY_DATA` is available as a variable in the node twig template, upon full view.
+Once the hook runs, `MY_DATA` is available as a variable in the node twig template, upon full view.
 
 ```twig
 {# Use some fields directly #}
@@ -167,8 +167,6 @@ One the hook runs, `MY_DATA` is available as a variable in the node twig templat
 
 {# Use complex objects in a loop #}
 {% for data in MY_DATA.OBJ_RETURNED_IN_JSON %}
-  {% if loop.index0 > 0 %}
-    {{ data.OBJ_RETURNED_IN_JSON_FIELD }}
-  {% endif %}
+  {{ data.SUB_OBJ_RETURNED_IN_JSON_FIELD }}
 {% endfor %}
 ```
