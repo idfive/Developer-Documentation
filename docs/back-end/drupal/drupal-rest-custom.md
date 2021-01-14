@@ -13,6 +13,7 @@ Some common scenarios that may warrant a custom endpoint:
 
 - Create custom Plugin.
 - Enable endpoint and add permissions to access.
+- Adjust CORS, if needed.
 
 ## Create custom Plugin
 
@@ -202,3 +203,18 @@ While this can also be done manually by writing config files, we will focus on t
 - Once installed, go to /admin/config/services/rest and enable your REST Resource.
 - Select your desired settings. Normally this is GET, JSON, and cookie for simple read only endpoints.
 - Go to permissions and enable anonymous and authenticated users to access your new endpoint.
+
+## Adjust CORS
+
+If this endpoint is to be accessed via JS, and you haven't already, you may need to adjust CORS parameters in your settings.yml
+
+```yml
+    cors.config:
+    enabled: true
+    allowedHeaders: ['x-csrf-token','authorization','content-type','accept','origin','x-requested-with']
+    allowedMethods: ['*']
+    allowedOrigins: ['*']
+    exposedHeaders: true
+    maxAge: 1000
+    supportsCredentials: false
+```

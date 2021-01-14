@@ -1,6 +1,6 @@
 # Tasking the Creative Team
 
-Generally, we consider taskings to be smaller tasks, not full projects, and do not require a full blown project brief. However, there still needs to be a tasking completed to onboard the individual team member doing the job, to successfully complete what is required. This becomes extremely important when shuffling resources into projects they are not familiar with. **This is needed for every creative team member being brought on board, or if switching team members mid task.** Some information may be ommited if the Team Member is extremely familiar with the project, but as a general rule, if in doubt, write it out.
+Generally, we consider taskings to be smaller tasks that are a part of a full project or rounds of client revisions, so they do not require a full blown project brief. However, there still needs to be a tasking completed to onboard the individual team member doing the job, to successfully complete what is required. This becomes extremely important when shuffling resources into projects they are not familiar with. **This is needed for every creative team member being brought on board, or if switching team members mid task.** Some information may be omitted if the Team Member is extremely familiar with the project, but as a general rule, *if in doubt, write it out*.
 
 ## Tasker (PM/AE/Etc.)
 
@@ -15,7 +15,7 @@ I.e., someone unfamiliar with the project can quickly ascertain the issue you ar
 ### Good taskings contain
 
 - Context. Who is this client, where do I bill this, what are the relevant details as they relate to this task.
-- Links. Relevant corresponding files, including: screenshots, design mockups, SOW, pages on site, etc.
+- Links. Relevant corresponding files, including: screenshots, client mockups or feedback, previous rounds of creative, SOW, pages on site, etc.
 - Clear Direction. When a team member tells you "this tasking is complete", what do you expect will have happened.
 
 ### Before tasking a team member (TM)
@@ -32,6 +32,7 @@ I.e., someone unfamiliar with the project can quickly ascertain the issue you ar
 - What are the budget / timeline constraints, if any?
 - Have I provided information related to if client is reviewing/etc?
 - Have I clearly defined any next steps?
+- What is the expected due date to client?
 
 #### Follow through
 
@@ -48,8 +49,8 @@ I.e., someone unfamiliar with the project can quickly ascertain the issue you ar
 - **Access**: Specific to DEV. Where the codebase/etc lives, if team member is unfamiliar or this is yet to be documented/etc.
 - **Context**: This can be either a synopsis of needed context, or links, emails, etc. The important thing is that it provide context for the request.
 - **Task**: What exactly is the task to be done. What do you expect will have happened, if someone was to tell you, "this is complete".
-- **Pertinent Links**: Links to any relevant files, designs, etc.
-- **Deadline**: What is the timeline.
+- **Pertinent Links**: Links to any relevant files, client feedback, previous designs, etc.
+- **Deadline**: What is the timeline and when is this due to the client.
 - **Next steps**: When "done" what should happen. Does this need to be reviewed, etc.
 
 ##### Example minimum tasking, developer
@@ -61,17 +62,17 @@ I.e., someone unfamiliar with the project can quickly ascertain the issue you ar
 - **Task**: There is a small mistake in the header styles, as seen [link to page]. Styles should reflect final approved design, seen here [link to flat]. Since this is a minor change, client expressed they do not wish to take time to approve on dev/stg before going to production. Please push to production once complete, and confirm fix.
 - **Pertinent Links**: Project folder lives on drive XXX, relevant designs/etc seen on drive XXX.
 - **Deadline**: Due by COB XXXXX.
-- **Next steps**: Notify [Team Member], who will then alert client.
+- **Next steps**: Notify [Account Team Member], who will then alert client.
 
 ##### Example minimum tasking, designer
 
 - **Client**: Client Name
 - **Billing code**: XXX-XXX-XXX
-- **Context**:
-- **Task**:
-- **Pertinent Links**:
+- **Context**: [Client Name] has been trying to increase engagement among their alumni and hopefully see them re-enroll for graduate degrees. They’re beginning a new campaign to drive traffic to an alumni-specific landing page.
+- **Task**: New request to design an email template to go out to the client’s alumni audience. Imagery should be reflective of their students (check in with [Team Member] on imagery style or review their [link to brand guide] ). The design should be based on their previous email designs. It should drive traffic to their campaign landing page found [link to page]. Copy has already been written, linked below.
+- **Pertinent Links**: Project folder lives [Location Here], previous email designs live [Location Here], client inspiration can be found [Location Here], copy deck is [Location Here].
 - **Deadline**: Due by COB XXXXX.
-- **Next steps**: Notify [Team Member], who will then alert client to review.
+- **Next steps**: Pass designs through proofing, then share client-ready links with [Account Team Member].
 
 ## Tasked Team Member
 
