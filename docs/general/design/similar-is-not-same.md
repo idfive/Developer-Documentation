@@ -1,7 +1,0 @@
-# "Similar" !== "Same"
-
-## Pages
-
-
-## Components
-

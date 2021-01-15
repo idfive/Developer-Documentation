@@ -40,7 +40,7 @@ I.e., someone unfamiliar with the project can quickly ascertain the issue you ar
   - DEV: Generally works better adding to a ticketing system, ie trello or bugify.
   - Design: Generally works better as an email.
 - Address all needed points from above.
-- Using this a lot for emails? [Create an email template](https://support.google.com/a/users/answer/9308990?hl=en) to help speed this up.
+- Using this a lot for emails? [Create an email template](https://support.google.com/a/users/answer/9308990?hl=en) to help speed this up. Simply copy/paste the minimum tasking template into an email template for yourself as a starter.
 
 ##### Minimum tasking template
 
