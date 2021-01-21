@@ -218,3 +218,20 @@ If this endpoint is to be accessed via JS, and you haven't already, you may need
     maxAge: 1000
     supportsCredentials: false
 ```
+
+## Caching Notes
+
+Sometimes, we may need to specifically turn off the cache, or set a context for something like the URL or parameters. At its simplest, it can look like this example.
+
+```php
+public function get() {
+  $build = [
+    '#cache' => [
+      'max-age' => 0,
+    ],
+  ];
+  // $filters defined here
+  $response['data'] = MyGeneralService::getStuffWithArgs($filters, NULL);
+  return (new ResourceResponse($response))->addCacheableDependency($build);
+}
+  ```

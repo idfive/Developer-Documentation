@@ -44,6 +44,7 @@ I.e., someone unfamiliar with the project can quickly ascertain the issue you ar
 
 ##### Minimum tasking template
 
+- Subject: Either subject line of email or ticket title. If email, moe info needs to be added to aid with search days/weeks/months down the line, if needed.
 - **Client**: What client is this for.
 - **Billing code**: The billing code(s) you wish this billed to.
 - **Access**: Specific to DEV. Where the codebase/etc lives, if team member is unfamiliar or this is yet to be documented/etc.
@@ -55,6 +56,7 @@ I.e., someone unfamiliar with the project can quickly ascertain the issue you ar
 
 ##### Example minimum tasking, developer
 
+- Ticket Subject: Header styles fix.
 - **Client**: Client Name
 - **Billing code**: XXX-XXX-XXX
 - **Access**: Clients site is on pantheon, you should have access.
@@ -66,6 +68,7 @@ I.e., someone unfamiliar with the project can quickly ascertain the issue you ar
 
 ##### Example minimum tasking, designer
 
+- Email Subject: Client Name [Project Name] Email Template [Round (If a Revision)]
 - **Client**: Client Name
 - **Billing code**: XXX-XXX-XXX
 - **Context**: [Client Name] has been trying to increase engagement among their alumni and hopefully see them re-enroll for graduate degrees. They’re beginning a new campaign to drive traffic to an alumni-specific landing page.
