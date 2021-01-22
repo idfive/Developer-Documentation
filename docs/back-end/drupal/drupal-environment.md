@@ -34,7 +34,7 @@ Essentially, **idfive can accommodate almost any modern server, but it will usua
 
 #### Server specs and setup
 
-While idfive developers maintain basic sysadmin skills, we do not set up servers for clients. If we are required to use a client server, we request that clients provide a sysadmin POC for the server who is knowledgeable in drupal best practices, and has been briefed on the project, and its scale.
+While idfive developers maintain basic sysadmin skills, we do not set up servers for clients. If we are required to use a client server, we request that clients provide a sysadmin POC for the server who is knowledgeable in drupal best practices, and has been briefed on the project, and its scale. **The sizing, performance, and other specs of a server are between the client, and hosting provider to decide.**
 
 #### Example client server best practices
 
