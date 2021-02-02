@@ -68,6 +68,7 @@ I.e., someone unfamiliar with the project can quickly ascertain the issue you ar
 
 ##### Example minimum tasking, designer
 
+- Email Recipients: Include designer tasked with work, as well as intended reviewer.
 - Email Subject: Client Name [Project Name] Email Template [Round (If a Revision)]
 - **Client**: Client Name
 - **Billing code**: XXX-XXX-XXX
