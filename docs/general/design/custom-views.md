@@ -14,7 +14,7 @@ In WordPress, we typically use the built-in [WordPress REST API](https://develop
 
 ## Pros and Cons
 
-The main benefit of creating a custom view is that we have complete control over virtually every aspect of the frontend and can implement complex layouts, animations, etc. This all comes at the cost of time though, both for the initial build as well as maintaining the application in the future. The amount of time saved by using a Drupal View over a custom one depends largely upon the task at hand but for something like a basic news feed with querying and minimal sorting/filtering, it could take around five times as long to build the view custom. As complexity grows, so does the difference in time between the two approaches.
+The main benefit of creating a custom view is that we have complete control over virtually every aspect of the frontend and can implement complex layouts, animations, etc. This all comes at the cost of time though, both for the initial build as well as maintaining the application in the future. The amount of time saved by using a Drupal View over a custom one depends largely upon the task at hand but for something like a basic news feed with querying and minimal sorting/filtering, it could take around five times as long to build the view custom. As complexity grows, so does the difference in time between the two approaches. Things like state management, paging, and fetching results take considerable amounts of time to implement from scratch and are all provided for free when using custom views. This fact should be heavily considered in the design or wireframing phase to determine whether or not a CMS-provided view can be used.
 
 
 ## Examples of Custom Views in Production
