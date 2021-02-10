@@ -12,6 +12,7 @@
   * [Documentation](general/documentation/documentation.md)
   * [TechnicalScan](general/documentation/techscan.md)
   * [Templating](general/design/templating.md)
+  * [Views](general/design/views.md)
 
 * Front-end
 
