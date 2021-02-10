@@ -1,6 +1,6 @@
 # Views Implementation
 
-When we mention a "view" we are referring to an organized filterable list of content. This may include a simple search bar or additional filters based on fields associated with the entity being listed. Depending on requirements, a view can quickly go from a quick hit task to a task that takes several days to fully implement. Each framework (drupal/wordpress) have different approaches to handling views. In the following sections we'll cover how views are typically managed in projects and when we'll need a more custom alternaive solution.
+When we mention a "view" we are referring to an organized filterable list of content. This may include a simple search bar or additional filters based on fields associated with the entity being listed. Depending on requirements, a view can quickly go from a quick hit task to a task that takes several days to fully implement. Each framework (drupal/wordpress) have different approaches to handling views. In the following sections we'll cover how views are typically managed in projects and when we'll need a more custom alternative solution.
 
 
 ## Drupal
@@ -44,7 +44,9 @@ Often times something that may seem straight forward in design actually presents
 2. Custom filters: Any filter that is beyond a simple input/select/radio/checkbox would be considered a custom filter. Often times the work required to build something like the following would move this from a simple drupal views implementation to a custom front end app utilizing vue.js
 <br /><br />![alt_text](images/custom-filter-example.png "Custom filter examples")
 
-3. Combining multiple filters: In same cases there is a request to combine two drop down filters into a single list of options to simplify the interface. 
+3. Combining multiple filters: In same cases there is a request to combine two drop down filters into a single list of options to simplify the interface.
+
+4. Cases where cards or similar components where the entire element should be clickable also pose a unique challenge. Due to the way Javascript is initialized on page load, if cards are reloaded in a view as new results are fetched, the Javascript needs to be run on these new cards. This is tricky and requires the use of something like Drupal Behaviors or a MutationObserver to detect when the results have finished loading and we have access to these new elements in the document.
 
 
 ### Considerations

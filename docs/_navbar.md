@@ -13,6 +13,7 @@
   * [TechnicalScan](general/documentation/techscan.md)
   * [Templating](general/design/templating.md)
   * [Views](general/design/views.md)
+  * [Custom Views](general/design/custom-views.md)
 
 * Front-end
 
