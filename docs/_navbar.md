@@ -12,6 +12,8 @@
   * [Documentation](general/documentation/documentation.md)
   * [TechnicalScan](general/documentation/techscan.md)
   * [Templating](general/design/templating.md)
+  * [Views](general/design/views.md)
+  * [Custom Views](general/design/custom-views.md)
 
 * Front-end
 
@@ -19,6 +21,7 @@
   * [CSS](front-end/css.md)
   * [JavaScript](front-end/js.md)
   * [Accessibility](front-end/accessibility.md)
+  * [Node.js](front-end/node.md)
 
 * Back-end (General)
 
