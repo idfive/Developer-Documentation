@@ -235,3 +235,14 @@ public function get() {
   return (new ResourceResponse($response))->addCacheableDependency($build);
 }
   ```
+
+## WYSIWYG Notes
+
+If using entity embeds/etc within WYSIWYG's, additional processing may be required. Below, we have made a WYSIWYG text format just for the REST view, and enabled things like "Display embedded entities". We then call it by machine name below.
+
+```php
+$description = $result->body->value;
+$program['body'] = check_markup($description, "MY_CUSTOM_TEXT_FORMAT");
+```
+
+After that, you are probably going to need to convert Relative to Absolute Image URL's. An easy option, is to use the [Relative Path to Absolute URLs](https://www.drupal.org/project/rel_to_abs) module. Enable, then be sure it is both added to the REST text format above, with that filter running AFTER "Display embedded entities".
