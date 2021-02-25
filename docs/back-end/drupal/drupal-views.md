@@ -200,12 +200,12 @@ function MY_MODULE_form_views_exposed_form_alter(&$form, FormStateInterface $for
    * Adds JS.
    */
 function MY_MODULE_form_views_exposed_form_alter(&$form, FormStateInterface $form_state, $form_id) {
-    // Add a specific JS file for one view, general to all others.
-    if ($form['#id'] == 'SPECIFIC_FORM_ID_OF_WHATEVER_VIEW_YOU_WANT') {
-      $form['#attached']['library'][] = 'MY_MODULE/MY_JS.specific';
-    } else {
-      $form['#attached']['library'][] = 'MY_MODULE/MY_JS.general';
-    }
+  // Add a specific JS file for one view, general to all others.
+  if ($form['#id'] == 'SPECIFIC_FORM_ID_OF_WHATEVER_VIEW_YOU_WANT') {
+    $form['#attached']['library'][] = 'MY_MODULE/MY_JS.specific';
+  } else {
+    $form['#attached']['library'][] = 'MY_MODULE/MY_JS.general';
+  }
 }
 ```
 
