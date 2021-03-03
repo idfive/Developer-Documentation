@@ -1,9 +1,10 @@
 # Simplesamlphp (per page) password protection in drupal
 
-Requires saml auth in order to view a page. This assumes you are already using simplesamlphp for authentication, via the drupal module. Similar approaches could be used for different SSO solutions.
+Requires saml auth in order to view a page. This assumes you are already using simplesamlphp for authentication, via the drupal module. Similar approaches could be used for different SSO solutions. The main idea is to add a boolean field to a single content type, to require login in order to view the content or not.
 
 ## To enact
 
+- Create the boolean field.
 - Create the service.
 - Preproccess the entity.
 
@@ -24,6 +25,7 @@ services:
 
 namespace Drupal\MY_MODULE\Services;
 
+// May or may not need this, depending on setup.
 require_once('../simplesamlphp/lib/_autoload.php');
 
 use SimpleSAML\Auth\Simple;

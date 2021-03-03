@@ -4,7 +4,7 @@ Often, we get requests for simple passwords per node, to limit access. As of the
 
 ## To enact
 
-- Set a text field on entity toi hold the password entered by an admin.
+- Set a text field on entity to hold the password entered by an admin.
 - Adjust preproccess to check access, including things like role and if password set.
 - Adjust twig template to display content if access granted, display password form if not.
 
