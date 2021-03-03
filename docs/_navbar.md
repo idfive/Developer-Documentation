@@ -47,6 +47,7 @@
   * [Drupal Services](back-end/drupal/drupal-services.md)
   * [Drupal Social Share](back-end/drupal/drupal-social-share.md)
   * [Drupal Simple Password Protection](back-end/drupal/drupal-simple-password-protection.md)
+  * [Drupal Simplesamlphp Password Protection](back-end/drupal/drupal-simplesamlphp-password-protection.md)
   * [Drupal Testing](back-end/drupal/drupal-testing.md)
   * [Drupal Updates](back-end/drupal/drupal-updates.md)
   * [Drupal Views](back-end/drupal/drupal-views.md)
