@@ -111,7 +111,7 @@ In general, this is less than desireable. While possible to scrape a site, and p
 
 ### Drupal 8 content importing
 
-For importing into drupal 8 sites, two major options exist, [Feeds](https://www.drupal.org/project/feeds) and [Migrate](https://www.drupal.org/docs/8/api/migrate-api/migrate-api-overview).
+For importing into drupal 8 sites, two major options exist, [Feeds](https://www.drupal.org/project/feeds) and [Migrate API](https://www.drupal.org/docs/8/api/migrate-api/migrate-api-overview).
 
 #### Feeds
 
@@ -126,6 +126,26 @@ Generally speaking, feeds works pretty well for importing content into drupal 8.
 - Entity references. If the exported content contains entity references that need to be maintained, special ordering of the imports, and care to match NID's must be maintained.
 - Taxonomies. Can be created on the fly, but sometimes its best to create first, depending on the integrity of the content being imported.
 
-#### Migrate
+#### Migrate API
 
-TBD by Anthony
+The Migrate API provides services for migrating data from a source system to Drupal 8. The migration api uses the following modules for managing migrations
+- Drupal 8 core Migrate module implements the general-purpose framework.
+- Drupal 8 core Migrate Drupal module builds on that foundation to provide an upgrade path from Drupal 6 and Drupal 7 to Drupal 8.
+- Drupal 8 core Migrate Drupal UI module provides a browser user interface for Migrate Drupal.
+
+Migrations use the process of [Extract - Transform - Load (ETL)](https://en.wikipedia.org/wiki/Extract,_transform,_load). These processes translate to 
+- **[Source (extract phase)](https://www.drupal.org/docs/8/api/migrate-api/migrate-source-plugins):** In this phase we pull all data from the source and prepare for processing. This can utilize existing [core plugins](https://www.drupal.org/docs/8/api/migrate-api/migrate-source-plugins/overview-of-migrate-source-plugins) or a custom plugin by existing the SourcePluginBase class.
+- **[Transform (process phase)](https://www.drupal.org/docs/8/api/migrate-api/migrate-process-plugins):** In this phase the data that has been pulled from the extract phase is manipulated and prepared for import in the destination phase. This can utilize existing [core plugins](https://www.drupal.org/docs/8/api/migrate-api/migrate-process-plugins/list-of-core-migrate-process-plugins) or a [custom plugin](https://www.drupal.org/docs/8/api/migrate-api/migrate-process/writing-a-process-plugin) by extending the ProcessPluginBase class.
+- **[Destination (load phase)](https://www.drupal.org/docs/drupal-apis/migrate-api/migrate-destination-plugins-examples):** In this phase the extracted and processed information gets sent to the destination within Drupal. Typical destinations include any entity in Drupal such as users, content, media and taxonomies. There is no limit to the type of destinations that can be targeted as custom destination plugins can be written to allow mappings to any type of data.
+
+In the source phase, a set of data, called the row, is retrieved from the data source. The data can be migrated from a database, loaded from a file (for example CSV, JSON or XML) or fetched from a web service (for example RSS or REST). The row is sent to the process phase where it is transformed as needed or marked to be skipped. After processing, the transformed row is passed to the destination phase where it is loaded (saved) into the target Drupal site.
+
+Migrations are create using migration plugins in YML format. Several [examples](https://www.drupal.org/docs/drupal-apis/migrate-api/migrate-destination-plugins-examples) can be found on the Migrate API documentation page.
+
+Additional features provided by the Migrate API
+
+- **[Stubs](https://www.drupal.org/docs/drupal-apis/migrate-api/migrate-api-overview#s-stubs):**: Process of handling references to parent references where the child entity is created before the parent. Taxonomies are a good example of this issue. If a child term gets imported before the parent then a 'stub' is created to allow a reference to the parent entity. Once the parent row is processed the stub is then updated with the correct parent information.
+- **[Map Tables](https://www.drupal.org/docs/drupal-apis/migrate-api/migrate-api-overview#s-map-tables):** Map tables are used to track information about an imported item. This allows for continuous migrations where any updates to previously imported items can be processed and tracked as well as new items imported.
+- **[Highwater marks](https://www.drupal.org/docs/drupal-apis/migrate-api/migrate-api-overview#s-highwater-marks):** Tracks the "highest" imported item from previous imports. An example of a highwater mark would be a node id where follow up imports would only import nids higher than the previous import. This could also be tracked to a created/updated timestamp.
+- **[Rollbacks](https://www.drupal.org/docs/drupal-apis/migrate-api/migrate-api-overview#s-rollbacks):** Rollbacks allow reverting previous migrations. This is useful for situations where the data did not migrate properly. This is the major benefit to use the migrate api over the feeds approach referenced above. With feeds you have one chance to handle your migrations and need to do a full db restore to go back to a previous state. 
+
