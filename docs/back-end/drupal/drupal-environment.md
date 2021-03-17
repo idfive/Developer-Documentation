@@ -2,15 +2,17 @@
 
 ## Servers and environments
 
-In general, we commonly work on the following Paas (Platform as a service)/Servers for drupal:
+In general, we commonly work on the following PaaS (Platform as a Service)/Servers for drupal:
 
 - Acquia
 - Pantheon
-- Client controlled server
+- Platform.sh
 
-### Acquia/Pantheon
+We also commonly work with IT departments, for deployment of sites to organizational controlled servers.
 
-Since Acquia and Pantheon are both optimized to run drupal sites, we rely on the following built in to these platforms:
+### Acquia/Pantheon/Platform.sh
+
+Since Acquia, Pantheon and Platform.sh are both optimized to run drupal sites, we rely on the following built in to these platforms:
 
 - DEV/STG/PROD environments. DB/files can also be easily moved between environments, to allow for a 100% accurate testing environment for features/builds.
 - Automated DB backups. All paid plans include database backups once a day, and can be manually done on command.
