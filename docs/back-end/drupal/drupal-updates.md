@@ -69,7 +69,12 @@ In general, contrib updates are "less trustworthy" than core updates. They are s
 
 Since drush 9 and above does away with the @sites alias, we needed to create a script on the server that essentially loops through all sites on a multi-site install, and runs drush commands/etc. This script is located in each codebase, under `scripts/idfive_sites.sh`. It is interacted with, both through command line/etc, and via CRON scheduled jobs on acquia/similar. For scheduled jobs, see the [acquia documentation](https://docs.acquia.com/cloud-platform/manage/cron/#cloud-execute-shell-script). At its essence, it provides a way to run the same drush command on all multi-sites within an environment.
 
-### Example script on server, scripts/idfive_sites.sh
+Note below scripts run on acquia:
+
+- Therefore use one of their vars, `${AH_SITE_NAME}`, which would need to be modified if used elesewhere.
+- includes `awk '{print "["strftime("\%Y-\%m-\%d \%H:\%M:\%S \%Z")"] "$0}' &>> /var/log/sites/${AH_SITE_NAME}/logs/$(hostname -s)/drush-cron.log` only because acquia requires logging for scripts. This can easily be removed elsewhere.
+
+### Example script on a server, scripts/idfive_sites.sh
 
 ```sh
   #!/bin/bash
@@ -100,9 +105,9 @@ Since drush 9 and above does away with the @sites alias, we needed to create a s
 
 When running this script, 'drush' and the '-y' flag, are automatically added to the drush command you wish to run. It is quite important to "not use command aliases" with this script. Ie, use "pm:enable" not "en". Related too [this issue](https://github.com/drush-ops/drush/issues/3025) if curious as to why.
 
-- From root folder on acquia server, check status: `bash scripts/hal_sites.sh status`. In this instance, 'status' is the drush command to run.
-- From root folder on acquia server, clear cache: `bash scripts/hal_sites.sh cr`. In this instance, 'cr' is the drush command to run.
-- From scheduled task runner on acquia: `bash /var/www/html/${AH_SITE_NAME}/scripts/hal_sites.sh cr`. Clears caches on all sites in install, to run hourly or whatever desired.
+- From root folder on acquia server, check status: `bash scripts/idfive_sites.sh status`. In this instance, 'status' is the drush command to run.
+- From root folder on acquia server, clear cache: `bash scripts/idfive_sites.sh cr`. In this instance, 'cr' is the drush command to run.
+- From scheduled task runner on acquia: `bash /var/www/html/${AH_SITE_NAME}/scripts/idfive_sites.sh cr`. Clears caches on all sites in install, to run hourly or whatever desired.
 
 ### Usage of idfive_sites.sh from a scripting library
 
