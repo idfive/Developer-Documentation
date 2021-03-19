@@ -149,3 +149,26 @@ Additional features provided by the Migrate API
 - **[Highwater marks](https://www.drupal.org/docs/drupal-apis/migrate-api/migrate-api-overview#s-highwater-marks):** Tracks the "highest" imported item from previous imports. An example of a highwater mark would be a node id where follow up imports would only import nids higher than the previous import. This could also be tracked to a created/updated timestamp.
 - **[Rollbacks](https://www.drupal.org/docs/drupal-apis/migrate-api/migrate-api-overview#s-rollbacks):** Rollbacks allow reverting previous migrations. This is useful for situations where the data did not migrate properly. This is the major benefit to use the migrate api over the feeds approach referenced above. With feeds you have one chance to handle your migrations and need to do a full db restore to go back to a previous state. 
 
+##### Writing a process plugin
+If the default provided process plugins do not fit the needs a custom one can be written. Consider checking the [migrate plus](https://www.drupal.org/docs/8/api/migrate-api/migrate-process-plugins/list-of-process-plugins-provided-by-migrate-plus) before starting any custom work as many additional process plugins are provided by this module.
+
+##### Custom row processing
+In the event custom row logic is needed the following function can be implemented [hook_migrate_prepare_row](https://api.drupal.org/api/drupal/core%21modules%21migrate%21migrate.api.php/function/hook_migrate_prepare_row/9.2.x) which allows you to add custom transformation logic prior to processing.
+
+##### Migrate events
+Several events are avaible which can be utilized during the migration process. 
+
+| Event | Description |
+| :--- | :--- |
+| MAP_DELETE | fired when removing an entry from a migration's map |
+| MAP_SAVE | fired when saving to a migration's map |
+| POST_IMPORT | fired when finishing a migration import operation |
+| POST_ROLLBACK | fired when finishing a migration rollback operation |
+| POST_ROW_DELETE | fired just after a single item has been deleted |
+| POST_ROW_SAVE | fired just after a single item has been imported |
+| PRE_IMPORT | fired when beginning a migration import operation |
+| PRE_ROLLBACK | fired when beginning a migration rollback operation |
+| PRE_ROW_DELETE | fired when about to delete a single item |
+| PRE_ROW_SAVE | fired when about to import a single item |
+
+Example usage: https://kevinquillen.com/using-migratepostrowsave-event-append-data-migrated-item
