@@ -4,9 +4,9 @@ Requires saml auth in order to view a page. This assumes you are already using s
 
 ## To enact
 
-- Create the boolean field.
-- Create the service.
-- Preproccess the entity.
+- Create the boolean field on bundle of choice.
+- Create the service, which will run the authentication.
+- Create the event subscriber, which will decide if a page should be authenticated.
 
 ### Create the service
 
@@ -16,6 +16,10 @@ Requires saml auth in order to view a page. This assumes you are already using s
 services:
   MY_SERVICE.auth:
     class: Drupal\MY_MODULE\Services\MyService
+  MY_SERVICE.auth_event_subscriber:
+    class: Drupal\howard_content_types\EventSubscriber\HowardAuthSubscriber
+    tags:
+      - {name: event_subscriber}
 ```
 
 #### src/Services/MyService.php
@@ -56,29 +60,62 @@ class MyService {
 
 ```
 
-### Preproccess the entity
+### Create the event subscriber
 
-- Remember to add a check for things like admin/logged in users as well, so they are not forced to SAML login/etc when editing.
-- Remember to limit this to the full view, so it does not fire when a teaser is viewed.
+- This creates an event subscriber that runs when the symphony kernel is requested.
+- Conceivably, this should effectively "preprocess" the page, and be able to check for our fields/etc before the cache is hit.
+
+#### src/EventSubscriber/MyServiceSubscriber.php
 
 ```php
+<?php
+
+namespace Drupal\MY_MODULE\EventSubscriber;
+
+use Symfony\Component\HttpKernel\KernelEvents;
+use Symfony\Component\EventDispatcher\EventSubscriberInterface;
+use Drupal\node\NodeInterface;
+
 /**
- * Implements hook_preprocess_node().
+ * Class MyServiceSubscriber.
+ *
+ * @package Drupal\MY_MODULE.
  */
-function MY_MODULE_preprocess_node(&$variables) {
-  $node = $variables['elements']['#node'];
-  $view_mode = $variables['view_mode'];
-  $bundle = $node->bundle();
-  if ($view_mode == 'full' && $bundle == 'MY_BUNDLE') {
-    // Check whether to require SAML auth to view the page or not.
-    if (\Drupal::currentUser()->isAnonymous()) {
+class MyServiceSubscriber implements EventSubscriberInterface {
+
+  /**
+   * {@inheritdoc}
+   */
+  public static function getSubscribedEvents() {
+    $events[KernelEvents::REQUEST][] = ['disableCacheForProtectedPage'];
+    return $events;
+  }
+
+  /**
+   * Subscriber Callback for the event.
+   */
+  public function disableCacheForProtectedPage() {
+
+    // Check if current node type is one we want to exclude from the cache.
+    $node = \Drupal::routeMatch()->getParameter('node');
+    if ($node instanceof NodeInterface) {
+      $node_type = $node->getType();
+    }
+
+    if (isset($node_type) && $node_type == 'MY_BUNDLE') {
       if ($node->hasField('MY_BOOLEAN_FIELD')) {
         $value = $node->get('MY_BOOLEAN_FIELD')->getValue();
         if (isset($value[0]) && $value[0]['value'] == '1') {
-          \Drupal::service('MY_SERVICE.auth')->limitToSamlUsers();
+          // Flip the cache kill switch.
+          \Drupal::service('page_cache_kill_switch')->trigger();
+          if (\Drupal::currentUser()->isAnonymous()) {
+            // Ignore auth requirement if you are a logged in drupal user.
+            \Drupal::service('MY_SERVICE.auth')->limitToHowardUsers();
+          }
         }
       }
     }
   }
+
 }
 ```
