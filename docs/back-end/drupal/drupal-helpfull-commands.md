@@ -72,7 +72,7 @@ The `@sites` command is especially useful on acquia multi-sites, as it targets "
 
 ### Create a user and assign as admin
 
-This is extremely helpful if admin account credentials are lost or unavailable, but server/codebase access is present. To note, special chars are not available when seeting passwords for tis, due to a [known drush issue](Because of this issue: https://github.com/drush-ops/drush/issues/125).
+This is extremely helpful if admin account credentials are lost or unavailable, but server/codebase access is present. To note, special chars are not available when setting passwords for tis, due to a [known drush issue](https://github.com/drush-ops/drush/issues/125).
 
 #### Drush 8
 
