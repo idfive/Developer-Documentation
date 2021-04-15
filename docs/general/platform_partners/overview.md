@@ -80,6 +80,7 @@ While we are not partners with WPEngine, we have worked on this platform for sev
 - Modern User Interface.
 - WP-CLI access.
 - Supports WP multisites.
+- Multiple independent environments (dev, stg, live) with deployments for files and databases in between, but does not require a stepped deployment process like on Pantheon.
 - Seamless integration into local development via Lando.
 
 ### WPEngine Cons
