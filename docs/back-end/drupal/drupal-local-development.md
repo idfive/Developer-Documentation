@@ -45,3 +45,25 @@ $databases = array (
 ```
 
 Following this step, you may need to run `lando drush cr` or `lando drush cc` to clear the site's cache before accessing it in the browser.
+
+## Lando with Acquia
+
+Lando currently provides alpha support for an Acquia recipe. To get an Acquia site up and running locally, follow these steps:
+
+1. Install the latest release of lando (currently 3.1.0 has alpha support for an Acquia recipe)
+2. Enable experimental features in lando by running lando --experimental
+3. Create an [Acquia Cloud API Token](https://docs.acquia.com/cloud-platform/develop/api/auth/) and save the token and secret somewhere secure
+4. Create your site directory, cd into it and run `lando init --source acquia`
+5. Provide your Cloud API key and secret when prompted
+7. Run `lando start`
+8. Run `lando pull`
+
+For certain sites like Colgate that require Composer version ^1.0, it may be necessary to update the .lando.yml file to include the following to prevent an error during the init step where Lando uses Composer version ^2.0 regardless of the value specified for the `config.composer_version` setting in .lando.yml.
+
+```yml
+config:
+  build:
+    run_scripts: false
+```
+
+This will prevent any Composer commands from being run during the `lando init` step and it will complete initialization without any errors.
