@@ -71,6 +71,22 @@ While we have not yet launched a production site on this platform, we feel their
 
 - As yet untested by idfive for a long-term production use case.
 
+## [WP Engine](https://wpengine.com/)
+
+While we are not partners with WPEngine, we have worked on this platform for several client projects. We cannot comment on pricing structures/etc, but overall it seems to be a solid platform choice.
+
+### WPEngine Pros
+
+- Modern User Interface.
+- WP-CLI access.
+- Supports WP multisites.
+- Seamless integration into local development via Lando.
+
+### WPEngine Cons
+
+- Requires/pushes own local development tools.
+- Does not support non-WP apps, such as node.js applications.
+
 ## In summary
 
 Our goal is to make sure you find a partner that meets your needs and budget. Please let us know if you’d like us to:
