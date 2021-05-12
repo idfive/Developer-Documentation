@@ -46,6 +46,21 @@ Then in twig template:
 {% endif %}
 ```
 
+## Classes in twig based on a boolean field
+
+```twig
+{%
+  set classes = [
+    'paragraph',
+    'paragraph--type--' ~ paragraph.bundle|clean_class,
+    content.FIELD_MY_FIELD|render|trim == 'On' ? 'paragraph--type--' ~ paragraph.bundle|clean_class ~ '__MY_CLASS_MODIFIER',
+  ]
+%}
+{% block paragraph %}
+
+<section{{ attributes.addClass(classes) }}>
+  ```
+
 ## Term Reference
 
 ### Comma separated fancy, in node.html.twig
