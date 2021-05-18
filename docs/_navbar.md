@@ -15,6 +15,7 @@
   * [Templating](general/design/templating.md)
   * [Views](general/design/views.md)
   * [Custom Views](general/design/custom-views.md)
+  * [External Build Standards](general/external_vendor/build-standards.md)
 
 * Front-end
 
