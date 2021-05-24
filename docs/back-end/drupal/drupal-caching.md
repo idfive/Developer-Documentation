@@ -58,7 +58,7 @@ class MyExternalController extends ControllerBase {
 }
 ```
 
-Then create a `hook_cron()` in `MY_MODULe.module`.
+Then create a `hook_cron()` in `MY_MODULE.module`.
 
 ```php
 /**
