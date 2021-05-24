@@ -14,3 +14,61 @@ For some things, like seldom seen admin pages/etc, it may make sense to kill cac
 ```php
 \Drupal::service('page_cache_kill_switch')->trigger();
 ```
+
+## Custom external cache clearing, on cron or similar
+
+Lots of times, we load external content into KS paragraphs. This means, that the content itself gets cached for anonymous users. Since this is sometimes timely info, ie events, news, etc, we need to clear, or invalidate those caches periodically. Running a sitewide cache clear definitely works, however for larger sites this can result in performance issues. A better approach, is to define which paragraphs are external content, and simply invalidate those caches on cron run. This should then "bubble up" to the page cache, just as if you had saved new content into these paragraphs/etc.
+
+First create a custom controller, such as `MY_MODULE/src/Controller/MyExternalController.php`.
+
+```php
+namespace Drupal\MY_MODULE\Controller;
+
+use Drupal\Core\Controller\ControllerBase;
+use Drupal\paragraphs\Entity\Paragraph;
+use Drupal\Core\Cache\Cache;
+
+/**
+ * Controller that helps load and clear external content feed caches for websites.
+ */
+class MyExternalController extends ControllerBase {
+  /**
+   * Gets paragraphs that contain external content feeds.
+   */
+  public static function clearExternalContent() {
+    $query = \Drupal::entityQuery('paragraph')
+    ->condition('type', [
+      'my_external_content_paragraph_1',
+      'my_external_content_paragraph_2',
+      'my_external_content_paragraph_3',
+    ], 'IN');
+    $pids = $query->execute();
+    $cids = [];
+    foreach ($pids as $key => $pid) {
+      $paragraph = Paragraph::load($pid);
+      $tags = $paragraph->getCacheTags();
+      $cids[] = $tags;
+      Cache::invalidateTags($tags);
+
+    }
+    $message = 'External content feed caches cleared.';
+    \Drupal::logger('MY_MODULE')->notice($message);
+    return $cids;
+  }
+}
+```
+
+Then create a `hook_cron()` in `MY_MODULe.module`.
+
+```php
+/**
+ * Implements hook_cron().
+ *
+ * We implement hook_cron() to kick off clearing caches on external feed paragraophs.
+ *
+ */
+function howard_paragraphs_cron() {
+  // Load and clear cache for all paragraphs marked as external.
+  HowardExternalContentCacheClear::clearExternalContent();
+}
+```
