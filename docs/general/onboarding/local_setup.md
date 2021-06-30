@@ -36,6 +36,9 @@ You will also potentially need access to the following:
 - Acquia Teams
 - Pantheon Teams
 - Packagist Teams
+- [Trello] (https://trello.com/)
+- [Bugify] (https://bugify.idfive.com/)
+- [Jeeves] (https://jeeves-admin.idfive.com/)
 - [idfive bitbucket](https://bitbucket.org/)
 - [idfive github](https://github.com/idfive)
 - [buddy](https://app.buddy.works/idfive)
