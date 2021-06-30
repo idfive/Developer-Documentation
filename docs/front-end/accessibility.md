@@ -141,7 +141,7 @@ All iframes should have a `title` attribute that describes the content.
 
 - Use meaningful link text.
 - Avoid the use of text like "click here", per the [w3](https://www.w3.org/QA/Tips/noClickHere).
-- If generic text is required, add more context via hidden spans or similar: `<a href="{{ url }}">Learn more<span class=class="visible-for-screen-readers"> about {{ node.title.value }}</span></a>`
+- If generic text is required, add more context via hidden spans or similar: `<a href="{{ url }}">Learn more<span class="visible-for-screen-readers"> about {{ node.title.value }}</span></a>`
 - Avoid target _blank whenever possible. See below.
 
 ### Reasons NOT TO open links in a new tab
