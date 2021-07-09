@@ -131,7 +131,7 @@ In lots of situations, we need to then make the custom form more functional. In 
 Add any JS (or CSS as well if needed) via libraries to your custom module. The following would set up a general JS and CSS file for use, if they were added in to your module `as assets/css/MY_MODULE--general.css` and `assets/js/MY_MODULE--general.js`.
 
 ```yml
-MY_MODULE/MY_JS.general:
+MY_JS.general:
   version: VERSION
   css:
      theme:
