@@ -224,7 +224,7 @@ config:
 
 Then add the following in a .vscode folder in the project root, then run `lando rebuild -y`. This can be committed, or .gitignored, as needed based on project.
 
-#### launch.json
+### launch.json
 
 ```json
 {
@@ -244,7 +244,7 @@ Then add the following in a .vscode folder in the project root, then run `lando 
 }
 ```
 
-#### php.ini
+### php.ini
 
 ```ini
 xdebug.max_nesting_level = 256
