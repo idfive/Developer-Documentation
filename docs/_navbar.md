@@ -1,6 +1,7 @@
 * General
 
   * [Setup and Access](general/onboarding/local_setup.md)
+  * [Lando](general/lando/lando.md)
   * [Resources](general/onboarding/resources.md)
   * [git](general/git/standards.md)
   * [git Pantheon](general/git/pantheon.md)
