@@ -127,3 +127,33 @@ A note on titles: It may sometimes be necessary to override the stock drupal tit
   {% set title = 'Read More' %}
 {% endif %}
 ```
+
+## Media and Image fields
+
+Examples of media and images fields being rendered within a twig template. Can be optionally passed through an image style filter.
+
+### Media field
+
+```twig
+<img src="{{ file_url(content.field_carousel_item_image[0]['#media'].field_media_image.entity.uri.value | image_style('optimized')) }}" alt="{{ content.field_carousel_item_image[0]['#media'].field_media_image.alt }}">
+```
+
+### Image field
+
+```twig
+<img src="{{ file_url(content.field_news_feature_image|field_target_entity.uri.value | image_style('optimized')) }}" alt="{{ content.field_news_feature_image['#items'].alt }}">
+```
+
+Handle a default image reference in a twig template. Preprocess might be cleaner here but does keep all functionality within the twig template.
+
+```twig
+{% set thumbnail = assets_path ~ '/img/icons/News_Thumbnail_Placeholder.svg' %}
+{% set thumbnail_alt = '' %}
+{% if content.field_news_image|field_value %}
+  {% set thumbnail = file_url(content.field_news_image|field_target_entity.uri.value | image_style('optimized')) %}
+  {% set thumbnail_alt = content.field_news_image['#items'].alt %}
+{% elseif content.field_news_feature_image|field_value %}
+  {% set thumbnail = file_url(content.field_news_feature_image|field_target_entity.uri.value | image_style('optimized')) %}
+  {% set thumbnail_alt = content.field_news_feature_image['#items'].alt %}
+{% endif %}
+```
