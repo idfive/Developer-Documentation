@@ -130,7 +130,7 @@ A note on titles: It may sometimes be necessary to override the stock drupal tit
 
 ## Media and Image fields
 
-Examples of media and images fields being rendered within a twig template. Can be optionally passed through an image style filter.
+Examples of media and images fields being rendered within a twig template. Can be optionally passed through an image style filter. Note: the image_style filter is provided by the [twig tweak](https://www.drupal.org/project/twig_tweak) module.
 
 ### Media field
 
