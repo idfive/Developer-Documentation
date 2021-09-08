@@ -151,12 +151,12 @@ use Drupal\node\Entity\Node;
 use Drupal\Component\Utility\Unicode;
 
 /**
- * Class AplGeneralService.
+ * Class MyGeneralService.
  */
-class AplGeneralService {
+class MyGeneralService {
 
   /**
-   * Public method to get missions and instruments for destination map and others.
+   * Public method to get stuff.
    */
   public function getStuff($tid = NULL, $type = NULL) {
     if ($tid) {
@@ -178,7 +178,7 @@ class AplGeneralService {
    * Format nodes for rest return.
    * @return Array articles
    */
-  public function formatStuffForRest($results) {
+  public static function formatStuffForRest($results) {
     $articles = [];
     foreach ($results as $result) {
       $article = [];
@@ -186,7 +186,7 @@ class AplGeneralService {
       $article['title'] = $result->getTitle();
       $description = $result->field_summary->value;
       $article['description'] = Unicode::truncate($description, 200, TRUE, TRUE, 5);
-      $article['url'] = \Drupal::service('path.alias_manager')->getAliasByPath('/node/' . $nid);
+      $article['url'] = \Drupal::service('path_alias.manager')->getAliasByPath('/node/' . $nid);
       $articles[] = $article;
     }
     return $articles;
