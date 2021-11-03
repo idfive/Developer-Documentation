@@ -6,12 +6,11 @@ When a project ends and no retainer or post-launch services are requested, the p
 
  - CMS credentials
  - hosting/SFTP credentials 
- 
+
 
 ### Cleanup steps 
 
  - Deactivate any pipelines in Buddy to prevent accidental file writes to the client server
- 
  
 ## Full offboarding
 
@@ -21,7 +20,7 @@ Sometimes a client may have to cut ties completely, e.g. they have chosen a diff
  - confirm the revocation of hosting/SFTP credentials 
  - delete any stored credentials (passwords, secure notes) in our password manager 
  - deactivate all pipelines in buddy 
- 
+
 
 ## Re-boarding
 
