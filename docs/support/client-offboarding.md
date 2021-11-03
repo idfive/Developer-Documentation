@@ -11,7 +11,7 @@ When a project ends and no retainer or post-launch services are requested, the p
 ### Cleanup steps 
 
  - Deactivate any pipelines in Buddy to prevent accidental file writes to the client server
- 
+
 ## Full offboarding
 
 Sometimes a client may have to cut ties completely, e.g. they have chosen a different agency of record. When we do a full off-boarding, we should: 
