@@ -79,3 +79,4 @@
   * [Retainer](support/task-life-cycles/retainer.md)
   * [Maintenance](support/task-life-cycles/maintenance.md)
   * [Other Tasks](support/task-life-cycles/other.md)
+  * [Offboarding](support/client-offboarding.md)
