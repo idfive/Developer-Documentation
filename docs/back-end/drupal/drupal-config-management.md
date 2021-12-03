@@ -146,6 +146,25 @@ function MY_MODULE_update_8001() {
 }
 ```
 
+Removing config:
+
+```php
+Drupal::configFactory()->getEditable('CONFIG.TO_REMOVE')->delete();
+```
+
+This can be added to a hook_uninstall, or run via drush as below, by temporarily creating a function in an in-use module:
+
+```php
+/**
+ * Function added to an in-use module temporarily.
+ */
+function tempDropEntity() {
+  Drupal::configFactory()->getEditable('CONFIG.TO_REMOVE')->delete();
+}
+```
+
+Then running drush command `drush php-eval "tempDropEntity();"`.
+
 #### Update all config
 
 An example hook_update to simply "reinstall all config for a GIVEN module".
