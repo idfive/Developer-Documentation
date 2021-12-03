@@ -255,3 +255,13 @@ xdebug.remote_autostart = 1
 xdebug.remote_host = ${LANDO_HOST_IP}
 xdebug.remote_log = /tmp/xdebug.log
 ```
+
+## Troubleshooting
+
+### Edge URL's Suddenly Stop Working
+
+If you run into issues where for whatever reason, a local site's Edge URL's (*.lndo.site) suddenly stop working, try adding the following to your `/etc/hosts` file:
+
+`127.0.0.1 <site-name>.lndo.site`
+
+After saving, the Edge URL's should resolve properly.
