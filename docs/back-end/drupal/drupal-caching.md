@@ -61,14 +61,17 @@ class MyExternalController extends ControllerBase {
 Then create a `hook_cron()` in `MY_MODULE.module`.
 
 ```php
+
+use Drupal\MY_MODULE\Controller\MyExternalController;
+
 /**
  * Implements hook_cron().
  *
- * We implement hook_cron() to kick off clearing caches on external feed paragraophs.
+ * We implement hook_cron() to kick off clearing caches on external feed paragraphs.
  *
  */
-function howard_paragraphs_cron() {
+function MY_MODULE_cron() {
   // Load and clear cache for all paragraphs marked as external.
-  HowardExternalContentCacheClear::clearExternalContent();
+  MyExternalController::clearExternalContent();
 }
 ```
