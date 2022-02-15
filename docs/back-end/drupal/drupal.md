@@ -1,6 +1,6 @@
 # Drupal 8 General Codebase
 
-Unless specifically directed, all new D8 sites should attempt to use a composer based workflow for updates, and the [idfive Component Libray](https://bitbucket.org/idfivellc/idfive-component-library) for the frontend. Some sites for specific clients, require different, specific workflows. This is not a substitute for that, rather, simply defines our "standard go tos".
+Unless specifically directed, all new D8 sites should attempt to use a composer based workflow for updates, and the [idfive Component Library](https://bitbucket.org/idfivellc/idfive-component-library) for the frontend. Some sites for specific clients, require different, specific workflows. This is not a substitute for that, rather, simply defines our "standard go-to's".
 
 ## Local ENV Setup, and coding standards
 
