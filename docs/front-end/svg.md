@@ -4,7 +4,7 @@ Our SVG workflow utilizes [IcoMoon](https://icomoon.io/) to create and manage SV
 
 - Optimize all SVG icon's with [SVGOMG](https://jakearchibald.github.io/svgomg/)
 - Remove any inline `fill` attributes for icon's where the fill may need to change across use cases on the site
-- Name the files using the following pattern `icon-<icon handle>.svg`
+- Name the files using the following pattern `<icon handle>.svg` (don't include `icon` at the beginning of the file name as it will cause IcoMoon to create classes like `icon-icon-foo`)
 - Create a new project in IcoMoon (or if there is an existing one for the current project, import the project's selection.json)
 - Import any icons to the project and use the "Generate SVG & More" option to download an SVG sprite sheet
 - Copy the contents of the `symbol-defs.svg` file from the IcoMoon download and include them as close to the opening body tag as possible. For Fractal projects, it's easiest to create a component that contains the contents of the `symbol-defs.svg` file and then include it at the top of any preview layouts.
