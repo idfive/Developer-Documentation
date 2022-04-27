@@ -90,6 +90,14 @@ $nids = \Drupal::entityQuery('node')
   ->execute();
 ```
 
+#### Paragraph
+
+```php
+$pids = \Drupal::entityQuery('paragraph')
+  ->condition('type', 'PARAGRAPH_MACHINE_NAME')
+  ->execute();
+```
+
 #### Taxonomy Term
 
 ```php
@@ -113,6 +121,7 @@ $tids = \Drupal::entityQuery('taxonomy_term')
 ->condition('FIELD_TAXONOMY_REFERENCE', $tid); // A taxonomy reference field is equal to $tid (NUM)
 ->condition('FIELD_TAXONOMY_REFERENCE', [$tids], 'IN'); // A taxonomy reference field is equal to one of several $tids (NUM, comma separated)
 ->condition('nid', $nid, 'NOT IN'); // Exclude a node, by ID
+->condition('FIELD_PARAGRAPH_REFERENCE.entity:paragraph.FIELD_TAXONOMY_REFERENCE.target_id', $tid); //A taxonomy reference on a referenced paragraph
 ```
 
 #### Conditions groups
