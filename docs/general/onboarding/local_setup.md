@@ -30,6 +30,11 @@ The following are recommended and required VS Code extensions.
 - markdownlint
 - For drupal developers, please follow the [following drupal.org article](https://www.drupal.org/docs/develop/development-tools/configuring-visual-studio-code) to set up VS Code for better drupal development locally.
 
+### Drupal specific issues
+
+- May need to add keys from places like acquia into the ssh-agent, in order for sourctree to be able to find them when pushing: `$ ssh-add -K ~/.ssh/<private_key_file>`.
+- Install [drush launcher](https://github.com/drush-ops/drush-launcher) in order to use repo specific drush versions.
+
 ## Access to repositories/accounts/etc
 
 You will also potentially need access to the following:
