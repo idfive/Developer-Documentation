@@ -197,6 +197,98 @@ function MY_MODULE_update_8001() {
 }
 ```
 
+#### Programmatically change plain text field to WYSIWYG
+
+Makes a copy of data before removing the old field, adding new field, and repopulating.
+
+```php
+use \Drupal\field\Entity\FieldStorageConfig;
+use \Drupal\field\Entity\FieldConfig;
+
+/**
+  * Change FIELD_MY_FIELD field from string (plain text) to text(formatted).
+  */
+function MY_MODULE_update_8001() {
+
+  $fields = [
+    'FIELD_MY_FIELD' => [
+      'table' => 'paragraph__FIELD_MY_FIELD',
+      'revision_table' => 'paragraph_revision__FIELD_MY_FIELD',
+      'format_col' => 'FIELD_MY_FIELD_format',
+    ],
+  ];
+
+  $database = \Drupal::database();
+
+  foreach ($fields as $field_name => $f) {
+    $table = $f['table'];
+    $revision_table = $f['revision_table'];
+    $entity_type = 'paragraph';
+
+    // Get field storage.
+    $field_storage = FieldStorageConfig::loadByName($entity_type, $field_name);
+
+    // Check if field exist.
+    if (is_null($field_storage)) {
+      continue;
+    }
+
+    // Store data to an array so that we can restore it once the update is complete.
+    $rows = NULL;
+    $revision_rows = NULL;
+    if ($database->schema()->tableExists($table)) {
+      $rows = $database->select($table, 'n')->fields('n')->execute()
+        ->fetchAll();
+      $revision_rows = $database->select($revision_table, 'n')->fields('n')->execute()
+        ->fetchAll();
+    }
+
+    // Save new field configs & delete existing fields.
+    $new_fields = array();
+    foreach ($field_storage->getBundles() as $bundle => $label) {
+      $field = FieldConfig::loadByName($entity_type, $bundle, $field_name);
+      $new_field = $field->toArray();
+      $new_field['field_type'] = 'text_long';
+      $new_fields[] = $new_field;
+      // Delete field.
+      $field->delete();
+    }
+
+    // Create new storage configs from existing.
+    $new_field_storage = $field_storage->toArray();
+    $new_field_storage['type'] = 'text_long';
+    $new_field_storage['module'] = 'text_long';
+
+    // Purge deleted fields data to create new fields.
+    field_purge_batch(250);
+
+    // Create new fieldstorage.
+    FieldStorageConfig::create($new_field_storage)->save();
+
+    // Create new fields for all bundles.
+    foreach ($new_fields as $new_field) {
+      $new_field = FieldConfig::create($new_field);
+      $new_field->save();
+    }
+    // Restore existing data in fields & revision tables.
+    if (!is_null($rows)) {
+      foreach ($rows as $row) {
+        $row = (array) $row;
+        $row[$f['format_col']] = 'full_html';
+        $database->insert($table)->fields($row)->execute();
+      }
+    }
+    if (!is_null($revision_rows)) {
+      foreach ($revision_rows as $row) {
+        $row = (array) $row;
+        $row[$f['format_col']] = 'full_html';
+        $database->insert($revision_table)->fields($row)->execute();
+      }
+    }
+  }
+}
+```
+
 ## Advanced config setups
 
 More advanced config setups should consider using the [config split](https://www.drupal.org/project/config_split) module.
