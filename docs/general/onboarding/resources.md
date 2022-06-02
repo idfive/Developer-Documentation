@@ -1,5 +1,12 @@
 # Onboarding Resources
 
+## Video Tutorials
+
+- [Typescript Tutorial (YouTube - Net Ninja)](https://www.youtube.com/playlist?list=PL4cUxeGkcC9gUgr39Q_yD6v-bSyMwKPUI)
+- [Webpack & TypeScript Setup (YouTube - Net Ninja)](https://www.youtube.com/playlist?list=PL4cUxeGkcC9hOkGbwzgYFmaxB0WiduYJC)
+- [Build Layouts with CSS Grid (YouTube - Net Ninja)](https://www.youtube.com/playlist?list=PL4cUxeGkcC9hk02lFb6EkdXF2DYGl4Gg4)
+- [SASS Tutorial: Build Your Own CSS Library (YouTube - Net Ninja)](https://www.youtube.com/playlist?list=PL4cUxeGkcC9jxJX7vojNVK-o8ubDZEcNb)
+
 ## Acquia Test Study resources
 
 - [WidgetsBurritos Study Guide](https://github.com/WidgetsBurritos/d8-studyguide)
