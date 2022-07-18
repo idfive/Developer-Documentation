@@ -71,6 +71,7 @@
   * Backend:
   * [Drupal custom API module](challenges/drupal-api-module.md)
   * [Drupal custom paragraph module](challenges/drupal-paragraph-module.md)
+  * [Drupal theme](challenges/drupal-theme.md)
   * Frontend:
   * [JS Accordion](challenges/js-accordion.md)
   * [Vue.js News App](challenges/vue-challenge.md)
