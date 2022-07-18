@@ -11,7 +11,7 @@ Create a composer based, D9 site on Pantheon that accomplishes the following:
 - Create a new D9 sandbox site in Pantheon, under the idfive team. Please name this "YOUR-NAME-drupal-sandbox".
 - Create and install a new theme, that uses the [idfive component Library D8 theme](https://bitbucket.org/idfivellc/idfive-component-library-d8-theme/src/8.x-1.x/) as a base theme. See the "Sub-Theming" section of the above repo for directions on the best way to create a client sub theme. Please name this sub theme "YOUR_NAME_sandbox".
 - Install and enable the [idfive Component Library D8 Paragraphs](https://bitbucket.org/idfivellc/idfive-component-library-d8-paragraphs/src/8.x-2.x/) module.
-- Create a field on the default page content type that allows admins to add all the Paragrpahs added by the above module.
+- Create a field on the default page content type that allows admins to add all the Paragraphs added by the above module.
 - Create a test page, and add all the above widgets to it, and set as the homepage.
 - Create a seperate page for each widget, and add that page to the main navigation.
 
