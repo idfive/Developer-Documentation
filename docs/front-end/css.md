@@ -162,3 +162,22 @@ When using a modifier class on the base block, child elements can have their def
   }
 }
 ```
+
+## Flexbox & Grid
+
+Flexbox & Grid have enough support to be used in production: [Caniuse for Flexbox](https://caniuse.com/flexbox) & [Caniuse for Grid](https://caniuse.com/css-grid). 
+[A Complete Guide to Flexbox | CSS-Tricks](https://css-tricks.com/snippets/css/a-guide-to-flexbox/)
+[A Complete Guide to Grid | CSS-Tricks](https://css-tricks.com/snippets/css/complete-guide-grid/)
+### Shorthand for Centering (Flex & Grid)
+A shorthand for `align-items` and `justify-items` is `place-items`. One value sets both properties, if two values are set the first is for `align-items` and the second for `justify-items`. For example - a quick way to center vertically and horizontally would be:
+```scss
+  display: grid; // or flex
+  place-items: center;
+```
+
+### Flexbox properties for children 
+```scss
+flex: 0 0 auto; // Fixed width or max-width that shouldn't grow or shrink
+flex: 1 1 0px; // Fluid width that will fill the remainder of its container, becomes the same width as sibling elements with same flex rules (two sibling elements with flex: 1 1 0px; will be 50% each)
+flex: 0 1 auto; // Has a percentage width, scales responsively
+```
