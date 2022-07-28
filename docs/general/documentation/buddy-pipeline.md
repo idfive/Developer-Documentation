@@ -3,6 +3,7 @@
 <style>img { max-width: 600px; display:block; margin-block: 20px 40px; box-shadow: 0px 3px 10px rgba(0,0,0,0.1);}</style>
 
 We use the app [Buddy](https://app.buddy.works/idfive) to deploy code to our staging server. The [idfive Component Library](https://bitbucket.org/idfivellc/idfive-component-library/src/master/) contains a `buddy.yml` file which will need some minor modifications in order to setup the pipeline properly.
+- [Lik to video version of the tutorial](https://vimeo.com/734507911)
 
 ## Steps At A Glance
 - Setup repo, buddy.yml file, and push
@@ -19,7 +20,7 @@ We use the app [Buddy](https://app.buddy.works/idfive) to deploy code to our sta
 - Clone this newly created repository down to your local machine
 - Download a copy of the [idfive Component Library](https://bitbucket.org/idfivellc/idfive-component-library/src/master/). Downloading is preferred here as opposed to cloning, to easily remove the git history
 - Place the icl contents into the new repo
-— Open up the `buddy.yml` file and replace the two instances of `[SET PATH NAME HERE]` with your new project directory name
+— Open up the `buddy.yml` file (in the root) and replace the two instances of `[SET PATH NAME HERE]` with your new project directory name
 
 ### SSH into staging server and create directory
 - In a terminal window enter `ssh idfive@staging2.idfive.com` to ssh into the staging server
