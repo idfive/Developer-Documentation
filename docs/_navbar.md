@@ -17,6 +17,7 @@
   * [Views](general/design/views.md)
   * [Custom Views](general/design/custom-views.md)
   * [External Build Standards](general/external_vendor/build-standards.md)
+  * [Buddy Pipeline Setup](general/documentation/buddy-pipeline.md)
 
 * Front-end
 
