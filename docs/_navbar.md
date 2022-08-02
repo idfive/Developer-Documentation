@@ -57,6 +57,7 @@
   * [Drupal Updates](back-end/drupal/drupal-updates.md)
   * [Drupal Views](back-end/drupal/drupal-views.md)
   * [Drupal JS](back-end/drupal/drupal-js.md)
+  * [Drupal Users and Roles](back-end/drupal/drupal-users-roles.md)
 
 * WordPress
 
