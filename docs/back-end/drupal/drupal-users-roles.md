@@ -3,7 +3,7 @@
 ## Checking a users role
 
 ```php
-use Drupal\Core\Entity\User;
+use Drupal\user\Entity\User;
 
 $user = User::load(\Drupal::currentUser()->id());
 $roles = $user->getRoles();
