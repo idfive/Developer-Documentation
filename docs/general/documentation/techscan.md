@@ -2,7 +2,7 @@
 
 ## What is a Techscan
 
-At it's essence, a techscan is our opportunity to have developers participate in the discovery of a project. As much as possibly, we want to start a "blueprint" of what we are actually doing for the project. It is a chance for the developer to initially dive in to everything being requested, and come up with a loose plan of how we are actually going to enact this. A techscan will generate lots of questions, this is OK and normal. Work with the account manager in order to get any questions answered you can, and don't be afraid to not any questions directly in the document, if needed.
+At it's essence, a techscan is our opportunity to have developers participate in the discovery of a project. As much as possible, we want to start a "blueprint" of what we are actually doing for the project. It is a chance for the developer to initially dive in to everything being requested, and come up with a loose plan of how we are actually going to enact this. A techscan will generate lots of questions, this is OK and normal. Work with the account manager in order to get any questions answered you can, and don't be afraid to note any questions directly in the document, if needed.
 
 The following type of verbage, generally, and project dependant is shared with clients in RFP responses:
 
