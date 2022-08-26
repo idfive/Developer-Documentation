@@ -157,3 +157,24 @@ Handle a default image reference in a twig template. Preprocess might be cleaner
   {% set thumbnail_alt = content.field_news_feature_image['#items'].alt %}
 {% endif %}
 ```
+
+### Media Field preproccess with fallback, and utilizing image style.
+
+If you need an image URL, and a default image URL. Following assumes a node, and that `$node` is set with the node entity.
+
+```php
+use Drupal\media\Entity\Media;
+use Drupal\image\Entity\ImageStyle;
+
+// Background image URL, with fallback.
+$variables['profile_image'] = 'YOUR_BACKUP_IMAGE_URL';
+if ($node->hasField('field_profile_image')) {
+  $profile_image = $node->get('field_profile_image')->getValue();
+  if ($profile_image && !empty($profile_image)) {
+    $entity = Media::load($profile_image[0]['target_id']);
+    if (isset($entity) && $entity->field_media_image->entity !== NULL && $entity->field_media_image->entity->getFileUri() !== NULL) {
+      $variables['profile_image'] = ImageStyle::load('DESIRED_IMAGE_STYLE')->buildUrl($entity->field_media_image->entity->getFileUri());
+    }
+  }
+}
+```
