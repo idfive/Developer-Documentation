@@ -11,13 +11,11 @@ In general, we recommend getting the following installed and running on your mac
 - [terminus Site Clone](https://github.com/pantheon-systems/terminus-site-clone-plugin)
 - [lando](https://docs.lando.dev/)
 - [idfive Automation Library](https://bitbucket.org/idfivellc/idfive-automation-library)
-- [valet](https://laravel.com/docs/5.8/valet) -- Optional/legacy
 - [Homebrew](https://brew.sh/)
 - [composer](https://getcomposer.org/)
 - [NPM](https://www.npmjs.com/get-npm)
 - [NVM](https://github.com/nvm-sh/nvm/blob/master/README.md)
 - [xcode and xcode CLT](https://developer.apple.com/download/more/?=command%20line%20tools)
-- [Acquia Dev Desktop](https://www.acquia.com/drupal/acquia-dev-desktop) -- discontinued as of 2021. If needed, request a copy of an installer from the team.
 
 
 ### Visual Studio Extensions
