@@ -54,7 +54,7 @@ Most, but not all, team members and contractors can expect to start client facin
 
 - .5hr: Welcome Happy Hour. A chance to briefly meet the entire idfive team. (All)
 - 1hr: HR Onboarding (HR Dept)
-- 1hr: "Ops 101". The basics of some of idfives day to day proccesses (ideally a senior AE)
+- 3hr: "Ops 101". The basics of some of idfives day to day proccesses (ideally a senior AE)
 
     - Timesheets
     - Huddle
