@@ -18,6 +18,7 @@ Most of week one will be meetings, trainings, and local setup/familiarization. W
 
 ### Tasks for onboardee to complete while not in trainings/meetings:
 
+- Review [the Informery](https://sites.google.com/idfive.com/informery/home), the company intranet.
 - Review company handbook.
 - Review developers.idfive.com.
 - Sign into Slack and introduce yourself on the General channel.
