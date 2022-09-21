@@ -31,6 +31,16 @@ The answer unfortunately, is "it depends". Generally though, you would want to p
 
 ## What to include
 
+### Scope Creep
+
+We have recently started including a "scope creep" flag in bold, for any potential issues you see as you document functionality/etc. You will see standard language for this in the starter template. The main point of this is to flag for the AE and client, that what we are seeing requested/etc maybe does not match up with the scope of the contract/etc.
+
+Some examples may be:
+
+- Contract states 4 content types, but in looking deeper, there are a lot more asked for/expected.
+- API integration may be tricker than thought after looking at documentation.
+- etc.
+
 ### CMS
 
 #### General Overview
