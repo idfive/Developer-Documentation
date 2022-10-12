@@ -1,8 +1,16 @@
-# Wordpress CMS trainings
+# Planning Client CMS trainings
 
-While these vary by client, below is a simple start to a basic WP CMS training for a client. This will obviously need to be added to/modified for more complex sites.
+While these vary by client, below is a simple start to a basic CMS training for a client. This will obviously need to be added to/modified for more complex sites.
 
-## Simple WP site training outline example
+This is a general outline. Specifics can be tailored to, to better serve the audince in say an hour long training.
+
+There are three initial questions to ask, if we are to further tailor training:
+
+- Who, are we training.
+- What is their current skillset, in the chosen CMS.
+- What are their day to day roles in the site, ie, what do they do the most, day to day, in the site.
+
+## Simple site training outline example
 
 ### Client Name Here
 
@@ -10,21 +18,24 @@ Website CMS Training, [TRAINING DATE]
 Screen Share: MEETING URL
 
 - IDFIVE ATTENDEES
-- CLIENT ATTENDEES
+- CLIENT ATTENDEES (ensure logins created for all attendees)
 
 #### Getting Started
 
 - Dev URL: URL HERE
 - Prod URL: URL HERE
-- Login urls are at /wp-login
+- Login urls
 
 #### Overview of site and content types
 
+- Notes on roles/responsibilities/etc.
 - Menu overview
   - list all used menus here
 - Content type overview
   - Homepage
   - Basic Page
+  - All others listed here
+- Notes on any specific intgrations, beyond standard.
 
 #### Homepage
 
@@ -32,12 +43,12 @@ Screen Share: MEETING URL
 - Look at how backend fields corelate.
 - Note any feeds or hompepage specific complexities.
 
-#### Basic Page
+#### Basic Page, and all other content types present
 
 - Look at front end.
 - Look at how backend fields corelate.
 - Note and add/edit all available KS widgets.
-- Note any feeds or basic page specific complexities.
+- Note any feeds or specific complexities for each.
 
 #### Media Notes
 
