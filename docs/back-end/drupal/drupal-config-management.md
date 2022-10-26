@@ -47,9 +47,9 @@ if (isset($_ENV['AH_SITE_ENVIRONMENT'])) {
 
 You may either scour the config sync directory, or look via drush:
 
-- `drush config-list`
+- `drush config:list`
 - Choose the desired config item
-- `drush config-get CHOSEN_CONFIG`
+- `drush config:get CHOSEN_CONFIG`
 
 So for example, overriding the Site Name and front page path in settings.php could look like:
 
@@ -75,13 +75,15 @@ $config_directories['sync'] = $app_root . '/../config/MYSITE';
 
 ## One time config overrides via drush
 
-You can use [drush cset](https://drushcommands.com/drush-8x/config/config-set/) to run one time updates on sites if needed. Note that booleans will need to be set as 1/0.
+You can use [drush config:set](https://drushcommands.com/drush-8x/config/config-set/) to run one time updates on sites if needed. Note that booleans will need to be set as 1/0.
 
-- See all config: `drush config-list`
-- Narrow down: `drush config-list simplesamlphp_auth.settings`
-- See Items (if needed): `drush config-get simplesamlphp_auth.settings`
-- And set: `drush config-set simplesamlphp_auth.settings role.eval_every_time 0`
-- For acquia multi-sites, from ssh on server: `drush @sites config-set simplesamlphp_auth.settings role.eval_every_time 0`
+- See all config: `drush config:list`
+- Narrow down: `drush config:list simplesamlphp_auth.settings`
+- See Items (if needed): `drush config:get simplesamlphp_auth.settings`
+- Set (string/num): `drush config:set simplesamlphp_auth.settings role.eval_every_time 0`
+- Set (array): `drush config:set antibot.settings form_ids.5 'webform_*'` This sets the 5th array item as a single new value.
+
+
 
 ## Config management and modules
 

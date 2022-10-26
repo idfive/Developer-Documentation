@@ -132,10 +132,31 @@ A note on titles: It may sometimes be necessary to override the stock drupal tit
 
 Examples of media and images fields being rendered within a twig template. Can be optionally passed through an image style filter. Note: the image_style filter is provided by the [twig tweak](https://www.drupal.org/project/twig_tweak) module.
 
-### Media field
+### Media field in twig
 
 ```twig
 <img src="{{ file_url(content.field_carousel_item_image[0]['#media'].field_media_image.entity.uri.value | image_style('optimized')) }}" alt="{{ content.field_carousel_item_image[0]['#media'].field_media_image.alt }}">
+```
+
+### Media Field preproccess.
+
+If you need an image URL, and a default image URL. Following assumes a node, and that `$node` is set with the node entity.
+
+```php
+use Drupal\media\Entity\Media;
+use Drupal\image\Entity\ImageStyle;
+
+// Background image URL, with fallback.
+$variables['profile_image'] = 'YOUR_BACKUP_IMAGE_URL';
+if ($node->hasField('field_profile_image')) {
+  $profile_image = $node->get('field_profile_image')->getValue();
+  if ($profile_image && !empty($profile_image)) {
+    $entity = Media::load($profile_image[0]['target_id']);
+    if (isset($entity) && $entity->field_media_image->entity !== NULL && $entity->field_media_image->entity->getFileUri() !== NULL) {
+      $variables['profile_image'] = ImageStyle::load('DESIRED_IMAGE_STYLE')->buildUrl($entity->field_media_image->entity->getFileUri());
+    }
+  }
+}
 ```
 
 ### Image field
@@ -157,3 +178,4 @@ Handle a default image reference in a twig template. Preprocess might be cleaner
   {% set thumbnail_alt = content.field_news_feature_image['#items'].alt %}
 {% endif %}
 ```
+

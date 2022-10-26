@@ -2,7 +2,7 @@
 
 ## What is a Techscan
 
-At it's essence, a techscan is our opportunity to have developers participate in the discovery of a project. As much as possibly, we want to start a "blueprint" of what we are actually doing for the project. It is a chance for the developer to initially dive in to everything being requested, and come up with a loose plan of how we are actually going to enact this. A techscan will generate lots of questions, this is OK and normal. Work with the account manager in order to get any questions answered you can, and don't be afraid to not any questions directly in the document, if needed.
+At it's essence, a techscan is our opportunity to have developers participate in the discovery of a project. As much as possible, we want to start a "blueprint" of what we are actually doing for the project. It is a chance for the developer to initially dive in to everything being requested, and come up with a loose plan of how we are actually going to enact this. A techscan will generate lots of questions, this is OK and normal. Work with the account manager in order to get any questions answered you can, and don't be afraid to note any questions directly in the document, if needed.
 
 The following type of verbage, generally, and project dependant is shared with clients in RFP responses:
 
@@ -30,6 +30,16 @@ The answer unfortunately, is "it depends". Generally though, you would want to p
 - Starter template available on [the idfive drive](https://docs.google.com/document/d/1MJ_71PAhHpMDymWEEzJdioVVqBmuPyQXyE0On1LJicQ/edit?usp=sharing).
 
 ## What to include
+
+### Scope Creep
+
+We have recently started including a "scope creep" flag in bold, for any potential issues you see as you document functionality/etc. You will see standard language for this in the starter template. The main point of this is to flag for the AE and client, that what we are seeing requested/etc maybe does not match up with the scope of the contract/etc.
+
+Some examples may be:
+
+- Contract states 4 content types, but in looking deeper, there are a lot more asked for/expected.
+- API integration may be tricker than thought after looking at documentation.
+- etc.
 
 ### CMS
 

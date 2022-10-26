@@ -1,5 +1,6 @@
 * General
 
+  * [Onboarding Overview](general/onboarding/overview.md)
   * [Setup and Access](general/onboarding/local_setup.md)
   * [Lando](general/lando/lando.md)
   * [Resources](general/onboarding/resources.md)
@@ -12,6 +13,7 @@
   * [Testing](general/testing/overview.md)
   * [Content Migration](general/content_migration/overview.md)
   * [Documentation](general/documentation/documentation.md)
+  * [Client CMS Training](general/documentation/client-cms-training.md)
   * [TechnicalScan](general/documentation/techscan.md)
   * [Templating](general/design/templating.md)
   * [Views](general/design/views.md)
@@ -58,11 +60,12 @@
   * [Drupal Updates](back-end/drupal/drupal-updates.md)
   * [Drupal Views](back-end/drupal/drupal-views.md)
   * [Drupal JS](back-end/drupal/drupal-js.md)
+  * [Drupal Users and Roles](back-end/drupal/drupal-users-roles.md)
+  * [Drupal Seven Migration](back-end/drupal/drupal-seven-migration.md)
 
 * WordPress
 
   * [WordPress](back-end/wordpress/wordpress.md)
-  * [WordPress Trainings](back-end/wordpress/wordpress-training.md)
   * [WordPress CLI](back-end/wordpress/wordpress-cli.md)
   * [WordPress Maintenance](back-end/wordpress/wordpress-maintenance.md)
   * [Commonly Used and Maintained WordPress Plugins](back-end/wordpress/wordpress-plugins.md)
