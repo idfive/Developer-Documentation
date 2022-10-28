@@ -24,13 +24,13 @@ We use the app [Buddy](https://app.buddy.works/idfive) to deploy code to our sta
 - Clone this newly created repository down to your local machine
 - Download a copy of the [idfive Component Library](https://bitbucket.org/idfivellc/idfive-component-library/src/master/). Downloading is preferred here as opposed to cloning, to easily remove the git history
 - Place the icl contents into the new repo
-  — Open up the `buddy.yml` file (in the root) and replace the two instances of `[SET PATH NAME HERE]` with your new project directory name
+  — Open up the `buddy.yml` file (in the root) and update these two instances of the paths to your new project directory that you'll be creating in the next step: line 5 (`target_site_url`) and line 48 (`remote_path`), for example `target_site_url: "https://staging2.idfive.com/[path-to-your-directory]/"` and `remote_path: "/var/www/staging2.idfive.com/public_html/[path-to-your-directory]"`
 
 ### SSH into staging server and create directory
 
 - In a terminal window enter `ssh idfive@staging2.idfive.com` to ssh into the staging server
 - `cd /var/www/staging2.idfive.com/public_html/` to navigate to the `public_html` directory
-- Create a new directory for your site to go into (should be the same as what was entered into the buddy.yml file previously)
+- Create a new directory (`mkdir`) for your site to go into (should be the same as what was entered into the buddy.yml file previously)
 
 ### Create project in Buddy, imported from the repository
 
@@ -42,7 +42,7 @@ We use the app [Buddy](https://app.buddy.works/idfive) to deploy code to our sta
   ![Buddy Pipeline List](_media/buddy-pipeline-list.jpg)
 - In the pipeline screen you should see the steps listed out that will be performed: `Execute: npm install`, `Execute: npm run build`, `Execute: npm run fractal:build` & `Upload files to staging2 (Bruce)`. Click `Upload files to staging2 (Bruce)` to get the ssh key to authenticate.
   ![Buddy Deploy To Staging Pipeline](_media/buddy-deploy-to-staging-pipeline.jpg)
-- In the `Upload files to staging2 (Bruce)` screen, scroll down to `Env's key` and copy from `echo -e`... down to before the `chmod 0600 ~/.ssh/authorized_keys` line.
+- In the `Upload files to staging2 (Bruce)` screen, scroll down to `Env's key` and copy from `echo -e`... down to before the `chmod 0600 ~/.ssh/authorized_keys` line. You should see that the Authentication mode is set to `id_project key`.
   ![Buddy Deploy To Staging Keys](_media/buddy-upload-to-staging2.jpg)
 
 ### Paste ssh key from Buddy onto server
