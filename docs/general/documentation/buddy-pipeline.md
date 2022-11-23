@@ -24,7 +24,7 @@ We use the app [Buddy](https://app.buddy.works/idfive) to deploy code to our sta
 - Clone this newly created repository down to your local machine
 - Download a copy of the [idfive Component Library](https://bitbucket.org/idfivellc/idfive-component-library/src/master/). Downloading is preferred here as opposed to cloning, to easily remove the git history
 - Place the icl contents into the new repo
-  — Open up the `buddy.yml` file (in the root) and update these two instances of the paths to your new project directory that you'll be creating in the next step: line 5 (`target_site_url`) and line 48 (`remote_path`), for example `target_site_url: "https://staging2.idfive.com/[path-to-your-directory]/"` and `remote_path: "/var/www/staging2.idfive.com/public_html/[path-to-your-directory]"`
+  — Open up the `buddy.yml` file (in the root) and update these two instances of the paths to your new project directory that you'll be creating in the next step: line 5 (`target_site_url`) and line 48 (`remote_path`), for example `target_site_url: "https://staging2.idfive.com/[path-to-your-directory]/"` and `remote_path: "/var/www/staging2.idfive.com/public_html/[path-to-your-directory]"`. Also ensure that `env_key` is set to `"id_project"` on line 52
 
 ### SSH into staging server and create directory
 
@@ -42,15 +42,15 @@ We use the app [Buddy](https://app.buddy.works/idfive) to deploy code to our sta
   ![Buddy Pipeline List](_media/buddy-pipeline-list.jpg)
 - In the pipeline screen you should see the steps listed out that will be performed: `Execute: npm install`, `Execute: npm run build`, `Execute: npm run fractal:build` & `Upload files to staging2 (Bruce)`. Click `Upload files to staging2 (Bruce)` to get the ssh key to authenticate.
   ![Buddy Deploy To Staging Pipeline](_media/buddy-deploy-to-staging-pipeline.jpg)
-- In the `Upload files to staging2 (Bruce)` screen, scroll down to `Env's key` and copy from `echo -e`... down to before the `chmod 0600 ~/.ssh/authorized_keys` line. You should see that the Authentication mode is set to `id_project key`.
+- In the `Upload files to staging2 (Bruce)` screen, click on the "Target" link (in-between the "Transfer" and "Options" items).
+- In the "Target" screen, scroll down to "COMMANDS TO ADD PUBLIC KEY TO YOUR SERVER" and select and copy everything from `'ssh-ed` to `[name of your project] Key'` (see screenshot)
   ![Buddy Deploy To Staging Keys](_media/buddy-upload-to-staging2.jpg)
 
 ### Paste ssh key from Buddy onto server
 
-- SSH back into the staging server `ssh idfive@staging2.idfive.com` (or navigate to the root if you're still in the `public_html` directory)
-- From the root paste in the code that's been selected
-- This isn't required, but if you want to confirm that your key is pasted in properly, enter `- vim ~/.ssh/authorized_keys` and scroll down to view at the bottom, `:quit` to exit vim
-- `exit` once complete
+- On the staging server `ssh idfive@staging2.idfive.com` (if not still there), run `nano ~/.ssh/authorized_keys` to edit the `authorized_keys` file
+- Navigate to the bottom of this screen and paste in the code that's been selected from above
+- Type `^O` to save and then `^X` to exit, then run `exit` to log out of the server
 
 ### Deploy and confirm
 
