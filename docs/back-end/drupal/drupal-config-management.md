@@ -199,6 +199,37 @@ function MY_MODULE_update_8001() {
 }
 ```
 
+#### Programmatically remove all content and entity
+
+Removes all content of a bundle, and the bundle, then re-installs fresh.
+
+```php
+use Drupal\field\Entity\FieldConfig;
+
+ /**
+ * DESCRIPTIVE UPDATE TEXT HERE.
+ */
+function MY_MODULE_update_8001() {
+  // Delete existing paragraphs content
+  $paragraphs = \Drupal::entityTypeManager()
+    ->getStorage('paragraph')
+    ->loadByProperties(array('type' => 'MY_PARAGRAPH_BUNDLE'));
+
+  foreach ($paragraphs as $paragraph) {
+      $paragraph->delete();
+  }
+
+  // Delete entire paragraph type bundle
+  $para_type = \Drupal::entityTypeManager()->getStorage('paragraphs_type')->load('MY_PARAGRAPH_BUNDLE');
+  if($para_type !== NULL) {
+    $para_type->delete();
+  }   
+
+  // Re-install fresh config
+  \Drupal::service('config.installer')->installDefaultConfig('module', 'MY_MODULE');
+}
+```
+
 #### Programmatically change plain text field to WYSIWYG
 
 Makes a copy of data before removing the old field, adding new field, and repopulating.
