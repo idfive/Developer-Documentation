@@ -17,7 +17,7 @@ All websites should conform to [WAI WCAG 2.0 AA standards](https://www.w3.org/WA
 Writing semantic code is integral to accessibility, and has the added bonus of SEO benefit (a search bot is really just a user without sight). There isn’t a specific tag for all elements, but familiarize yourself with the elements are available and use them appropriately.
 
 ### Assume that JavaScript is unavailable
-By default, assume that JavaScript (JS) is unvailable. That paves the way to progressively enhance the experience where JS is available and honors our approach of making our content available to anyone, regardless of technology.
+By default, assume that JavaScript (JS) is unavailable. That paves the way to progressively enhance the experience where JS is available and honors our approach of making our content available to anyone, regardless of technology.
 
 For full JavaScript apps, provide a link on how to enable JavaScript.
 
@@ -35,7 +35,9 @@ For individual JavaScript components, consider providing a simple/lo-fi alternat
 </noscript>
 ```
 
-A class of `js` is typically added to the `html` or `body` tag using Javascript, so if the user has JS disabled the class will not be present. This allows for styling based on whether JS is available or not. This allows for targeting in the sass file `body:not(.js) &` or `.js &`. Use of the `:target` selector is useful for showing/hiding a popover navigation on click. [More on the :target selector](https://developer.mozilla.org/en-US/docs/Web/CSS/:target)
+A class of `js` is typically added to the `html` or `body` tag using Javascript, so if the user has JS disabled the class will not be present. This allows for styling based on whether JS is available or not. This allows for targeting in the sass file `body:not(.js) &` or `.js &`. 
+
+Use of the `:target` selector is useful for showing/hiding a popover navigation on click. [More on the :target selector](https://developer.mozilla.org/en-US/docs/Web/CSS/:target)
 
 
 ### Images
@@ -103,10 +105,12 @@ function filter() {} /* Okay */
 function filterEvents() {} /* Better */
 ```
 
-### Commiting code
+### Committing code
 Commit code regularly, and in logical chunks e.g. Don't commit masses of updates in one commit. Commit each logical update individually.
 
 Provide helpful commit messages that describe the fix, and copy a bug/issue ticket number or URL where possible.
+
+[See the git page](https://developers.idfive.com/#/general/git/standards) for more information.
 
 ```
 Bad: Fix bug
