@@ -78,7 +78,7 @@ In situations where content is revealed on hover, the same content should also b
 
 ### Tabbing index
 
-By default, the tabbing index of an element is controlled by the order in which the element appears in the document flow. However, it is possible to manually specificy an elements tabbing index using the `tabindex` attribute.
+By default, the tabbing index of an element is controlled by the order in which the element appears in the document flow. However, it is possible to manually specify an elements tabbing index using the `tabindex` attribute.
 
 _Note_: Elements with defined `tabindex` values receive focus first, in the order of their values. After navigating past all elements with a defined `tabindex` with a value of 1 or greater, the user will navigate to all other focusable elements, skipping over elements that have already received focus.
 
@@ -121,7 +121,7 @@ _Note_: Elements with defined `tabindex` values receive focus first, in the orde
 </ol>
 ```
 
-_Note_: Because "Articles" and "Resources" have defined `tabindex` values, they will be focussed to first (in order of the `tabindex` value), and then "Services" and "Community".
+_Note_: Because "Articles" and "Resources" have defined `tabindex` values, they will be focused to first (in order of the `tabindex` value), and then "Services" and "Community".
 
 [Read more about tabindex](https://webaim.org/techniques/keyboard/tabindex)
 
@@ -161,3 +161,9 @@ Notable exceptions defined by [WCAG (Web Content Accessibility Guidelines)](http
 - The user is logged into a secured area of a site, and following a link to a page outside of the secured area would terminate the user's logon. In this case opening external links in an external window allows the user to access such references while keeping their login active in the original window.
 
 It is recommended that when links are opened in a new window, there is advance warning.
+
+## Keyboard Navigation
+- Selectable items should be able to be tabbed through using the keyboard
+- The tab order should follow the logic of the document structure
+- Hidden elements should not be able to be tabbed through until the element is opened (using the enter key)
+[More info on keyboard accessibility](https://webaim.org/techniques/keyboard/)

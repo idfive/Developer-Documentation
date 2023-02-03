@@ -28,3 +28,17 @@ Once the sprite sheet is included in your template, you can reference the icons 
   <use xlink:href="#icon-email"></use>
 </svg>
 ```
+
+## Icomoon
+The [Icomoon](https://icomoon.io/) app can be used for easier SVG sprite sheets. 
+- Create a folder in your project in `images` called `icons`:  `your-project/source/images/icons
+- Add your icon svgs here
+- Create a sub folder called `icomoon` where the files `selection.json` and `symbol-defs.svg` will be placed and updated each time your icon set is updated through Icomoon - this will allow for future usage and changes from other developers
+- The contents of the `symbol-defs.svg` will get copied into the file called `iconset.twig` (each time an update is made)
+- An example of using a sprite:
+```html
+<span class="visible-for-screen-readers">Name of icon for screen readers</span>
+<svg aria-hidden="true" width="20" height="20">
+    <use xlink:href="#icon-id"></use>
+</svg>
+```
