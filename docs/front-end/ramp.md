@@ -35,6 +35,9 @@ For individual JavaScript components, consider providing a simple/lo-fi alternat
 </noscript>
 ```
 
+A class of `js` is typically added to the `html` or `body` tag using Javascript, so if the user has JS disabled the class will not be present. This allows for styling based on whether JS is available or not. This allows for targeting in the sass file `body:not(.js) &` or `.js &`. Use of the `:target` selector is useful for showing/hiding a popover navigation on click. [More on the :target selector](https://developer.mozilla.org/en-US/docs/Web/CSS/:target)
+
+
 ### Images
 Images should always have at least an empty alt attribute. Without an alt attribute some assistive devices may announce the full image path.
 
@@ -44,6 +47,20 @@ Images should always have at least an empty alt attribute. Without an alt attrib
 ```
 
 __Note:__ It’s okay to have an empty alt attribute. Not all images need to have specific alt text, particularly if it is decorative, or its content is communicated elsewhere in the document.
+
+Images need a width and a height attribute added as much as possible - this helps to prevent layout shifting during loading.
+
+Lazy loading should be added as much as possible to images and iframes (`loading="lazy"`) using the native lazy load attribute.
+
+Avoid using background images as much as possible - this helps with CMS entry and allows for width and height attributes, lazy loading and alt text.
+
+Use the `<picture>` tag if different assets are needed for various device widths:
+```css
+<picture>
+  <source srcset="desktop-image.jpg" media="(min-width: 800px)">
+  <img src="mobile-image.jpg" alt="">
+</picture>
+```
 
 ## Maintainable
 Managing code is work. The more code we write, the more we have to maintain (and the more that can go wrong). Focus on writing maintainable, readable code. Don’t be afraid to re-factor code when patterns start to emerge. Common functionality can be moved into functions, or pre-written packages can be included using [NPM](https://npmjs.com).
