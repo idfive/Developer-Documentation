@@ -3,7 +3,7 @@
 ## Transitions
 
 ### Be Specific
-Always be specific about which properties are going to transition, and __never transition on "all" properties__, which puts unnessary strain on the browser.
+Always be specific about which properties are going to transition, and __never transition on "all" properties__, which puts unnecessary strain on the browser.
 
 ```scss
 transition: .5s ease-in; /* Bad */
@@ -12,20 +12,20 @@ transition: opacity .5s ease-in; /* Good */
 transition: opacity .5s ease-in, color 1s ease-in-out; /* Good */
 ```
 
-### Hardware acceleration
+### Hardware acceleration (subject to change as browsers advance)
 Prefer `opacity` and `transform` as properties to be animated/transitioned as they support hardware acceleration, providing jank-free animations. For more information on this topic, see [this article](https://web.dev/animations-and-performance/).
 
 ```scss
 transition: opacity .5s ease-in;
 ```
 
-#### Using `will-change` to Force Hardware Acceleration
+#### Using `will-change` to Force Hardware Acceleration (subject to change as browsers advance)
 In certain cases, `will-change` can be used to provide hints to the browser as to what changes an element will potentially undergo, allowing the browser to make necessary optimizations behind the scenes. This should be used sparingly though and is only necessary when there are existing performance problems that need to be addressed. See [MDN's documentation](https://developer.mozilla.org/en-US/docs/Web/CSS/will-change) for more information.
 
-#### Avoid Transitioning Properties That Cause Layout Changes/Repaint
-Properties like `width` and `height` should ideally never be transitioned with CSS as they cause layout/reflow to occur which is expensive and can introduce jank. In these cases, if `transform` can't be used, `requestAnimationFrame` should be used in JavaScript to incrementally update the property value and simulate a transition. Using `requestAnimationFrame` allows the browser to update layout at 60fps or whatever the refresh rate of the user's display is. See [MDN's documenation](https://developer.mozilla.org/en-US/docs/Web/API/window/requestAnimationFrame) for more information and examples.
+#### Avoid Transitioning Properties That Cause Layout Changes/Repaint (subject to change as browsers advance)
+Properties like `width` and `height` should ideally never be transitioned with CSS as they cause layout/reflow to occur which is expensive and can introduce jank. In these cases, if `transform` can't be used, `requestAnimationFrame` should be used in JavaScript to incrementally update the property value and simulate a transition. Using `requestAnimationFrame` allows the browser to update layout at 60fps or whatever the refresh rate of the user's display is. See [MDN's documentation](https://developer.mozilla.org/en-US/docs/Web/API/window/requestAnimationFrame) for more information and examples.
 
-## Browser Prefixes
+## Browser Prefixes (subject to change as browsers advance)
 Browser prefixes for standard properties should __never be included in source code__. Prefixes are added during the build process and account for the browsers we support as well as feature adoption to make sure that only necessary prefixes are being added.
 
 ```scss
@@ -37,25 +37,18 @@ transition: opacity .5s ease-in; /* Good */
 ## Redundant code
 
 ### Units on 0 values
-Specifiying a unit value on zero values is unecessary.
+Specifying a unit value on zero values is unnecessary.
 
 ```scss
 padding: 0px; /* Bad */
 padding: 0; /* Good */
 ```
 
-### Leading zeros
-Avoid leading zeros on partial values.
-```scss
-padding: 0.5rem; /* Bad */
-padding: .5rem; /* Good */
-```
-
 ## Specificity
 The key to clean CSS is for selectors to have as little classes as possible.
 
-### Uneccesary chaining
-Avoid uneccesary chaining of selectors.
+### Unnecessary chaining
+Avoid unnecessary chaining of selectors.
 
 ```scss
 body .content .nav {} /* Bad */
@@ -65,7 +58,7 @@ body .content .nav {} /* Bad */
 __Note:__ There are some cases where chaining is necessary, particularly within nested lists.
 
 ### Don't use `id` for styles
-Using the `id` attribute for attaching styles adds unnecesary specificity, and limits those styles to only one element per page.
+Using the `id` attribute for attaching styles adds unnecessary specificity, and limits those styles to only one element per page.
 
 ```scss
 #nav {} /* Bad */
@@ -180,4 +173,39 @@ A shorthand for `align-items` and `justify-items` is `place-items`. One value se
 flex: 0 0 auto; // Fixed width or max-width that shouldn't grow or shrink
 flex: 1 1 0px; // Fluid width that will fill the remainder of its container, becomes the same width as sibling elements with same flex rules (two sibling elements with flex: 1 1 0px; will be 50% each)
 flex: 0 1 auto; // Has a percentage width, scales responsively
+```
+
+### Images
+- Use the `object-fit` property as much as possible to maintain aspect ratios for images
+- A placeholder selector exists called `%responsive-img` in most projects and should be used for all images
+```scss
+%responsive-img,
+.responsive-img {
+  position: relative;
+  &:before {
+    content: "";
+    display: block;
+  }
+  img {
+    display: block;
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+    object-position: center;
+    position: absolute;
+    top: 0;
+    left: 0;
+  }
+}
+```
+- To use this - wrap your image in a `div` and apply:
+```scss
+.element {
+  @extend %responsive-img;
+  &:before {
+    // the aspect ratio is added below
+    // for a 16:9 example, divide 9/16 and multiply by 100 = 56.25
+    padding-top: 56.25%;
+  }
+}
 ```

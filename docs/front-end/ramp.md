@@ -11,13 +11,13 @@ Using a site with functionality that changes on screen size should not require a
 Providing a usable experience to all users, regardless of physical or technological limitations. This should include provisions for users with sight, motor (unable to use mouse/keyboard etc.) and technological constraints (slow internet, older browser, no JavaScript etc.).
 
 ### Accessibility Validators
-All websites should conform to [WAI WCAG 2.0 AA standards](https://www.w3.org/WAI/standards-guidelines/wcag/). Automatic tools such as WAVE, SiteImprove and Ai11y are useful for highlighting obvious issues, but for full accessibility coverage, a full site audit using a screen reader should be done.
+All websites should conform to [WAI WCAG 2.0 AA standards](https://www.w3.org/WAI/standards-guidelines/wcag/). Automatic tools such as WAVE, SiteImprove and Ai11y are useful for highlighting obvious issues, but for full accessibility coverage, a full site audit using a screen reader should be done. A [useful Chrome WAVE extension](https://chrome.google.com/webstore/detail/wave-evaluation-tool/jbbplnpkjmmeebjpijfedlgcdilocofh?hl=en-US) can help with the validation process. Run as my pages as possible through the [W3C Markup Validation Service](https://validator.w3.org/#validate_by_input).
 
 ### Semantic Code
 Writing semantic code is integral to accessibility, and has the added bonus of SEO benefit (a search bot is really just a user without sight). There isn’t a specific tag for all elements, but familiarize yourself with the elements are available and use them appropriately.
 
 ### Assume that JavaScript is unavailable
-By default, assume that JavaScript (JS) is unvailable. That paves the way to progressively enhance the experience where JS is available and honors our approach of making our content available to anyone, regardless of technology.
+By default, assume that JavaScript (JS) is unavailable. That paves the way to progressively enhance the experience where JS is available and honors our approach of making our content available to anyone, regardless of technology.
 
 For full JavaScript apps, provide a link on how to enable JavaScript.
 
@@ -35,6 +35,11 @@ For individual JavaScript components, consider providing a simple/lo-fi alternat
 </noscript>
 ```
 
+A class of `js` is typically added to the `html` or `body` tag using Javascript, so if the user has JS disabled the class will not be present. This allows for styling based on whether JS is available or not. This allows for targeting in the sass file `body:not(.js) &` or `.js &`. 
+
+Use of the `:target` selector is useful for showing/hiding a popover navigation on click. [More on the :target selector](https://developer.mozilla.org/en-US/docs/Web/CSS/:target)
+
+
 ### Images
 Images should always have at least an empty alt attribute. Without an alt attribute some assistive devices may announce the full image path.
 
@@ -44,6 +49,20 @@ Images should always have at least an empty alt attribute. Without an alt attrib
 ```
 
 __Note:__ It’s okay to have an empty alt attribute. Not all images need to have specific alt text, particularly if it is decorative, or its content is communicated elsewhere in the document.
+
+Images need a width and a height attribute added as much as possible - this helps to prevent layout shifting during loading.
+
+Lazy loading should be added as much as possible to images and iframes (`loading="lazy"`) using the native lazy load attribute.
+
+Avoid using background images as much as possible - this helps with CMS entry and allows for width and height attributes, lazy loading and alt text.
+
+Use the `<picture>` tag if different assets are needed for various device widths:
+```css
+<picture>
+  <source srcset="desktop-image.jpg" media="(min-width: 800px)">
+  <img src="mobile-image.jpg" alt="">
+</picture>
+```
 
 ## Maintainable
 Managing code is work. The more code we write, the more we have to maintain (and the more that can go wrong). Focus on writing maintainable, readable code. Don’t be afraid to re-factor code when patterns start to emerge. Common functionality can be moved into functions, or pre-written packages can be included using [NPM](https://npmjs.com).
@@ -86,10 +105,12 @@ function filter() {} /* Okay */
 function filterEvents() {} /* Better */
 ```
 
-### Commiting code
+### Committing code
 Commit code regularly, and in logical chunks e.g. Don't commit masses of updates in one commit. Commit each logical update individually.
 
 Provide helpful commit messages that describe the fix, and copy a bug/issue ticket number or URL where possible.
+
+[See the git page](https://developers.idfive.com/#/general/git/standards) for more information.
 
 ```
 Bad: Fix bug

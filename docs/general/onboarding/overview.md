@@ -23,13 +23,13 @@ Most of week one will be meetings, trainings, and local setup/familiarization. W
 - Review developers.idfive.com.
 - Sign into Slack and introduce yourself on the General channel.
 - Submit a Headshot photo for website
-    - Headshot - 800 × 924 pixels (a designer can help with cropping/web prep)
-    - How-to doc here on the details: https://docs.google.com/document/d/1hzvic2F6kwDFY25iaCod6UYf1Ekd-AhcNqmso2uh-Es/edit?usp=sharing 
+  - Headshot - 800 × 924 pixels (a designer can help with cropping/web prep)
+  - How-to doc here on the details: https://docs.google.com/document/d/1hzvic2F6kwDFY25iaCod6UYf1Ekd-AhcNqmso2uh-Es/edit?usp=sharing
 - Submit a fun Boomerang video(looping video seen on website bios).
-    - Including your pets/hobby/a fun personality trait is encouraged! Check out other Fiver boomerangs on the website for inspo.
+  - Including your pets/hobby/a fun personality trait is encouraged! Check out other Fiver boomerangs on the website for inspo.
 - Submit Bio
-    - Around 400-500 characters. We're happy to help craft this too, if you provide us some fun facts/background!
-- Review the idfive website - read case studies, bios, etc.  - get familiar with us in general.
+  - Around 400-500 characters. We're happy to help craft this too, if you provide us some fun facts/background!
+- Review the idfive website - read case studies, bios, etc. - get familiar with us in general.
 - Local machine setup, and platform familiarization. See list of programs and platforms here: [Setup and Access](general/onboarding/local_setup.md). Particular attention to lando, and being comfortble with it.
 
 ### Lifelines for week one
@@ -57,23 +57,23 @@ Most, but not all, team members and contractors can expect to start client facin
 - 1hr: HR Onboarding (HR Dept)
 - 3hr: "Ops 101". The basics of some of idfives day to day proccesses (ideally a senior AE)
 
-    - Timesheets
-    - Huddle
-    - DTL's
-    - Slack
-    - Calendar
-    - Google Drive
-    - Bugify/Trello
-    - Basecamp
-    - PTO
+  - Timesheets
+  - Huddle
+  - DTL's
+  - Slack
+  - Calendar
+  - Google Drive
+  - Bugify/Trello
+  - Basecamp
+  - PTO
 
 - "The Grand Tour". A .5hr (each) Meet with department representatives from each department:
 
-    - Accounts
-    - Media
-    - UX
-    - Creative & Copy
-    - New Business & Strategy
+  - Accounts
+  - Media
+  - UX
+  - Creative & Copy
+  - New Business & Strategy
 
 ## Platforms to add to
 
@@ -87,3 +87,42 @@ Most, but not all, team members and contractors can expect to start client facin
 - [buddy](https://app.buddy.works/idfive)
 
 These are generally assigned via individual accounts, so this could be to an existing account in some cases (if you have/prefer one) or one to be created under idfive email accounts.
+
+## Onboarding Outline (Front-end)
+
+1. General - review [RAMP dev doc page](/front-end/ramp)
+2. Git - review [git section in "General"](/general/git/standards)
+3. CSS/SCSS - review [Front End CSS page](front-end/css)
+4. Javascript/Typescript - Review [Front End JS Page](/front-end/js)
+   1. If using an npm package - be aware that a “types” package may exist (install if available)
+   2. Common packages (debounce, youtube, vimeo, flickity, masonry)
+5. Accessibility - review [Front End page](/front-end/accessibility)
+6. Node.js - review [Front End page](/front-end/node)
+7. SVG - review [Front End page](/front-end/svg)
+
+8. Pattern Lab
+
+   1. Overview
+      1. [Link to download latest version by tag](https://bitbucket.org/idfivellc/idfive-pattern-lab-starter/downloads/?tab=tags)
+      2. [Link to view library](https://staging2.idfive.com/idfive-pattern-lab-starter/public/?p=pages-welcome)
+      3. review the readme file
+      4. the head and foot files which control templates
+      5. the page structure component to include page wrappers
+   2. Interface
+      1. switching between horizontal/vertical toolbar
+      2. viewing components/pages in new tab
+   3. Components
+      1. how create a sample component (twig/json/css/typescript)
+      2. creating a variant
+      3. documenting a component
+   4. Pages
+      1. how to create a page
+      2. including components
+   5. idfive pattern lab starter & showcase
+      1. available component review
+      2. core stylesheet review (layout/base/typography/variables/placeholders etc…) and adding partials to index
+      3. typescript organization and adding exported functions to main
+      4. showcase review & intentions
+
+9. Fractal (overview for legacy projects)
+10. Buddy Pipeline - review on [General page](/general/documentation/buddy-pipeline)
