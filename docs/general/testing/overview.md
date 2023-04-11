@@ -56,3 +56,7 @@ Frameworks like [PHPUnit](https://phpunit.de/) are used for this type of testing
 Generally, unit tests are there to prove that an atomic-level behavior is correct. In a trivial example, if you have a function named add() that adds numbers, you'd write a unit test to test only the behavior of this method and nothing else. Interactions with other systems or configuration would be minimized in order to make sure you're only testing the behavior of the add() method.
 
 Frameworks like [PHPUnit](https://phpunit.de/) are used for this type of testing.
+
+## Browser Testing
+
+idfive has an account with Bitbar for browser testing. Log into [https://cloud.bitbar.com/](https://cloud.bitbar.com/) using the credentials from the [Zoho Vault](https://vault.zoho.com/online/main). On the left of the dashboard find "Live Testing" and choose "Start a Browser Live Test". You'll be able to select various devices, operating systems and browser versions between Desktop, ios, and Android.
