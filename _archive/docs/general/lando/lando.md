@@ -59,7 +59,7 @@ For sites not hosted on Pantheon, platform.sh, acquia or a similar provider, the
 - Move desired DB export to root of application, be sure to add `*.sql` to .gitignore, if applicable.
 - When asked to provide the location of the app's codebase, select the "remote git repo or archive" option (the option is named this as of v3.0.23 but it may be slightly different in future versions).
 - Then, when prompted provide the repo URL (you'll want to use the SSH URL here as opposed to the HTTPS URL). Once that's been provided, select the version of Drupal that corresponds to the current project from the supplied list of recipes.
-- For the webroot path relative to the init destination, the default `.` should be fine. Finally, give the app a meaningful name (this will be used for the local domain name I.E. https://`<app-name`>.lndo.site).
+- For the webroot path relative to the init destination, the default `.` should be fine. Finally, give the app a meaningful name (this will be used for the local domain name I.E. https://<app-name>.lndo.site).
 - Once the git clone has completed, run `lando start`.
 - Setp database connections via settings.local.php or similar.
 - `lando db-import mysql_dump_file.sql` also works for gziped and zipped files.

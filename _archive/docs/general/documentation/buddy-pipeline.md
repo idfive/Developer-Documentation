@@ -1,5 +1,7 @@
 # Buddy Pipeline Setup
 
+<style>img { max-width: 600px; display:block; margin-block: 20px 40px; box-shadow: 0px 3px 10px rgba(0,0,0,0.1);}</style>
+
 We use the app [Buddy](https://app.buddy.works/idfive) to deploy code to our staging server. The [idfive Component Library](https://bitbucket.org/idfivellc/idfive-component-library/src/master/) contains a `buddy.yml` file which will need some minor modifications in order to setup the pipeline properly.
 
 - Here is [Link to video version of the tutorial](https://vimeo.com/734507911/3db532dc02), however this is slightly out of date as some changes have taken place in the Buddy admin system since this video was created. Please refer to the below steps in addition to the video if needed.
