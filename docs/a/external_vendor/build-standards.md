@@ -52,8 +52,8 @@ For external vendors building projects for idfive, this page overviews our gener
 
 ### Wordpress
 
-- More detail on [idfive's preferred Wordpress approach](/docs/back-end/wordpress/wordpress).
-- More detail on [idfive's preferred Wordpress Plugins](/docs/back-end/wordpress/wordpress-plugins).
+- More detail on [idfive's preferred Wordpress approach](/docs/back-end/wordpress/wordpress.md).
+- More detail on [idfive's preferred Wordpress Plugins](/docs/back-end/wordpress/wordpress-plugins.md).
 - idfive prefers to utilize the [Timber](https://upstatement.com/timber/) library for themes, in order to use modern twig templating.
 - idfive prefers that templates use ACF or Gutenburg blocks for certain more robust page builder functionality.
 
