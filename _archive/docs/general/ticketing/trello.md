@@ -1,3 +1,0 @@
-# Trello Ticketing
-
-TBD

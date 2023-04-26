@@ -223,7 +223,7 @@ function MY_MODULE_update_8001() {
   $para_type = \Drupal::entityTypeManager()->getStorage('paragraphs_type')->load('MY_PARAGRAPH_BUNDLE');
   if($para_type !== NULL) {
     $para_type->delete();
-  }   
+  }
 
   // Re-install fresh config
   \Drupal::service('config.installer')->installDefaultConfig('module', 'MY_MODULE');

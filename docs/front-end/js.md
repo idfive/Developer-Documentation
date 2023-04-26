@@ -70,7 +70,7 @@ window.addEventListener("scroll", e => {
   lastKnownScrollPosition = window.scrollY;
   if (!ticking) {
     window.requestAnimationFrame(() => {
-      doSomething(lastKnownScrollPosition); 
+      doSomething(lastKnownScrollPosition);
       ticking = false;
     });
     ticking = true;
@@ -141,7 +141,7 @@ export class Foo {
   protected element: HTMLElement;
   protected childElement: HTMLElement;
   protected fooProperty: boolean;
-  
+
   public constructor(element: HTMLElement) {
     if (element) {
       this.element = element;

@@ -12,7 +12,7 @@ Drupal uses a module called "views" to handle out of the box support for creatin
 Out of the box this functionality provides a powerful tool to quickly build up lists of content that can then be used throughout a drupal site. There are many components to a drupal view each of which we use to configure exactly how a view functions.
 
 ### [Components](https://www.drupal.org/docs/user_guide/en/views-parts.html)
-A view is broken into several different configurable components which help to further refine the functionality. 
+A view is broken into several different configurable components which help to further refine the functionality.
 * **Format:** Allows configuration of how content lists (table/grid/list) and how each row is displayed (view mode / fields)
 * **Fields:** Depends on row format being set to fields. Allows adding one or more fields from the content type to the output
 * **Sort Criteria:** Determines the order the content is displayed. This can be based on something simple like the create/update date or a combination of fields such as last name / first name.
@@ -32,7 +32,7 @@ There are several use cases that require the addition of other modules that prov
 
 * **[Better Exposed Filters](https://www.drupal.org/project/better_exposed_filters):** Replaces the presentational side of views stock filters and provides extended functionality replacing the default single/multi select boxes with radios or checkboxes.
 
-* **[Facets](https://www.drupal.org/project/facets):** Provides faceted search functionality similar to what we'd have available in wordpress utilizing the facetwp plugin. 
+* **[Facets](https://www.drupal.org/project/facets):** Provides faceted search functionality similar to what we'd have available in wordpress utilizing the facetwp plugin.
 
 ### Design Challenges
 
@@ -51,4 +51,4 @@ Often times something that may seem straight forward in design actually presents
 
 ### Considerations
 
-Drupal views provides a powerful out of the box experience with the primary drawback being that you need to do things the way views expects you to do them. The instant we move away from the functionality provided by drupal views then we get into a situation where the best solution might be an entirely custom front end that utilizes the resulting data that views provides but not the front end display. 
+Drupal views provides a powerful out of the box experience with the primary drawback being that you need to do things the way views expects you to do them. The instant we move away from the functionality provided by drupal views then we get into a situation where the best solution might be an entirely custom front end that utilizes the resulting data that views provides but not the front end display.

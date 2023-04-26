@@ -10,10 +10,10 @@ For external vendors building projects for idfive, this page overviews our gener
 - This library utilizes [silc](https://silc.io/), the "Simple Intuitative Library of Components" for [grids](https://github.com/nickrigby/silc-grid), [accordions](https://github.com/nickrigby/silc-accordion), and a few other common items. It is specifically a very bare bones framework, so that styles/etc do not need to be overridden.
 - idfive utilizes [fractal](https://fractal.build/) to stage static pages and components for QC/review. All functionality, components, and pages should be atomic as much as possible, for reuse as needed.
 - Webpack, included in the ICL, to be used for all code compiling.
-- All dependencies to be tracked in package.json, and included via NPM. More notes on [Node.js preferences](/front-end/node).
+- All dependencies to be tracked in package.json, and included via NPM. More notes on [Node.js preferences](/docs/front-end/node).
 - A [.nvmrc](https://github.com/nvm-sh/nvm#nvmrc) file is present in the root ICL directory with the necessary version of Node.js to be used when working on the project.
 - Code should be well-documented/commented.
-- All code follows [RAMP](/front-end/ramp).
+- All code follows [RAMP](/docs/front-end/ramp).
 
 ### Interactions
 
@@ -32,14 +32,14 @@ For external vendors building projects for idfive, this page overviews our gener
 - For any complex filtering/SPA like functionality, we request to use [Vue.js](https://vuejs.org/), over other frameworks.
 - We prefer to keep other libraries to an absolute minimum, unless there are specific needs for one.
 - All JS written with atomic principles in mind.
-- Code samples of [idfive JS Preferences](/front-end/js).
+- Code samples of [idfive JS Preferences](/docs/front-end/js).
 
 ### CSS
 
 - All CSS to be written as SCSS, and compiled via Webpack.
 - All SCSS to be written using the [BEM methodology](http://getbem.com/introduction/).
 - All SCSS written with atomic principles in mind.
-- Code samples of [idfive CSS Preferences](/front-end/css).
+- Code samples of [idfive CSS Preferences](/docs/front-end/css).
 
 ### Acceptance standards
 
@@ -52,8 +52,8 @@ For external vendors building projects for idfive, this page overviews our gener
 
 ### Wordpress
 
-- More detail on [idfive's preferred Wordpress approach](/back-end/wordpress/wordpress).
-- More detail on [idfive's preferred Wordpress Plugins](/back-end/wordpress/wordpress-plugins).
+- More detail on [idfive's preferred Wordpress approach](/docs/back-end/wordpress/wordpress).
+- More detail on [idfive's preferred Wordpress Plugins](/docs/back-end/wordpress/wordpress-plugins).
 - idfive prefers to utilize the [Timber](https://upstatement.com/timber/) library for themes, in order to use modern twig templating.
 - idfive prefers that templates use ACF or Gutenburg blocks for certain more robust page builder functionality.
 

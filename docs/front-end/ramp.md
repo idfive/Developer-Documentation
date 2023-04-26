@@ -35,7 +35,7 @@ For individual JavaScript components, consider providing a simple/lo-fi alternat
 </noscript>
 ```
 
-A class of `js` is typically added to the `html` or `body` tag using Javascript, so if the user has JS disabled the class will not be present. This allows for styling based on whether JS is available or not. This allows for targeting in the sass file `body:not(.js) &` or `.js &`. 
+A class of `js` is typically added to the `html` or `body` tag using Javascript, so if the user has JS disabled the class will not be present. This allows for styling based on whether JS is available or not. This allows for targeting in the sass file `body:not(.js) &` or `.js &`.
 
 Use of the `:target` selector is useful for showing/hiding a popover navigation on click. [More on the :target selector](https://developer.mozilla.org/en-US/docs/Web/CSS/:target)
 

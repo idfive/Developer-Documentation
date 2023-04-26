@@ -30,7 +30,7 @@ Most of week one will be meetings, trainings, and local setup/familiarization. W
 - Submit Bio
   - Around 400-500 characters. We're happy to help craft this too, if you provide us some fun facts/background!
 - Review the idfive website - read case studies, bios, etc. - get familiar with us in general.
-- Local machine setup, and platform familiarization. See list of programs and platforms here: [Setup and Access](general/onboarding/local_setup.md). Particular attention to lando, and being comfortble with it.
+- Local machine setup, and platform familiarization. See list of programs and platforms here: [Setup and Access](/docs/general/onboarding/local_setup.md). Particular attention to lando, and being comfortble with it.
 
 ### Lifelines for week one
 
@@ -90,15 +90,15 @@ These are generally assigned via individual accounts, so this could be to an exi
 
 ## Onboarding Outline (Front-end)
 
-1. General - review [RAMP dev doc page](/front-end/ramp)
-2. Git - review [git section in "General"](/general/git/standards)
-3. CSS/SCSS - review [Front End CSS page](front-end/css)
-4. Javascript/Typescript - Review [Front End JS Page](/front-end/js)
+1. General - review [RAMP dev doc page](/docs/front-end/ramp)
+2. Git - review [git section in "General"](/docs/general/git/standards)
+3. CSS/SCSS - review [Front End CSS page](/docs/front-end/css)
+4. Javascript/Typescript - Review [Front End JS Page](/docs/front-end/js)
    1. If using an npm package - be aware that a “types” package may exist (install if available)
    2. Common packages (debounce, youtube, vimeo, flickity, masonry)
-5. Accessibility - review [Front End page](/front-end/accessibility)
-6. Node.js - review [Front End page](/front-end/node)
-7. SVG - review [Front End page](/front-end/svg)
+5. Accessibility - review [Front End page](/docs/front-end/accessibility)
+6. Node.js - review [Front End page](/docs/front-end/node)
+7. SVG - review [Front End page](/docs/front-end/svg)
 
 8. Pattern Lab
 
@@ -125,4 +125,4 @@ These are generally assigned via individual accounts, so this could be to an exi
       4. showcase review & intentions
 
 9. Fractal (overview for legacy projects)
-10. Buddy Pipeline - review on [General page](/general/documentation/buddy-pipeline)
+10. Buddy Pipeline - review on [General page](/docs/general/documentation/buddy-pipeline)

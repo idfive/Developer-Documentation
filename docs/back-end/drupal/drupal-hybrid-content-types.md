@@ -77,7 +77,7 @@ What this means is that if you are displaying a list of something like teasers i
 
 ### Simple service example
 
-See [Drupal Services](/back-end/drupal/drupal-services.md) section of this site for more details on setting up a custom service.
+See [Drupal Services](/docs/back-end/drupal/drupal-services.md) section of this site for more details on setting up a custom service.
 
 ```php
 <?php

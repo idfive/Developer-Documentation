@@ -133,7 +133,7 @@ The Migrate API provides services for migrating data from a source system to Dru
 - Drupal 8 core Migrate Drupal module builds on that foundation to provide an upgrade path from Drupal 6 and Drupal 7 to Drupal 8.
 - Drupal 8 core Migrate Drupal UI module provides a browser user interface for Migrate Drupal.
 
-Migrations use the process of [Extract - Transform - Load (ETL)](https://en.wikipedia.org/wiki/Extract,_transform,_load). These processes translate to 
+Migrations use the process of [Extract - Transform - Load (ETL)](https://en.wikipedia.org/wiki/Extract,_transform,_load). These processes translate to
 - **[Source (extract phase)](https://www.drupal.org/docs/8/api/migrate-api/migrate-source-plugins):** In this phase we pull all data from the source and prepare for processing. This can utilize existing [core plugins](https://www.drupal.org/docs/8/api/migrate-api/migrate-source-plugins/overview-of-migrate-source-plugins) or a custom plugin by existing the SourcePluginBase class.
 - **[Transform (process phase)](https://www.drupal.org/docs/8/api/migrate-api/migrate-process-plugins):** In this phase the data that has been pulled from the extract phase is manipulated and prepared for import in the destination phase. This can utilize existing [core plugins](https://www.drupal.org/docs/8/api/migrate-api/migrate-process-plugins/list-of-core-migrate-process-plugins) or a [custom plugin](https://www.drupal.org/docs/8/api/migrate-api/migrate-process/writing-a-process-plugin) by extending the ProcessPluginBase class.
 - **[Destination (load phase)](https://www.drupal.org/docs/drupal-apis/migrate-api/migrate-destination-plugins-examples):** In this phase the extracted and processed information gets sent to the destination within Drupal. Typical destinations include any entity in Drupal such as users, content, media and taxonomies. There is no limit to the type of destinations that can be targeted as custom destination plugins can be written to allow mappings to any type of data.
@@ -147,7 +147,7 @@ Additional features provided by the Migrate API
 - **[Stubs](https://www.drupal.org/docs/drupal-apis/migrate-api/migrate-api-overview#s-stubs):**: Process of handling references to parent references where the child entity is created before the parent. Taxonomies are a good example of this issue. If a child term gets imported before the parent then a 'stub' is created to allow a reference to the parent entity. Once the parent row is processed the stub is then updated with the correct parent information.
 - **[Map Tables](https://www.drupal.org/docs/drupal-apis/migrate-api/migrate-api-overview#s-map-tables):** Map tables are used to track information about an imported item. This allows for continuous migrations where any updates to previously imported items can be processed and tracked as well as new items imported.
 - **[Highwater marks](https://www.drupal.org/docs/drupal-apis/migrate-api/migrate-api-overview#s-highwater-marks):** Tracks the "highest" imported item from previous imports. An example of a highwater mark would be a node id where follow up imports would only import nids higher than the previous import. This could also be tracked to a created/updated timestamp.
-- **[Rollbacks](https://www.drupal.org/docs/drupal-apis/migrate-api/migrate-api-overview#s-rollbacks):** Rollbacks allow reverting previous migrations. This is useful for situations where the data did not migrate properly. This is the major benefit to use the migrate api over the feeds approach referenced above. With feeds you have one chance to handle your migrations and need to do a full db restore to go back to a previous state. 
+- **[Rollbacks](https://www.drupal.org/docs/drupal-apis/migrate-api/migrate-api-overview#s-rollbacks):** Rollbacks allow reverting previous migrations. This is useful for situations where the data did not migrate properly. This is the major benefit to use the migrate api over the feeds approach referenced above. With feeds you have one chance to handle your migrations and need to do a full db restore to go back to a previous state.
 
 ##### Writing a process plugin
 If the default provided process plugins do not fit the needs a custom one can be written. Consider checking the [migrate plus](https://www.drupal.org/docs/8/api/migrate-api/migrate-process-plugins/list-of-process-plugins-provided-by-migrate-plus) before starting any custom work as many additional process plugins are provided by this module.
@@ -156,7 +156,7 @@ If the default provided process plugins do not fit the needs a custom one can be
 In the event custom row logic is needed the following function can be implemented [hook_migrate_prepare_row](https://api.drupal.org/api/drupal/core%21modules%21migrate%21migrate.api.php/function/hook_migrate_prepare_row/9.2.x) which allows you to add custom transformation logic prior to processing.
 
 ##### Migrate events
-Several events are avaible which can be utilized during the migration process. 
+Several events are avaible which can be utilized during the migration process.
 
 | Event | Description |
 | :--- | :--- |

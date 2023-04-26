@@ -4,7 +4,7 @@
 
 idfive has a [WordPress Starter repo on bitbucket](https://bitbucket.org/idfivellc/wordpress-starter/src/develop/) which serves as a starting point for WordPress projects. This repository includes commonly used plugins. The detailed instructions to get started are included in that repo's [readme](https://bitbucket.org/idfivellc/wordpress-starter/src/develop/README.md) file and reflect the preferred methodology described in the subsequent sections.
 
-Like in other projects, idfive adopts the [Gitflow](general/git/standards.md) methodology for WordPress builds. As per Gitflow, there is a master and develop branch on the wp-boilerplate repo.
+Like in other projects, idfive adopts the [Gitflow](/docs/general/git/standards.md) methodology for WordPress builds. As per Gitflow, there is a master and develop branch on the wp-boilerplate repo.
 
 ## Preferred Methodology
 
