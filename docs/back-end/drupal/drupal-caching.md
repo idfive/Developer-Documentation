@@ -1,6 +1,6 @@
 # Caching in drupal
 
-Testing --- It is important to remember that, there are many, many, levels of caching on a modern drupal site. Specifics will depend on what server/environment sites are on, as well, as the content within.
+It is important to remember that, there are many, many, levels of caching on a modern drupal site. Specifics will depend on what server/environment sites are on, as well, as the content within.
 
 ## idfive's baseline D8/9 setup
 
