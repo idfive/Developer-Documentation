@@ -19,6 +19,7 @@ or something like
 - An example for drupal, with custom integrations: [JHU APL](https://docs.google.com/document/d/1jThy6-8tMq32U0T0M9-xZkGRYuNlg3-Opn2imaZ9YQ0/edit?usp=sharing)
 - An example for wordpress, with custom integrations: [Carroll](https://docs.google.com/document/d/1GdVx95iO0pBvoK2hkIb4uIT05YG_mm4_NSxxb1OLDNw/edit?usp=sharing)
 - An example for frontend only: [Carthage](https://docs.google.com/document/d/1-4Ow2I7xCOKcdf41oked6jnqoftBmWZxsS6roLmRIXE/edit?usp=sharing)
+- An example for "Under 50": [Compass Group](https://docs.google.com/document/d/19Df0vZhAi83eCs-l19y-5F1wicXM4q1cOMYOt2AGQvY)
 
 ## Where to start
 
@@ -27,7 +28,8 @@ The answer unfortunately, is "it depends". Generally though, you would want to p
 - Any initial RFP from the client. If no RFP, any documents, email, etc where they go over "the ask", in detail.
 - The idfive RFP response. This will have some generalities, but should also loosely define the project, and project scope.
 - Any other documentation or direction provided by the project manger of the project, or the client.
-- Starter template available on [the idfive drive](https://docs.google.com/document/d/1MJ_71PAhHpMDymWEEzJdioVVqBmuPyQXyE0On1LJicQ/edit?usp=sharing).
+- General starter template available on [the idfive drive](https://docs.google.com/document/d/1MJ_71PAhHpMDymWEEzJdioVVqBmuPyQXyE0On1LJicQ/edit?usp=sharing).
+- "Under 50", or Rapid WP build starter template available on [the idfive drive](https://docs.google.com/document/d/1XNHXvTpyR7pLjRAuYaFdUIIzE9t3AqzGra8KsBYjo5M).
 
 ## What to include
 
