@@ -34,8 +34,8 @@ One thing that will do a lot of the heavy lifting of getting your colors in orde
 
 ![Default color variables](_media/default-u50project-variables.jpg)
 ![Default site colors](_media/default-u50project-color.jpg)
-![New color variables](_media/new-u50project-varaibles.jpg)
-![New Site colors](_media/new-u50project-color.jpg)
+![New color variables](_media/new-u50project-variables.jpg)
+![New site colors](_media/new-u50project-color.jpg)
 
 Things to check for:
 
@@ -48,7 +48,7 @@ Things to check for:
 
 To upload the new website’s logo can be found by logging into the wordpress website and using the options menu. These global options include options for the logo and mobile logo, The CTA links above the main navigation. And the footer content.
 
-![Global site options](_media/default-u50project-varaibles.jpg)
+![Site global options](_media/new-u50-global-options.jpg)
 
 Some U50 projects will require some additional functionality to add to the project. Examples from CRCG:
 developing upcoming events and past events shortcode.
