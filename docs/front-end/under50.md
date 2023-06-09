@@ -32,10 +32,10 @@ On your new Under 50 Project you will have a bit of sample content with pages ex
 
 One thing that will do a lot of the heavy lifting of getting your colors in order. In the `wp-content/themes/idfive-rapid-starter/icl/source/css/core/_variables.scss`, you will find colors listed and variables $primary, $secondary and $tertiary. These are calling other colors and most if not all of the components are calling these variables, so changing which colors these call will change most of the site at once. Though you will still have to adjust as needed.
 
-![XD SVG](_media/default-u50proeject-varaibles.jpg)
-![XD SVG](_media/default-u50proeject-color.jpg)
-![XD SVG](_media/new-u50proeject-varaibles.jpg)
-![XD SVG](_media/new-u50proeject-color.jpg)
+![Default color variables](_media/default-u50project-variables.jpg)
+![Default site colors](_media/default-u50project-color.jpg)
+![New color variables](_media/new-u50project-varaibles.jpg)
+![New Site colors](_media/new-u50project-color.jpg)
 
 Things to check for:
 
@@ -48,7 +48,7 @@ Things to check for:
 
 To upload the new website’s logo can be found by logging into the wordpress website and using the options menu. These global options include options for the logo and mobile logo, The CTA links above the main navigation. And the footer content.
 
-![XD SVG](_media/default-u50proeject-varaibles.jpg)
+![Global site options](_media/default-u50project-varaibles.jpg)
 
 Some U50 projects will require some additional functionality to add to the project. Examples from CRCG:
 developing upcoming events and past events shortcode.
