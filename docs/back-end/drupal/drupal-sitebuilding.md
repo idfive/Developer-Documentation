@@ -618,6 +618,32 @@ function _MY_MODULE_get_stuff($id) {
 {% endif %}
 ```
 
+#### Pathauto
+
+When setting up aliases, it is sometimes required to check the "generate alias" box on existinng content. The easiest way to do so is via a DB update.
+
+```
+ use Drupal\pathauto\PathautoState;
+
+ /**
+ * Update pathauto aliases for all Blog Posts.
+ */
+function MY_MODULE_update_8001() {
+
+    $entity_type = 'node';
+    $entity_storage = \Drupal::entityTypeManager()->getStorage($entity_type);
+    $nodes = $entity_storage->loadMultiple();
+    
+    foreach($nodes as $node) {
+        if($node->bundle() == 'MY_BUNDLE') {
+            $node->path->pathauto = PathautoState::CREATE;
+            $node->save();
+        }
+    }
+
+}
+```
+
 ### Prepping to ship/launch
 
 Run through the entire idfive launch checklist for any site being launched by us. Additionally, consider the following:
