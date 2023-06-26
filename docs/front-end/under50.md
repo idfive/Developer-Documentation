@@ -28,6 +28,12 @@ Use the terminus site clone to copy the Under 50 projects’s dev environment to
 
 It may take a few minutes before you’re able to see it after it is done.
 
+## Copying a new project to your local machine.
+
+If you use `lando init` to copy the project from pantheon to your local machine, lando will automatically update your lando.yml to an updated machine site name and id. However if you clone the site to your machine using git, the cloned site’s lando.yml site will be identical to the original site. So be sure to change it, manually, to a new name as this can cause many issues both locally and remotely.
+
+## Styling your new U50 site
+
 On your new Under 50 Project you will have a bit of sample content with pages explaining all the different components. For now, leave this in place as it will help with Quality Control. But Now your goal is to get your new project to be more inline with its design.
 
 One thing that will do a lot of the heavy lifting of getting your colors in order. In the `wp-content/themes/idfive-rapid-starter/icl/source/css/core/_variables.scss`, you will find colors listed and variables $primary, $secondary and $tertiary. These are calling other colors and most if not all of the components are calling these variables, so changing which colors these call will change most of the site at once. Though you will still have to adjust as needed.
