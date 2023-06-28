@@ -4,6 +4,7 @@
 
 ### settings.php
 
+- A more advanced, and awesome way of setting up settings.php can be seen in [Multisite Config 201](https://vimeo.com/840496602/994689054a?share=copy).
 - Always remove commented out example code when possible. This example code is always still available at default.settings.php, but removing it from settings.php makes the file more condense, and it is easier to see what is actually being used.
 - Always, if needed, include a settings.local.php, so that your local dev env can run differently: `if (file_exists($app_root . '/' . $site_path . '/settings.local.php')) {
   include $app_root . '/' . $site_path . '/settings.local.php';
