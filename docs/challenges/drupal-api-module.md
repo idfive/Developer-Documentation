@@ -6,7 +6,7 @@ A challenge for current, and potential idfive Backend developers, to assess know
 
 ## Requirements
 
-Create a custom Drupal 8 module that accomplishes the following:
+Create a custom module for the latest version of Drupal that accomplishes the following:
 
 - Interacts with [The Star Wars API](https://swapi.co/), to show a listing of at least 3 Star Wars films from `https://swapi.co/api/films` in any order you desire.
 - These films should display in a block, that could be enabled on any region in a stock or custom theme.
