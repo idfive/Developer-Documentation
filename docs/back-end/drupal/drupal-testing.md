@@ -1,6 +1,6 @@
 # Testing in drupal
 
-The following should provide a general overview of drupal 8 testing frameworks we use at idfive, as well as some starter/example code.
+The following should provide a general overview of Drupal testing frameworks we use at idfive, as well as some starter/example code.
 
 See [Testing](/docs/general/testing/overview) for more general testing information. At idfive we prefer Automated Testing with the following frameworks, for the following test types for drupal 8 and beyond:
 

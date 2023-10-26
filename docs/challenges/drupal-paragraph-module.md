@@ -6,7 +6,7 @@ A challenge for current, and potential idfive Backend developers, to assess know
 
 ## Requirements
 
-Create a custom Drupal 8 module that accomplishes the following:
+Create a custom module for the latest version of Drupal that accomplishes the following:
 
 - Interacts with the [paragraphs](https://drupal.org/paragraphs) module, to show static content.
 - Creates a paragraph bundle that includes, title, short body text, and Call to action link.

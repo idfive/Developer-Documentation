@@ -59,7 +59,7 @@ Some common fields that take us longer:
 Different CMSs have levels of import/export capabilities that vary from non-existent, to adequate, to robust. One we throw closed source CMSs like Omni Update, or T4 into the mix, things get complex as well, because we cannot always readily access documentation on their closed source systems, and what may/may not be available.
 
 - What is the content currently in. Can we export both it, and any files, vocabularies, entities easily?
-- What CMS is the content going in to. Platforms like drupal 8 have almost infinite flexibility for custom importers, others, well, do not.
+- What CMS is the content going in to. Platforms like Drupal have almost infinite flexibility for custom importers, others, well, do not.
 - If not currently in a CMS, some options do exist, but generally require more time and effort.
 
 ### 4. What's changing, what's not
