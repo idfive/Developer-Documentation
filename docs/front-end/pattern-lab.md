@@ -1,6 +1,6 @@
-# Pattern Lab Starter (formerly ICL)
+# Pattern Lab Starter
 
-The Pattern Lab Starter is a collection of components to be used to begin new front-end development projects.
+The Pattern Lab Starter (formerly ICL) is a collection of components to be used to begin new front-end development projects.
 
 ## Download
 
@@ -15,3 +15,8 @@ To download the starter [visit the Bitbucket Repo Downloads - Tags](https://bitb
 `npm run develop`
 
 This will open the "Welcome page"
+
+## Site Header
+
+![Site Header](_media/site-header-desktop.jpg)
+The site header supports dropdown menus, a utility nav and a pop-up search form.
