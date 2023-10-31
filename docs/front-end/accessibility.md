@@ -200,3 +200,11 @@ It is recommended that when links are opened in a new window, there is advance w
 - The tab order should follow the logic of the document structure
 - Hidden elements should not be able to be tabbed through until the element is opened (using the enter key)
   [More info on keyboard accessibility](https://webaim.org/techniques/keyboard/)
+
+## Non-JS Fallbacks
+
+As much as possible fallbacks should be provided when JavaScript is disabled/unavailable. All functionality can't be replicated, but content should at least be accessible.
+
+A combination of [:target psuedo-class](https://developer.mozilla.org/en-US/docs/Web/CSS/:target) and an additional close button in a `<noscript>` tag can be used to toggle the display of certain components, such as a full site popover menu in a site header. The [Pattern Lab starter](pattern-lab.md) provides a class of `js` on the `html` element, which can be used to target the non-js versions (see site-header example in the codebase).
+
+Of course certain interactive components (such as a carousel or youtube video) will not display properly - which is okay as a majority of users will have js enabled, this is a fallback when applicable/available.
