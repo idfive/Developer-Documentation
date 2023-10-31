@@ -1,5 +1,33 @@
 # Accessibility
 
+## Testing
+
+All pages/templates should be tested using these two tools:
+
+### AXE Dev Tools - Web Accessibility Testing
+
+The free version of the [Chrome Extension](https://chrome.google.com/webstore/detail/axe-devtools-web-accessib/lhdoppojpmngadmnindnejefpokejbdd) works well. This tool does a good job with overall accessibility - and is particularly good with testing keyboard functionality.
+
+Installing the extension will provide a new tab in the dev tools - click "Scan ALL of my page" to run the test
+![AXE Dev Tools](_media/accessibility-axe-devtools.jpg)
+
+The test should be run for each state of the page, it will not automatically detect all states. For example:
+
+- run the test on inital page load
+- open the mobile nav and run
+- resize to desktop and run with a dropdown menu open
+- repeat for other similar situations (i.e. an open sidenav)
+
+### WAVE Evaluation Tool
+
+This is a good secondary tool to use to make sure anything missed by AXE DevTools is resolved. [Link to Chrome Extension](https://chrome.google.com/webstore/detail/wave-evaluation-tool/jbbplnpkjmmeebjpijfedlgcdilocofh)
+
+![Wave Evaluation Tool](_media/accessibility-wave-evaluation.jpg)
+
+- A lot of "false flags" can come up with this tool in terms of color contrast - it's worth confirming whether they are legitimate concerns or not. If a "false flag" can be resolved with a background-color update - it's worth making the update as our clients sometimes will use these tools too.
+
+- There can also be some warnings that may not need resolved, for example in the screenshot above we have warnings for "redundant links", which in this case is because it's testing a dev site where all links are for placement only and point to the same target
+
 ## Images
 
 All images must have appropriate, equivalent alternative text except:
@@ -13,7 +41,7 @@ Linked images must have alternative text if the image is the only element inside
 **Example 1:** Image with alt text
 
 ```html
-<img src="sunset.jpg" alt="Sunset over the Golden Gate Bridge, San Francisco">
+<img src="sunset.jpg" alt="Sunset over the Golden Gate Bridge, San Francisco" />
 ```
 
 **Example 2:** Decorative image with empty alt attribute
@@ -32,7 +60,7 @@ Form inputs must have an associated label.
 The relationship between the input and label is enforced by the input being a child of the label.
 
 ```html
-<label><input type="checkbox"> I agree to the terms and conditions</label>
+<label><input type="checkbox" /> I agree to the terms and conditions</label>
 ```
 
 **Example 2:** Label relationship enforced by for/id attributes
@@ -40,7 +68,7 @@ The relationship is enforced by a unique "id" on the `for` attribute of the labe
 
 ```html
 <label for="firstname">First name</label>
-<input id="firstname" type="checkbox">
+<input id="firstname" type="checkbox" />
 ```
 
 ## Sections
@@ -98,6 +126,7 @@ _Note_: Elements with defined `tabindex` values receive focus first, in the orde
       <p>We are awesome.</p>
     </div>
   </a>
+</div>
 ```
 
 ```sass
@@ -132,7 +161,10 @@ All iframes should have a `title` attribute that describes the content.
 **Example 1:** iframe title attribute
 
 ```html
-<iframe title="Video: How to create accessible websites" src="https://linktocontent.com/videoid">
+<iframe
+  title="Video: How to create accessible websites"
+  src="https://linktocontent.com/videoid"
+></iframe>
 ```
 
 ## Links
@@ -142,7 +174,7 @@ All iframes should have a `title` attribute that describes the content.
 - Use meaningful link text.
 - Avoid the use of text like "click here", per the [w3](https://www.w3.org/QA/Tips/noClickHere).
 - If generic text is required, add more context via hidden spans or similar: `<a href="{{ url }}">Learn more<span class="visible-for-screen-readers"> about {{ node.title.value }}</span></a>`
-- Avoid target _blank whenever possible. See below.
+- Avoid target \_blank whenever possible. See below.
 
 ### Reasons NOT TO open links in a new tab
 
@@ -150,7 +182,7 @@ All iframes should have a `title` attribute that describes the content.
 - It breaks the navigational flow for visitors who visit the website using assistive technologies.
 - Opening a new tab on mobile phone can be even more disorienting, as it's especially difficult for the user to go back to the website they were originally browsing.
 - Taking away any control from the visitor can have a negative impact on the user experience.
-- Besides the impact on accessibility, there is also a possible security issue to keep in mind. Using the attribute target="_blank" you are leaving your visitors open to possible phishing attacks. The other page can access the window object with the window.opener property. This exposes an attack surface because the other page can potentially redirect your page to a malicious URL.
+- Besides the impact on accessibility, there is also a possible security issue to keep in mind. Using the attribute target="\_blank" you are leaving your visitors open to possible phishing attacks. The other page can access the window object with the window.opener property. This exposes an attack surface because the other page can potentially redirect your page to a malicious URL.
 - If nothing else, remember this principle is also documented as a guideline in the [WCAG (Web Content Accessibility Guidelines)](https://www.w3.org/TR/WCAG20-TECHS/G200.html).
 
 ### Reasons TO open links in a new tab
@@ -163,7 +195,8 @@ Notable exceptions defined by [WCAG (Web Content Accessibility Guidelines)](http
 It is recommended that when links are opened in a new window, there is advance warning.
 
 ## Keyboard Navigation
+
 - Selectable items should be able to be tabbed through using the keyboard
 - The tab order should follow the logic of the document structure
 - Hidden elements should not be able to be tabbed through until the element is opened (using the enter key)
-[More info on keyboard accessibility](https://webaim.org/techniques/keyboard/)
+  [More info on keyboard accessibility](https://webaim.org/techniques/keyboard/)
