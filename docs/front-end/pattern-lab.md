@@ -2,7 +2,7 @@
 
 ## Introduction
 
-The Pattern Lab Starter (formerly ICL) is a collection of components to be used to begin new front-end development projects.
+**The Pattern Lab Starter (formerly _ICL_) is a collection of components to be used to begin new front-end development projects.**
 
 ### Staging Site
 
@@ -68,6 +68,139 @@ An explanation/use-case for all of the partials in the "core" directory, to be u
   - `%caption` used for text styles on captions in various components (WYSIWYG images, videos, etc)
 - **typography.scss** - set the `body` base style, as well as `a`, `p`, `ul` & `ol`, as well as heading type styles
 - **variables.scss** - currently contains colors, outer-padding, and font-family variables
+
+## Layout
+
+### Outer Padding
+
+#### Inline (Left & Right) Padding
+
+A `div` has been placed as a direct descendent of the `<main>` tag with a class of `outer-pad`. This should be used to match the left and right spacing seen in the design reference (differs per project). The value will typically change according to screen-width and could also change per page template-type.
+In **layout.scss** we have:
+
+```scss
+.outer-pad,
+%outer-pad {
+  padding-inline: $outer-inline-padding-mobile;
+  @include mq($min, $tablet) {
+    padding-inline: $outer-inline-padding-tablet;
+  }
+  @include mq($min, $lg_desktop) {
+    padding-inline: $outer-inline-padding-desktop;
+  }
+}
+```
+
+These values correspond to the variables seen in `source/css/core/_variables.scss` and should be updated as needed:
+
+```scss
+//Outer Padding Widths (for layout)
+$outer-inline-padding-mobile: rem(33);
+$outer-inline-padding-tablet: rem(60);
+$outer-inline-padding-desktop: rem(120) rem(300);
+```
+
+Notice that the desktop value contains two values (a left and right) since often the content will not be centered at desktop widths (and to account for the sidenav)
+
+#### Different Padding Per Page Template
+
+Depending on the complexity of the project, if there are many different values based on page template (for example a kitchen-sink might have different spacing than a homepage for example), more variables will need to be added to account for this. For example:
+
+```scss
+.outer-pad,
+%outer-pad {
+  padding-inline: $outer-inline-padding-mobile;
+  // Target the body class of the template that requires a different value
+  body.page-class & {
+    // Create new variable for the different value if desired
+    padding-inline: $outer-inline-padding-mobile-page-class;
+  // Rest of code
+```
+
+#### Negating Outer Padding for Full Width Components
+
+These variables also correspond to the placeholder selector in `source/css/core/_placeholder-selectors.scss` with the name of `%negate-outer-pad-x`:
+
+```scss
+%negate-outer-pad-x,
+.negate-outer-pad-x {
+  margin-inline: -$outer-inline-padding-mobile;
+  @include mq($min, $tablet) {
+    margin-inline: -$outer-inline-padding-tablet;
+  }
+  @include mq($min, $lg_desktop) {
+    margin-inline: rem(-120) rem(-300);
+  }
+}
+```
+
+- Notice that the desktop `@include mq($min, $lg_desktop) {` styles are using values instead of variables, this is due to the fact adding a negative `-` symbol to the variable won't work here since there are two values to the variable (since the design is off center on desktop) and the negative/subtract symbol would only apply to the first value
+- Feel free to use additional variables to account for this if desired, I've gone this route for simplicty's sake
+- If different values are required per template, such as in the [example above](#different-padding-per-page-template), these will need to be updated/reflected in the `%negate-outer-pad-x` selector
+
+#### Padding-Top for the `<main>` Element
+
+The `<main`> element will need `padding-top` set to the height of the site-header (since the site-header is set to `position: fixed` and will not push down `<main>`).
+
+```scss
+main {
+  padding-top: rem(55);
+  @include mq($min, $lg_desktop) {
+    padding-top: rem(102);
+  }
+}
+```
+
+- The `rem(55)` corresponds to the site header having a height of `55px` on mobile and `rem(102)` to the height of `102px` on larger desktops
+- These could be set to variables if desired
+
+### Site Width
+
+There is no `max-width` set on the site. Instead, since we're using rems throughout - we can increase the size (essentially scale) the site at larger viewport widths. In `source/css/core/_base.scss` the `html` element has the following style applied at the `max_desktop` width:
+
+```scss
+html {
+  // other styles not relevant to site width not displayed here for clarity
+  @include mq($min, $max_desktop) {
+    font-size: calc(100% + 0.2vw);
+  }
+}
+```
+
+Updating the font size with a small `vw` unit here will dynamically increase the value of rems throughout the site, giving the scaling effect.
+
+## Images & Icons
+
+### Images
+
+- Images should be placed in the `source/images` directory. To reference an image in a component or page in json use `"../../images/image-name.jpg",`
+- Set `width` and `height` attributes for all images
+- Provide alt tags when appropriate - [see the accessibility page image section for more info](/docs/front-end/accessibility#images)
+- Use the native lazy loading attribute of `loading="lazy"`
+- If different assets are needed depending on viewport width, a `<picture>` tag can be used. Here's an example that can be seen in the hero component at `source/_patterns/components/hero/hero.twig`:
+
+```html
+<div class="hero__media">
+  <picture>
+    <source srcset="{{ hero.image.desktop_src }}" media="(min-width: 768px)" />
+    <img
+      src="{{ hero.image.mobile_src }}"
+      alt=""
+      loading="lazy"
+      width="1434"
+      height="502"
+    />
+  </picture>
+</div>
+```
+
+### Icons (SVGs)
+
+- [IcoMoon](https://icomoon.io/) is used to create a sprite sheet to reference all icons
+- Also place a copy of the source svg icons in `source/images/icons` in case they need to be referenced/modified later
+- Modified files from IcoMoon will come in the form of a file called `symbol-defs.svg` stored/replaced-on-update at `source/images/icons/icomoon/symbol-defs.svg` and copied into a `iconset.svg` at `source/_patterns/core/iconset/iconset.svg`, which is included on all pages of the site in order to be referenced
+- Place (or replace if it already exists) a copy of the `selection.json` file from IcoMoon at `source/images/icons/icomoon/selection.json`, this will allow future developers to modify/update the iconset in IcoMoon
+- Full documentation on the process can be [found here](/docs/front-end/svg)
 
 ## Components
 
