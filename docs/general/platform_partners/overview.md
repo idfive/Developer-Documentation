@@ -20,7 +20,7 @@ We recommend choosing a partner that can provide everything the site needs. (Oth
 
 In the end, this partnership needs to be a good fit for your organization — and provides idfive and other vendors the tools needed to support your CMS.
 
-We recommend the following PaaS options for various CMS/applications:
+We recommend the following PaaS options for various common CMS/applications:
 
 ## [Acquia](https://acquia.com/)
 
@@ -73,7 +73,7 @@ While we have not yet launched a production site on this platform, we feel their
 
 ## [WP Engine](https://wpengine.com/)
 
-While we are not partners with WPEngine, we have worked on this platform for several client projects. We cannot comment on pricing structures/etc, but overall it seems to be a solid platform choice.
+While we are not specifically partners with WPEngine, we have worked on this platform for several client projects. We cannot comment on pricing structures/etc, but overall it seems to be a solid platform choice, if other desired metrics align.
 
 ### WPEngine Pros
 
