@@ -16,7 +16,7 @@ Support. A reliable resource to troubleshoot server, or traffic scale issues.
 
 We recommend choosing a PaaS partner that can provide everything the site needs. (Otherwise, these features will need to be set up and accounted for separately.) In the end, this partnership needs to be a good fit for your organization — and provides idfive and other vendors the tools needed to support your CMS.
 
-A note on pricing: Many PaaS providers do have general pricing lists, but these will also vary by the role of the client organization, IE if they are a non-profit, or an Edu, etc. While we link to pricing pages where appropriate, know that a consultation with the platform directly will likely be required to get actual numbers.
+A note on pricing: Many PaaS providers do have general pricing lists, but these will also vary by the role of the client organization, IE if they are a non-profit, an Edu, etc. While we link to pricing pages where appropriate, know that a consultation with the platform directly will likely be required to get actual numbers.
 
 *We recommend the following PaaS options for various common CMS/applications:*
 
