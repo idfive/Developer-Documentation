@@ -4,7 +4,7 @@ Modern enterprise CMS life cycles, deployments, and hosting are complex. If in-h
 
 PaaS is more than just “hosting.” It is a cloud computing service that uses virtualization to offer an application-development platform to developers or organizations; and includes computing, memory, storage, database, and other app development services.
 
-PaaS provides CMS-based applications, such as Wordpress and Drupal, the following features:
+PaaS provides CMS-based applications, such as WordPress and Drupal, the following features:
 
 - Hosting. Scalable, modern cloud hosting.
 - Deployment management. The ability to deploy code, files, and databases as needed.
@@ -16,11 +16,11 @@ PaaS provides CMS-based applications, such as Wordpress and Drupal, the followin
 - Local environment packaging. The ability to mirror production environments, code, databases, and files, in a docker or similar workflow, so that developers can work efficiently on new features and fixes.
 Support. A reliable resource to troubleshoot server, or traffic scale issues.
 
-We recommend choosing a partner that can provide everything the site needs. (Otherwise, these features will need to be set up and accounted for separately.)
+We recommend choosing a partner that can provide everything the site needs. (Otherwise, these features will need to be set up and accounted for separately.) In the end, this partnership needs to be a good fit for your organization — and provides idfive and other vendors the tools needed to support your CMS.
 
-In the end, this partnership needs to be a good fit for your organization — and provides idfive and other vendors the tools needed to support your CMS.
+A note on pricing: Many PaaS providers do have general pricing lists, but these will also vary by the role of the client organization, IE if they are a non-profit, or an Edu, etc. While we link to pricing pages where appropriate, know that a consultation with the platform directly will likely be required to get actual numbers.
 
-We recommend the following PaaS options for various common CMS/applications:
+*We recommend the following PaaS options for various common CMS/applications:*
 
 ## [Acquia](https://acquia.com/)
 
