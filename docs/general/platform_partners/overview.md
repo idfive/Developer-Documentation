@@ -1,10 +1,8 @@
 # PaaS Partner Overview
 
-Modern enterprise CMS life cycles, deployments, and hosting are complex. If in-house resources aren’t available to support the new website, we recommend contracting with a modern Platform as a Service (PaaS) provider.
+Modern enterprise CMS life cycles, deployments, and hosting are complex. If in-house resources aren’t available to support the new website, we recommend contracting with a modern Platform as a Service (PaaS) provider. PaaS is more than just “hosting.” It is a cloud computing service that uses virtualization to offer an application-development platform to developers or organizations; and includes computing, memory, storage, database, and other app development services.
 
-PaaS is more than just “hosting.” It is a cloud computing service that uses virtualization to offer an application-development platform to developers or organizations; and includes computing, memory, storage, database, and other app development services.
-
-PaaS provides CMS-based applications, such as WordPress and Drupal, the following features:
+PaaS provides CMS-based applications, such as WordPress and Drupal, with the following features:
 
 - Hosting. Scalable, modern cloud hosting.
 - Deployment management. The ability to deploy code, files, and databases as needed.
@@ -16,7 +14,7 @@ PaaS provides CMS-based applications, such as WordPress and Drupal, the followin
 - Local environment packaging. The ability to mirror production environments, code, databases, and files, in a docker or similar workflow, so that developers can work efficiently on new features and fixes.
 Support. A reliable resource to troubleshoot server, or traffic scale issues.
 
-We recommend choosing a partner that can provide everything the site needs. (Otherwise, these features will need to be set up and accounted for separately.) In the end, this partnership needs to be a good fit for your organization — and provides idfive and other vendors the tools needed to support your CMS.
+We recommend choosing a PaaS partner that can provide everything the site needs. (Otherwise, these features will need to be set up and accounted for separately.) In the end, this partnership needs to be a good fit for your organization — and provides idfive and other vendors the tools needed to support your CMS.
 
 A note on pricing: Many PaaS providers do have general pricing lists, but these will also vary by the role of the client organization, IE if they are a non-profit, or an Edu, etc. While we link to pricing pages where appropriate, know that a consultation with the platform directly will likely be required to get actual numbers.
 
@@ -41,13 +39,14 @@ We have partnered with Acquia since 2015, and have launched, and continue to mai
 
 ## [Pantheon](https://pantheon.io/)
 
-We have partnered with Pantheon since 2016, and do most of our initial development for clients on this platform, regardless of the end host location. Pantheon supports both Wordpress, and Drupal CMS.
+We have partnered with Pantheon since 2016, and do most of our initial development for clients on this platform, regardless of the end host location. Pantheon supports both Wordpress, and Drupal CMS. [Pricing](https://pantheon.io/plans/pricing).
 
 ### Pantheon Pros
 
 - Extremely easy to work with.
 - Modern User Interface.
 - Seamless integration into local development via Lando.
+- idfive really does beleive this to be the "Gold Standard" for WordPress Sites, specifically.
 
 ### Pantheon Cons
 
@@ -57,7 +56,7 @@ We have partnered with Pantheon since 2016, and do most of our initial developme
 
 ## [Platform.sh](https://platform.sh/)
 
-While we have not yet launched a production site on this platform, we feel their feature set and pricing structure are worth reviewing. Platform.sh supports both Wordpress, and Drupal CMS, as well as other CMSs and custom applications.
+While we have not yet launched a production site on this platform, we feel their feature set and pricing structure are worth reviewing. Platform.sh supports both Wordpress, and Drupal CMS, as well as other CMSs and custom applications. [Pricing](https://platform.sh/pricing/).
 
 ### Platform.sh Pros
 
@@ -73,7 +72,7 @@ While we have not yet launched a production site on this platform, we feel their
 
 ## [WP Engine](https://wpengine.com/)
 
-While we are not specifically partners with WPEngine, we have worked on this platform for several client projects. We cannot comment on pricing structures/etc, but overall it seems to be a solid platform choice, if other desired metrics align.
+While we are not specifically partners with WPEngine, we have worked on this platform for several client projects. We cannot comment on pricing structures/etc, but overall it seems to be a solid platform choice, if other desired metrics align. [Pricing](https://wpengine.com/wordpress-hosting/).
 
 ### WPEngine Pros
 
