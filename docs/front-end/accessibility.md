@@ -2,14 +2,22 @@
 
 ## Testing
 
-All pages/templates should be tested using these two tools:
+All pages/templates should be tested using these three tools:
+
+### Siteimprove Accessibility Checker
+
+The free version of the [Chrome Extension](https://chromewebstore.google.com/detail/siteimprove-accessibility/djcglbmbegflehmbfleechkjhmedcopn) does a great job finding issues and determining where they're located on the page and in the code. This is the preferred accessibility checker as of February 2024 - but running all three checkers documented on this page is required to cast a wide enough net to capture all issues.
+
+<img src="_media/accessibility-siteimprove-extension.jpg" height="300" alt="Siteimprove Accessibility Checker">
+
+The Siteimprove checker will rely on the developer to change the state of the page and re-check. For exmaple run it on page load, after opening the nav, after resizing, after opening a subnav, etc. The more states that can be tested, the more thorough the search will be.
 
 ### AXE Dev Tools - Web Accessibility Testing
 
 The free version of the [Chrome Extension](https://chrome.google.com/webstore/detail/axe-devtools-web-accessib/lhdoppojpmngadmnindnejefpokejbdd) works well. This tool does a good job with overall accessibility - and is particularly good with testing keyboard functionality.
 
 Installing the extension will provide a new tab in the dev tools - click "Scan ALL of my page" to run the test
-![AXE Dev Tools](_media/accessibility-axe-devtools.jpg)
+<img src="_media/accessibility-axe-devtools.jpg" height="300" alt="AXE Dev Tools">
 
 The test should be run for each state of the page, it will not automatically detect all states. For example:
 
@@ -22,7 +30,7 @@ The test should be run for each state of the page, it will not automatically det
 
 This is a good secondary tool to use to make sure anything missed by AXE DevTools is resolved. [Link to Chrome Extension](https://chrome.google.com/webstore/detail/wave-evaluation-tool/jbbplnpkjmmeebjpijfedlgcdilocofh)
 
-![Wave Evaluation Tool](_media/accessibility-wave-evaluation.jpg)
+<img src="_media/accessibility-wave-evaluation.jpg" height="300" alt="Wave Evaluation Tool">
 
 - A lot of "false flags" can come up with this tool in terms of color contrast - it's worth confirming whether they are legitimate concerns or not. If a "false flag" can be resolved with a background-color update - it's worth making the update as our clients sometimes will use these tools too.
 

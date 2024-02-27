@@ -113,7 +113,10 @@ The overall page structure is controlled by `source/_patterns/pages/page-structu
   <div class="max-bound">
     {% include "@components/site-header/site-header.twig" %}
     <main id="main-content">
-      <div class="outer-pad">{% block content %} {% endblock %}</div>
+      <div class="outer-pad">
+        {% block content %}
+        {% endblock %}
+      </div>
     </main>
     {% include "@components/site-footer/site-footer.twig" %}
   </div>
@@ -125,37 +128,31 @@ This becomes useful if a site has a different site-header needed for certain pag
 Pages will then follow this pattern:
 
 ```html
-{% extends "@pages/page-structure.twig" %}
-{% block content %}
-  {# Page Content Here #}
-{% endblock %}
+{% extends "@pages/page-structure.twig" %} {% block content %} {# Page Content
+Here #} {% endblock %}
 ```
 
 New blocks can be added as needed to insert different elements per page. For example if a unique site-header and site-footer were needed, `page-structure.twig` could be modified to
+
 ```html
-<div class="max-bound"> 
-{% block header %}{% endblock %}
+<div class="max-bound">
+  {% block header %}{% endblock %}
   <main id="main-content">
-    <div class="outer-pad"> 
-      {% block content %}{% endblock %}
-    </div>
+    <div class="outer-pad">{% block content %}{% endblock %}</div>
   </main>
   {% block footer %}{% endblock %}
 </div>
 ```
+
 For page usage:
+
 ```html
-{% extends "@pages/page-structure.twig" %}
-{% block header %}
-  {% include "@components/site-headers/site-header.twig" %}
-{% endblock %}
-{% block content %}
-    {# Page Content Here #}
-{% endblock %}
-{% block footer %}
-  {% include "@components/site-footer/site-footer.twig" %}
-{% endblock %}
+{% extends "@pages/page-structure.twig" %} {% block header %} {% include
+"@components/site-headers/site-header.twig" %} {% endblock %} {% block content
+%} {# Page Content Here #} {% endblock %} {% block footer %} {% include
+"@components/site-footer/site-footer.twig" %} {% endblock %}
 ```
+
 ### Outer Padding
 
 #### Inline (Left & Right) Padding
@@ -239,6 +236,39 @@ main {
 - The `rem(55)` corresponds to the site header having a height of `55px` on mobile and `rem(102)` to the height of `102px` on larger desktops
 - These could be set to variables if desired
 
+### Spacing Between Kitchen Sink Components
+
+Spacing between kitchen sink components is managed by adding a wrapper to each component on the page level (wrapper classes are not added in the component file - but in the page where they are included).
+
+- The wrapper class will be `paragraph-widget` as well as the same `paragraph-widget-component-name` to give extra specificity if certain components need different spacing. For example, to wrap the `button-set` component - this is how it would appear on a page (for example on the kitchen sink):
+
+```html
+<div class="paragraph-widget paragraph-widget--button-set">
+  {% include "@components/buttons-links/button-set.twig" with
+  kitchen_sink_button_set %}
+</div>
+```
+
+The general paragraph widget spacing css is handled in the `_base.scss` file at `source/css/core/_base.scss` and will need updated per project, according to the design.
+
+- Use `margin-bottom` for the spacing to avoid margin collapsing
+- If a particular component needs different spacing, handle this in the respective component's scss file using the unique paragraph widget class (ie `paragraph-widget--button-set`), ideally at the start of the file. For example in the button set:
+
+```scss
+.paragraph-widget--button-set {
+  margin-bottom: rem(10);
+}
+
+.button-set {
+// rest of styles
+```
+
+#### Testing Space Between Components
+
+- When the site is integrated and actual real-world content entered, the ordering of components will vary greatly
+- It can be beneficial to re-order kitchen sink components temporarily on a page to ensure that there are no unwanted spacing issues that will occur
+- This can be done by either re-ordering in the respective page's twig file, or by using dev tools to move sections
+
 ### Site Width
 
 There is no `max-width` set on the site. Instead, since we're using rems throughout - we can increase the size (essentially scale) the site at larger viewport widths. In `source/css/core/_base.scss` the `html` element has the following style applied at the `max_desktop` width:
@@ -253,6 +283,65 @@ html {
 ```
 
 Updating the font size with a small `vw` unit here will dynamically increase the value of rems throughout the site, giving the scaling effect.
+
+## Twig Templating
+
+The Pattern Lab Starter uses the twig template language (version 2 - [documentation link](https://twig.symfony.com/doc/2.x/)).
+
+- For VSCode, the extension [Twig Language 2](https://marketplace.visualstudio.com/items?itemName=mblode.twig-language-2) is recommended for "_Snippets, Syntax Highlighting, Hover, and Formatting for Twig_"
+
+### If Statements
+- The most common pattern in use with twig is an `if` statement in order to check if an item exists ([documentation link](https://twig.symfony.com/doc/2.x/tags/if.html))
+- Some example use cases can be seen in the hero at `source/_patterns/components/hero/hero.twig`:
+  - The image is optional in the hero:
+  ``` html
+  {% if hero.image.desktop_src is not empty %}
+  ```
+  allows us to check if a part of the corresponding data is "not empty" (which can be helpful if a variant is needed so the data can be replicated "empty" as [variants](#page-and-component-variants) pick up the data from their parents)
+  - The subnav is also optional in the hero:
+  ```html
+  {% if hero.subnav.subnav.items|length > 0 %}
+    {% include "@components/subnav/subnav.twig" with hero.subnav %}
+  {% endif %}
+  ```
+  checking if the array has content using the `length` filter is also useful for [variants](#page-and-component-variants) by adding the "empty" array if the intention is to not output the subnav
+### For Loop
+
+- Another common pattern is the `for-loop` ([documentation link](https://twig.symfony.com/doc/2.x/tags/for.html)). For example, in the Breadcrumbs component `source/_patterns/components/breadcrumbs/breadcrumbs.twig`:
+
+```html
+{% for link in breadcrumbs.links %}
+<li>
+  <a href="{{ link.url }}" {% if loop.last %} aria-current="page" {% endif %}>{{ link.name }}</a>
+</li>
+{% endfor %}
+```
+This will loop through the data to output the links in the `breadcrumbs.links` array as `link` (where `link` is isued in the template to represent a single item in the loop):
+```json
+{
+  "breadcrumbs": {
+    "links": [
+      {
+        "url": "https://idfive.com",
+        "name": "Home"
+      },
+      {
+        "url": "https://idfive.com",
+        "name": "Another Link"
+      },
+// rest of JSON data
+```
+- Notice in the breadcrumb example `{% if loop.last %}` in order to affect the last item in the loop
+- There are many helpful tags and filters in twig that can be useful, see [official documentation](https://twig.symfony.com/doc/2.x/) for more
+
+### Outputting "Raw" HTML
+To output HTML tags in data, the `raw` filter can be used. An example can be seen in the `Tag List` component at `source/_patterns/components/tags/tag-list.twig`:
+```html
+<div class="tag-list__section-description">{{ tag_list.section_description|raw }}</div>
+```
+- The goal here is to allow for html output, in this instance (ideally `<p>` tags would be used in the data - for example, this allows for multiple `<p>` tags if multiple paragraphs are needed)
+- Wrap a `raw` element in a `div` as opposed to an explicitly text-based tag to allow for proper markup
+- If there is a chance that links or list items will be added to the `raw` section, the class of `text-content` should be added to the containing `div` in order to pick up the styles properly
 
 ## Images & Icons
 
@@ -288,20 +377,25 @@ Updating the font size with a small `vw` unit here will dynamically increase the
 - Full documentation on the process can be [found here](/docs/front-end/svg)
 
 ## Data
+
 ### Component Data
-Data on the component level is structured in stored in the same directory as the component's `twig` file. For example, the button-set component's twig template (at `source/_patterns/components/buttons-links/button-set.twig`): 
+
+Data on the component level is structured in stored in the same directory as the component's `twig` file. For example, the button-set component's twig template (at `source/_patterns/components/buttons-links/button-set.twig`):
+
 ```html
 <div class="button-set">
   <ul>
     {% for button in button_set.buttons %}
-      <li>{% include "@components/buttons-links/button.twig" with button %}</li>
+    <li>{% include "@components/buttons-links/button.twig" with button %}</li>
     {% endfor %}
   </ul>
 </div>
 ```
+
 **Note:** as seen in the example, components can be nested within other components
 
 The corresponding component data can be found in json file in the same directory at `source/_patterns/components/buttons-links/button-set.json`:
+
 ```json
 {
   "button_set": {
@@ -311,39 +405,49 @@ The corresponding component data can be found in json file in the same directory
           "text": "Button One",
           "url": "https://idfive.com/"
         }
-      },
-// rest of json data
+      }
+      // rest of json data
     ]
   }
 }
 ```
+
 The json data object should be giving a name similar to the component ("button-set" in this case), in order to call it properly when included on a page.
 
 ### Page Data
+
 #### General Page Data
+
 Each page also similarly a corresponding json file. The Kitchen Sink page (`source/_patterns/pages/kitchen-sink.twig`) data is in the same directory (`source/_patterns/pages/kitchen-sink.json`). The json file starts with:
+
 ```json
 {
   "title": "Kitchen Sink",
   "bodyClass": "kitchen-sink",
 // rest of json data
 ```
+
 - The title corresponds to the `<title>` attribute
 - The body class will get applied so that custom template/page styling can be accomplished.
 
 #### Including Components on a Page With Unique Data
+
 - To include a component on a page the syntax is `{% include "@path-to-component" with name_of_data %}`
-- For example - calling the button-set component: 
+- For example - calling the button-set component:
+
 ```html
-{% include "@components/buttons-links/button-set.twig" with kitchen_sink_button_set %}
+{% include "@components/buttons-links/button-set.twig" with
+kitchen_sink_button_set %}
 ```
+
 - The `with` portion allows for a unique instances of the data (so that multiple instances can be called with different data), give it a logical name (it can be the same name as the component itself - but depending on the context can be confusing)
 - In the Kitchen Sink json file, this would appear as:
+
 ```json
 {
   "title": "Kitchen Sink",
   "bodyClass": "kitchen-sink",
-//  other json data
+  //  other json data
   "kitchen_sink_button_set": {
     "button_set": {
       "buttons": [
@@ -358,19 +462,24 @@ Each page also similarly a corresponding json file. The Kitchen Sink page (`sour
             "text": "Button Two",
             "url": "https://idfive.com/"
           }
-        },
+        }
       ]
     }
   }
-// rest of json data
+  // rest of json data
 }
 ```
+
 ### Page and Component Variants
+
 Pages and components can have variants displayed without duplicating the twig file. This concept is referred to as a psuedo-pattern in the [Pattern Lab documentation](https://patternlab.io/docs/using-pseudo-patterns/). The syntax is:
+
 ```html
 patternName~pseudo-pattern-name.json
 ```
-An example in our library is the hero at `source/_patterns/components/hero/hero.twig`, which has variations (with and without image, with and without subnav, and all combinations). The hero json file outputs a subnav if it is present  - so to output this in Pattern Lab a json file called `hero~no-subnav.json` is created in the same directory at `source/_patterns/components/hero/hero~no-subnav.json`, with an empty subnav:
+
+An example in our library is the hero at `source/_patterns/components/hero/hero.twig`, which has variations (with and without image, with and without subnav, and all combinations). The hero json file outputs a subnav if it is present - so to output this in Pattern Lab a json file called `hero~no-subnav.json` is created in the same directory at `source/_patterns/components/hero/hero~no-subnav.json`, with an empty subnav:
+
 ```json
 {
   "hero": {
@@ -383,7 +492,9 @@ An example in our library is the hero at `source/_patterns/components/hero/hero.
   }
 }
 ```
+
 This can also be replicated at the page level - the Kitchen Sink pages are set up to display these hero variations using the same concept. The file `kitchen-sink~hero-no-image.json` contains:
+
 ```json
 {
   "kitchen_sink_hero": {
