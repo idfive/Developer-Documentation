@@ -7,8 +7,7 @@ All pages/templates should be tested using these three tools:
 ### Siteimprove Accessibility Checker
 
 The free version of the [Chrome Extension](https://chromewebstore.google.com/detail/siteimprove-accessibility/djcglbmbegflehmbfleechkjhmedcopn) does a great job finding issues and determining where they're located on the page and in the code. This is the preferred accessibility checker as of February 2024 - but running all three checkers documented on this page is required to cast a wide enough net to capture all issues.
-
-<img src="_media/accessibility-siteimprove-extension.jpg" height="300" alt="Siteimprove Accessibility Checker" />
+![Siteimprove Accessibility Checker](_media/accessibility-siteimprove-extension.jpg)
 
 The Siteimprove checker will rely on the developer to change the state of the page and re-check. For exmaple run it on page load, after opening the nav, after resizing, after opening a subnav, etc. The more states that can be tested, the more thorough the search will be.
 
@@ -17,7 +16,7 @@ The Siteimprove checker will rely on the developer to change the state of the pa
 The free version of the [Chrome Extension](https://chrome.google.com/webstore/detail/axe-devtools-web-accessib/lhdoppojpmngadmnindnejefpokejbdd) works well. This tool does a good job with overall accessibility - and is particularly good with testing keyboard functionality.
 
 Installing the extension will provide a new tab in the dev tools - click "Scan ALL of my page" to run the test
-<img src="_media/accessibility-axe-devtools.jpg" height="300" alt="AXE Dev Tools" />
+![AXE Dev Tools](_media/accessibility-axe-devtools.jpg)
 
 The test should be run for each state of the page, it will not automatically detect all states. For example:
 
@@ -30,7 +29,7 @@ The test should be run for each state of the page, it will not automatically det
 
 This is a good secondary tool to use to make sure anything missed by AXE DevTools is resolved. [Link to Chrome Extension](https://chrome.google.com/webstore/detail/wave-evaluation-tool/jbbplnpkjmmeebjpijfedlgcdilocofh)
 
-<img src="_media/accessibility-wave-evaluation.jpg" height="300" alt="Wave Evaluation Tool" />
+![Wave Evaluation Tool](_media/accessibility-wave-evaluation.jpg)
 
 - A lot of "false flags" can come up with this tool in terms of color contrast - it's worth confirming whether they are legitimate concerns or not. If a "false flag" can be resolved with a background-color update - it's worth making the update as our clients sometimes will use these tools too.
 
@@ -103,6 +102,11 @@ Section elements must have an appropriate `aria-label` attribute, or reference a
 ## Keyboard navigation
 
 Keyboard navigation is typically used by non-sighted users and users with motor disabilities.
+
+- Selectable items should be able to be tabbed through using the keyboard
+- The tab order should follow the logic of the document structure
+- Hidden elements should not be able to be tabbed through until the element is opened (using the enter key)
+  [More info on keyboard accessibility](https://webaim.org/techniques/keyboard/)
 
 ### Keyboard focus indicator
 
@@ -201,13 +205,6 @@ Notable exceptions defined by [WCAG (Web Content Accessibility Guidelines)](http
 - The user is logged into a secured area of a site, and following a link to a page outside of the secured area would terminate the user's logon. In this case opening external links in an external window allows the user to access such references while keeping their login active in the original window.
 
 It is recommended that when links are opened in a new window, there is advance warning.
-
-## Keyboard Navigation
-
-- Selectable items should be able to be tabbed through using the keyboard
-- The tab order should follow the logic of the document structure
-- Hidden elements should not be able to be tabbed through until the element is opened (using the enter key)
-  [More info on keyboard accessibility](https://webaim.org/techniques/keyboard/)
 
 ## Non-JS Fallbacks
 
