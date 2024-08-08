@@ -6,9 +6,9 @@ For external vendors building projects for idfive, this page overviews our gener
 
 ### General
 
-- Use the [idfive Component Library](https://bitbucket.org/idfivellc/idfive-component-library/src/master/) as a starter for all frontend projects. This repo should be cloned, and used as the starter for all frontend components of a build.
-- This library utilizes [silc](https://silc.io/), the "Simple Intuitative Library of Components" for [grids](https://github.com/nickrigby/silc-grid), [accordions](https://github.com/nickrigby/silc-accordion), and a few other common items. It is specifically a very bare bones framework, so that styles/etc do not need to be overridden.
-- idfive utilizes [fractal](https://fractal.build/) to stage static pages and components for QC/review. All functionality, components, and pages should be atomic as much as possible, for reuse as needed.
+- Use the [idfive Component Library Pattern Lab Starter](https://bitbucket.org/idfivellc/idfive-pattern-lab-starter/src/master/) as a starter for all frontend projects. This repo should be cloned, and used as the starter for all frontend components of a build.
+- This library utilizes the [Idfive Component Library](https://staging2.idfive.com/idfive-pattern-lab-starter/public/?p=pages-welcome), (user: guest, password: guest) to create a whitelabel starter framework for common components. Many components can be seen by looking at the [Kitchen Sink](https://staging2.idfive.com/idfive-pattern-lab-starter/public/?p=pages-kitchen-sink) example, as well as interacting with Pattern Lab menu at the top of the page, to see individual components/etc.
+- idfive utilizes [Pattern Lab](https://patternlab.io/) to stage static pages and components for QC/review. All functionality, components, and pages should be atomic as much as possible, for reuse as needed.
 - Webpack, included in the ICL, to be used for all code compiling.
 - All dependencies to be tracked in package.json, and included via NPM. More notes on [Node.js preferences](/docs/front-end/node).
 - A [.nvmrc](https://github.com/nvm-sh/nvm#nvmrc) file is present in the root ICL directory with the necessary version of Node.js to be used when working on the project.
