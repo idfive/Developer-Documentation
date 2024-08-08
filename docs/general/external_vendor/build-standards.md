@@ -9,6 +9,7 @@ For external vendors building projects for idfive, this page overviews our gener
 - Resource will be expected to make project checkin meetings, normally once per week at .5 - 1 hour, during business hours.
 - Resource will be expected to provide daily progress updates to the idfive project Management team, via slack, email or trello.
 - Resource will be expected to utilize the idfive Trello board to manage component delivery, and QC proccess.
+- Resource will be expected to enter timesheets daily on idfive defined platform, with comments outlining a summary of work completed that day.
 
 ## Frontend
 
