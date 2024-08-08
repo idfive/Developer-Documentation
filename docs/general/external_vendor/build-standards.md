@@ -1,6 +1,14 @@
-# idfive General Coding and Build Standards for Vendors and Freelancers
+# idfive General Standards for Vendors and Freelancers
 
 For external vendors building projects for idfive, this page overviews our general build standards, libraries and best practices. Some standards may be flexible per project, but any deviations from this overall guideline will need to be discussed with the idfive dev team.
+
+## Project Management
+
+### General
+
+- Resource will be expected to make project checkin meetings, normally once per week at .5 - 1 hour, during business hours.
+- Resource will be expected to provide daily progress updates to the idfive project Management team, via slack, email or trello.
+- Resource will be expected to utilize the idfive Trello board to manage component delivery, and QC proccess.
 
 ## Frontend
 
