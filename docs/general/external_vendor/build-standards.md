@@ -54,7 +54,7 @@ For external vendors building projects for idfive, this page overviews our gener
 - Provides fallback of full content for non-JS users.
 - Passes [WAVE](http://wave.webaim.org/) AA level testing.
 - Passes [W3C Validator](https://validator.w3.org/) testing.
-- Browser tested in latest 2 versions of Chrome, Safari and Edge, on both Mac and PC. IE11 fallback considerations a huge plus.
+- Browser tested in latest versions of Chrome, Safari, Firefox and Edge, as well as on a mobile device (iOS or Android)
 
 ## Backend
 
