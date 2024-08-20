@@ -63,7 +63,7 @@ An explanation/use-case for all of the partials in the "core" directory, to be u
 - **mixins.scss** - sass mixins, currently contains the media query mixin
 - **placeholder-selectors.scss** - contains repeated patterns used globally, currently contains:
   - `%visible-for-screen-readers` - hide content and only output for screenreaders
-  - `%responsive-img` - use this in conjunction with `&:before { padding-top: aspect-ratio%; }` to size images accordingly. The aspect-ratio can be found by dividing the image height by the width and multiplying by 100. For example a 16 by 9 image (1600px by 900 for simplicity) would be `(900/1600) * 100 = 56.25` or `padding-top: 56.25%`
+  - `%responsive-img` - use this in conjunction with CSS `aspect-ratio` to size images accordingly. Wrap images in a div (except WYSIWYG images) and apply `@extend %responsive-img` to the div, as well as the aspect-ratio, which can be found by dividing the image width by the height. For example a 16 by 9 image (1600px by 900 for simplicity) would be `aspect-ratio: 1.78`
   - `%negate-outer-pad-x` this can be used to negate the outer-padding used on a page wrapper to make a component full-width (values/variables need updated to reflect outer-padding values/variables)
   - `%caption` used for text styles on captions in various components (WYSIWYG images, videos, etc)
 - **typography.scss** - set the `body` base style, as well as `a`, `p`, `ul` & `ol`, as well as heading type styles
