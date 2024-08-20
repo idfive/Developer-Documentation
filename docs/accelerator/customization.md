@@ -13,6 +13,13 @@
 Add CPT to: wp-content/themes/idfive-rapid-starter/inc/custom-post-type.php
  - Create any widgets and templates desired.
 
+## Creating a new ACF custom block.
+
+- Create a new block in the ACF Dashboard. Sidebar > ACF.
+- Callbacks/controllers need to be added here for your new block: `wp-content/themes/idfive-rapid-starter/inc/blocks.php` You will need to add your new block to the idf_acf_init() function, as well as define a callback, where you will do any preprocessing/etc.
+Also see bottom of this page where blocks are whitelisted. **You will need to add new blocks here in order for them to show up!!**
+- Create your template in wp-content/themes/idfive-rapid-starter/templates/blocks.
+
 ## Some Accelerator projects will require some additional functionality to add to the project. 
 
 Examples:
