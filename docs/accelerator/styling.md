@@ -1,4 +1,4 @@
-## Styling an accelerator site
+## Styling
 
 On your new Accelerator Project you will have a bit of sample content with pages explaining all the different components. For now, leave this in place as it will help with Quality Control. But Now your goal is to get your new project to be more inline with its design.
 

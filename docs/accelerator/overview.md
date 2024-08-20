@@ -1,4 +1,5 @@
-# What is the Accelerator Project
+# Overview
+
 The Accelerator project is a WordPress website starter template, for a quick to customize, unique website that can be completed with much less development time to put together.
 
 The general expectation is that using the completed template of most components in the pattern lab starter, and with little input from design we can quickly customize and create a new website that is up to the standards of IDFive.
