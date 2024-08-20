@@ -28,3 +28,7 @@ The first step is to create a new wordpress website in pantheon. In the example 
 - Use the terminus site clone to copy the Accelerator projects’s dev environment to your new projects dev environment.
 - `terminus site:clone idfive-accelerator.dev your-new-idfive-project.dev`
 - It may take a few minutes before you’re able to see it after it is done.
+
+## Copying a new project to your local machine.
+
+If you use `lando init` to copy the project from pantheon to your local machine, lando will automatically update your lando.yml to an updated machine site name and id. However if you clone the site to your machine using git, the cloned site’s lando.yml site will be identical to the original site. So be sure to change it, manually, to a new name as this can cause many issues both locally and remotely.
