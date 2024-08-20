@@ -1,7 +1,5 @@
 # Site Options
 
-![Site global options](_media/new-u50-global-options.jpg)
-
 The global site options control many sitewide features of your Accelerator project. All of the below are accessed via the Options menu in the dashboard sidebar.
 
 ## The Site Header Tab

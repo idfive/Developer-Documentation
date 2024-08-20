@@ -1,8 +1,8 @@
 {
     "label": "Accelerator",
-    "position": 10,
+    "position": 3,
     "link": {
       "type": "generated-index",
-      "description": "Accelerator"
+      "description": "Accelerator details"
     }
   }

@@ -4,11 +4,6 @@ On your new Accelerator Project you will have a bit of sample content with pages
 
 One thing that will do a lot of the heavy lifting of getting your colors in order. In the `wp-content/themes/idfive-rapid-starter/icl/source/css/core/_variables.scss`, you will find colors listed and variables $primary, $secondary and $tertiary. These are calling other colors and most if not all of the components are calling these variables, so changing which colors these call will change most of the site at once. Though you will still have to adjust as needed.
 
-![Default color variables](_media/default-u50project-variables.jpg)
-![Default site colors](_media/default-u50project-color.jpg)
-![New color variables](_media/new-u50project-variables.jpg)
-![New site colors](_media/new-u50project-color.jpg)
-
 Things to check for:
 
 - Max page content width
