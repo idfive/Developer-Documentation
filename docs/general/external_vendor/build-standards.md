@@ -30,13 +30,13 @@ For external vendors building projects for idfive, this page overviews our gener
 ### HTML
 
 - HTML should be [W3C-validated](https://validator.w3.org/) and use proper semantics where applicable.
-- Templates are written in [Twig](https://twig.symfony.com/) and compiled to standard HTML via Webpack.
-- Proper ARIA functionality is used to meet WCAG accessibility guidelines.
-- Components should include [config.json](https://fractal.build/guide/core-concepts/context-data.html) files to allow them to be easily imported and shared across other templates.
+- Templates are written in [Twig](https://twig.symfony.com/) and compiled to standard HTML.
+- Proper ARIA functionality is used to meet WCAG accessibility guidelines (see [Accessibility Requirements page](https://developers.idfive.com/docs/front-end/accessibility)).
+- Components should include `component-name.json` data files to allow them to be easily imported and shared across other templates.
 
 ### JS
 
-- All theme JS should be written as [TypeScript](https://www.typescriptlang.org/), and compiled to stable, browser-compliant JS via Webpack.
+- All theme JS should be written as [TypeScript](https://www.typescriptlang.org/), and compiled to stable, browser-compliant JS.
 - For any complex filtering/SPA like functionality, we request to use [Vue.js](https://vuejs.org/), over other frameworks.
 - We prefer to keep other libraries to an absolute minimum, unless there are specific needs for one.
 - All JS written with atomic principles in mind.
@@ -44,14 +44,13 @@ For external vendors building projects for idfive, this page overviews our gener
 
 ### CSS
 
-- All CSS to be written as SCSS, and compiled via Webpack.
+- All CSS to be written as SCSS, and compiled to a single CSS file.
 - All SCSS to be written using the [BEM methodology](http://getbem.com/introduction/).
 - All SCSS written with atomic principles in mind.
 - Code samples of [idfive CSS Preferences](/docs/front-end/css).
 
 ### Acceptance standards
 
-- Provides fallback of full content for non-JS users.
 - Passes [WAVE](http://wave.webaim.org/) AA level testing.
 - Passes [W3C Validator](https://validator.w3.org/) testing.
 - Browser tested in latest versions of Chrome, Safari, Firefox and Edge, as well as on a mobile device (iOS or Android)
@@ -74,6 +73,7 @@ For external vendors building projects for idfive, this page overviews our gener
 ### Acceptance standards
 
 - Code meets best practice/coding standards for particular CMS.
+- Accessibility requirements met (see [Accessibility page](https://developers.idfive.com/docs/front-end/accessibility))
 - Code meets all functionality requirements outlined in wireframes.
 - Code free (or as free as can be) of proprietary, or paid modules/plugins.
 - Passes [WAVE](http://wave.webaim.org/) AA level testing.
