@@ -216,22 +216,19 @@ Most times, it is easier to create a custom reset button, that simply reloads th
 #### SCSS
 
 ```scss
-.YOUR_CLASS_THAT_RECEIVES_INITIALIZED_WHEN_FILTERS_HIT {
-  .custom-search--reset {
+.cua--view-reset {
     display: none;
-  }
-  &.initialized {
-    .custom-search--reset {
-      display: block;
-    }
-  }
+}
+
+.cua--view-reset.initialized {
+    display: block;
 }
 ```
 
 #### HTML
 
 ```html
-<a class="spp-search--reset">Reset search &amp; filters</a>
+<a href="#" onclick="window.location.reload(true);" class="cua--view-reset">Reset Filters</a>
 ```
 
 #### JS
@@ -239,8 +236,28 @@ Most times, it is easier to create a custom reset button, that simply reloads th
 To be added in to your attached JS lib.
 
 ```js
-// Reset button
-$('.spp-search--reset').on('click', function(e) {
-  location.reload();
-});
+(function ($) {
+
+    /**
+     * Make reset buttons appear for all views that utilize.
+     *
+     */
+
+    Drupal.behaviors.myCustomModule = {
+        attach: function(context, settings) {
+
+          // RReset button
+          $(document).on('ajaxComplete', function(event, xhr, settings) {
+            var url = settings.url.split('?')[0];
+            url = url.toString();
+            console.log(url);
+            if (url == '/views/ajax') {
+                $('.cua--view-reset').addClass('initialized');
+            }
+          });
+
+        }
+      };
+
+})(jQuery);
 ```
