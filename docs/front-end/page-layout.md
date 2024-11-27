@@ -1,47 +1,99 @@
 # Layout & Page Structure
 
-The overall page structure is controlled by `source/_patterns/pages/page-structure.twig` and can be modified if needed:
+## Page Structure
+The overall page structure in the [ICL / Pattern Lab Starter](/docs/front-end/pattern-lab) is controlled by `source/_patterns/pages/page-structure.twig`:
 
 ```html
 <div class="off-canvas">
   <div class="max-bound">
+    {% include "@components/emergency-alert/emergency-alert.twig" %}
     {% include "@components/site-header/site-header.twig" %}
-    <main id="main-content">
-      <div class="outer-pad">{% block content %} {% endblock %}</div>
+    <main id="main-content"> 
+      {% block hero %}
+      {% endblock %}
+      <div class="outer-pad">
+        {% block subnav %}
+        {% endblock %}
+        <div class="page-content">
+          {% block content %}
+          {% endblock %}
+        </div>
+      </div>
+      {% block end_of_page_call_to_action %}
+      {% endblock %}
+      {% include "@components/site-footer/site-footer.twig" %}
     </main>
-    {% include "@components/site-footer/site-footer.twig" %}
+  </div>
+</div>
+```
+### Usage with Individual Page Templates
+Pages will then follow this pattern:
+
+```html
+{% extends "@pages/page-structure.twig" %}
+{% block hero %}
+  <!-- Include Hero -->
+{% endblock %}
+{% block subnav %}
+  <!-- Include Subnav (if needed, if not - leave blank) -->
+{% endblock %}
+{% block content %}
+  <!-- Page Content -->
+{% endblock %}
+{% block end_of_page_call_to_action %}
+  <!-- Include End Of Page Call To Action (if needed, if not - leave blank) -->
+{% endblock %}
+```
+
+### Modifying Page Structure
+New blocks can be added as needed to insert different elements per page. For example if a unique site-header and site-footer were needed, `page-structure.twig` could be modified to
+
+```html
+<div class="off-canvas">
+  <div class="max-bound">
+    {% include "@components/emergency-alert/emergency-alert.twig" %}
+    {% block header %}{% endblock %}
+    <main id="main-content"> 
+      {% block hero %}
+      {% endblock %}
+      <div class="outer-pad">
+        {% block subnav %}
+        {% endblock %}
+        <div class="page-content">
+          {% block content %}
+          {% endblock %}
+        </div>
+      </div>
+      {% block end_of_page_call_to_action %}
+      {% endblock %}
+      {% block footer %}{% endblock %}
+    </main>
   </div>
 </div>
 ```
 
-This becomes useful if a site has a different site-header needed for certain pages.
-
-Pages will then follow this pattern:
+Usage in the page in this example:
 
 ```html
-{% extends "@pages/page-structure.twig" %} {% block content %} {# Page Content
-Here #} {% endblock %}
-```
-
-New blocks can be added as needed to insert different elements per page. For example if a unique site-header and site-footer were needed, `page-structure.twig` could be modified to
-
-```html
-<div class="max-bound">
-  {% block header %}{% endblock %}
-  <main id="main-content">
-    <div class="outer-pad">{% block content %}{% endblock %}</div>
-  </main>
-  {% block footer %}{% endblock %}
-</div>
-```
-
-For page usage:
-
-```html
-{% extends "@pages/page-structure.twig" %} {% block header %} {% include
-"@components/site-headers/site-header.twig" %} {% endblock %} {% block content
-%} {# Page Content Here #} {% endblock %} {% block footer %} {% include
-"@components/site-footer/site-footer.twig" %} {% endblock %}
+{% extends "@pages/page-structure.twig" %}
+{% block header %} 
+  <!-- Include Header -->
+{% endblock %}
+{% block hero %}
+  <!-- Include Hero -->
+{% endblock %}
+{% block subnav %}
+  <!-- Include Subnav (if needed, if not - leave blank) -->
+{% endblock %}
+{% block content %}
+  <!-- Page Content -->
+{% endblock %}
+{% block end_of_page_call_to_action %}
+  <!-- Include End Of Page Call To Action (if needed, if not - leave blank) -->
+{% endblock %}
+{% block footer %}
+  <!-- Include Footer -->
+{% endblock %}
 ```
 
 ## Outer Padding
