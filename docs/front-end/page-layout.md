@@ -100,84 +100,96 @@ Usage in the page in this example:
 
 ### Inline (Left & Right) Padding
 
-A `div` has been placed as a direct descendent of the `<main>` tag with a class of `outer-pad`. This should be used to match the left and right spacing seen in the design reference (differs per project). The value will typically change according to screen-width and could also change per page template-type.
-In **layout.scss** we have:
+`<div class="outer-pad">` is a direct descendent of the `<main>` tag and is used to match the left and right spacing seen in the design reference (differs per project). The value will typically change according to screen-width and could also change per page template-type.
 
+The inline padding (left and right) custom property values `--outer-padding` can be updated in `base.scss`. The value is changed based on screen width with media queries. One or two values can be used, if two values are used, the first is left padding and the second is right padding. For example:
 ```scss
-.outer-pad,
-%outer-pad {
-  padding-inline: $outer-inline-padding-mobile;
-  @include mq($min, $tablet) {
-    padding-inline: $outer-inline-padding-tablet;
-  }
-  @include mq($min, $lg_desktop) {
-    padding-inline: $outer-inline-padding-desktop;
-  }
+// outer padding mobile
+--outer-padding: #{rem(30)};
+
+// outer padding tablet
+@include mq($min, $tablet) {
+  --outer-padding: #{rem(60)};
+}
+
+// outer padding desktop
+@include mq($min, $lg_desktop) {
+  --outer-padding: #{rem(100)};
 }
 ```
 
-These values correspond to the variables seen in `source/css/core/_variables.scss` and should be updated as needed:
-
+Outer-pad is a placeholder selector (so that it can be re-used) and is applied in **placeholders.scss**:
 ```scss
-//Outer Padding Widths (for layout)
-$outer-inline-padding-mobile: rem(33);
-$outer-inline-padding-tablet: rem(60);
-$outer-inline-padding-desktop: rem(120) rem(300);
-```
-
-Notice that the desktop value contains two values (a left and right) since often the content will not be centered at desktop widths (and to account for the sidenav)
-
-### Different Padding Per Page Template
-
-Depending on the complexity of the project, if there are many different values based on page template (for example a kitchen-sink might have different spacing than a homepage for example), more variables will need to be added to account for this. For example:
-
-```scss
-.outer-pad,
 %outer-pad {
-  padding-inline: $outer-inline-padding-mobile;
-  // Target the body class of the template that requires a different value
-  body.page-class & {
-    // Create new variable for the different value if desired
-    padding-inline: $outer-inline-padding-mobile-page-class;
-  // Rest of code
+  padding-inline: var(--outer-padding);
+  &:has(.subnav) {
+    @include mq($min, $lg_desktop) {
+      display: grid;
+      grid-template-columns: var(--outer-pad-subnav-grid-width) minmax(0, 1fr);
+      gap: var(--outer-pad-subnav-grid-gap);
+      align-items: start;
+    }
+  }
+}
 ```
+It's applied to `.outer-pad` in **layout.scss**:
+
+```scss
+.outer-pad {
+  @extend %outer-pad;
+}
+```
+
+### Handling Outer Padding With a Subnav
+When a page (ie the [Kitchen Sink](https://staging2.idfive.com/idfive-pattern-lab-starter/public/patterns/pages-kitchen-sink-kitchen-sink/pages-kitchen-sink-kitchen-sink.rendered.html)) has a subnav, the above code `&:has(.subnav)` from **placeholders.scss** sets a grid layout with the subnav as the first column and the main content `<div class="page-content">` as the second column:
+```scss
+%outer-pad {
+  &:has(.subnav) {
+    @include mq($min, $lg_desktop) {
+      display: grid;
+      grid-template-columns: var(--outer-pad-subnav-grid-width) minmax(0, 1fr);
+      gap: var(--outer-pad-subnav-grid-gap);
+      align-items: start;
+    }
+}
+```
+
+The custom properties used here `--outer-pad-subnav-grid-gap` and `--outer-pad-subnav-grid-width` are set in `base.scss` and are also used in the formula to negate outer padding for full width components (see [next section](#negating-outer-padding-for-full-width-components))
 
 ### Negating Outer Padding for Full Width Components
 
-These variables also correspond to the placeholder selector in `source/css/core/_placeholder-selectors.scss` with the name of `%negate-outer-pad-x`:
+Sometimes it's necessary to have a component take up the full width of the page - the placeholder selector (in **placeholders.scss**) can be used to easily accomplish this.
 
 ```scss
-%negate-outer-pad-x,
-.negate-outer-pad-x {
-  margin-inline: -$outer-inline-padding-mobile;
-  @include mq($min, $tablet) {
-    margin-inline: -$outer-inline-padding-tablet;
-  }
-  @include mq($min, $lg_desktop) {
-    margin-inline: rem(-120) rem(-300);
+%negate-outer-pad-x {
+  margin-inline: calc(var(--outer-padding) * -1);
+  body:has(.subnav) & {
+    @include mq($min, $lg_desktop) {
+      margin-inline: calc((var(--outer-pad-subnav-grid-gap) + var(--outer-padding) + var(--outer-pad-subnav-grid-width)) * -1) calc(var(--outer-padding) * -1);
+    }
   }
 }
 ```
-
-- Notice that the desktop `@include mq($min, $lg_desktop) {` styles are using values instead of variables, this is due to the fact adding a negative `-` symbol to the variable won't work here since there are two values to the variable (since the design is off center on desktop) and the negative/subtract symbol would only apply to the first value
-- Feel free to use additional variables to account for this if desired, I've gone this route for simplicty's sake
-- If different values are required per template, such as in the [example above](#different-padding-per-page-template), these will need to be updated/reflected in the `%negate-outer-pad-x` selector
 
 ### Padding-Top for the `<main>` Element
 
-The `<main`> element will need `padding-top` set to the height of the site-header (since the site-header is set to `position: fixed` and will not push down `<main>`).
+The `<main>` tag needs `padding-top` set to push itself down underneath the site header. Custom propties used with the site header help to create a formula to achieve this without the need for editing (in most cases), in `layout.scss`:
 
 ```scss
 main {
-  padding-top: rem(55);
+  padding-top: var(--header-top-height);
   @include mq($min, $lg_desktop) {
-    padding-top: rem(102);
+    padding-top: calc(
+      var(--header-top-height) + var(--header-main-menu-height)
+    );
+  }
+  body:has(.site-header--hamburger) & {
+    @include mq($min, $lg_desktop) {
+      padding-top: var(--header-top-height);
+    }
   }
 }
 ```
-
-- The `rem(55)` corresponds to the site header having a height of `55px` on mobile and `rem(102)` to the height of `102px` on larger desktops
-- These could be set to variables if desired
 
 ## Spacing Between Kitchen Sink Components
 
