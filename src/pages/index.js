@@ -26,8 +26,8 @@ export default function Home() {
       title={`Hello from ${siteConfig.title}`}
       description="Description will go into a meta tag in <head />">
       <HomepageHeader />
-      <main>
-
+      <main style={{ textAlign: 'center', paddingTop: '100px'}}>
+      <a href="/docs/category/general" style={{backgroundColor: 'var(--ifm-color-primary)', fontSize: '30px', color: 'white', textAlign: 'center', padding: '30px', borderRadius: '12px'}}>Get Started</a>
       </main>
     </Layout>
   );

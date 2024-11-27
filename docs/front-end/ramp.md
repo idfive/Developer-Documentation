@@ -1,3 +1,6 @@
+---
+description: Responsive, Accessible, Maintainable and Performant
+---
 # RAMP
 RAMP is an acronym for Responsive, Accessible, Maintainable and Performant, which are the primary considerations for front-end development at idfive.
 

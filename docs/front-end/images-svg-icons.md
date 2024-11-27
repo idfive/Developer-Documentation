@@ -1,10 +1,41 @@
-# SVG
+---
+description: Guidelines & Icomoon How-To
+---
 
-## Overview
+# Images & SVG Icons
 
-Our SVG workflow uses an SVG sprite sheet to allow icons to be included anywhere while only specifying each icon's code in a single place. Use the [IcoMoon](https://icomoon.io/) app to create a sprite sheet.
+## Images
 
-## Preparation
+- Images should be placed in the `source/images` directory. To reference an image in a component or page in json use `"../../images/image-name.jpg",`
+- Set `width` and `height` attributes for all images
+- Provide alt tags when appropriate - [see the accessibility page image section for more info](/docs/front-end/accessibility#images)
+- Use the native lazy loading attribute of `loading="lazy"` except for usage in sections that will appear at the top of the page (ie, Site Header or Heroes)
+- If different assets are needed depending on viewport width, a `<picture>` tag can be used. Here's an example that can be seen in the hero component at `source/_patterns/components/hero/hero.twig`:
+
+```html
+<div class="hero__media">
+  <picture>
+    <source srcset="{{ hero.image.desktop_src }}" media="(min-width: 768px)" />
+    <img
+      src="{{ hero.image.mobile_src }}"
+      alt=""
+      loading="lazy"
+      width="1434"
+      height="502"
+    />
+  </picture>
+</div>
+```
+
+## Icons (SVGs)
+
+- [IcoMoon](https://icomoon.io/) is used to create a sprite sheet to reference all icons
+- Also place a copy of the source svg icons in `source/images/icons` in case they need to be referenced/modified later
+- Modified files from IcoMoon will come in the form of a file called `symbol-defs.svg` stored/replaced-on-update at `source/images/icons/icomoon/symbol-defs.svg` and copied into a `iconset.svg` at `source/_patterns/core/iconset/iconset.svg`, which is included on all pages of the site in order to be referenced
+- Place (or replace if it already exists) a copy of the `selection.json` file from IcoMoon at `source/images/icons/icomoon/selection.json`, this will allow future developers to modify/update the iconset in IcoMoon
+
+
+### Preparation
 
 - Ensure with the designer of the project that all strokes in svgs have been outlined. Having one single path is the ideal configuration for an svg. If you have Adobe XD and access to the project source files and need to outline a stroke: select the svg and go to `Object - Path - Outline Stroke`
   ![XD SVG](_media/xd-svg.jpg)
@@ -20,7 +51,7 @@ Our SVG workflow uses an SVG sprite sheet to allow icons to be included anywhere
 
 This sheet should be included as close to the opening `body` tag as possible. Generally it's easiest to create a template that contains the sprite sheet that you can then include in your base layout.
 
-## Using IcoMoon
+### Using IcoMoon
 
 - Go to [icomoon.io](https://icomoon.io/) and click IcoMoon App in the top-right corner
   ![IcoMoon App](_media/icomoon-open.jpg)
@@ -40,7 +71,7 @@ This sheet should be included as close to the opening `body` tag as possible. Ge
 
 - Place (or replace) the `selection.json` and `symbol-defs.svg` files into the directory created earlier at `your-project/source/images/icons`
 
-## Adding to Your Project
+### Adding to Your Project
 
 - Copy the contents of the `symbol-defs.svg` into a new file called `iconset.svg`. This ideally should exist (in Pattern Lab) at `your-project/source/_patterns/core/iconset/iconset.svg`. Each time you update and re-download from IcoMoon, update the contents of this file to match. Older projects (including fractal) may not have this directory or file, so create to match as needed.
 - Ensure that `symbol-defs.svg` is included on each page. In Pattern Lab in the `head.twig` file this is included after the `skip-link` after the opening `<body>` tag as `{% include "@core/iconset/iconset.svg"%}`. This allows usage of the sprites.

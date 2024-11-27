@@ -51,3 +51,12 @@
   --docusaurus-highlighted-code-line-bg: rgba(0, 0, 0, 0.3);
 }
 
+.theme-doc-markdown {
+  img {
+    margin-block: 30px;
+    @media only screen and (min-width: 768px) {
+      max-height: 600px;
+      width: auto;
+    }
+  }
+}

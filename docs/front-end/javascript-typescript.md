@@ -1,4 +1,7 @@
-# JavaScript/TypeScript
+---
+description: Style Guide, Pointers & Architecture
+---
+# JavaScript / TypeScript
 
 ## References
 

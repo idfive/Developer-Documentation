@@ -40,7 +40,7 @@ For external vendors building projects for idfive, this page overviews our gener
 - For any complex filtering/SPA like functionality, we request to use [Vue.js](https://vuejs.org/), over other frameworks.
 - We prefer to keep other libraries to an absolute minimum, unless there are specific needs for one.
 - All JS written with atomic principles in mind.
-- Code samples of [idfive JS Preferences](/docs/front-end/js).
+- Code samples of [idfive JS Preferences](/docs/front-end/javascript-typescript).
 
 ### CSS
 

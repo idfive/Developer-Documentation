@@ -1,5 +1,7 @@
+---
+description: Guidelines for Creating Accessible Sites
+---
 # Accessibility
-
 ## Testing
 
 All pages/templates should be tested using these three tools:

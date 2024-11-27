@@ -93,12 +93,12 @@ These are generally assigned via individual accounts, so this could be to an exi
 1. General - review [RAMP dev doc page](/docs/front-end/ramp)
 2. Git - review [git section in "General"](/docs/general/git/standards)
 3. CSS/SCSS - review [Front End CSS page](/docs/front-end/css)
-4. Javascript/Typescript - Review [Front End JS Page](/docs/front-end/js)
+4. Javascript/Typescript - Review [Front End JS Page](/docs/front-end/javascript-typescript)
    1. If using an npm package - be aware that a “types” package may exist (install if available)
    2. Common packages (debounce, youtube, vimeo, flickity, masonry)
 5. Accessibility - review [Front End page](/docs/front-end/accessibility)
 6. Node.js - review [Front End page](/docs/front-end/node)
-7. SVG - review [Front End page](/docs/front-end/svg)
+7. SVG - review [Front End page](/docs/front-end/images-svg-icons)
 
 8. Pattern Lab
 
