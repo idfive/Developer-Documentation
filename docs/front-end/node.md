@@ -2,7 +2,7 @@
 
 ## Overview
 
-Node.js is the backbone of our frontend build process. 
+Node.js is the backbone of our frontend build process. Typescript is being compiled and bundled using a tool called [esbuild](https://esbuild.github.io/).
 
 ## Common Versions
 
