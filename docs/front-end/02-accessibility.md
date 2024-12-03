@@ -2,6 +2,16 @@
 description: Guidelines for Creating Accessible Sites
 ---
 # Accessibility
+
+## Overview
+Providing a usable experience to all users, regardless of physical or technological limitations. This should include provisions for users with sight, motor (unable to use mouse/keyboard etc.) and technological constraints (slow internet, older browser, no JavaScript etc.).
+
+### Accessibility Validators
+All websites should conform to [WAI WCAG 2.0 AA standards](https://www.w3.org/WAI/standards-guidelines/wcag/). Automatic tools such as WAVE, SiteImprove and Ai11y are useful for highlighting obvious issues, but for full accessibility coverage, a full site audit using a screen reader should be done. A [useful Chrome WAVE extension](https://chrome.google.com/webstore/detail/wave-evaluation-tool/jbbplnpkjmmeebjpijfedlgcdilocofh?hl=en-US) can help with the validation process. Run as my pages as possible through the [W3C Markup Validation Service](https://validator.w3.org/#validate_by_input).
+
+### Semantic Code
+Writing semantic code is integral to accessibility, and has the added bonus of SEO benefit (a search bot is really just a user without sight). There isn’t a specific tag for all elements, but familiarize yourself with the elements are available and use them appropriately.
+
 ## Testing
 
 All pages/templates should be tested using these three tools:
@@ -39,24 +49,27 @@ This is a good secondary tool to use to make sure anything missed by AXE DevTool
 
 ## Images
 
-All images must have appropriate, equivalent alternative text except:
-
-- when the they do not convey content.
-- are decorative.
-- contain content that is already conveyed in text.
-
-Linked images must have alternative text if the image is the only element inside the link
-
-**Example 1:** Image with alt text
+Images should always have at least an empty alt attribute. Without an alt attribute some assistive devices may announce the full image path.
 
 ```html
-<img src="sunset.jpg" alt="Sunset over the Golden Gate Bridge, San Francisco" />
+<img src="image.jpg"> <!-- Bad -->
+<img src="image.jpg" alt=""> <!-- Good -->
 ```
 
-**Example 2:** Decorative image with empty alt attribute
+__Note:__ It’s okay to have an empty alt attribute. Not all images need to have specific alt text, particularly if it is decorative, or its content is communicated elsewhere in the document.
 
-```html
-<img src"decorative.jpg" alt="">
+Images need a width and a height attribute added as much as possible - this helps to prevent layout shifting during loading.
+
+Lazy loading should be added as much as possible to images and iframes (`loading="lazy"`) using the native lazy load attribute.
+
+Avoid using background images as much as possible - this helps with CMS entry and allows for width and height attributes, lazy loading and alt text.
+
+Use the `<picture>` tag if different assets are needed for various device widths:
+```css
+<picture>
+  <source srcset="desktop-image.jpg" media="(min-width: 800px)">
+  <img src="mobile-image.jpg" alt="">
+</picture>
 ```
 
 ## Forms
@@ -212,6 +225,6 @@ It is recommended that when links are opened in a new window, there is advance w
 
 As much as possible fallbacks should be provided when JavaScript is disabled/unavailable. All functionality can't be replicated, but content should at least be accessible.
 
-A combination of [:target psuedo-class](https://developer.mozilla.org/en-US/docs/Web/CSS/:target) and an additional close button in a `<noscript>` tag can be used to toggle the display of certain components, such as a full site popover menu in a site header. The [Pattern Lab starter](pattern-lab.md) provides a class of `js` on the `html` element, which can be used to target the non-js versions (see site-header example in the codebase).
+A combination of [:target psuedo-class](https://developer.mozilla.org/en-US/docs/Web/CSS/:target) and an additional close button in a `<noscript>` tag can be used to toggle the display of certain components, such as a full site popover menu in a site header. The [Pattern Lab starter](01-pattern-lab.md) provides a class of `js` on the `html` element, which can be used to target the non-js versions (see site-header example in the codebase).
 
 Of course certain interactive components (such as a carousel or youtube video) will not display properly - which is okay as a majority of users will have js enabled, this is a fallback when applicable/available.

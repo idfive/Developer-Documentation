@@ -5,6 +5,7 @@ description: Guidelines & Icomoon How-To
 # Images & SVG Icons
 
 ## Images
+### Markup
 
 - Images should be placed in the `source/images` directory. To reference an image in a component or page in json use `"../../images/image-name.jpg",`
 - Set `width` and `height` attributes for all images
@@ -25,6 +26,34 @@ description: Guidelines & Icomoon How-To
     />
   </picture>
 </div>
+```
+
+### Styling
+
+- Use the `object-fit` property as much as possible to maintain aspect ratios for images
+- A placeholder selector exists called `%responsive-img` in most projects and should be used for all images
+
+```scss
+%responsive-img {
+  width: 100%;
+  iframe,
+  img {
+    display: block;
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+    object-position: center;
+  }
+}
+```
+
+- To use this - apply to the `.hero__media` div and update the aspect-ratio to your needs:
+
+```scss
+.hero__media {
+  aspect-ratio: 1.78 // 16/9;
+  @extend %responsive-img;
+}
 ```
 
 ## Icons (SVGs)

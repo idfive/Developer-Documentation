@@ -3,6 +3,9 @@ description: Style Guide, Pointers & Architecture
 ---
 # JavaScript / TypeScript
 
+## No session refresh
+Using a site with functionality that changes on screen size should not require a browser refresh during that session. The user should be able to resize their screen at will and still be able to access all functionality of the website.
+
 ## References
 
 When declaring references, prefer `const` over `let` when possible. `const` prevents references from unintentionally being reassigned which can lead to bugs and side effects. When mutation is necessary, use `let` over `const`. `var` should never be used as it uses function scoping instead of block scoping which is almost always preferable.

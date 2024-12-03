@@ -3,6 +3,8 @@ description: Guidelines for Building Performant Sites
 ---
 # Performance
 
+Code should be written with performance in mind at all times. All CSS and JavaScript should be "bundled" and minified/uglified using Webpack, and images should be compressed and resized for the smallest possible size.
+
 Keep performance in mind as you start building out a project. It will be much easier to keep this in mind throughout instead of right before launch. For more insights into idfive's philosophy on performance, see [our related blog post](https://idfive.com/agency/insights/website-speed-testing-seo-vs-ux/).
 
 ## Tips

@@ -51,9 +51,14 @@
   --docusaurus-highlighted-code-line-bg: rgba(0, 0, 0, 0.3);
 }
 
+html {
+  scroll-behavior: smooth;
+}
+
 .theme-doc-markdown {
   img {
     margin-block: 30px;
+    display: block;
     @media only screen and (min-width: 768px) {
       max-height: 600px;
       width: auto;
