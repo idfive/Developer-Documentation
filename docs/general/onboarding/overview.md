@@ -90,7 +90,7 @@ These are generally assigned via individual accounts, so this could be to an exi
 
 ## Onboarding Outline (Front-end)
 
-1. General - review [RAMP dev doc page](/docs/front-end/ramp)
+1. General - review [Best Practices](/docs/general/best-practices)
 2. Git - review [git section in "General"](/docs/general/git/standards)
 3. CSS/SCSS - review [Front End CSS page](/docs/front-end/css)
 4. Javascript/Typescript - Review [Front End JS Page](/docs/front-end/javascript-typescript)

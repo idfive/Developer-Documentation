@@ -223,8 +223,8 @@ It is recommended that when links are opened in a new window, there is advance w
 
 ## Non-JS Fallbacks
 
-As much as possible fallbacks should be provided when JavaScript is disabled/unavailable. All functionality can't be replicated, but content should at least be accessible.
+When possible, fallbacks should be provided when JavaScript is disabled/unavailable. All functionality can't be replicated, but content should at least be accessible.
 
-A combination of [:target psuedo-class](https://developer.mozilla.org/en-US/docs/Web/CSS/:target) and an additional close button in a `<noscript>` tag can be used to toggle the display of certain components, such as a full site popover menu in a site header. The [Pattern Lab starter](01-pattern-lab.md) provides a class of `js` on the `html` element, which can be used to target the non-js versions (see site-header example in the codebase).
+A combination of [:target psuedo-class](https://developer.mozilla.org/en-US/docs/Web/CSS/:target) and an additional close button in a `<noscript>` tag can be used to toggle the display of certain components, such as a full site popover menu in a site header. 
 
-Of course certain interactive components (such as a carousel or youtube video) will not display properly - which is okay as a majority of users will have js enabled, this is a fallback when applicable/available.
+A css media query `@media (scripting: none) {}` can be used to target elements when javascript is not available.

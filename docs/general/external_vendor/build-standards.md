@@ -21,7 +21,7 @@ For external vendors building projects for idfive, this page overviews our gener
 - All dependencies to be tracked in package.json, and included via NPM. More notes on [Node.js preferences](/docs/front-end/node).
 - A [.nvmrc](https://github.com/nvm-sh/nvm#nvmrc) file is present in the root ICL directory with the necessary version of Node.js to be used when working on the project.
 - Code should be well-documented/commented.
-- All code follows [RAMP](/docs/front-end/ramp).
+- All code follows [Best Practices](/docs/general/best-practices).
 
 ### Interactions
 

@@ -3,7 +3,26 @@ description: Variations, Structure, Notes
 ---
 # Site Header
 The site header comes with 3 built-in variations. 
-[More information can be found in the wireframes](https://www.figma.com/proto/6rjiTrzRov6VwxFgwVPbXg/UX-Starter-Doc?page-id=1%3A98&node-id=141-699&viewport=755%2C325%2C0.08&t=eN5CbnlbijyARmGo-1&scaling=min-zoom&content-scaling=fixed&starting-point-node-id=355%3A13806)
+[More information can be found in the wireframes](https://www.figma.com/proto/6rjiTrzRov6VwxFgwVPbXg/UX-Starter-Doc?page-id=1%3A98&node-id=141-699&viewport=755%2C325%2C0.08&t=eN5CbnlbijyARmGo-1&scaling=min-zoom&content-scaling=fixed&starting-point-node-id=355%3A13806).
+
+## Changing the Site Header Variation
+The default mode fort he site header is "Full" (see below). To change to a different variation, go into **data.json** (at **source/_data/data.json**) and change the "type" under "site header". 
+
+**When "type" is left blank - it will show the "full" version**:
+
+For *Hamburger*:
+```json
+"site_header": {
+    "type": "hamburger",
+}
+```
+
+For *Hybrid*:
+```json
+"site_header": {
+    "type": "hybrid",
+}
+```
 
 ## Mobile
 The mobile version for all variations is identical. A hamburger menu opens the popover menu with submenus sliding in from the right side:
