@@ -5,14 +5,15 @@ description: Style Guide, Pointers & Architecture
 # CSS / SCSS
 
 ## Responsive
+
 Using the "mobile first" methodology, where default CSS rules apply to the smallest screen size and are then progressively enhanced using media queries. Screen sizes are not an absolute, so responsiveness should be tested by resizing the browser vs. checking "standard" breakpoints (e.g. iPhone, iPad etc.).
 
 ## Architecture
 
 The Sass setup uses `@use` [(official documentation)](https://sass-lang.com/documentation/at-rules/use/) and `@forward` [(official documentation)](https://sass-lang.com/documentation/at-rules/forward/) rules to load Sass stylesheet partials.
 
-- The **entrypoint file** is `index.scss` (located at `source/scss/index.scss`), which uses `@use`  to combine the partials.
-- Partials within the **abstracts directory** are using `@forward`  to ensure all of the (typically not output) rules are available accross all stylesheets:
+- The **entrypoint file** is `index.scss` (located at `source/scss/index.scss`), which uses `@use` to combine the partials.
+- Partials within the **abstracts directory** are using `@forward` to ensure all of the (typically not output) rules are available accross all stylesheets:
 
   - **abstracts/functions.scss** - sass math functions, currently contains the function to convert `rem(pixel-value)` to correct rem value
   - **abstracts/media-queries.scss** - sass mixins, currently contains the media query mixin
@@ -34,11 +35,15 @@ The Sass setup uses `@use` [(official documentation)](https://sass-lang.com/docu
 - The **components directory** - contains all component stylesheets (accordion, image gallery, etc)
 
 ## Print Styles
+
 A print-specific stylesheet is in use at `source/scss/print.css` to disable page elements irrelevant for printing (site header, site footer, subnav, etc) and to output the url of links within page body text.
 
 ## Custom Properties (Native CSS Variables)
+
 ### How To Use
+
 Globally scoped custom properties (aka variables) are added to the `:root` element in **core/base.scss**. For example, a color variable can be added with `--color-white: #fff;`. Then to apply the variable:
+
 ```scss
 .element-with-color-white {
   color: var(--color-white);
@@ -46,15 +51,17 @@ Globally scoped custom properties (aka variables) are added to the `:root` eleme
 ```
 
 ### Changing Value with Media Queries
+
 Custom properties allow for value changes with media queries. For example, transition duration has been set to 0.3 seconds:
 
 ```scss
 :root {
---transition-duration: 0.3s; 
+  --transition-duration: 0.3s;
 }
 ```
 
 and reduced for users who have set a preference of reduced motion:
+
 ```scss
 @media (prefers-reduced-motion) {
   --transition-duration: 0.1s;
@@ -68,15 +75,26 @@ Always be specific about which properties are going to transition, and **never t
 ```scss
 transition: var(--transition-duration) ease-in; /* Bad */
 transition: var(--transition-duration) all ease-in; /* Bad */
-transition: var(--transition-duration) opacity  ease-in; /* Good */
+transition: var(--transition-duration) opacity ease-in; /* Good */
 transition: var(--transition-duration) opacity ease-in, 1s color ease-in-out; /* Good */
 ```
 
+## Hover & Focus States
+
+All interactive elements need a hover and focus state and should all be transitioned. The hover and focus state should be identical - use the following (note the use of `focus-visible` - which will only show on keyboard usage as opposed to the mouse, to prevent issues of unwanted persistent hover states):
+
+```scss
+&:hover,
+&:focus-visible {
+  // hover styles
+}
+```
 
 ## General Styling Guidelines
 
 ### Using REMs
-**All pixel (or fixed) values should be set in rems**, except for media query values. The partial file **functions.scss** provides a helpful way to simplify this process - if a value of `8px` needs to be set, `rem(8)` can be used. Placing the desired pixel value in between the parentheses in `rem()` will transpile the value to rems, in this example to `0.5rem`. *The formula is to divide the pixel value by 16 (the base font size)*.
+
+**All pixel (or fixed) values should be set in rems**, except for media query values. The partial file **functions.scss** provides a helpful way to simplify this process - if a value of `8px` needs to be set, `rem(8)` can be used. Placing the desired pixel value in between the parentheses in `rem()` will transpile the value to rems, in this example to `0.5rem`. _The formula is to divide the pixel value by 16 (the base font size)_.
 
 ### Redundant code
 
@@ -224,9 +242,11 @@ When using a modifier class on the base block, child elements can have their def
 ```
 
 ## Grid & Flexbox
+
 These css tools can be used freely to create layouts. Flexbox is useful when the number of elements in a container is unknown and wrapping is desired or the content width is dyanmic or uknown. **Grid is preferable if possible** as it only requires styling the parent grid item as opposed to flexbox, which requires children to have properties set to achieve the layout. Useful link for grid syntax: [A Complete Guide to Flexbox | CSS-Tricks](https://css-tricks.com/snippets/css/a-guide-to-flexbox/).
 
 Example grid layout with 2 even columns (`minmax(0, 1fr)` can be used to ensure that longer pieces of content do not cause columns to grow or shrink disproportionately):
+
 ```scss
 display: grid;
 grid-template-columns: repeat(2, minmax(0, 1fr));
@@ -244,7 +264,9 @@ place-items: center;
 ```
 
 ### Flexbox properties for children
+
 Reference for child properties for sizing flex items:
+
 ```scss
 flex: 0 0 auto; // Fixed width or max-width that shouldn't grow or shrink
 flex: 1 1 0px; // Fluid width that will fill the remainder of its container, becomes the same width as sibling elements with same flex rules (two sibling elements with flex: 1 1 0px; will be 50% each)
@@ -252,8 +274,11 @@ flex: 0 1 auto; // Has a percentage width, scales responsively
 ```
 
 ## Media & Container Queries
+
 ### Media Queries
+
 Media queries can make use of a mixin in `source/scss/abstracts/_media-queries.scss` that comes with established breakpoint variable values, the most commonly used being:
+
 - $tablet: 768px;
 - $desktop: 1024px;
 - $lg_desktop: 1200px;
@@ -262,11 +287,13 @@ Media queries can make use of a mixin in `source/scss/abstracts/_media-queries.s
 The mixin can be called using the syntax: `@include mq($min, $tablet) {}`, which would translate to: `@media only screen and (min-width: 768px) {}`. The values can be updated as needed, or a standard media query can be used for one-off instances.
 
 ### Container Queries
+
 Container queries can be used to establish a layout change on the basis of a components rendered width, as opposed to the entire viewport width. This can be useful on pages with variable widths, for example the content area on the kitchen sink varies when a subnav is visible vs hidden. Using these is not tied into the media query mixin as mentioned above, as the value of the component width depends and needs adjusted on a per-component/per-context basis.
 
-To use a container query, the root of the component needs `container-type: inline-size;` to be set. 
+To use a container query, the root of the component needs `container-type: inline-size;` to be set.
 
 The syntxa to use the container query is as follows:
+
 ```scss
 @container (min-width: 700px) {
   // Styles for component when it's width reaches 700px and greater
@@ -274,7 +301,9 @@ The syntxa to use the container query is as follows:
 ```
 
 ## Site Scaling
-When the browser reaches a width of 1800px and larger - site scaling will kick in to incrementally scale everything on the page as the width increases — there is no max-width for the site. In **base.scss**, this is controlled on the `html` tag by increasing the font size with a viewport unit:. 
+
+When the browser reaches a width of 1800px and larger - site scaling will kick in to incrementally scale everything on the page as the width increases — there is no max-width for the site. In **base.scss**, this is controlled on the `html` tag by increasing the font size with a viewport unit:.
+
 ```scss
 html {
   font-size: 16px;
@@ -283,6 +312,7 @@ html {
   }
 }
 ```
-`$max_desktop` corresponds to 1800px in  **media-queries.scss**
+
+`$max_desktop` corresponds to 1800px in **media-queries.scss**
 
 For this scaling to work, all pixel values should be set in rems ([see above section regarding REMs](#using-rems))

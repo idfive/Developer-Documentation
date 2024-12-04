@@ -97,10 +97,9 @@ These are generally assigned via individual accounts, so this could be to an exi
    1. If using an npm package - be aware that a “types” package may exist (install if available)
    2. Common packages (debounce, youtube, vimeo, flickity, masonry)
 5. Accessibility - review [Front End page](/docs/front-end/accessibility)
-6. Node.js - review [Front End page](/docs/front-end/node)
-7. SVG - review [Front End page](/docs/front-end/images-svg-icons)
+6. SVG - review [Front End page](/docs/front-end/images-svg-icons)
 
-8. Pattern Lab
+7. Pattern Lab
 
    1. Overview
       1. [Link to download latest version by tag](https://bitbucket.org/idfivellc/idfive-pattern-lab-starter/downloads/?tab=tags)
@@ -124,5 +123,5 @@ These are generally assigned via individual accounts, so this could be to an exi
       3. typescript organization and adding exported functions to main
       4. showcase review & intentions
 
-9. Fractal (overview for legacy projects)
-10. Buddy Pipeline - review on [General page](/docs/general/documentation/buddy-pipeline)
+8. Fractal (overview for legacy projects)
+9. Buddy Pipeline - review on [General page](/docs/general/documentation/buddy-pipeline)

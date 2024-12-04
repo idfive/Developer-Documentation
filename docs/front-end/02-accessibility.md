@@ -1,15 +1,19 @@
 ---
 description: Guidelines for Creating Accessible Sites
 ---
+
 # Accessibility
 
 ## Overview
+
 Providing a usable experience to all users, regardless of physical or technological limitations. This should include provisions for users with sight, motor (unable to use mouse/keyboard etc.) and technological constraints (slow internet, older browser, no JavaScript etc.).
 
 ### Accessibility Validators
+
 All websites should conform to [WAI WCAG 2.0 AA standards](https://www.w3.org/WAI/standards-guidelines/wcag/). Automatic tools such as WAVE, SiteImprove and Ai11y are useful for highlighting obvious issues, but for full accessibility coverage, a full site audit using a screen reader should be done. A [useful Chrome WAVE extension](https://chrome.google.com/webstore/detail/wave-evaluation-tool/jbbplnpkjmmeebjpijfedlgcdilocofh?hl=en-US) can help with the validation process. Run as my pages as possible through the [W3C Markup Validation Service](https://validator.w3.org/#validate_by_input).
 
 ### Semantic Code
+
 Writing semantic code is integral to accessibility, and has the added bonus of SEO benefit (a search bot is really just a user without sight). There isn’t a specific tag for all elements, but familiarize yourself with the elements are available and use them appropriately.
 
 ## Testing
@@ -52,11 +56,13 @@ This is a good secondary tool to use to make sure anything missed by AXE DevTool
 Images should always have at least an empty alt attribute. Without an alt attribute some assistive devices may announce the full image path.
 
 ```html
-<img src="image.jpg"> <!-- Bad -->
-<img src="image.jpg" alt=""> <!-- Good -->
+<img src="image.jpg" />
+<!-- Bad -->
+<img src="image.jpg" alt="" />
+<!-- Good -->
 ```
 
-__Note:__ It’s okay to have an empty alt attribute. Not all images need to have specific alt text, particularly if it is decorative, or its content is communicated elsewhere in the document.
+**Note:** It’s okay to have an empty alt attribute. Not all images need to have specific alt text, particularly if it is decorative, or its content is communicated elsewhere in the document.
 
 Images need a width and a height attribute added as much as possible - this helps to prevent layout shifting during loading.
 
@@ -65,6 +71,7 @@ Lazy loading should be added as much as possible to images and iframes (`loading
 Avoid using background images as much as possible - this helps with CMS entry and allows for width and height attributes, lazy loading and alt text.
 
 Use the `<picture>` tag if different assets are needed for various device widths:
+
 ```css
 <picture>
   <source srcset="desktop-image.jpg" media="(min-width: 800px)">
@@ -93,6 +100,14 @@ The relationship is enforced by a unique "id" on the `for` attribute of the labe
 <input id="firstname" type="checkbox" />
 ```
 
+## Skip Link
+
+A skip link is required to allow assistive technologies to quickly let users navigate to main content sections. This is placed in **\_head.twig** (located at `source/_meta/_head.twig`). When focused, it becomes visible and links to the `<main>` section (also closes the site header when opened).
+
+```twig
+<a class="skip-link" href="#main-content">Skip To Main Content</a>
+```
+
 ## Sections
 
 Section elements must have an appropriate `aria-label` attribute, or reference a label using the `aria-labelledby` attribute
@@ -116,6 +131,8 @@ Section elements must have an appropriate `aria-label` attribute, or reference a
 
 ## Keyboard navigation
 
+### Overview
+
 Keyboard navigation is typically used by non-sighted users and users with motor disabilities.
 
 - Selectable items should be able to be tabbed through using the keyboard
@@ -127,57 +144,19 @@ Keyboard navigation is typically used by non-sighted users and users with motor 
 
 A sighted keyboard user must be provided with a visual indicator of the element that currently has keyboard focus. A basic focus indicator is provided automatically by the web browser and is typically shown as a border (called an outline) around the focused element. It is possible to style the indicator, but you should never apply `outline:0` or `outline:none`.
 
-### Focus functionality for hover
+### Hidden Elements
 
-In situations where content is revealed on hover, the same content should also be made visible when focusing.
+Hidden elements should not be able to be tabbed to. The typescript file \*\*accessibility.tss (located at `source/js/utilities/accessibility.ts`) contains a Mutation Observer that watch for elements with aria-hidden or hidden attribute change and updates the tabindex for focusable children of the target element. This _should_ handle disabling keyboard tabbing for hidden elements, but we need to ensure that `aria-hidden` is bieng set, and that it's working by testing thoroughly.
 
 ### Tabbing index
 
 By default, the tabbing index of an element is controlled by the order in which the element appears in the document flow. However, it is possible to manually specify an elements tabbing index using the `tabindex` attribute.
-
-_Note_: Elements with defined `tabindex` values receive focus first, in the order of their values. After navigating past all elements with a defined `tabindex` with a value of 1 or greater, the user will navigate to all other focusable elements, skipping over elements that have already received focus.
 
 #### Tabindex values
 
 - `tabindex="1"` (or any number greater than 1) defines an explicit tab order. This is almost always a bad idea.
 - `tabindex="0"` allows elements besides links and form elements to receive keyboard focus. It does not change the tab order, but places the element in the logical navigation flow, as if it were a link on the page.
 - `tabindex="-1"` allows things besides links and form elements to receive "programmatic" focus, meaning focus can be set to the element through scripting, links, etc.
-
-**Example 1:** Reveal content on focus
-
-```html
-<div class="reveal">
-  <a href="#" class="reveal__trigger">
-    <h2>About us</h2>
-    <div class="reveal__content">
-      <p>We are awesome.</p>
-    </div>
-  </a>
-</div>
-```
-
-```sass
-.reveal__trigger {
-  display: none;
-  &:hover,
-  &:focus {
-    display: block;
-  }
-}
-```
-
-**Example 2:** Tabindex
-
-```html
-<ol>
-  <a href="/services/">Services</a>
-  <a href="/articles/" tabindex="2">Articles</a>
-  <a href="/resources/" tabindex="3">Resources</a>
-  <a href="/community/">Community</a>
-</ol>
-```
-
-_Note_: Because "Articles" and "Resources" have defined `tabindex` values, they will be focused to first (in order of the `tabindex` value), and then "Services" and "Community".
 
 [Read more about tabindex](https://webaim.org/techniques/keyboard/tabindex)
 
@@ -225,6 +204,6 @@ It is recommended that when links are opened in a new window, there is advance w
 
 When possible, fallbacks should be provided when JavaScript is disabled/unavailable. All functionality can't be replicated, but content should at least be accessible.
 
-A combination of [:target psuedo-class](https://developer.mozilla.org/en-US/docs/Web/CSS/:target) and an additional close button in a `<noscript>` tag can be used to toggle the display of certain components, such as a full site popover menu in a site header. 
+A combination of [:target psuedo-class](https://developer.mozilla.org/en-US/docs/Web/CSS/:target) and an additional close button in a `<noscript>` tag can be used to toggle the display of certain components, such as a full site popover menu in a site header.
 
 A css media query `@media (scripting: none) {}` can be used to target elements when javascript is not available.

@@ -1,6 +1,7 @@
 ---
 description: Overview of Front-end Library
 ---
+
 # ICL / Pattern Lab Starter
 
 **A collection of components to be used to begin new front-end development projects.** This library is synced-up manually to the [Drupal Accelerator Site](https://dev-idfive-drupal-accelerator.pantheonsite.io/).
@@ -23,9 +24,12 @@ patternlab-node). The site navigation is typically on the left side of the page 
 - **Components** is a list of all available components - not in a page context
 - **Pages** contains fully built out pages, this is typically where review occurs
 
-## Installation & Build
+## Installation
 
-Node Version Manager (NVM) is used to manage versioning [(install instructions from GitHub)](https://github.com/nvm-sh/nvm#installing-and-updating), the current version of the ICL / Pattern Lab Starter uses [Version 19.0.0](https://nodejs.org/en/blog/release/v19.0.0).
+Node.js is the backbone of our frontend build process. Node Version Manager (NVM) is used to manage versioning [(install instructions from GitHub)](https://github.com/nvm-sh/nvm#installing-and-updating):
+
+- [Version 19.0.0](https://nodejs.org/en/blog/release/v19.0.0) is use for the most up to date version of the Pattern Lab Starter (all Pattern Lab projects)
+- [Version 12.20.0](https://nodejs.org/en/blog/release/v12.20.0) Is used for most older Fractal projects
 
 In a terminal window at the root of the pattern lab starter - run the following commands:
 
@@ -35,7 +39,12 @@ In a terminal window at the root of the pattern lab starter - run the following 
 
 This will open the "Welcome page", changes made in code will automatically be refreshed/reflected in the browser.
 
-**To build for production**, ensure that `npm run develop` has been run initially to build the sass files:
+Typescript is being compiled and bundled using [esbuild](https://esbuild.github.io/).
+SASS is being compiled using [dart-sass](https://github.com/sass/dart-sass).
+
+## Build
+
+**To build for production**, ensure that `npm run develop` has been run initially to build the sass files. JS is minified using [terser](https://github.com/terser/terser). CSS is minified using [minify](https://github.com/coderaiser/minify):
 
 - `npm run build:all`
 
@@ -54,7 +63,6 @@ The source directory contains the main working areas for the library. More infor
   - **components** contains individual modules for respective components (when required for functionality)
   - **utilities** contains helpful accessibility functions that can be used to simply certain tasks
   - **main.ts** imports all functions and calls init functions for each (this file gets compiled into one on build)
-
 
 ## Data
 
