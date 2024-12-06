@@ -57,5 +57,5 @@ We use the app [Buddy](https://app.buddy.works/idfive) to deploy code to our sta
 
 - You can see Buddy work through each step (and the duration per step) from within the "Deploy to Staging" screen by clicking "Actions" while it's running
   ![Buddy Pipeline Running](_media/buddy-running-pipeline.jpg)
-- If all steps have completed successfully, visit the staging site to confirm. The will be `https://staging2.idfive.com/[your-new-site-name-here]/fractal/`
+- If all steps have completed successfully, visit the staging site to confirm. The will be `https://staging2.idfive.com/[your-new-site-name-here]/public/`
   ![Fractal Site](_media/fractal-site.jpg)
