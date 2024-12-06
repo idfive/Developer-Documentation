@@ -57,3 +57,31 @@ private eventTracking(source) {
   this.eventDataSent = true;
 }
 ```
+
+### Setting up Google Tag Manager and Analytics
+
+To output the data pushed from the front-end code, view [this screencast](https://drive.google.com/file/d/19gaBwlM5Q3naJ20fTwDOnurHrNHODHX1/view) demonstrating the process.
+
+## Meta Tags in Head
+
+list of what our sites typically output in the `<head>` regarding Open Graph (OG Tags) and Meta Tags:
+
+```HTML
+<meta name='robots' content='index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1' />
+<title></title>
+<meta name="description" content="" />
+<link rel="canonical" href="" />
+<meta property="og:locale" content="en_US" />
+<meta property="og:type" content="website" />
+<meta property="og:title" content="" />
+<meta property="og:description" content="" />
+<meta property="og:url" content="" />
+<meta property="og:site_name" content="" />
+<meta property="og:image" content="" />
+<meta property="og:image:width" content="" />
+<meta property="og:image:height" content="" />
+<meta property="og:image:type" content="image/png" />
+<meta name="twitter:card" content="" />
+<meta name="twitter:title" content="" />
+<meta name="twitter:site" content="" />`
+```
