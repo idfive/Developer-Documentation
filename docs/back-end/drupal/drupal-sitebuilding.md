@@ -521,7 +521,7 @@ If core views is used as a standalone, or with search API, be sure to crate the 
 This shows a simple example of adding a created view to a page, after conditionally checking if it has results. Since views are already cached, there is no reason to add additional caching here. In this example,
 we pass along the NID of the node as an additional var to the view, which is set up as a conditional filter in the view.
 
-This then makes the variable {{ MY_VARIABLE }} available in the node--bundle-name.html.twig template, or similar, which is the rendered view.
+This then makes the variable  MY_VARIABLE  available in the node--bundle-name.html.twig template, or similar, which is the rendered view.
 
 ```php
 // From within hook_preprocess of choice
@@ -634,7 +634,7 @@ function MY_MODULE_update_8001() {
     $entity_type = 'node';
     $entity_storage = \Drupal::entityTypeManager()->getStorage($entity_type);
     $nodes = $entity_storage->loadMultiple();
-    
+
     foreach($nodes as $node) {
         if($node->bundle() == 'MY_BUNDLE') {
             $node->path->pathauto = PathautoState::CREATE;

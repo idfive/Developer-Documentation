@@ -90,7 +90,7 @@ composer require drupal/thing "^1.4.3"
 
 Will also allow updates up to version 2, because all releases within one major release should be backwards compatible. When using the caret version range, the issue more often what is the minimum version required by the application, which may be more specific than a minor release.
 
-Version ranges can also be scoped by comparison operators ( >, >=, <, <=, !=). More than one range can be combined, either with a space ( ) or a (,), which will be treated as an AND, or with a double pipe (||), which will be treated as an OR.
+Version ranges can also be scoped by comparison operators ( `>`, `>=`, `<`, `<=`, `!=`). More than one range can be combined, either with a space ( ) or a (,), which will be treated as an AND, or with a double pipe (||), which will be treated as an OR.
 
 ## Deploy
 
