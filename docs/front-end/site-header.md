@@ -4,51 +4,76 @@ description: Variations, Structure, Notes
 
 # Site Header
 
-The site header comes with 3 built-in variations.
+The site header comes with 2 built-in variations, a "Full" version wich displays dropdown menus (if there are child elements) and a "Hybrid" version.
 [More information can be found in the wireframes](https://www.figma.com/proto/6rjiTrzRov6VwxFgwVPbXg/UX-Starter-Doc?page-id=1%3A98&node-id=141-699&viewport=755%2C325%2C0.08&t=eN5CbnlbijyARmGo-1&scaling=min-zoom&content-scaling=fixed&starting-point-node-id=355%3A13806).
 
-## Changing the Site Header Variation
+## Variations
 
-The default mode fort he site header is "Full" (see below). To change to a different variation, go into **data.json** (at **source/\_data/data.json**) and change the "type" under "site header".
+The default mode fort he site header is the "Full" version. To change to a different variation, go into **data.json** (at **source/\_data/data.json**) and change the "type_hybrid" under "site header".
 
-**When "type" is left blank - it will show the "full" version**:
+**When "type_hybrid" set to `false` - it will show the "full" version**:
 
-For _Full_:
+For Full:
 
 ```json
 "site_header": {
-    "type": "",
+    "type_hybrid": false,
 }
 ```
 
-For _Hamburger_:
+For Hybrid:
 
 ```json
 "site_header": {
-    "type": "hamburger",
+    "type_hybrid": true,
 }
 ```
 
-For _Hybrid_:
-
+### Utility Menu
+The utility menu is optional, the boolean setting "display_utility_nav" is available to toggle this. For example to hide the menu:
 ```json
 "site_header": {
-    "type": "hybrid",
+    "display_utility_nav": false,
+}
+```
+
+### Search
+The search trigger can either be placed in the utility menu (if it is visible) or in the main menu (where it's placed by default). The boolean setting `search_in_main` is available to toggle this. For example, the default placement of the search trigger is in the main menu, if `search_in_main` is set to `false`, it will be placed in the utility menu:
+```json
+"site_header": {
+    "search_in_main": false,
+}
+```
+
+The search trigger (and subsequent search form) are optional, the `display_search` setting can be used to toggle visibility (by default it's visible):
+```json
+"site_header": {
+  "display_search": true,
 }
 ```
 
 ## Variables
 
-The partial file **\_base.scss** (located at `source/scss/core/_base.scss`) contains custom properties (variables) used in conjunction with the site header, to be updated per project based on design needs. These custom properties need to be kept in place as they are used in various formulas (for example, to determine the `padding-top` value of the `<main>` section). The relevant variables and default values are as follows:
+The partial file **\_variables.scss** (located at `source/scss/core/_variables.scss`) contains custom properties (variables) used in conjunction with the site header, to be updated per project based on design needs. These custom properties need to be kept in place as they are used in various formulas (for example, to determine the `padding-top` value of the `<main>` section). The relevant variables and default values are as follows:
 
-```scss
+```css
 :root {
-  --header-top-height: #{rem(90)};
+   --header-top-height: #{rem(90)};
   --header-logo-width: #{rem(106)};
-  --header-main-menu-height: #{rem(100)};
+  --header-main-menu-height: #{rem(164)};
+  &:has(.site-header__top .site-header__utility),
+  &:has(.site-header__top .site-header__audience),
+  &:has(.site-header__top .site-header__ctas) {
+    --header-main-menu-height: #{rem(100)};
+  }
   @include mq($min, $lg_desktop) {
-    --header-top-height: #{rem(64)};
+    --header-top-height: 0rem;
     --header-logo-width: #{rem(212)};
+    &:has(.site-header__top .site-header__utility),
+    &:has(.site-header__top .site-header__audience),
+    &:has(.site-header__top .site-header__ctas) {
+      --header-top-height: #{rem(64)};
+    }
   }
 }
 ```
@@ -74,12 +99,7 @@ The mobile version for all variations is identical. A hamburger menu opens the p
 ([Description from wireframes](https://www.figma.com/proto/6rjiTrzRov6VwxFgwVPbXg/UX-Starter-Doc?page-id=1%3A98&node-id=141-699&viewport=755%2C325%2C0.08&t=eN5CbnlbijyARmGo-1&scaling=min-zoom&content-scaling=fixed&starting-point-node-id=355%3A13806)) This shows "Priority links", which are those deemed to be priority and featured outside of the hamburger menu. Clicking any of these links takes users directly to a page. These Priority links can be any link in the sitemap, not just Top Level pages. Clicking the Priority links operates by click. Clicking the hamburger button opens the full hamburger menu. The Audience menu operates by click to show Audience links. Clicking any of the Utility or Calls to Action links take users directly to a page.
 ![Site Header Hybrid](_media/site-header-hybrid.jpg)
 
-### Hamburger Variation
-
-([Description from wireframes](https://www.figma.com/proto/6rjiTrzRov6VwxFgwVPbXg/UX-Starter-Doc?page-id=1%3A98&node-id=141-699&viewport=755%2C325%2C0.08&t=eN5CbnlbijyARmGo-1&scaling=min-zoom&content-scaling=fixed&starting-point-node-id=355%3A13806)) This has all menu items collapsed into a hamburger menu.
-![Site Header Hamburger](_media/site-header-hamburger.jpg)
-
-### Popover Menu (Desktop - Hybrid and Hamburger)
+### Popover Menu (Desktop - Hybrid)
 
 ([Description from wireframes](https://www.figma.com/proto/6rjiTrzRov6VwxFgwVPbXg/UX-Starter-Doc?page-id=1%3A98&node-id=141-699&viewport=755%2C325%2C0.08&t=eN5CbnlbijyARmGo-1&scaling=min-zoom&content-scaling=fixed&starting-point-node-id=355%3A13806)) This shows the Primary Navigation, CTAs, Utility Navigation, and Audience Navigation. Clicking any of the CTAs, Utility, or Audience Links takes users to a page. Clicking any of the Primary Navigation links toggles that section label and then shows the Primary Navigation submenu with link to the parent page and links to child pages. The arrow is optional, as it is used to indicate if the menu link shows child links or not.
 ![Site Header Popover](_media/site-header-popover.jpg)

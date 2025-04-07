@@ -24,8 +24,8 @@ The Sass setup uses `@use` [(official documentation)](https://sass-lang.com/docu
     - `%caption` used for text styles on captions in various components (WYSIWYG images, videos, etc)
 
 - The **core directory** contains root styles, layout and typography related partials:
-  - **core/base.scss** - root styling:
-    - Custom properties/variables (under `:root` to be globally accessible)
+  - **core/variables.scss** - Custom properties/variables (under `:root` to be globally accessible)
+  - **core/base.scss** - 
     - `html`, `body`, `img`, etc
     - Helper classes (`.skip-link`, `.visible-for-screen-readers`, WYSIWYG image styles, etc)
   - **core/layout.scss** - main section, off-canvas, max-bound, and outer-padding
@@ -36,7 +36,7 @@ The Sass setup uses `@use` [(official documentation)](https://sass-lang.com/docu
 
 ## Print Styles
 
-A print-specific stylesheet is in use at `source/scss/print.css` to disable page elements irrelevant for printing (site header, site footer, subnav, etc) and to output the url of links within page body text.
+A print-specific stylesheet is in use at `source/scss/print.scss` to disable page elements irrelevant for printing (site header, site footer, subnav, etc) and to output the url of links within page body text.
 
 ## Custom Properties (Native CSS Variables)
 
