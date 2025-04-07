@@ -10,7 +10,7 @@
 
 
 <link rel="search" type="application/opensearchdescription+xml" title="idfive Developer Documentation" href="/opensearch.xml"><link rel="stylesheet" href="/assets/css/styles.cc4a0535.css">
-<script src="/assets/js/runtime~main.8083d43a.js" defer="defer"></script>
+<script src="/assets/js/runtime~main.f9936969.js" defer="defer"></script>
 <script src="/assets/js/main.7183f987.js" defer="defer"></script>
 </head>
 <body class="navigation-with-keyboard">
@@ -41,9 +41,9 @@
 <li>
 <p>The <strong>core directory</strong> contains root styles, layout and typography related partials:</p>
 <ul>
-<li><strong>core/base.scss</strong> - root styling:<!-- -->
+<li><strong>core/variables.scss</strong> - Custom properties/variables (under <code>:root</code> to be globally accessible)</li>
+<li><strong>core/base.scss</strong> -<!-- -->
 <ul>
-<li>Custom properties/variables (under <code>:root</code> to be globally accessible)</li>
 <li><code>html</code>, <code>body</code>, <code>img</code>, etc</li>
 <li>Helper classes (<code>.skip-link</code>, <code>.visible-for-screen-readers</code>, WYSIWYG image styles, etc)</li>
 </ul>
@@ -63,7 +63,7 @@
 </li>
 </ul>
 <h2 class="anchor anchorWithStickyNavbar_LWe7" id="print-styles">Print Styles<a href="#print-styles" class="hash-link" aria-label="Direct link to Print Styles" title="Direct link to Print Styles">​</a></h2>
-<p>A print-specific stylesheet is in use at <code>source/scss/print.css</code> to disable page elements irrelevant for printing (site header, site footer, subnav, etc) and to output the url of links within page body text.</p>
+<p>A print-specific stylesheet is in use at <code>source/scss/print.scss</code> to disable page elements irrelevant for printing (site header, site footer, subnav, etc) and to output the url of links within page body text.</p>
 <h2 class="anchor anchorWithStickyNavbar_LWe7" id="custom-properties-native-css-variables">Custom Properties (Native CSS Variables)<a href="#custom-properties-native-css-variables" class="hash-link" aria-label="Direct link to Custom Properties (Native CSS Variables)" title="Direct link to Custom Properties (Native CSS Variables)">​</a></h2>
 <h3 class="anchor anchorWithStickyNavbar_LWe7" id="how-to-use">How To Use<a href="#how-to-use" class="hash-link" aria-label="Direct link to How To Use" title="Direct link to How To Use">​</a></h3>
 <p>Globally scoped custom properties (aka variables) are added to the <code>:root</code> element in <strong>core/base.scss</strong>. For example, a color variable can be added with <code>--color-white: #fff;</code>. Then to apply the variable:</p>
