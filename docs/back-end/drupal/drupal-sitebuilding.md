@@ -4,8 +4,8 @@
 
 ### settings.php
 
-- A more advanced, and awesome way of setting up settings.php can be seen in [Multisite Config 201](https://vimeo.com/840496602/994689054a?share=copy).
-- Always remove commented out example code when possible. This example code is always still available at default.settings.php, but removing it from settings.php makes the file more condense, and it is easier to see what is actually being used.
+- A more advanced and awesome way of setting up settings.php can be seen in [Multisite Config 201](https://vimeo.com/840496602/994689054a?share=copy).
+- Always remove commented-out example code when possible. This example code is always still available at default.settings.php, but removing it from settings.php makes the file more condensed, and it is easier to see what is actually being used.
 - Always, if needed, include a settings.local.php, so that your local dev env can run differently: `if (file_exists($app_root . '/' . $site_path . '/settings.local.php')) {
   include $app_root . '/' . $site_path . '/settings.local.php';
 }`
@@ -16,7 +16,7 @@
 #### Example settings.php acquia multi-site conditional
 
 ```php
-  // Check/modify any acquia environment specific modifications needed.
+  // Check/modify any acquia environment-specific modifications needed.
   if (isset($_ENV['AH_SITE_ENVIRONMENT'])) {
     // Acquia specific stuff
   }
@@ -28,7 +28,7 @@
   }
 ```
 
-By loading in this way (globally for all local sites), all local dev sites get the more "dev env" settings, and you can still use settings.local.php for any actual local settings changes needed.
+By loading in this way (globally for all local sites), all local dev sites get more "dev env" settings, and you can still use settings.local.php for any changes needed to the local settings.
 
 #### Example settings.local.php, or development.settings.php
 
@@ -41,9 +41,6 @@ By loading in this way (globally for all local sites), all local dev sites get t
   * @file
   * Local development override configuration feature.
   */
-
-  assert_options(ASSERT_ACTIVE, TRUE);
-  \Drupal\Component\Assertion\Handle::register();
 
   $settings['container_yamls'][] = DRUPAL_ROOT . '/sites/development.services.yml';
   $config['system.logging']['error_level'] = 'verbose';
@@ -82,16 +79,16 @@ When possible, always add a development services.yml to the codebase. This will 
 
 #### Redirects
 
-If possible, high level URL redirects should be performed via settings.php, not in .htaccess. This is because .htaccess has the potential to be overridden during core updates.
+If possible, high-level URL redirects should be performed via settings.php, not in .htaccess. This is because .htaccess has the potential to be overridden during core updates.
 
 - All minor "old page to new page" redirects should be done via the redirect module.
-- This is for high level changes, like "x.mysite.edu and y.mysite.edu should all redirect to z.mysite.edu".
+- This is for high-level changes, like "x.mysite.edu and y.mysite.edu should all redirect to z.mysite.edu".
 - Be sure to wrap in a check for drush, so that drush requests are not redirected, via `if (!function_exists('drush_main')) {}`.
 
 ##### Example on acquia
 
 ```php
-// Check/modify any acquia environment specific modifications needed.
+// Check/modify any acquia environment-specific modifications needed.
 if (isset($_ENV['AH_SITE_ENVIRONMENT'])) {
   switch ($_ENV['AH_SITE_ENVIRONMENT']) {
     case 'prod':
@@ -109,19 +106,19 @@ if (isset($_ENV['AH_SITE_ENVIRONMENT'])) {
 
 ## idfive base theme
 
-The idfive base theme is intentionally pretty bare bones, but provides us with lots of behind the scenes functions we need. This theme is designed to act as a parent theme, and should never be enabled directly. See the [documentation](https://bitbucket.org/idfivellc/idfive-component-library-d8-theme) for how to best use this theme, and how to quickly and efficiently spin up a child theme for any client project.
+The idfive base theme is intentionally pretty bare bones, but provides us with lots of behind the scenes functions we need. This theme is designed to act as a parent theme and should never be enabled directly. See the [documentation](https://bitbucket.org/idfivellc/idfive-component-library-d8-theme) for how to best use this theme and how to quickly and efficiently spin up a child theme for any client project.
 
-It uses the core stable theme as a base (drupal assigns this automatically to all themes that do not specify a base). This is to ensure some level of backwards template compatibility throughout the drupal 7/8 life cycle.
+It uses the core stable theme as a base (Drupal assigns this automatically to all themes that do not specify a base). This is to ensure some level of backwards template compatibility throughout the Drupal life cycle.
 
 The docroot and actual folders may vary, depending on your codebase, but in general, adding the idfive base theme, and creating your custom child theme will look like:
 
 - `composer require idfive/idfive`
 - `cd docroot/themes/custom/idfive/starterkits`
-- `sudo bash generate_kit.sh` This will run a bash script, that prompts you for a human readable name, and a machine name for your custom child theme. From that, the script will generate a child theme, and install a fresh copy of the [idfive Component Libray](https://bitbucket.org/idfivellc/idfive-component-library) which is the preferred framework for all idfive projects.
-- enable your new child theme.
+- `sudo bash generate_kit.sh` This will run a bash script that prompts you for a human-readable name and a machine name for your custom child theme. From that, the script will generate a child theme and install a fresh copy of the [idfive Component Libray](https://bitbucket.org/idfivellc/idfive-component-library), which is the preferred framework for all idfive projects.
+- Enable your new child theme.
 - You will need to adjust .gitignore in the idfive-component-library to track the "build" folder if no CI is used.
 
-You may need to adjust folders/etc as stated above, depending on the projects composer setup. See the [documentation](https://bitbucket.org/idfivellc/idfive-component-library-d8-theme) for more information.
+You may need to adjust folders/etc as stated above, depending on the project's composer setup. See the [documentation](https://bitbucket.org/idfivellc/idfive-component-library-d8-theme) for more information.
 
 ### idfive base theme via the IAL
 
@@ -131,21 +128,21 @@ Install the [idfive Automation Library](https://bitbucket.org/idfivellc/idfive-a
 
 ## idfive ICL paragraphs module
 
-The [idfive Component Library D8 Paragraphs](https://bitbucket.org/idfivellc/idfive-component-library-d8-paragraphs) module, provides several common idfive ICL patterns as pre-made widgets, to add to a Kitchen Sink page.
+The [idfive Component Library D8 Paragraphs](https://bitbucket.org/idfivellc/idfive-component-library-d8-paragraphs) module, provides several common idfive ICL patterns as pre-made widgets to add to a Kitchen Sink page.
 
 The docroot and actual folders may vary, depending on your codebase, but in general, adding the idfive ICL Paragraphs widget is best done via composer:
 
 - `composer require idfive/idfive_paragraphs`
 - Add a paragraphs field to desired content, be sure the widget is "Paragraphs Experimental" in the form display.
-- Be sure to exclude certain ICL widget types so marked in their descriptions, from this field.
+- Be sure to exclude certain ICL widget types so marked in their descriptions from this field.
 
-This is intentionally bare bones, and simply designed to save time by adding a suite of common KS widgets from the ICL, such as tables accordions/etc.
+This is intentionally bare bones and simply designed to save time by adding a suite of common KS widgets from the ICL, such as tables accordions/etc.
 
 ### Extending ICL paragraphs
 
 #### Section/widget wrappers
 
-The preferred method for adding wrappers, ie sections, or whatever, to ICL widgets, is with a field template override of the field used to add the widgets. This lets us change per content type/etc if needed.
+The preferred method for adding wrappers, ie, sections, or whatever, to ICL widgets, is with a field template override of the field used to add the widgets. This lets us change per content type/etc if needed.
 
 For example, if KS widgets are being added via `field_basic_page_ks_widgets`, field--node--field_basic_page_ks_widgets.html.twig could have the following:
 
@@ -719,20 +716,20 @@ Before shipping custom themes and modules, run [drupal coder](https://www.drupal
 - Use phpcs: `phpcs --standard=Drupal --extensions=php,module,inc,install,test,profile,theme,css,info,txt,md MY_CUSTOM_MODULE` to check
 - And then automated fixes via phpcbf: `phpcbf --standard=Drupal --extensions=php,module,inc,install,test,profile,theme,css,info,txt,md MY_CUSTOM_MODULE`
 - Be sure to double check code valitity/etc.
-- Use `--ignore=static` to ignore front end code/etc in a themes static folder.
+- Use `--ignore=static` to ignore front end code/etc in a theme's static folder.
 - See [Advanced Usage](https://github.com/squizlabs/PHP_CodeSniffer/wiki/Advanced-Usage) for ignoring directories/etc.
 
 #### Drupal Check
 
-Install [drupal-check](https://github.com/mglaman/drupal-check), which will give you the ability to run checks on custom modules/code, to ensure you are not using any depreciated D8 functions that will be removed in D9/etc.
+Install [drupal-check](https://github.com/mglaman/drupal-check), which will give you the ability to run checks on custom modules/code to ensure you are not using any depreciated D8 functions that will be removed in D9/etc.
 
 - Install globally via composer.
 - Ensure the path or an alias is .bash_profile, ie `export PATH="$HOME/.composer/vendor/bin:$PATH"`
-- Then run via `drupal-check PATH/TO/YOUR/CUSTOM/CODE`. To note, you may need to run this from outside a lando or other folders in order for the paths to not get wonky.
+- Then run via `drupal-check PATH/TO/YOUR/CUSTOM/CODE`. Just so you know, you may need to run this from outside a lando or other folders in order for the paths to not get wonky.
 
 #### ESLint
 
-Generally speaking we do not usually care about using ESLint for most JS files, as we normally have these going into a theme based JS file, which has its own linters/builds/etc. If you do need to write vanilla D8 JS for a module though, this can be a very useful tool to help get JS files to drupal standards. ESLint is in core, you just need to install it in order to run it against specified files.
+Generally speaking, we do not usually care about using ESLint for most JS files, as we normally have these going into a theme-based JS file, which has its own linters/builds/etc. If you do need to write vanilla D8 JS for a module, though, this can be a very useful tool to help get JS files to Drupal standards. ESLint is in core, you just need to install it in order to run it against specified files.
 
 - `cd core && yarn install`
 - `core/node_modules/.bin/eslint PATH_TO_YOUR_CUSTOM_JS.js`
