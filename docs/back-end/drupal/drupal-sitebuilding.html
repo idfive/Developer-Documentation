@@ -10,7 +10,7 @@
 
 
 <link rel="search" type="application/opensearchdescription+xml" title="idfive Developer Documentation" href="/opensearch.xml"><link rel="stylesheet" href="/assets/css/styles.cc4a0535.css">
-<script src="/assets/js/runtime~main.884f01da.js" defer="defer"></script>
+<script src="/assets/js/runtime~main.b684cd7d.js" defer="defer"></script>
 <script src="/assets/js/main.7183f987.js" defer="defer"></script>
 </head>
 <body class="navigation-with-keyboard">
@@ -302,11 +302,15 @@ we pass along the NID of the node as an additional var to the view, which is set
 <li>See <a href="https://github.com/squizlabs/PHP_CodeSniffer/wiki/Advanced-Usage" target="_blank" rel="noopener noreferrer">Advanced Usage</a> for ignoring directories/etc.</li>
 </ul>
 <h4 class="anchor anchorWithStickyNavbar_LWe7" id="drupal-check">Drupal Check<a href="#drupal-check" class="hash-link" aria-label="Direct link to Drupal Check" title="Direct link to Drupal Check">​</a></h4>
-<p>Install <a href="https://github.com/mglaman/drupal-check" target="_blank" rel="noopener noreferrer">drupal-check</a>, which will give you the ability to run checks on custom modules/code to ensure you are not using any depreciated D8 functions that will be removed in D9/etc.</p>
+<p>Install <a href="https://github.com/mglaman/drupal-check" target="_blank" rel="noopener noreferrer">drupal-check</a>, which will give you the ability to run checks on custom modules/code to ensure you are not using any depreciated D8 functions that will be removed/etc. This static analysis tool will check for correctness (e.g. using a class that doesn&#x27;t exist), deprecation errors, and more.</p>
 <ul>
-<li>Install globally via composer.</li>
-<li>Ensure the path or an alias is .bash_profile, ie <code>export PATH=&quot;$HOME/.composer/vendor/bin:$PATH&quot;</code></li>
-<li>Then run via <code>drupal-check PATH/TO/YOUR/CUSTOM/CODE</code>. Just so you know, you may need to run this from outside a lando or other folders in order for the paths to not get wonky.</li>
+<li>Install locally in lando via composer. <code>lando composer require mglaman/drupal-check --dev</code></li>
+<li>Then run via <code>lando php vendor/bin/drupal-check PATH/TO/YOUR/CUSTOM/CODE</code>.</li>
+</ul>
+<h5 class="anchor anchorWithStickyNavbar_LWe7" id="examples">Examples<a href="#examples" class="hash-link" aria-label="Direct link to Examples" title="Direct link to Examples">​</a></h5>
+<ul>
+<li><code>lando php vendor/bin/drupal-check -d web/modules/custom/umd_terp_base</code> Check for depreciations in custom module</li>
+<li><code>lando php vendor/bin/drupal-check -d web/themes/custom/umd_terp</code> Check for depreciations in custom theme</li>
 </ul>
 <h4 class="anchor anchorWithStickyNavbar_LWe7" id="eslint">ESLint<a href="#eslint" class="hash-link" aria-label="Direct link to ESLint" title="Direct link to ESLint">​</a></h4>
 <p>Generally speaking, we do not usually care about using ESLint for most JS files, as we normally have these going into a theme-based JS file, which has its own linters/builds/etc. If you do need to write vanilla D8 JS for a module, though, this can be a very useful tool to help get JS files to Drupal standards. ESLint is in core, you just need to install it in order to run it against specified files.</p>
