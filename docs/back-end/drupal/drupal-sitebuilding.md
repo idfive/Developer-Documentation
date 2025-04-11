@@ -1,6 +1,6 @@
-# Drupal 8 Site Building
+# Drupal Site Building
 
-## General Requirements/Best practices
+## General Requirements/Best Practices
 
 ### settings.php
 
