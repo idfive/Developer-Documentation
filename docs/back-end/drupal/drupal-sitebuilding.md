@@ -721,11 +721,15 @@ Before shipping custom themes and modules, run [drupal coder](https://www.drupal
 
 #### Drupal Check
 
-Install [drupal-check](https://github.com/mglaman/drupal-check), which will give you the ability to run checks on custom modules/code to ensure you are not using any depreciated D8 functions that will be removed in D9/etc.
+Install [drupal-check](https://github.com/mglaman/drupal-check), which will give you the ability to run checks on custom modules/code to ensure you are not using any depreciated D8 functions that will be removed/etc. This static analysis tool will check for correctness (e.g. using a class that doesn't exist), deprecation errors, and more.
 
-- Install globally via composer.
-- Ensure the path or an alias is .bash_profile, ie `export PATH="$HOME/.composer/vendor/bin:$PATH"`
-- Then run via `drupal-check PATH/TO/YOUR/CUSTOM/CODE`. Just so you know, you may need to run this from outside a lando or other folders in order for the paths to not get wonky.
+- Install locally in lando via composer. `lando composer require mglaman/drupal-check --dev`
+- Then run via `lando php vendor/bin/drupal-check PATH/TO/YOUR/CUSTOM/CODE`.
+
+##### Examples
+
+- `lando php vendor/bin/drupal-check -d web/modules/custom/umd_terp_base` Check for depreciations in custom module
+- `lando php vendor/bin/drupal-check -d web/themes/custom/umd_terp` Check for depreciations in custom theme
 
 #### ESLint
 
