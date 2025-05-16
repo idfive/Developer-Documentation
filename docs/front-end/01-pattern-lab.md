@@ -2,27 +2,25 @@
 description: Overview of Front-end Library
 ---
 
-# ICL / Pattern Lab Starter
+# ICL (idfive Component Library)
 
-**A collection of components to be used to begin new front-end development projects.** This library is synced-up manually to the [Drupal Accelerator Site](https://dev-idfive-drupal-accelerator.pantheonsite.io/).
+**A collection of components to be used to begin new front-end development projects.** This library is synced-up manually to the [Drupal Accelerator](https://dev-idfive-drupal-accelerator.pantheonsite.io/) and to the [Wordpress Accelerator](https://dev-idfive-accelerator.pantheonsite.io/) sites.
+
+## Overview (What's Included)
+
+- [Pattern Lab](https://patternlab.io/) to display components and pages, specifically the [Node Version](https://github.com/pattern-lab/) with twig.
+- [Vite](https://vite.dev/) build tool, also includes:
+  - [PostCSS](https://postcss.org/)
+  - [Typescript](https://www.typescriptlang.org/)
+  - [ESBuild](https://esbuild.github.io/)
 
 ## Staging Site
 
 The library can be viewed on our [staging site](https://staging2.idfive.com/idfive-pattern-lab-starter/public/?p=pages-welcome) — **username and password are both `guest`**.
 
-## Download/Getting Started
+## Download A Copy
 
 To download the starter [visit the Bitbucket Repo Downloads - Tags](https://bitbucket.org/idfivellc/idfive-pattern-lab-starter/downloads/?tab=tags) and under "Download", select a zip file of the latest tag. Downloading this way as opposed to cloning the repo will remove the git tracking (so it can be connected to the new project) and ensure that the latest intended version is pulled (new versions tagged when ready for production).
-
-- [Official Pattern Lab documentation](https://patternlab.io/)
-- Using the Node version of pattern lab - [github](https://github.com/pattern-lab/
-
-## Interface
-
-patternlab-node). The site navigation is typically on the left side of the page (it can be moved to the top by selecting "switch layout", but the left side is the default). There are three main (iinitially collapsed) sections:
-
-- **Components** is a list of all available components - not in a page context
-- **Pages** contains fully built out pages, this is typically where review occurs
 
 ## Installation
 
@@ -39,14 +37,16 @@ In a terminal window at the root of the pattern lab starter - run the following 
 
 This will open the "Welcome page", changes made in code will automatically be refreshed/reflected in the browser.
 
-Typescript is being compiled and bundled using [esbuild](https://esbuild.github.io/).
-SASS is being compiled using [dart-sass](https://github.com/sass/dart-sass).
+## Interface
+
+patternlab-node). The site navigation is typically on the left side of the page (it can be moved to the top by selecting "switch layout", but the left side is the default). There are three main (iinitially collapsed) sections:
+
+- **Components** is a list of all available components - not in a page context
+- **Pages** contains fully built out pages, this is typically where review occurs
 
 ## Build
 
-**To build for production**, ensure that `npm run develop` has been run initially to build the sass files. JS is minified using [terser](https://github.com/terser/terser). CSS is minified using [minify](https://github.com/coderaiser/minify):
-
-- `npm run build:all`
+No build step is needed - the js and css are being built and optimized continuously
 
 ## Folder Structure
 
@@ -56,7 +56,7 @@ The source directory contains the main working areas for the library. More infor
 - **Data** contains global data, currently the starter library consists of `data.json` which holds data for global components such as the site-header and site-footer (this prevents the data from needing to be repeated for multiple instances). This can be re-organized/customized to suit developer needs
 - **Meta** contains the header and footer code that gets applied to all patterns and pages. `_head.twig` contains all of the html and header starting code and `_foot.twig` for footer and ending html code/tags - more info can be found [here](https://patternlab.io/docs/modifying-the-pattern-header-and-footer/)
 - **Patterns** contains the bulk of the code in use (components, core & pages). The three directories in here correlate to what is seen in the browser interface and are documented [above](pattern-lab#interface)
-- **CSS** contains the scss partial files, compiled into `index.scss` (see [css documentation](/docs/front-end/css) for more information)
+- **CSS** contains css partial files, compiled into `index.css` (see [css documentation](/docs/front-end/css) for more information)
 - **Fonts** is empty by default (Google Fonts are linked to in `_head.twig` for the sarter version), but local fonts can be added to this directory
 - **Images** contains all starter images, as well as icons and svgs
 - **JS** contains all typescript modules:

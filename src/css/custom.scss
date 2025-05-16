@@ -14,7 +14,6 @@
   // --ifm-color-primary-lighter: #359962;
   // --ifm-color-primary-lightest: #3cad6e;
 
-
   --ifm-color-primary: #6638b6;
   --ifm-color-primary-dark: #5c32a4;
   --ifm-color-primary-darker: #57309b;
@@ -25,9 +24,8 @@
 
   --ifm-code-font-size: 95%;
   --docusaurus-highlighted-code-line-bg: rgba(0, 0, 0, 0.1);
-
 }
-[data-theme='light'] {
+[data-theme="light"] {
   --ifm-navbar-background-color: #6638b6;
   --ifm-navbar-link-color: #fff;
   --ifm-navbar-link-hover-color: #ede939;
@@ -40,7 +38,7 @@
   }
 }
 /* For readability concerns, you should choose a lighter palette in dark mode. */
-[data-theme='dark'] {
+[data-theme="dark"] {
   --ifm-color-primary: #25c2a0;
   --ifm-color-primary-dark: #21af90;
   --ifm-color-primary-darker: #1fa588;
@@ -62,6 +60,47 @@ html {
     @media only screen and (min-width: 768px) {
       max-height: 600px;
       width: auto;
+    }
+  }
+}
+
+.markdown {
+  .tabs-container {
+    ul[role="tablist"] {
+      gap: 3px;
+      li[role="tab"] {
+        background-color: color-mix(
+          in srgb,
+          var(--ifm-color-primary-lightest) 15%,
+          transparent
+        );
+        border-radius: 0;
+        &:first-child {
+          border-top-left-radius: var(--ifm-global-radius);
+        }
+        &:last-child {
+          border-top-right-radius: var(--ifm-global-radius);
+        }
+        &:hover,
+        &:focus-visible {
+          background-color: color-mix(
+            in srgb,
+            var(--ifm-color-primary-lightest) 30%,
+            transparent
+          );
+        }
+      }
+    }
+    .margin-top--md {
+      margin: 0 !important;
+    }
+    div[role="tabpanel"] {
+      padding: 25px 30px;
+      background-color: color-mix(
+        in srgb,
+        var(--ifm-color-primary-lightest) 5%,
+        transparent
+      );
     }
   }
 }
