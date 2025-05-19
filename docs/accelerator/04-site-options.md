@@ -56,13 +56,13 @@ These settings show up on individual article pages. It is a way to have universa
 ### Header Notes
 
 <Tabs groupId="accelerator-versions-cms">
-  <TabItem value="drupal" label="Drupal" default>
+  <TabItem value="drupal-cms" label="Drupal" default>
 
 - No drupal specific settngs currently present.
 
   </TabItem>
 
-  <TabItem value="wp" label="WordPress">
+  <TabItem value="wp-cms" label="WordPress">
 
 ### Person
 
