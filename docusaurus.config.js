@@ -11,7 +11,7 @@ const darkCodeTheme = themes.dracula;
 /** @type {import('@docusaurus/types').Config} */
 const config = {
   title: 'idfive Developer Documentation',
-  tagline: 'Documentation for Developers',
+  tagline: 'Documentation for idfive Developers and Clients',
   favicon: 'img/favicon.png',
 
   // Set the production url of your site here
