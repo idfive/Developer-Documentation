@@ -252,18 +252,21 @@ Note that variant styles should be included after the default block styles to en
 
 ## Nesting
 
-<Tabs groupId="icl-versions">
-  <TabItem value="v2.0" label="ICL Version 2+ (Vite/PostCSS)" default>
-    (native nesting with postcss)
-  </TabItem>
+:::tip
 
-  <TabItem value="v1.0" label="ICL Version < 2 (SCSS)">
-    ### Sass Nesting With BEM
+**ICL Version 2+ (Vite/PostCSS) Note:**
 
-    Because BEM simulates nesting via class naming, actual nesting should hardly ever be necessary.
+- Native CSS nesting can be used for production using the same syntax as used in SASS - [Can I Use](https://caniuse.com/css-nesting)
+- [More info at
+  MDN](https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_nesting/Using_CSS_nesting)
+  about nesting.
+- PostCSS is targeting a specific set of browser versions, which will convert the syntax to non-nesting (depending on settings, currently this converts to non-nesting).
+  :::
+
+### Because BEM simulates nesting via class naming, actual nesting should hardly ever be necessary.
 
     ```css
-    // Bad, unnecessarily increases specificity causing overriding later to be difficult
+    /* Bad, unnecessarily increases specificity causing overriding later to be difficult */
     .foo {
       .foo__child {
         .foo__child-grandchild {
@@ -271,7 +274,7 @@ Note that variant styles should be included after the default block styles to en
       }
     }
 
-    // Good, all blocks and elements are the same level of specificity
+    /* Good, all blocks and elements are the same level of specificity */
     .foo {
     }
 
@@ -282,20 +285,7 @@ Note that variant styles should be included after the default block styles to en
     }
     ```
 
-    Another option using Sass would be to utilize its `&` operator to create child element classes within the base block's brackets without increasing specificity. However, this should be avoided as it makes tracking down styles based on the class name more difficult.
-
-    ```css
-    // Bad, searching for the child classes can be confusing using this syntax
-    .foo {
-      &__child {
-      }
-
-      &__child-grandchild {
-      }
-    }
-    ```
-
-    ### Overriding Default Element Styles With Modifier Classes
+### Overriding Default Element Styles With Modifier Classes
 
     When using a modifier class on the base block, child elements can have their default styles overridden by using the modifier class to increase specificity. Using Sass's nesting here makes sense as it allows each element's styles to be defined in a single place.
 
@@ -316,8 +306,22 @@ Note that variant styles should be included after the default block styles to en
     }
     ```
 
-  </TabItem>
-</Tabs>
+:::warning
+**ICL Version < 2 (SCSS) Note:**
+Sass has an option to utilize the `&` operator to create child element classes within the base block's brackets without increasing specificity. **However, this should be avoided as it makes tracking down styles based on the class name more difficult.**
+
+    ```css
+    /* Bad, searching for the child classes can be confusing using this syntax */
+    .foo {
+      &__child {
+      }
+
+      &__child-grandchild {
+      }
+    }
+    ```
+
+:::
 
 ## Grid & Flexbox
 
