@@ -16,7 +16,7 @@ import TabItem from "@theme/TabItem";
 
   </TabItem>
 
-  <TabItem value="wp" label="WordPress)">
+  <TabItem value="wp" label="WordPress">
 
 ## Adding/removing Content Types
 
