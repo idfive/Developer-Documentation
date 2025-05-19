@@ -7,7 +7,7 @@ import TabItem from "@theme/TabItem";
 
 # Overview
 
-**A collection of components to be used to begin new front-end development projects.** This library is synced-up manually to the [Drupal Accelerator](https://dev-idfive-drupal-accelerator.pantheonsite.io/) and to the [Wordpress Accelerator](https://dev-idfive-accelerator.pantheonsite.io/) sites.
+**A collection of components to be used to begin new front-end development projects.** This library is synced-up manually to the [Drupal Accelerator](https://dev-idfive-drupal-accelerator.pantheonsite.io/) and to the [Wordpress Accelerator](https://dev-idfive-accelerator.pantheonsite.io/) sites at the start of each project.
 
 The Accelerator project consists of both a WordPress, and Drupal website starter template, for a quick to customize, unique website that can be completed with much less development time to put together.
 
@@ -23,7 +23,7 @@ In this manner, we are free to focus more budget on custom, unique items and fun
     - This theme uses unical for events.
   </TabItem>
 
-  <TabItem value="wp" label="WordPress)">
+  <TabItem value="wp" label="WordPress">
    - [WordPress Starter](https://dev-idfive-accelerator.pantheonsite.io/): This dev site on pantheon is what is cloned at the start of all drupal projects.
    - This theme uses [The Events Calendar](https://theeventscalendar.com/products/wordpress-events-calendar) for events.
   </TabItem>

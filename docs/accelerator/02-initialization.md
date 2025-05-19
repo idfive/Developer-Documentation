@@ -1,5 +1,5 @@
 ---
-description: Initialization of idfive Accelerator
+description: Initialization of idfive Accelerator client projects
 ---
 
 import Tabs from "@theme/Tabs";
@@ -40,7 +40,7 @@ The first step is to create a new wordpress or drupal website in pantheon. In th
     - The cloned site’s lando.yml site will be identical to the original site. So be sure to change it, manually, to a new name as this can cause many issues both locally and remotely.
   </TabItem>
 
-  <TabItem value="wp" label="WordPress)">
+  <TabItem value="wp" label="WordPress">
    - Make sure you have Terminus installed. Installation instructions are [found here](https://docs.pantheon.io/terminus/install).
     - Install terminus site clone plugin. The following code will use terminus itself to install the plugin. There are alternative install methods [listed here](https://github.com/pantheon-systems/terminus-site-clone-plugin/blob/master/README.md).
     - `terminus self:plugin:install pantheon-systems/terminus-site-clone-plugin`
