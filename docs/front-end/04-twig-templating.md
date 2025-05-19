@@ -1,6 +1,7 @@
 ---
 description: Overview, Guidelines of Templating Language
 ---
+
 # Twig Templating
 
 The Pattern Lab Starter uses the twig template language (version 2 - [documentation link](https://twig.symfony.com/doc/2.x/)).
@@ -15,13 +16,13 @@ The Pattern Lab Starter uses the twig template language (version 2 - [documentat
   ```html
   {% if hero.image.desktop_src is not empty %}
   ```
-  allows us to check if a part of the corresponding data is "not empty" (which can be helpful if a variant is needed so the data can be replicated "empty" as [variants](#page-and-component-variants) pick up the data from their parents)
+  allows us to check if a part of the corresponding data is "not empty" (which can be helpful if a variant is needed so the data can be replicated "empty" as [variants](/docs/front-end/pattern-lab#variants-page--component) pick up the data from their parents)
   - The subnav is also optional in the hero:
   ```html
   {% if hero.subnav.subnav.items|length > 0 %} {% include
   "@components/subnav/subnav.twig" with hero.subnav %} {% endif %}
   ```
-  checking if the array has content using the `length` filter is also useful for [variants](#page-and-component-variants) by adding the "empty" array if the intention is to not output the subnav
+  checking if the array has content using the `length` filter is also useful for [variants](/docs/front-end/pattern-lab#variants-page--component) by adding the "empty" array if the intention is to not output the subnav
 
 ## For Loop
 

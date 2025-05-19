@@ -325,6 +325,56 @@ Sass has an option to utilize the `&` operator to create child element classes w
 
 :::
 
+## Using `@extend`
+
+<Tabs groupId="icl-versions">
+  <TabItem value="v2.0" label="ICL Version 2+ (Vite/PostCSS)" default>
+    - A PostCSS plugin [postcss-extend-rule](https://github.com/csstools/postcss-extend-rule), allows usage of `@extend` to copy classes between selectors
+    - Classes from any partial `.css` file can be extended, however - it's advisable to keep classess that are meant to be extended in **core/helpers.css** for consistency
+    - Syntax:
+      ```css
+      .class-example {
+        border: 1px solid red;
+      }
+      
+      .other-element {
+        @extend .class-example;
+      }
+      ```
+      Outputs to:
+      ```css
+      .other-element {
+        border: 1px solid red;
+      }
+      ```
+    - To apply multiple extends to one class, use the comma syntax:
+      ```css
+      .element {
+        @extend .sample-class-one, .sample-class-two;
+      }
+      ```
+  </TabItem>
+
+  <TabItem value="v1.0" label="ICL Version < 2 (SCSS)">
+  SASS @extends are set in the **abstracts/placeholder-selectors.scss** file.
+    ```css
+      %class-example {
+        border: 1px solid red;
+      }
+      
+      .other-element {
+        @extend %class-example;
+      }
+      ```
+      Outputs to:
+      ```css
+      .other-element {
+        border: 1px solid red;
+      }
+      ```
+  </TabItem>
+</Tabs>
+
 ## Grid & Flexbox
 
 These css tools can be used freely to create layouts. Flexbox is useful when the number of elements in a container is unknown and wrapping is desired or the content width is dyanmic or uknown. **Grid is preferable if possible** as it only requires styling the parent grid item as opposed to flexbox, which requires children to have properties set to achieve the layout. Useful link for grid syntax: [A Complete Guide to Flexbox | CSS-Tricks](https://css-tricks.com/snippets/css/a-guide-to-flexbox/).
