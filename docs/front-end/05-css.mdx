@@ -33,7 +33,7 @@ Using the "mobile first" methodology, where default CSS rules apply to the small
         - `.negate-outer-pad-x` this can be used to negate the outer-padding used on a page wrapper to make a component full-width (values/variables need updated to reflect outer-padding values/variables)
         - `.caption` used for text styles on captions in various components (WYSIWYG images, videos, etc)
 
-    - The **admin directory** contains just one file (**admin/admin.css**) - intended for admin/back-end styles. It's currently setup for Drupal, but can be adapated for other content management systems
+    - The **admin directory** contains one file (**admin/admin.css**) - intended for admin/back-end styles. It's currently setup for Drupal, but can be adapated for other content management systems
     - The **pages directory** - is for pages which require particular stylesheets (home, search, etc)
     - The **components directory** - contains all component stylesheets (accordion, image gallery, etc)
 
@@ -60,7 +60,7 @@ Using the "mobile first" methodology, where default CSS rules apply to the small
         - Helper classes (`.skip-link`, `.visible-for-screen-readers`, WYSIWYG image styles, etc)
       - **core/layout.scss** - main section, off-canvas, max-bound, and outer-padding
       - **core/typography.scss** - set the `body` base style, as well as `a`, `p`, `ul` & `ol`, as well as heading type styles
-    - The **admin directory** contains just one file (**admin/admin.scss**) - intended for admin/back-end styles. It's currently setup for Drupal, but can be adapated for other content management systems
+    - The **admin directory** contains one file (**admin/admin.scss**) - intended for admin/back-end styles. It's currently setup for Drupal, but can be adapated for other content management systems
     - The **pages directory** - is for pages which require particular stylesheets (home, search, etc)
     - The **components directory** - contains all component stylesheets (accordion, image gallery, etc)
 
@@ -152,7 +152,9 @@ All interactive elements need a hover and focus state and should all be transiti
 <Tabs groupId="icl-versions">
   <TabItem value="v2.0" label="ICL Version 2+ (Vite/PostCSS)" default>
   ### Using Pixels
-  (postcss converts to rems)
+  - In development, use pixels for _most_ fixed units (context matters here, there are exceptions, using viewport units for example)
+  - A PostCSS plugin [postcss-pxtorem](https://github.com/cuth/postcss-pxtorem) automatically converts the pixel units to REM units
+  - Ultimately REMs are used in produciton (after the conversion) to allow [site scaling](#site-scaling) to work (as well as being better for accessibility in general)
   </TabItem>
 
   <TabItem value="v1.0" label="ICL Version < 2 (SCSS)">
