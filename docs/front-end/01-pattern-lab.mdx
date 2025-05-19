@@ -2,17 +2,31 @@
 description: Overview of Front-end Library
 ---
 
+import Tabs from "@theme/Tabs";
+import TabItem from "@theme/TabItem";
+
 # ICL (idfive Component Library)
 
 **A collection of components to be used to begin new front-end development projects.** This library is synced-up manually to the [Drupal Accelerator](https://dev-idfive-drupal-accelerator.pantheonsite.io/) and to the [Wordpress Accelerator](https://dev-idfive-accelerator.pantheonsite.io/) sites.
 
 ## Overview (What's Included)
 
-- [Pattern Lab](https://patternlab.io/) to display components and pages, specifically the [Node Version](https://github.com/pattern-lab/) with twig.
-- [Vite](https://vite.dev/) build tool, also includes:
-  - [PostCSS](https://postcss.org/)
+<Tabs groupId="icl-versions">
+  <TabItem value="v2.0" label="ICL Version 2+ (Vite/PostCSS)" default>
+    - [Pattern Lab](https://patternlab.io/) to display components and pages, specifically the [Node Version](https://github.com/pattern-lab/) with twig
+    - [Vite](https://vite.dev/) build tool, also includes:
+      - [PostCSS](https://postcss.org/)
+      - [Typescript](https://www.typescriptlang.org/)
+      - [ESBuild](https://esbuild.github.io/)
+  </TabItem>
+
+  <TabItem value="v1.0" label="ICL Version < 2 (SCSS)">
+  - [Pattern Lab](https://patternlab.io/) to display components and pages, specifically the [Node Version](https://github.com/pattern-lab/) with twig
   - [Typescript](https://www.typescriptlang.org/)
   - [ESBuild](https://esbuild.github.io/)
+  - [Dart-sass](https://github.com/sass/dart-sass)
+  </TabItem>
+</Tabs>
 
 ## Staging Site
 
@@ -46,23 +60,54 @@ patternlab-node). The site navigation is typically on the left side of the page 
 
 ## Build
 
-No build step is needed - the js and css are being built and optimized continuously
+<Tabs groupId="icl-versions">
+  <TabItem value="v2.0" label="ICL Version 2+ (Vite/PostCSS)" default>
+    **No build step is needed** - the js and css are being built and optimized continuously. 
+    - Run `npm run develop` 
+  </TabItem>
+
+  <TabItem value="v1.0" label="ICL Version < 2 (SCSS)">
+    **To build for production**, ensure that `npm run develop` has been run initially to build the sass files. JS is minified using [terser](https://github.com/terser/terser). CSS is minified using [minify](https://github.com/coderaiser/minify):
+
+    - `npm run build:all`
+
+  </TabItem>
+
+</Tabs>
 
 ## Folder Structure
 
 The source directory contains the main working areas for the library. More information can be found [here](https://patternlab.io/docs/editing-pattern-lab-source-files/).
 
-- **Annotations** is not in use, but can be used as an alternate way of documenting components (insead of placing the documentation in the respective component folder)
-- **Data** contains global data, currently the starter library consists of `data.json` which holds data for global components such as the site-header and site-footer (this prevents the data from needing to be repeated for multiple instances). This can be re-organized/customized to suit developer needs
-- **Meta** contains the header and footer code that gets applied to all patterns and pages. `_head.twig` contains all of the html and header starting code and `_foot.twig` for footer and ending html code/tags - more info can be found [here](https://patternlab.io/docs/modifying-the-pattern-header-and-footer/)
-- **Patterns** contains the bulk of the code in use (components, core & pages). The three directories in here correlate to what is seen in the browser interface and are documented [above](pattern-lab#interface)
-- **CSS** contains css partial files, compiled into `index.css` (see [css documentation](/docs/front-end/css) for more information)
-- **Fonts** is empty by default (Google Fonts are linked to in `_head.twig` for the sarter version), but local fonts can be added to this directory
-- **Images** contains all starter images, as well as icons and svgs
-- **JS** contains all typescript modules:
-  - **components** contains individual modules for respective components (when required for functionality)
-  - **utilities** contains helpful accessibility functions that can be used to simply certain tasks
-  - **main.ts** imports all functions and calls init functions for each (this file gets compiled into one on build)
+<Tabs groupId="icl-versions">
+  <TabItem value="v2.0" label="ICL Version 2+ (Vite/PostCSS)" default>
+    - **Annotations** is not in use, but can be used as an alternate way of documenting components (insead of placing the documentation in the respective component folder)
+    - **Data** contains global data, currently the starter library consists of `data.json` which holds data for global components such as the site-header and site-footer (this prevents the data from needing to be repeated for multiple instances). This can be re-organized/customized to suit developer needs
+    - **Meta** contains the header and footer code that gets applied to all patterns and pages. `_head.twig` contains all of the html and header starting code and `_foot.twig` for footer and ending html code/tags - more info can be found [here](https://patternlab.io/docs/modifying-the-pattern-header-and-footer/)
+    - **Patterns** contains the bulk of the code in use (components, core & pages). The three directories in here correlate to what is seen in the browser interface and are documented [above](pattern-lab#interface)
+    - **CSS** contains css partial files, compiled into `index.css` (see [css documentation](/docs/front-end/css) for more information)
+    - **Fonts** is empty by default (Google Fonts are linked to in `_head.twig` for the sarter version), but local fonts can be added to this directory
+    - **Images** contains all starter images, as well as icons and svgs
+    - **JS** contains all typescript modules:
+      - **components** contains individual modules for respective components (when required for functionality)
+      - **utilities** contains helpful accessibility functions that can be used to simply certain tasks
+      - **main.ts** imports all functions and calls init functions for each (this file gets compiled into one on build)
+  </TabItem>
+
+  <TabItem value="v1.0" label="ICL Version < 2 (SCSS)">
+    - **Annotations** is not in use, but can be used as an alternate way of documenting components (insead of placing the documentation in the respective component folder)
+    - **Data** contains global data, currently the starter library consists of `data.json` which holds data for global components such as the site-header and site-footer (this prevents the data from needing to be repeated for multiple instances). This can be re-organized/customized to suit developer needs
+    - **Meta** contains the header and footer code that gets applied to all patterns and pages. `_head.twig` contains all of the html and header starting code and `_foot.twig` for footer and ending html code/tags - more info can be found [here](https://patternlab.io/docs/modifying-the-pattern-header-and-footer/)
+    - **Patterns** contains the bulk of the code in use (components, core & pages). The three directories in here correlate to what is seen in the browser interface and are documented [above](pattern-lab#interface)
+    - **CSS** contains the scss partial files, compiled into `index.scss` (see [css documentation](/docs/front-end/css) for more information)
+    - **Fonts** is empty by default (Google Fonts are linked to in `_head.twig` for the sarter version), but local fonts can be added to this directory
+    - **Images** contains all starter images, as well as icons and svgs
+    - **JS** contains all typescript modules:
+      - **components** contains individual modules for respective components (when required for functionality)
+      - **utilities** contains helpful accessibility functions that can be used to simply certain tasks
+      - **main.ts** imports all functions and calls init functions for each (this file gets compiled into one on build)
+  </TabItem>
+</Tabs>
 
 ## Data
 
