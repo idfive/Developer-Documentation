@@ -53,8 +53,6 @@ These settings show up on individual article pages. It is a way to have universa
 
 ## CMS Specific Settings
 
-### Header Notes
-
 <Tabs groupId="accelerator-versions-cms">
   <TabItem value="drupal-cms" label="Drupal" default>
 
