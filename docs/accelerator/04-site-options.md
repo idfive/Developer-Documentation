@@ -12,13 +12,13 @@ The global site options control many sitewide features of your Accelerator proje
 <Tabs groupId="accelerator-versions">
   <TabItem value="drupal" label="Drupal" default>
 
-- Viewable in [Theme Settings](https://dev-idfive-drupal-accelerator.pantheonsite.io/admin/appearance/settings/idfive_accelerator).
+    - Viewable in [Theme Settings](https://dev-idfive-drupal-accelerator.pantheonsite.io/admin/appearance/settings/idfive_accelerator).
 
   </TabItem>
 
   <TabItem value="wp" label="WordPress">
 
-  - Viewable in [Options](https://dev-idfive-accelerator.pantheonsite.io/wp-admin/admin.php?page=acf-options).
+    - Viewable in [Options](https://dev-idfive-accelerator.pantheonsite.io/wp-admin/admin.php?page=acf-options).
 
   </TabItem>
 
@@ -58,19 +58,19 @@ These settings show up on individual article pages. It is a way to have universa
 <Tabs groupId="accelerator-versions-cms">
   <TabItem value="drupal-cms" label="Drupal" default>
 
-- No drupal specific settngs currently present.
+    - No drupal specific settngs currently present.
 
   </TabItem>
 
   <TabItem value="wp-cms" label="WordPress">
 
-### Person
+    ### Person
 
-- Archive Page: Choose the page that displays all people in the site. This is used to set the “back link” on people detail pages.
+    - Archive Page: Choose the page that displays all people in the site. This is used to set the “back link” on people detail pages.
 
-### News
+    ### News
 
-- Archive Page: Choose the page that displays all news in the site. This is used to set the “back link” on news detail pages.
+    - Archive Page: Choose the page that displays all news in the site. This is used to set the “back link” on news detail pages.
 
   </TabItem>
 
