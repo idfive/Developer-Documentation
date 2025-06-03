@@ -147,3 +147,14 @@ The list view provides an accessible and mobile-friendly way to view events usin
 
 </TabItem>
 </Tabs>
+
+## Plugin References
+
+- [FullCalendar Documentation](https://fullcalendar.io/docs)
+- [FullCalendar GitHub Repository](https://github.com/fullcalendar/fullcalendar)
+- [VCalendar Documentation](https://vcalendar.io/)
+- [VCalendar GitHub Repository](https://github.com/nathanreyes/v-calendar)
+
+## Developer Resources
+
+- [Internal Dev Site](https://dev-idfive-drupal-calendar.pantheonsite.io/events)
