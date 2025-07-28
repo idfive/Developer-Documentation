@@ -30,6 +30,7 @@ The answer, unfortunately, is "it depends". Generally, though, you would want to
 - Any other documentation or direction provided by the project manager of the project or the client.
 - General starter template available on [the idfive drive](https://docs.google.com/document/d/1MJ_71PAhHpMDymWEEzJdioVVqBmuPyQXyE0On1LJicQ/edit?usp=sharing).
 - WordPress Accelerator template available on [the idfive drive](https://docs.google.com/document/d/1XNHXvTpyR7pLjRAuYaFdUIIzE9t3AqzGra8KsBYjo5M).
+- Drupal Accelerator template available on [the idfive drive](https://docs.google.com/document/d/1ytesayKtYS6sdZYIrr1n1l-Pt1QsdK7F9NqU01vAtDo).
 
 ## What to include
 
