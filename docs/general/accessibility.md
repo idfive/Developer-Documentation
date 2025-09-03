@@ -8,7 +8,7 @@ At idfive, accessibility isn't an afterthought—it's a foundational principle t
 
 ### WCAG 2.2 AA Compliance
 
-All idfive projects adhere to the [Web Content Accessibility Guidelines (WCAG) 2.2 AA](https://www.w3.org/WAI/WCAG22/quickref/) standards, the most current internationally recognized guidelines for web accessibility. These comprehensive standards ensure our digital products are:
+All idfive projects adhere to the [Web Content Accessibility Guidelines (WCAG) 2.2 AA](https://www.w3.org/WAI/WCAG22/quickref/) standards, the most current W3C Recommendation for web accessibility (published October 2023). We implement WCAG 2.2 AA where possible while ensuring full compatibility with WCAG 2.1 AA, as many organizations and regulations still reference 2.1 as their baseline standard. These comprehensive standards ensure our digital products are:
 
 - **Perceivable**: Information and user interface components must be presentable to users in ways they can perceive
 - **Operable**: User interface components and navigation must be operable by all users
@@ -28,8 +28,8 @@ WCAG 2.2 includes important new success criteria that address modern accessibili
 ### Additional Standards
 
 - **WAI-ARIA (Web Accessibility Initiative - Accessible Rich Internet Applications)**: We implement ARIA attributes to enhance the accessibility of dynamic content and complex UI components
-- **Section 508**: For government and public sector clients, we ensure compliance with federal accessibility requirements
-- **ADA (Americans with Disabilities Act)**: Our designs support legal compliance requirements for digital accessibility
+- **Section 508**: For government and public sector clients, we align with federal accessibility requirements. Note that Section 508 is formally tied to WCAG 2.0 AA, though many agencies informally adopt higher standards
+- **ADA (Americans with Disabilities Act)**: Our designs support ADA-related accessibility requirements and align with WCAG standards commonly used in legal contexts. While the ADA doesn't specify digital standards, courts often reference WCAG guidelines as benchmarks
 
 ## Our Accessibility Approach
 
@@ -77,7 +77,7 @@ We implement comprehensive focus management including:
 #### Color and Contrast
 
 - All text meets WCAG 2.2 AA color contrast requirements (4.5:1 for normal text, 3:1 for large text)
-- Non-text elements like icons, form inputs, and interactive components meet 3:1 contrast ratio requirements
+- Essential non-text elements like focus indicators, form controls, and interactive components meet 3:1 contrast ratio requirements where required for understanding or interaction
 - Information is never conveyed through color alone
 - Interactive elements have clear visual states (hover, focus, active)
 
@@ -90,7 +90,7 @@ We implement comprehensive focus management including:
 
 #### Touch and Interaction Design
 
-- Touch targets meet minimum size requirements (24x24 CSS pixels for WCAG 2.2)
+- Touch targets meet minimum size requirements (24x24 CSS pixels for WCAG 2.2, with exceptions for spacing or alternative interaction methods)
 - Drag-and-drop functionality includes alternative interaction methods
 - Gesture-based controls provide single-pointer alternatives
 - Motion-triggered actions can be disabled when not essential
@@ -123,8 +123,10 @@ We use industry-leading automated testing tools to catch accessibility issues ea
 
 #### Continuous Monitoring
 
-- **SiteImprove**: Enterprise-level accessibility monitoring for ongoing compliance
+- **SiteImprove**: Enterprise-level accessibility monitoring for potential accessibility issues and regressions
 - **W3C Markup Validator**: Ensures semantic HTML compliance
+
+**Important Note**: Automated testing tools typically identify 30-40% of potential accessibility issues. They are essential for catching common problems but cannot replace manual testing and human evaluation for comprehensive accessibility assurance.
 
 ### Manual Testing Process
 
@@ -272,10 +274,10 @@ Beyond doing the right thing, accessibility compliance:
 
 ### SEO and Performance Benefits
 
-Accessible websites typically perform better in search engines because:
+While our primary focus is on providing equitable access for all users, many accessibility practices also contribute to search engine optimization and site performance:
 
-- Semantic HTML is easier for search engines to understand
-- Fast loading times (required for accessibility) improve search rankings
+- Semantic HTML structure improves content organization for both users and search engines
+- Optimized loading times (required for accessibility) may contribute to better user experience metrics
 - Clear heading structures help search engines index content
 - Alternative text provides additional content for search indexing
 
@@ -299,6 +301,16 @@ If your organization has an in-house accessibility team or specific compliance r
 4. **Establish review checkpoints** throughout the development process
 
 This collaborative approach ensures our deliverables align with your internal standards while maintaining our commitment to WCAG 2.2 AA compliance as a baseline.
+
+### Understanding CMS and Platform Limitations
+
+It's important to note that while we follow accessibility best practices in our custom development, some accessibility challenges may arise from:
+
+- **CMS core limitations**: Base functionality in content management systems may have accessibility gaps that require workarounds or alternative approaches
+- **Third-party modules/plugins**: Contributed or commercial extensions may not always meet accessibility standards
+- **Legacy content and systems**: Existing content or system constraints may require phased accessibility improvements
+
+We work transparently with clients to identify these limitations and develop strategies to address or mitigate accessibility barriers within project constraints.
 
 Our goal is to make the web more accessible, one project at a time. Whether you're starting a new website or improving an existing one, we're here to ensure your digital presence welcomes and serves all users effectively while meeting your organization's specific accessibility standards.
 
