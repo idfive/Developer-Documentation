@@ -20,7 +20,6 @@ All idfive projects adhere to the [Web Content Accessibility Guidelines (WCAG) 2
 WCAG 2.2 includes important new success criteria that address modern accessibility needs:
 
 - **Focus Not Obscured**: Ensures focused elements remain visible and not hidden by other content
-- **Dragging Movements**: Provides alternatives to drag-and-drop interactions for users with motor impairments
 - **Target Size**: Requires minimum touch target sizes for mobile and touch interfaces
 - **Consistent Help**: Ensures help mechanisms appear in consistent locations across pages
 - **Redundant Entry**: Reduces cognitive load by avoiding unnecessary re-entry of information
@@ -71,7 +70,6 @@ We implement comprehensive focus management including:
 
 - Consistent help mechanisms positioned in the same relative location across pages
 - Alternative methods for drag-and-drop interactions
-- Single-pointer alternatives for multi-point or path-based gestures
 - Authentication processes that don't rely solely on cognitive function tests
 
 ### Visual Design Accessibility
@@ -306,4 +304,4 @@ Our goal is to make the web more accessible, one project at a time. Whether you'
 
 ---
 
-*For technical implementation details, developers can reference our [Front-end Accessibility Guidelines](/docs/front-end/accessibility) and [Component Library documentation](/docs/front-end/pattern-lab).*
+_For technical implementation details, developers can reference our [Front-end Accessibility Guidelines](/docs/front-end/accessibility) and [Component Library documentation](/docs/front-end/pattern-lab)._
