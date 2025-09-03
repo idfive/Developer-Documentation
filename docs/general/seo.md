@@ -15,7 +15,7 @@ In order to have structured page content (ie, an event) display properly in Goog
 
 The ICL / Pattern Lab Starter contains event tracking for video plays. In the file **video-embed.ts** (located at `source/js/components/video-embed.ts`), data is sent to the dataLayer object in order to be tracked by Google Tag Manager.
 
-Outside of the class, the property `dataLayer` is added to the `window` in order to prevent a Tyepscript error:
+Outside of the class, the property `dataLayer` is added to the `window` in order to prevent a TypeScript error:
 
 ```javascript
 declare global {

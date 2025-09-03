@@ -105,7 +105,7 @@ Generally speaking, we do not usually care about using ESLint for most JS files,
 
 ## Related Documentation
 
-- [Drupal Site Building](./drupal-sitebuilding.md) - Core site building practices
-- [Drupal Custom Development](./drupal-custom-development.md) - Development patterns and best practices
-- [Drupal Content Architecture](./drupal-content-architecture.md) - Views, queries, and content patterns
-- [Drupal Media & Images](./drupal-media-images.md) - Media handling and image optimization
+- [Custom Development](/docs/back-end/drupal/drupal-custom-development)
+- [Content Architecture](/docs/back-end/drupal/drupal-content-architecture)
+- [Testing in Drupal](/docs/back-end/drupal/drupal-testing)
+- [Media & Images](/docs/back-end/drupal/drupal-media-images)

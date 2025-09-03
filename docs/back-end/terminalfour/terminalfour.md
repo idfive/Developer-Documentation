@@ -61,7 +61,7 @@ As an example, we'll look at how an Accordion component might be created. You'd 
 
 The "Accordion" Content Type's "text/html" layout would most likely look something like this:
 
-```
+```html
 <div class="accordion"></div>
 ```
 
@@ -69,7 +69,7 @@ The "Accordion" Content Type's "text/html" layout would most likely look somethi
 
 Since these sections need to be sourced from a Navigation object in order to be output properly inside the `.accordion` element of the parent "Accordion" content entity, in this case we'd omit the "text/html" layout entirely to prevent T4 from outputting the sections on its own. Instead, we'd create a layout named something like "text/section" that looks like this:
 
-```
+```html
 <div class="accordion__section">
   <button class="accordion__section-label">
     <t4 type="content" name="Label" output="normal" modifiers="striptags, htmlentities" />
@@ -84,7 +84,7 @@ Since these sections need to be sourced from a Navigation object in order to be 
 
 Once those Content Types have been created, you'd need to create a Navigation Object to source the "Accordion Section" entities to be output inside the "Accordion" entity included within the same Section as those "Accordion Section" entities. In this case, we could use Top Content, set the Fetch Method to "Use current", specify "Accordion Section" as the Content type, and "text/section" as the Content layout. Once this is created, we need to update the "text/html" layout of the "Accordion" Content Type to include this Navigation object. The template would now look like this:
 
-```
+```html
 <div class="accordion">
   <t4 type="navigation" id="123" />
 </div>
@@ -96,3 +96,9 @@ Finally, in order to use it on a page, you'd create an "Accordion" entity inside
 
 - [Navigation objects cheatsheet](https://github.com/anthonybarsotti/keele-nav-objects-cheatsheet) This includes recipes for things like selective/conditional output.
 - [Terminalfour Knowledge Base](https://docs.terminalfour.com/documentation/)
+
+## Related Documentation
+
+- [General Best Practices](/docs/general/best-practices)
+- [Performance Guidelines](/docs/front-end/performance)
+- [JavaScript & TypeScript](/docs/front-end/javascript-typescript)

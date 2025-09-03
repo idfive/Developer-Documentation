@@ -18,6 +18,13 @@ It is important to remember that some tests (behavioral mainly) require fully fu
 
 Any and all of these can be integrated into a CI for the client, or run ad-hoc as needed. Testing level TBD by project scope.
 
+## Related Documentation
+
+- [Custom Development](/docs/back-end/drupal/drupal-custom-development)
+- [Deployment Standards](/docs/back-end/drupal/drupal-deployment-standards)
+- [Site Building](/docs/back-end/drupal/drupal-sitebuilding)
+- [Performance](/docs/back-end/drupal/drupal-performance)
+
 ## Core testing frameworks
 
 Drupal has 4 different types of core testing frameworks that will stick around through D9. There is some overlap in functionality between the different frameworks. They may be referred to by different names depending on how you run them and in what context you're talking about them, but in general:
@@ -38,7 +45,7 @@ At idfive we choose to focus on Unit, and Functional tests for the types of site
 
 ### Basic codebase example setup
 
-```
+```text
 MY_MODULE
   src
     MyClass.php
@@ -50,7 +57,7 @@ MY_MODULE
         MyClassTest.php
   MY_MODULE.module
   MY_MODULE.info.yml
-  ```
+```
 
 #### Keep in mind
 

@@ -89,6 +89,6 @@ For a professional WordPress site, especially one we are building and intend to 
 ## Related Documentation
 
 - [Platform Partners Overview](./overview.md) - Comprehensive overview of hosting and platform partner options
-- [Drupal Site Building](../back-end/drupal/drupal-sitebuilding.md) - Core Drupal development practices
-- [WordPress Development](../back-end/wordpress/) - WordPress-specific development guidelines
+- [Drupal Site Building](/docs/back-end/drupal/drupal-sitebuilding) - Core Drupal development practices
+- [WordPress Development](/docs/back-end/wordpress) - WordPress-specific development guidelines
 

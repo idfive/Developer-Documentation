@@ -1,4 +1,37 @@
-# Drupal 8 General Codebase
+# Drupal
+
+Drupal is idfive's primary content management system for enterprise-level websites. This section contains comprehensive documentation for Drupal development, site building, and maintenance.
+
+## Quick Navigation
+
+### Getting Started
+
+- [Site Building](/docs/back-end/drupal/drupal-sitebuilding) - Essential setup and configuration
+- [Environment Setup](/docs/back-end/drupal/drupal-environment) - Local development environment  
+- [Helpful Commands](/docs/back-end/drupal/drupal-helpful-commands) - Quick reference for common tasks
+
+### Development
+
+- [Custom Development](/docs/back-end/drupal/drupal-custom-development) - Theme and module development best practices
+- [Content Architecture](/docs/back-end/drupal/drupal-content-architecture) - Views, content types, and data structure
+- [Media & Images](/docs/back-end/drupal/drupal-media-images) - Image handling and optimization
+- [Testing](/docs/back-end/drupal/drupal-testing) - Unit, functional, and behavioral testing
+
+### Configuration & Deployment
+
+- [Configuration Management](/docs/back-end/drupal/drupal-config-management) - Config import/export workflows
+- [Deployment Standards](/docs/back-end/drupal/drupal-deployment-standards) - Code quality and deployment practices
+- [Performance](/docs/back-end/drupal/drupal-performance) - Performance optimization techniques
+- [Caching](/docs/back-end/drupal/drupal-caching) - Caching strategies and implementation
+
+### Migration & Legacy
+
+- [Drupal 7 to 9 Migration](/docs/back-end/drupal/drupal-seven-migration) - Migration workflows
+- [Legacy Drupal](/docs/back-end/drupal/drupal-legacy) - Maintaining older Drupal sites
+
+---
+
+## Drupal 8+ General Codebase
 
 Unless specifically directed, all new D8 sites should attempt to use a composer based workflow for updates, and the [idfive Component Library](https://bitbucket.org/idfivellc/idfive-component-library) for the frontend. Some sites for specific clients, require different, specific workflows. This is not a substitute for that, rather, simply defines our "standard go-to's".
 
@@ -13,7 +46,7 @@ Unless specifically directed, all new D8 sites should attempt to use a composer 
 
 Although exact setup will vary by client and environment, the ideal idfive d8 scaffolding resembles the following:
 
-```
+```text
   Site Root
     composer.json | that wiill not be overwritten, where custom modules/etc can be added
     web/docroot | where all core and custom code lives

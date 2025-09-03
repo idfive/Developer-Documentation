@@ -2,13 +2,15 @@
 
 See https://www.drupal.org/docs/upgrading-drupal/upgrade-using-drush. These are notes to be more sussed out on next run.
 
-This approach uses lando to create a seperate DB locally.
+This approach uses lando to create a separate DB locally.
 
 - `lando composer require drupal/migrate_plus`
 - `lando composer require drupal/migrate_tools`
 - `lando composer require drupal/migrate_file`
 
-Eaxmple lando.yml:
+## Setup
+
+### Example lando.yml
 
 ```yml
 name: mywebsite
@@ -27,7 +29,7 @@ services:
     portforward: true
 ```
 
-example setings.php:
+### Example settings.php
 
 ```php
 $databases['migrate']['default'] = [
@@ -42,6 +44,8 @@ $databases['migrate']['default'] = [
 ];
 ```
 
+## Migration Process
+
 - Download the D7 DB, and install into lando locally via `lando db-import --host=d7db --user=drupal7db MY_DB.sql`.
 - View the available migrations to later run: `lando drush migrate:upgrade --legacy-db-key=migrate --legacy-root=https://MY-SITE.com --configure-only`.
 - `lando drush migrate:status`
@@ -55,3 +59,9 @@ $databases['migrate']['default'] = [
 - "Migration MIGRATION_NAME is busy with another operation: Importing": `lando drush migrate-reset-status MIGRATION_NAME`, resets that operation to idle in order to rerun.
 - "The "ENTITY" entity type does not exist": See if modules enabled
 - Files not Importing: run `lando drush migrate-import upgrade_d7_file` directly
+
+## Related Documentation
+
+- [Drupal Legacy](/docs/back-end/drupal/drupal-legacy)
+- [Drupal Environment Setup](/docs/back-end/drupal/drupal-environment)
+- [General Lando Documentation](/docs/general/lando)

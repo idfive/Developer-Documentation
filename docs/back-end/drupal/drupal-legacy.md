@@ -15,3 +15,9 @@ Several legacy D7 projects utilized these "first stabs" at an in-house library, 
 ### WYSIWYG Plugins
 
 Pre Paragraphs adoption, several projects were done with complex custom WYSIWYG plugins. These should be ported to paragraphs on any project possible.
+
+## Related Documentation
+
+- [Drupal 7 to 9 Migration](/docs/back-end/drupal/drupal-seven-migration)
+- [Site Building](/docs/back-end/drupal/drupal-sitebuilding)
+- [Custom Development](/docs/back-end/drupal/drupal-custom-development)
