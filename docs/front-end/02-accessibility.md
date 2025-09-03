@@ -25,7 +25,7 @@ All pages/templates should be tested using these three tools:
 The free version of the [Chrome Extension](https://chromewebstore.google.com/detail/siteimprove-accessibility/djcglbmbegflehmbfleechkjhmedcopn) does a great job finding issues and determining where they're located on the page and in the code. This is the preferred accessibility checker as of February 2024 - but running all three checkers documented on this page is required to cast a wide enough net to capture all issues.
 ![Siteimprove Accessibility Checker](_media/accessibility-siteimprove-extension.jpg)
 
-The Siteimprove checker will rely on the developer to change the state of the page and re-check. For exmaple run it on page load, after opening the nav, after resizing, after opening a subnav, etc. The more states that can be tested, the more thorough the search will be.
+The Siteimprove checker will rely on the developer to change the state of the page and re-check. For example run it on page load, after opening the nav, after resizing, after opening a subnav, etc. The more states that can be tested, the more thorough the search will be.
 
 ### AXE Dev Tools - Web Accessibility Testing
 
@@ -146,7 +146,7 @@ A sighted keyboard user must be provided with a visual indicator of the element 
 
 ### Hidden Elements
 
-Hidden elements should not be able to be tabbed to. The typescript file \*\*accessibility.tss (located at `source/js/utilities/accessibility.ts`) contains a Mutation Observer that watch for elements with aria-hidden or hidden attribute change and updates the tabindex for focusable children of the target element. This _should_ handle disabling keyboard tabbing for hidden elements, but we need to ensure that `aria-hidden` is bieng set, and that it's working by testing thoroughly.
+Hidden elements should not be able to be tabbed to. The typescript file **accessibility.ts** (located at `source/js/utilities/accessibility.ts`) contains a Mutation Observer that watch for elements with aria-hidden or hidden attribute change and updates the tabindex for focusable children of the target element. This _should_ handle disabling keyboard tabbing for hidden elements, but we need to ensure that `aria-hidden` is being set, and that it's working by testing thoroughly.
 
 ### Tabbing index
 

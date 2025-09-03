@@ -2,12 +2,12 @@
 
 ## "Soft" offboarding
 
-When a project ends and no retainer or post-launch services are requested, the possibility of future work remains. When we "off-board" a client this way, we still retain the following information: 
+When a project ends and no retainer or post-launch services are requested, the possibility of future work remains. When we "off-board" a client this way, we still retain the following information:
 
 - CMS credentials
 - hosting/SFTP credentials
 
-### Cleanup steps 
+### Cleanup steps
 
  - Deactivate any pipelines in Buddy to prevent accidental file writes to the client server
 

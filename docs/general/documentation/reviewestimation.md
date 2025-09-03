@@ -2,7 +2,7 @@
 
 Many times, team members will ask you to "review" a wireframe/design, or to "estimate" a client request. This in itself can be hard to understand sometimes, as many things will probably be a bit undefined. It is often required, for the dev team to prod taskers, in order to provide more clarity of the request, or for details needed in order to provide an estimate. This is not pushback, it is in an effort to better give folks what they are asking for, and ensure all is understood moving forward.
 
-To ensure we give taskers what they need to move forward, we first need to ensure all involved understand what, specifically, they are requesting you do. 
+To ensure we give taskers what they need to move forward, we first need to ensure all involved understand what, specifically, they are requesting you do.
 
 ### What idfive expects dev team members to provide, may include the following
 

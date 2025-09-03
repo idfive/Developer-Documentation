@@ -43,7 +43,7 @@ Using the "mobile first" methodology, where default CSS rules apply to the small
     The Sass setup uses `@use` [(official documentation)](https://sass-lang.com/documentation/at-rules/use/) and `@forward` [(official documentation)](https://sass-lang.com/documentation/at-rules/forward/) rules to load Sass stylesheet partials.
 
     - The **entrypoint file** is `index.scss` (located at `source/scss/index.scss`), which uses `@use` to combine the partials.
-    - Partials within the **abstracts directory** are using `@forward` to ensure all of the (typically not output) rules are available accross all stylesheets:
+    - Partials within the **abstracts directory** are using `@forward` to ensure all of the (typically not output) rules are available across all stylesheets:
 
       - **abstracts/functions.scss** - sass math functions, currently contains the function to convert `rem(pixel-value)` to correct rem value
       - **abstracts/media-queries.scss** - sass mixins, currently contains the media query mixin

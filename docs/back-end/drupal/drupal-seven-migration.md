@@ -47,7 +47,7 @@ $databases['migrate']['default'] = [
 - `lando drush migrate:status`
 - `lando drush migrate:import --all`
 - Import all d7 `lando drush migrate:import --tag="Drupal 7"`
-- Reset `lando drush migrate-rollback --all`   
+- Reset `lando drush migrate-rollback --all`
 
 ## Troubleshooting
 
