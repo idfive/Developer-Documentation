@@ -1,5 +1,18 @@
 # Planning Client CMS trainings
 
+## Platform-Specific Training Guides
+
+For detailed, platform-specific training documentation, see:
+
+- **[Drupal Accelerator CMS Training](./drupal-accelerator-cms-training.md)** - Comprehensive training guide for idfive Drupal Accelerator sites
+- **[WordPress Accelerator CMS Training](./wordpress-accelerator-cms-training.md)** - Comprehensive training guide for idfive WordPress Accelerator sites
+
+> **Note:** Both the Drupal and WordPress Accelerator repositories include a `TRAINING_OVERVIEW.md` file as a starter template that can be customized for specific client projects.
+
+---
+
+## General Training Overview
+
 While these vary by client, below is a simple start to a basic CMS training for a client. This will obviously need to be added to/modified for more complex sites.
 
 This is a general outline. Specifics can be tailored to, to better serve the audince in say an hour long training.
