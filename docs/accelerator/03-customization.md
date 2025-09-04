@@ -1,26 +1,5 @@
 ---
-description: Customization    ## Adding/removing Content Types
-
-    The WordPress Accelerator includes these content types by default:
-    - Pages (`page`) - Static content with hierarchical structure
-    - Posts (`post`) - Blog posts and news articles  
-    - People (`idfive_person`) - Staff profiles and team member pages
-    - Alerts (`alert`) - Site-wide notifications and important messages
-
-    ### Removing Content Types
-
-    - **Events/calendar**: This is controlled by "The Events Calendar" plugin. Simply disable plugin.
-    - **Forms**: This is gravity forms plugin. Simply disable plugin, and add any form plugin desired.
-    - **People**:
-      - Remove any existing content.
-      - Remove custom post type: wp-content/themes/idfive-rapid-starter/inc/custom-post-type.php
-      - Remove the include: `include('inc/custom-post-type.php');` from functions.php if needed.
-      - Remove any blocks in use that reference people, or adjust them.
-    
-    ### Adding Custom Post Types
-    - Add CPT to: wp-content/themes/idfive-rapid-starter/inc/custom-post-type.php
-    - Create any widgets and templates desired.
-    - See [WordPress Accelerator CMS Training](/docs/general/documentation/cms-training/wordpress-accelerator-cms-training) for detailed content type documentationccelerator client projects
+description: Customization of idfive Accelerator client projects
 ---
 
 import Tabs from "@theme/Tabs";
@@ -51,16 +30,26 @@ import TabItem from "@theme/TabItem";
 
     ## Adding/removing Content Types
 
-    - Events/calendar. This is controlled by the “The Events Calendar” plugin. Simply disable plugin.
-    - Forms. This is gravity forms plugin. Simply disable plugin, and add any form plugin desired.
-    - People:
-    - Remove any existing content.
-    - Remove custom post type: wp-content/themes/idfive-rapid-starter/inc/custom-post-type.php
-    - Remove the include: `include(‘inc/custom-post-type.php’);` from functions.php if needed.
-    - Remove any blocks in use that reference people, or adjust them.
-    - Adding Custom Post Types:
-    Add CPT to: wp-content/themes/idfive-rapid-starter/inc/custom-post-type.php
+    The WordPress Accelerator includes these content types by default:
+    - Pages (`page`) - Static content with hierarchical structure
+    - Posts (`post`) - Blog posts and news articles  
+    - People (`idfive_person`) - Staff profiles and team member pages
+    - Alerts (`alert`) - Site-wide notifications and important messages
+
+    ### Removing Content Types
+
+    - **Events/calendar**: This is controlled by "The Events Calendar" plugin. Simply disable plugin.
+    - **Forms**: This is gravity forms plugin. Simply disable plugin, and add any form plugin desired.
+    - **People**:
+      - Remove any existing content.
+      - Remove custom post type: wp-content/themes/idfive-rapid-starter/inc/custom-post-type.php
+      - Remove the include: `include('inc/custom-post-type.php');` from functions.php if needed.
+      - Remove any blocks in use that reference people, or adjust them.
+    
+    ### Adding Custom Post Types
+    - Add CPT to: wp-content/themes/idfive-rapid-starter/inc/custom-post-type.php
     - Create any widgets and templates desired.
+    - See [WordPress Accelerator CMS Training](/docs/general/documentation/cms-training/wordpress-accelerator-cms-training) for detailed content type documentation
 
     ## Creating a new ACF custom block
 

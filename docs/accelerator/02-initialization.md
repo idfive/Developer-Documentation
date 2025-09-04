@@ -1,9 +1,11 @@
 ---
-description: Initialization of idfive Accelerator client projects
+description: Initialization of idfive Accelerator client project
 ---
 
 import Tabs from "@theme/Tabs";
 import TabItem from "@theme/TabItem";
+
+
 
 # Initialization
 
@@ -13,14 +15,14 @@ For new accelerator based sites, we will loosely follow these general steps:
 - Clone the Accelerator Pantheon Repo (WP or Drupal specific) to New Client Sandbox
 - Ensure that work gets pushed to Dev
 - Make any known changes to site settings, such as:
- - Site Name
- - Site Emails
- - Address/info in footer (where built into theme)
- - Etc.
+  - Site Name
+  - Site Emails
+  - Address/info in footer (where built into theme)
+  - Etc.
 - Add any users defined by Project AE.
 - Remove sample content and pages
- - Be sure to leave sample Kitchen Sink/Component showcase pages for future QC and reference
- - Ensure specialty pages like events, people, and news, if present in wires/designs, remain and are put in proper location. Note that events/calendar will need to live at top level. More notes on calendar page itself.
+  - Be sure to leave sample Kitchen Sink/Component showcase pages for future QC and reference
+  - Ensure specialty pages like events, people, and news, if present in wires/designs, remain and are put in proper location. Note that events/calendar will need to live at top level. More notes on calendar page itself.
 - If IA exists, can assist in “Initial Site Stubout”, ensuring things like main pages get to correct places in main menu/etc, and changing/adding links in correct places to match design/ia.
 - Change social media links to go to correct client locations.
 
@@ -35,6 +37,7 @@ After technical setup is complete, consider the content management aspects:
 - **Sample Content**: Leave educational content and component examples for client reference during training
 
 For detailed content management training materials, see:
+
 - [Drupal Accelerator CMS Training](/docs/general/documentation/cms-training/drupal-accelerator-cms-training)
 - [WordPress Accelerator CMS Training](/docs/general/documentation/cms-training/wordpress-accelerator-cms-training)
 
@@ -66,6 +69,6 @@ The first step is to create a new wordpress or drupal website in pantheon. In th
   </TabItem>
 </Tabs>
 
-## IMPORTANT.
+## Important Note
 
 If you use `lando init` to copy the project from pantheon to your local machine, lando will automatically update your lando.yml to an updated machine site name and id. However if you clone the site to your machine using git, the cloned site’s lando.yml site will be identical to the original site. So be sure to change it, manually, to a new name as this can cause many issues both locally and remotely.
