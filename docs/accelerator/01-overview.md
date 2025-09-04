@@ -33,3 +33,9 @@ In this manner, we are free to focus more budget on custom, unique items and fun
 ## Training Resources:
 
 - Prefab videos can be seen here, which can be useful when training clients/etc: [drive]( https://drive.google.com/drive/u/0/folders/1_VaRB8jf3zD-sbukrUPyLLYnYqU3hfTY).
+
+### CMS Training Documentation
+
+- **[Drupal Accelerator CMS Training](/docs/general/documentation/cms-training/drupal-accelerator-cms-training)** - Comprehensive training guide for client CMS training sessions on Drupal Accelerator sites
+- **[WordPress Accelerator CMS Training](/docs/general/documentation/cms-training/wordpress-accelerator-cms-training)** - Comprehensive training guide for client CMS training sessions on WordPress Accelerator sites
+- **[General CMS Training Guidelines](/docs/general/documentation/cms-training/client-cms-training)** - Framework and best practices for conducting client CMS training sessions

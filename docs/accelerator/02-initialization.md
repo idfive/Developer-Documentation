@@ -19,10 +19,24 @@ For new accelerator based sites, we will loosely follow these general steps:
  - Etc.
 - Add any users defined by Project AE.
 - Remove sample content and pages
- - Be sure to leave [Example KS page](https://dev-idfive-accelerator.pantheonsite.io/kitchen-sink/), for future QC.
- - Ensure specialty pages like events, people, and news, if present in wires/designs, remain and are put in proper location. Note that events/calendar will need to live at toop level. More notes on calendar page itself.
+ - Be sure to leave sample Kitchen Sink/Component showcase pages for future QC and reference
+ - Ensure specialty pages like events, people, and news, if present in wires/designs, remain and are put in proper location. Note that events/calendar will need to live at top level. More notes on calendar page itself.
 - If IA exists, can assist in “Initial Site Stubout”, ensuring things like main pages get to correct places in main menu/etc, and changing/adding links in correct places to match design/ia.
 - Change social media links to go to correct client locations.
+
+## Content Management Setup
+
+After technical setup is complete, consider the content management aspects:
+
+- **User Training**: Plan for client CMS training using the [CMS Training Documentation](/docs/general/documentation/cms-training/client-cms-training)
+- **Content Types Review**: Ensure all content types match project requirements (see platform-specific training guides)
+- **Menu Structure**: Configure menu locations based on design requirements
+- **Site Options**: Update global site options including logos, contact information, and social media links
+- **Sample Content**: Leave educational content and component examples for client reference during training
+
+For detailed content management training materials, see:
+- [Drupal Accelerator CMS Training](/docs/general/documentation/cms-training/drupal-accelerator-cms-training)
+- [WordPress Accelerator CMS Training](/docs/general/documentation/cms-training/wordpress-accelerator-cms-training)
 
 ## Setup and clone in Pantheon steps
 
