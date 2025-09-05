@@ -35,6 +35,29 @@ The global site options control many sitewide features of your Accelerator proje
 - Hybrid menu, show additional links: Only shows if "Hybrid Menu".
 - Additional Links: If hybrid menu, and "show additional links" both chosen, individual links can be set here.
 
+## Navigation Management
+
+<Tabs groupId="accelerator-versions-nav">
+  <TabItem value="drupal-nav" label="Drupal" default>
+
+    ### Menu Configuration
+    
+    - **Hide Top Level Pages**: Configure main navigation to hide specific top-level pages from appearing in the primary navigation menu while keeping them accessible via direct URLs.
+    - **Menu Structure**: Organize hierarchical menu items and manage their visibility in the main navigation.
+
+  </TabItem>
+
+  <TabItem value="wp-nav" label="WordPress">
+
+    ### Menu Configuration
+    
+    - **Hide Top Level Pages**: Configure main navigation to hide specific top-level pages from appearing in the primary navigation menu while keeping them accessible via direct URLs.
+    - **Menu Structure**: Organize hierarchical menu items through the WordPress menu system and manage their visibility.
+
+  </TabItem>
+
+</Tabs>
+
 ## Site Footer
 
 - Footer Logo: This will allow you to upload the logo that will appear in the footer.

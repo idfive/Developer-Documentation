@@ -12,6 +12,10 @@ Overview of Unical
 This Unical includes two integrated calendar views powered by FullCalendar and custom Vue.js components:
 - **Month View**
 - **List View**
+
+## Design Resources
+
+- **[UniCal Prototype](https://www.figma.com/proto/J3ysB89ldPIQO0LTADpUaf/%F0%9F%8F%83%E2%80%8D%E2%99%80%EF%B8%8F-Accelerator-Wireframes?page-id=1%3A98&node-id=4061-16966&p=f&viewport=161%2C257%2C0.02&t=OerC0i33QOF5IPYb-1&scaling=min-zoom&content-scaling=fixed&starting-point-node-id=355%3A13806)** - Interactive prototype showing UniCal functionality and design patterns
 <Tabs groupId="calendar-views">
   <TabItem value="month" label="Month View" default>
 

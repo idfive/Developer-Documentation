@@ -15,6 +15,12 @@ The general expectation is that by using prebuilt, and pre-integrated components
 
 In this manner, we are free to focus more budget on custom, unique items and functionality for clients, and rely on proven stock features where unique components are not required.
 
+## Design Resources
+
+- **[Accelerator Wireframes Figma File](https://www.figma.com/design/J3ysB89ldPIQO0LTADpUaf/%F0%9F%8F%83%E2%80%8D%E2%99%80%EF%B8%8F-Accelerator-Wireframes?m=auto&t=PnhZtJzrKXWlxv2m-1)** - Complete wireframe system for Accelerator projects
+- **[Templates, Content Types, and Views Prototype](https://www.figma.com/proto/J3ysB89ldPIQO0LTADpUaf/%F0%9F%8F%83%E2%80%8D%E2%99%80%EF%B8%8F-Accelerator-Wireframes?page-id=1%3A98&node-id=355-13806&p=f&viewport=161%2C257%2C0.02&t=OerC0i33QOF5IPYb-1&scaling=min-zoom&content-scaling=fixed&starting-point-node-id=355%3A13806)** - Interactive prototype showing content structure
+- **[Navigation & Alert Documentation Prototype](https://www.figma.com/proto/J3ysB89ldPIQO0LTADpUaf/%F0%9F%8F%83%E2%80%8D%E2%99%80%EF%B8%8F-Accelerator-Wireframes?page-id=4053%3A7918&node-id=4053-7953&viewport=258%2C357%2C0.13&t=5ZQ7GLbhsUl0EaIo-1&scaling=min-zoom&content-scaling=fixed&starting-point-node-id=4053%3A7953)** - Navigation patterns and alert system documentation
+
 ## Details
 
 <Tabs groupId="accelerator-versions">
@@ -24,8 +30,10 @@ In this manner, we are free to focus more budget on custom, unique items and fun
   </TabItem>
 
   <TabItem value="wp" label="WordPress">
-   - [WordPress Starter](https://dev-idfive-accelerator.pantheonsite.io/): This dev site on pantheon is what is cloned at the start of all drupal projects.
-   - This theme uses [The Events Calendar](https://theeventscalendar.com/products/wordpress-events-calendar) for events.
+   - [WordPress Starter](https://dev-idfive-accelerator.pantheonsite.io/): This dev site on pantheon is what is cloned at the start of all WordPress projects.
+   - This theme uses [The Events Calendar](https://theeventscalendar.com/products/wordpress-events-calendar) (free version) for events.
+   - Forms are handled by [Gravity Forms](https://www.gravityforms.com/) plugin.
+   - 404 error handling is managed through a dedicated 404 plugin.
   </TabItem>
 </Tabs>
 
