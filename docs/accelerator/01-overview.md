@@ -27,6 +27,7 @@ In this manner, we are free to focus more budget on custom, unique items and fun
   <TabItem value="drupal" label="Drupal" default>
     - [Drupal Starter](https://dev-idfive-drupal-accelerator.pantheonsite.io/): This dev site on pantheon is what is cloned at the start of all drupal projects.
     - This theme uses unical for events.
+    - [TechScan Starter](https://docs.google.com/document/d/1ytesayKtYS6sdZYIrr1n1l-Pt1QsdK7F9NqU01vAtDo/edit?tab=t.0).
   </TabItem>
 
   <TabItem value="wp" label="WordPress">
@@ -34,6 +35,7 @@ In this manner, we are free to focus more budget on custom, unique items and fun
    - This theme uses [The Events Calendar](https://theeventscalendar.com/products/wordpress-events-calendar) (free version) for events.
    - Forms are handled by [Gravity Forms](https://www.gravityforms.com/) plugin.
    - 404 error handling is managed through a dedicated 404 plugin.
+    - [TechScan Starter](https://docs.google.com/document/d/1XNHXvTpyR7pLjRAuYaFdUIIzE9t3AqzGra8KsBYjo5M/edit?tab=t.0).
   </TabItem>
 </Tabs>
 
