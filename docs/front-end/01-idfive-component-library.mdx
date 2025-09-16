@@ -12,7 +12,7 @@ import TabItem from "@theme/TabItem";
 ## Overview (What's Included)
 
 <Tabs groupId="icl-versions">
-  <TabItem value="v3.0" label="ICL Version 3+ (Astro)" default>
+  <TabItem value="v3.0" label="ICL Version 3+ (Astro)">
     - [Astro](https://astro.build/) static site generator framework
     - Includes (out of the box):
       - [Vite](https://vite.dev/)
@@ -38,7 +38,7 @@ import TabItem from "@theme/TabItem";
 
 ## Staging Site
 
-The library can be viewed on our [staging site](https://staging2.idfive.com/idfive-pattern-lab-starter/public/?p=pages-welcome) — **username and password are both `guest`**.
+The library can be viewed on our [Netlify site](https://idfive-component-library.netlify.app/).
 
 ## Download A Copy
 
@@ -48,28 +48,50 @@ To download the starter [visit the Bitbucket Repo Downloads - Tags](https://bitb
 
 Node.js is the backbone of our frontend build process. Node Version Manager (NVM) is used to manage versioning [(install instructions from GitHub)](https://github.com/nvm-sh/nvm#installing-and-updating):
 
-- [Version 19.0.0](https://nodejs.org/en/blog/release/v19.0.0) is use for the most up to date version of the Pattern Lab Starter (all Pattern Lab projects)
+- [Version 20.19.0](https://nodejs.org/en/blog/release/v20.19.0) is the latest version used with the Astro version of the ICL
+- [Version 19.0.0](https://nodejs.org/en/blog/release/v19.0.0) is used for last version of the Pattern Lab Starter (all Pattern Lab projects)
 - [Version 12.20.0](https://nodejs.org/en/blog/release/v12.20.0) Is used for most older Fractal projects
 
-In a terminal window at the root of the pattern lab starter - run the following commands:
+**In a terminal window at the root of the ICL - run the following commands:**
 
-- `nvm use`
-- `npm install`
-- `npm run develop`
+<Tabs groupId="icl-versions">
+  <TabItem value="v3.0" label="ICL Version 3+ (Astro)">
+    - `nvm use` 
+    - `npm install` 
+    - `npm run dev`
+  </TabItem>
+  <TabItem value="v2.0" label="ICL Version 2+ (Vite/PostCSS)">
+    - `nvm use` 
+    - `npm install` 
+    - `npm run develop`
+  </TabItem>
+  <TabItem value="v1.0" label="ICL Version < 2 (SCSS)">
+    - `nvm use` 
+    - `npm install` 
+    - `npm run fractal`
+  </TabItem>
+</Tabs>
 
 This will open the "Welcome page", changes made in code will automatically be refreshed/reflected in the browser.
 
 ## Interface
 
-patternlab-node). The site navigation is typically on the left side of the page (it can be moved to the top by selecting "switch layout", but the left side is the default). There are three main (iinitially collapsed) sections:
-
-- **Components** is a list of all available components - not in a page context
-- **Pages** contains fully built out pages, this is typically where review occurs
-
+<Tabs groupId="icl-versions">
+  <TabItem value="v3.0" label="ICL Version 3+ (Astro)">
+    The ICL Pages and Component list is on the left side of the page:
+    - **Components** is a list of all available components - not in a page context
+    - **Pages** contains fully built out pages, this is typically where review occurs (opens in new tabs)
+  </TabItem>
+  <TabItem value="v2.0" label="ICL Version < 3 (Pattern Lab)">
+    The ICL Pages and Component list is typically on the left side of the page (it can be moved to the top by selecting "switch layout", but the left side is the default):
+    - **Components** is a list of all available components - not in a page context
+    - **Pages** contains fully built out pages, this is typically where review occurs
+  </TabItem>
+</Tabs>
 ## Build
 
 <Tabs groupId="icl-versions">
-  <TabItem value="v3.0" label="ICL Version 3+ (Astro)" default>
+  <TabItem value="v3.0" label="ICL Version 3+ (Astro)">
     - Run `npm run build`  
     - To preview the build (`/dist` directory) run `npm run preview`
   </TabItem>
@@ -80,17 +102,14 @@ patternlab-node). The site navigation is typically on the left side of the page 
 
   <TabItem value="v1.0" label="ICL Version < 2 (SCSS)">
     **To build for production**, ensure that `npm run develop` has been run initially to build the sass files. JS is minified using [terser](https://github.com/terser/terser). CSS is minified using [minify](https://github.com/coderaiser/minify):
-
     - `npm run build:all`
-
   </TabItem>
-
 </Tabs>
 
 ## Folder Structure
 
 <Tabs groupId="icl-versions">
-  <TabItem value="v3.0" label="ICL Version 3+ (Astro)" default>
+  <TabItem value="v3.0" label="ICL Version 3+ (Astro)">
     - **dist** is the build folder, the static assets and pages are re-created here when `npm run build` is run
     - **public** static folder where images and favicons (any assets needed) can be placed and accessed as needed
     - **src**:
@@ -141,130 +160,271 @@ patternlab-node). The site navigation is typically on the left side of the page 
 
 ### Component Data
 
-Data on the component level is structured in stored in the same directory as the component's `twig` file. For example, the button-set component's twig template (at `source/_patterns/components/buttons-links/button-set.twig`):
+<Tabs groupId="icl-versions">
+  <TabItem value="v3.0" label="ICL Version 3+ (Astro)">
+    Data on the component level is structured in stored in the same directory as the component's `.astro` file. For example, the button-set component's astro template:
+    ```jsx title="src/components/button-link-set/Button-Link-Set.astro"
+      ---
+      const { buttonLinkSet } = Astro.props;
+      import data from './button-link-set.json';
+      const buttonLinkSetData = buttonLinkSet || data.button_link_set;
+      import Button from '../button/Button.astro';
+      import PrimaryLink from '../primary-link/Primary-Link.astro';
+      ---
 
-```html
-<div class="button-set">
-  <ul>
-    {% for button in button_set.buttons %}
-    <li>{% include "@components/buttons-links/button.twig" with button %}</li>
-    {% endfor %}
-  </ul>
-</div>
-```
+      <div class="button-link-set">
+        <ul>
+          {buttonLinkSetData.type === "button" ? (
+            buttonLinkSetData.items.map((button: any) => (
+              <li>
+                <Button button={button.button} />
+              </li>
+            ))
+          ) : buttonLinkSetData.type === "link" ? (
+            buttonLinkSetData.items.map((link: any) => (
+              <li>
+                <PrimaryLink primaryLink={link.primary_link || link.button} />
+              </li>
+            ))
+          ) : null}
+        </ul>
+      </div>
+    ```
+    **Note:** as seen in the example, components can be nested within other components
 
-**Note:** as seen in the example, components can be nested within other components
+    The corresponding component data can be found in json file in the same directory at `./button-link-set.json`, called in the line `import data from './button-link-set.json';`
 
-The corresponding component data can be found in json file in the same directory at `source/_patterns/components/buttons-links/button-set.json`:
-
-```json
-{
-  "button_set": {
-    "buttons": [
-      {
-        "button": {
-          "text": "Button One",
-          "url": "https://idfive.com/"
-        }
+    ```json title="src/components/button-link-set/button-link-set.json"
+    {
+      "button_set": {
+        "buttons": [
+          {
+            "button": {
+              "text": "Button One",
+              "url": "https://idfive.com/"
+            }
+          }
+          // rest of json data
+        ]
       }
-      // rest of json data
-    ]
-  }
-}
-```
+    }
+    ```
 
-The json data object should be giving a name similar to the component ("button-set" in this case), in order to call it properly when included on a page.
+    The json data object should be named similarly to the component ("button_set" in this case), in order to call it properly when included on a page.
+
+  </TabItem>
+  <TabItem value="v2.0" label="ICL Version < 3 (Pattern Lab)">
+    Data on the component level is structured in stored in the same directory as the component's `twig` file. For example, the button-set component's twig template (at `source/_patterns/components/buttons-links/button-set.twig`):
+
+    ```html
+    <div class="button-set">
+      <ul>
+        {% for button in button_set.buttons %}
+        <li>{% include "@components/buttons-links/button.twig" with button %}</li>
+        {% endfor %}
+      </ul>
+    </div>
+    ```
+
+    **Note:** as seen in the example, components can be nested within other components
+
+    The corresponding component data can be found in json file in the same directory at `source/_patterns/components/buttons-links/button-set.json`:
+
+    ```json
+    {
+      "button_set": {
+        "buttons": [
+          {
+            "button": {
+              "text": "Button One",
+              "url": "https://idfive.com/"
+            }
+          }
+          // rest of json data
+        ]
+      }
+    }
+    ```
+
+    The json data object should be named similarly to the component ("button_set" in this case), in order to call it properly when included on a page.
+
+  </TabItem>
+</Tabs>
 
 ### Page Data
 
-#### General Page Data
+<Tabs groupId="icl-versions">
+  <TabItem value="v3.0" label="ICL Version 3+ (Astro)">
+    Each page has a corresponding json file. The Kitchen Sink page (`src/pages/[kitchenSink].astro`) data is in the same directory (`src/data/kitchen-sink/kitchen-sink.json`). The json file starts with:
+    ```json title="src/data/kitchen-sink/kitchen-sink.json"
+    {
+      "title": "Kitchen Sink",
+    // rest of json data
+    ```
 
-Each page also similarly a corresponding json file. The Kitchen Sink page (`source/_patterns/pages/kitchen-sink.twig`) data is in the same directory (`source/_patterns/pages/kitchen-sink.json`). The json file starts with:
+    - The title corresponds to the `<title>` attribute
 
-```json
-{
-  "title": "Kitchen Sink",
-// rest of json data
-```
+    #### Including Components on a Page With Unique Data
+    - To include a component on a page the syntax is `<ComponentName componentName={data.page_component_name.component_name}></ComponentName>`
+    - For example - calling the button-set component:
+    ```jsx
+    <ButtonLinkSet buttonLinkSet={data.kitchen_sink_button_set.button_link_set}></ButtonLinkSet>
+    ```
+    - The `with` portion allows for a unique instances of the data (so that multiple instances can be called with different data), give it a logical name (it can be the same name as the component itself - but depending on the context can be confusing)
+    - In the Kitchen Sink json file, this would appear as:
 
-- The title corresponds to the `<title>` attribute
-- The body class will get applied so that custom template/page styling can be accomplished.
-
-#### Including Components on a Page With Unique Data
-
-- To include a component on a page the syntax is `{% include "@path-to-component" with name_of_data %}`
-- For example - calling the button-set component:
-
-```html
-{% include "@components/buttons-links/button-set.twig" with
-kitchen_sink_button_set %}
-```
-
-- The `with` portion allows for a unique instances of the data (so that multiple instances can be called with different data), give it a logical name (it can be the same name as the component itself - but depending on the context can be confusing)
-- In the Kitchen Sink json file, this would appear as:
-
-```json
-{
-  "title": "Kitchen Sink",
-  //  other json data
-  "kitchen_sink_button_set": {
-    "button_set": {
-      "buttons": [
-        {
-          "button": {
-            "text": "Button One",
-            "url": "https://idfive.com/"
-          }
-        },
-        {
-          "button": {
-            "text": "Button Two",
-            "url": "https://idfive.com/"
-          }
+    ```json title="src/data/kitchen-sink/kitchen-sink.json"
+    {
+      "title": "Kitchen Sink",
+      //  other json data
+      "kitchen_sink_button_set": {
+        "button_set": {
+          "buttons": [
+            {
+              "button": {
+                "text": "Button One",
+                "url": "https://idfive.com/"
+              }
+            },
+            {
+              "button": {
+                "text": "Button Two",
+                "url": "https://idfive.com/"
+              }
+            }
+          ]
         }
-      ]
+      }
+      // rest of json data
     }
-  }
-  // rest of json data
-}
-```
+    ```
+
+  </TabItem>
+  <TabItem value="v2.0" label="ICL Version < 3 (Pattern Lab)">
+    Each page has a corresponding json file. The Kitchen Sink page (`source/_patterns/pages/kitchen-sink.twig`) data is in the same directory (`source/_patterns/pages/kitchen-sink.json`). The json file starts with:
+    ```json
+    {
+      "title": "Kitchen Sink",
+    // rest of json data
+    ```
+
+    - The title corresponds to the `<title>` attribute
+
+    #### Including Components on a Page With Unique Data
+
+    - To include a component on a page the syntax is `{% include "@path-to-component" with name_of_data %}`
+    - For example - calling the button-set component:
+
+    ```html
+    {% include "@components/buttons-links/button-set.twig" with
+    kitchen_sink_button_set %}
+    ```
+
+    - The `with` portion allows for a unique instances of the data (so that multiple instances can be called with different data), give it a logical name (it can be the same name as the component itself - but depending on the context can be confusing)
+    - In the Kitchen Sink json file, this would appear as:
+
+    ```json
+    {
+      "title": "Kitchen Sink",
+      //  other json data
+      "kitchen_sink_button_set": {
+        "button_set": {
+          "buttons": [
+            {
+              "button": {
+                "text": "Button One",
+                "url": "https://idfive.com/"
+              }
+            },
+            {
+              "button": {
+                "text": "Button Two",
+                "url": "https://idfive.com/"
+              }
+            }
+          ]
+        }
+      }
+      // rest of json data
+    }
+    ```
+
+  </TabItem>
+</Tabs>
 
 ## Variants (Page & Component)
+<Tabs groupId="icl-versions">
+  <TabItem value="v3.0" label="ICL Version 3+ (Astro)">
+    **Currently only page variations are supported. Component variations may become supported at a later time.**
 
-Pages and components can have variants displayed without duplicating the twig file. This concept is referred to as a psuedo-pattern in the [Pattern Lab documentation](https://patternlab.io/docs/using-pseudo-patterns/). The syntax is:
+    In order for an Astro page to support variations, the page name must be contained in brackets []. For example, the Kitchen Sink page is called `[kitchenSink].astro`. In the front matter (at the top of the template between the `---` and closing `---`), the following code is used to support and create variations:
+    ```jsx title="/src/pages/[examplePageName].astro"
+      // import the deep merge utility to merge json files
+      import { deepMerge } from '../icl-utils';
 
-```html
-patternName~pseudo-pattern-name.json
-```
+      export async function getStaticPaths() {
+        
+        // Import JSON files
+        const pageNameData = await import('../data/page-name/page-name.json');
+        const pageNameVariationData = await import('../data/page-name/page-name-variation.json');
+        
+        // Use the first declared data as the default/base data
+        const defaultData = pageNameData.default;
 
-An example in our library is the hero at `source/_patterns/components/hero/hero.twig`, which has variations (with and without image, with and without subnav, and all combinations). The hero json file outputs a subnav if it is present - so to output this in Pattern Lab a json file called `hero~no-subnav.json` is created in the same directory at `source/_patterns/components/hero/hero~no-subnav.json`, with an empty subnav:
+        return [
+          // First page uses full default data
+          // in this example the urls created be /page-name and /page-name-variation
+          { params: { pageName: 'page-name' }, props: { data: defaultData } },
+          
+          // Other pages deep merge default with their overrides
+          { params: { pageName: 'page-name-variation' }, props: { 
+            data: deepMerge(defaultData, kitchenSinkWithSubnavData.default) 
+          }}
+        ];
+      }
+      
+      // Save the merged data for use with components on page 
+      // for example the "data." here: <ComponentName componentName={data.page_component_name.component_name} />
+      const { data } = Astro.props;
+    ```
+  </TabItem>
+  <TabItem value="v2.0" label="ICL Version < 3 (Pattern Lab)">
+    Pages and components can have variants displayed without duplicating the twig file. This concept is referred to as a psuedo-pattern in the [Pattern Lab documentation](https://patternlab.io/docs/using-pseudo-patterns/). The syntax is:
 
-```json
-{
-  "hero": {
-    "title": "Hero Title - No Subnav",
-    "subnav": {
-      "subnav": {
-        "items": []
+    ```html
+    patternName~pseudo-pattern-name.json
+    ```
+
+    An example in our library is the hero at `source/_patterns/components/hero/hero.twig`, which has variations (with and without image, with and without subnav, and all combinations). The hero json file outputs a subnav if it is present - so to output this in Pattern Lab a json file called `hero~no-subnav.json` is created in the same directory at `source/_patterns/components/hero/hero~no-subnav.json`, with an empty subnav:
+
+    ```json
+    {
+      "hero": {
+        "title": "Hero Title - No Subnav",
+        "subnav": {
+          "subnav": {
+            "items": []
+          }
+        }
       }
     }
-  }
-}
-```
+    ```
 
-This can also be replicated at the page level - the Kitchen Sink pages are set up to display these hero variations using the same concept. The file `kitchen-sink~hero-no-image.json` contains:
+    This can also be replicated at the page level - the Kitchen Sink pages are set up to display these hero variations using the same concept. The file `kitchen-sink~hero-no-image.json` contains:
 
-```json
-{
-  "kitchen_sink_hero": {
-    "hero": {
-      "title": "Hero Title - No Image",
-      "image": {
-        "desktop_src": "",
-        "mobile_src": "",
-        "alt": ""
+    ```json
+    {
+      "kitchen_sink_hero": {
+        "hero": {
+          "title": "Hero Title - No Image",
+          "image": {
+            "desktop_src": "",
+            "mobile_src": "",
+            "alt": ""
+          }
+        }
       }
     }
-  }
-}
-```
+    ```
+  </TabItem>
+</Tabs>
