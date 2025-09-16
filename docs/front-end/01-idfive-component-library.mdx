@@ -166,6 +166,7 @@ This will open the "Welcome page", changes made in code will automatically be re
     ```jsx title="src/components/button-link-set/Button-Link-Set.astro"
       ---
       const { buttonLinkSet } = Astro.props;
+      // highlight-next-line
       import data from './button-link-set.json';
       const buttonLinkSetData = buttonLinkSet || data.button_link_set;
       import Button from '../button/Button.astro';
@@ -382,7 +383,7 @@ This will open the "Welcome page", changes made in code will automatically be re
           }}
         ];
       }
-      
+
       // Save the merged data for use with components on page 
       // for example the "data." here: <ComponentName componentName={data.page_component_name.component_name} />
       const { data } = Astro.props;
