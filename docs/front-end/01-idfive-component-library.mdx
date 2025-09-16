@@ -12,7 +12,15 @@ import TabItem from "@theme/TabItem";
 ## Overview (What's Included)
 
 <Tabs groupId="icl-versions">
-  <TabItem value="v2.0" label="ICL Version 2+ (Vite/PostCSS)" default>
+  <TabItem value="v3.0" label="ICL Version 3+ (Astro)" default>
+    - [Astro](https://astro.build/) static site generator framework
+    - Includes (out of the box):
+      - [Vite](https://vite.dev/)
+      - [PostCSS](https://postcss.org/)
+      - [Typescript](https://www.typescriptlang.org/)
+  </TabItem>
+  
+  <TabItem value="v2.0" label="ICL Version 2+ (Vite/PostCSS)">
     - [Pattern Lab](https://patternlab.io/) to display components and pages, specifically the [Node Version](https://github.com/pattern-lab/) with twig
     - [Vite](https://vite.dev/) build tool, also includes:
       - [PostCSS](https://postcss.org/)
@@ -61,7 +69,11 @@ patternlab-node). The site navigation is typically on the left side of the page 
 ## Build
 
 <Tabs groupId="icl-versions">
-  <TabItem value="v2.0" label="ICL Version 2+ (Vite/PostCSS)" default>
+  <TabItem value="v3.0" label="ICL Version 3+ (Astro)" default>
+    - Run `npm run build`  
+    - To preview the build (`/dist` directory) run `npm run preview`
+  </TabItem>
+  <TabItem value="v2.0" label="ICL Version 2+ (Vite/PostCSS)">
     **No build step is needed** - the js and css are being built and optimized continuously. 
     - Run `npm run develop` 
   </TabItem>
@@ -77,14 +89,30 @@ patternlab-node). The site navigation is typically on the left side of the page 
 
 ## Folder Structure
 
-The source directory contains the main working areas for the library. More information can be found [here](https://patternlab.io/docs/editing-pattern-lab-source-files/).
-
 <Tabs groupId="icl-versions">
-  <TabItem value="v2.0" label="ICL Version 2+ (Vite/PostCSS)" default>
+  <TabItem value="v3.0" label="ICL Version 3+ (Astro)" default>
+    - **dist** is the build folder, the static assets and pages are re-created here when `npm run build` is run
+    - **public** static folder where images and favicons (any assets needed) can be placed and accessed as needed
+    - **src**:
+      - **assets**:
+        - **CSS** contains css partial files, compiled into `index.css` (see [css documentation](/docs/front-end/css) for more information)
+        - **JS** contains all typescript modules:
+          - **components** contains individual modules for respective components (when required for functionality)
+          - **utilities** contains helpful accessibility functions that can be used to simply certain tasks
+          - **main.ts** imports all functions and calls init functions for each (this file gets compiled into one on build)
+      - **components** contains the `.astro` source files for components
+      - **data**:
+        - **global.json** data for use throughout site that will not change, for example the site header and site footer data
+        - ***.json** data used for all pages of the site, as well as variations on pages (see kitchen sink or home for example)
+      - **icl-utils** contains utility scripts for ICL usage, not to intended to be edited unless absolutely needed
+      - **layouts/Layout.astro** the main page structure layout that is used on every page of the site
+      - **pages** contains the `.astro` source files for pages. The files in the `/components` subdirectory are solely for display in the ICL Pages/Component list view only and not intended to be edited
+  </TabItem>
+  <TabItem value="v2.0" label="ICL Version 2+ (Vite/PostCSS)">
     - **Annotations** is not in use, but can be used as an alternate way of documenting components (insead of placing the documentation in the respective component folder)
     - **Data** contains global data, currently the starter library consists of `data.json` which holds data for global components such as the site-header and site-footer (this prevents the data from needing to be repeated for multiple instances). This can be re-organized/customized to suit developer needs
     - **Meta** contains the header and footer code that gets applied to all patterns and pages. `_head.twig` contains all of the html and header starting code and `_foot.twig` for footer and ending html code/tags - more info can be found [here](https://patternlab.io/docs/modifying-the-pattern-header-and-footer/)
-    - **Patterns** contains the bulk of the code in use (components, core & pages). The three directories in here correlate to what is seen in the browser interface and are documented [above](pattern-lab#interface)
+    - **Patterns** contains the bulk of the code in use (components, core & pages). The three directories in here correlate to what is seen in the browser interface and are documented [above](idfive-component-library#interface)
     - **CSS** contains css partial files, compiled into `index.css` (see [css documentation](/docs/front-end/css) for more information)
     - **Fonts** is empty by default (Google Fonts are linked to in `_head.twig` for the sarter version), but local fonts can be added to this directory
     - **Images** contains all starter images, as well as icons and svgs
@@ -98,7 +126,7 @@ The source directory contains the main working areas for the library. More infor
     - **Annotations** is not in use, but can be used as an alternate way of documenting components (insead of placing the documentation in the respective component folder)
     - **Data** contains global data, currently the starter library consists of `data.json` which holds data for global components such as the site-header and site-footer (this prevents the data from needing to be repeated for multiple instances). This can be re-organized/customized to suit developer needs
     - **Meta** contains the header and footer code that gets applied to all patterns and pages. `_head.twig` contains all of the html and header starting code and `_foot.twig` for footer and ending html code/tags - more info can be found [here](https://patternlab.io/docs/modifying-the-pattern-header-and-footer/)
-    - **Patterns** contains the bulk of the code in use (components, core & pages). The three directories in here correlate to what is seen in the browser interface and are documented [above](pattern-lab#interface)
+    - **Patterns** contains the bulk of the code in use (components, core & pages). The three directories in here correlate to what is seen in the browser interface and are documented [above](idfive-component-library#interface)
     - **CSS** contains the scss partial files, compiled into `index.scss` (see [css documentation](/docs/front-end/css) for more information)
     - **Fonts** is empty by default (Google Fonts are linked to in `_head.twig` for the sarter version), but local fonts can be added to this directory
     - **Images** contains all starter images, as well as icons and svgs

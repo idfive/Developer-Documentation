@@ -1,72 +1,60 @@
 # Layout & Page Structure
 
 ## Page Structure
-The overall page structure in the [ICL / Pattern Lab Starter](/docs/front-end/pattern-lab) is controlled by `source/_patterns/pages/page-structure.twig`:
+
+The overall page structure in the [ICL / Pattern Lab Starter](/docs/front-end/idfive-component-library) is controlled by `source/_patterns/pages/page-structure.twig`:
 
 ```html
 <div class="off-canvas">
   <div class="max-bound">
-    {% include "@components/emergency-alert/emergency-alert.twig" %}
-    {% include "@components/site-header/site-header.twig" %}
-    <main id="main-content"> 
-      {% block hero %}
-      {% endblock %}
+    {% include "@components/emergency-alert/emergency-alert.twig" %} {% include
+    "@components/site-header/site-header.twig" %}
+    <main id="main-content">
+      {% block hero %} {% endblock %}
       <div class="outer-pad">
-        {% block subnav %}
-        {% endblock %}
-        <div class="page-content">
-          {% block content %}
-          {% endblock %}
-        </div>
+        {% block subnav %} {% endblock %}
+        <div class="page-content">{% block content %} {% endblock %}</div>
       </div>
-      {% block end_of_page_call_to_action %}
-      {% endblock %}
-      {% include "@components/site-footer/site-footer.twig" %}
+      {% block end_of_page_call_to_action %} {% endblock %} {% include
+      "@components/site-footer/site-footer.twig" %}
     </main>
   </div>
 </div>
 ```
+
 ### Usage with Individual Page Templates
+
 Pages will then follow this pattern:
 
 ```html
-{% extends "@pages/page-structure.twig" %}
-{% block hero %}
-  <!-- Include Hero -->
-{% endblock %}
-{% block subnav %}
-  <!-- Include Subnav (if needed, if not - leave blank) -->
-{% endblock %}
-{% block content %}
-  <!-- Page Content -->
-{% endblock %}
-{% block end_of_page_call_to_action %}
-  <!-- Include End Of Page Call To Action (if needed, if not - leave blank) -->
+{% extends "@pages/page-structure.twig" %} {% block hero %}
+<!-- Include Hero -->
+{% endblock %} {% block subnav %}
+<!-- Include Subnav (if needed, if not - leave blank) -->
+{% endblock %} {% block content %}
+<!-- Page Content -->
+{% endblock %} {% block end_of_page_call_to_action %}
+<!-- Include End Of Page Call To Action (if needed, if not - leave blank) -->
 {% endblock %}
 ```
 
 ### Modifying Page Structure
+
 New blocks can be added as needed to insert different elements per page. For example if a unique site-header and site-footer were needed, `page-structure.twig` could be modified to
 
 ```html
 <div class="off-canvas">
   <div class="max-bound">
-    {% include "@components/emergency-alert/emergency-alert.twig" %}
-    {% block header %}{% endblock %}
-    <main id="main-content"> 
-      {% block hero %}
-      {% endblock %}
+    {% include "@components/emergency-alert/emergency-alert.twig" %} {% block
+    header %}{% endblock %}
+    <main id="main-content">
+      {% block hero %} {% endblock %}
       <div class="outer-pad">
-        {% block subnav %}
-        {% endblock %}
-        <div class="page-content">
-          {% block content %}
-          {% endblock %}
-        </div>
+        {% block subnav %} {% endblock %}
+        <div class="page-content">{% block content %} {% endblock %}</div>
       </div>
-      {% block end_of_page_call_to_action %}
-      {% endblock %}
-      {% block footer %}{% endblock %}
+      {% block end_of_page_call_to_action %} {% endblock %} {% block footer %}{%
+      endblock %}
     </main>
   </div>
 </div>
@@ -75,24 +63,18 @@ New blocks can be added as needed to insert different elements per page. For exa
 Usage in the page in this example:
 
 ```html
-{% extends "@pages/page-structure.twig" %}
-{% block header %} 
-  <!-- Include Header -->
-{% endblock %}
-{% block hero %}
-  <!-- Include Hero -->
-{% endblock %}
-{% block subnav %}
-  <!-- Include Subnav (if needed, if not - leave blank) -->
-{% endblock %}
-{% block content %}
-  <!-- Page Content -->
-{% endblock %}
-{% block end_of_page_call_to_action %}
-  <!-- Include End Of Page Call To Action (if needed, if not - leave blank) -->
-{% endblock %}
-{% block footer %}
-  <!-- Include Footer -->
+{% extends "@pages/page-structure.twig" %} {% block header %}
+<!-- Include Header -->
+{% endblock %} {% block hero %}
+<!-- Include Hero -->
+{% endblock %} {% block subnav %}
+<!-- Include Subnav (if needed, if not - leave blank) -->
+{% endblock %} {% block content %}
+<!-- Page Content -->
+{% endblock %} {% block end_of_page_call_to_action %}
+<!-- Include End Of Page Call To Action (if needed, if not - leave blank) -->
+{% endblock %} {% block footer %}
+<!-- Include Footer -->
 {% endblock %}
 ```
 
@@ -103,6 +85,7 @@ Usage in the page in this example:
 `<div class="outer-pad">` is a direct descendent of the `<main>` tag and is used to match the left and right spacing seen in the design reference (differs per project). The value will typically change according to screen-width and could also change per page template-type.
 
 The inline padding (left and right) custom property values `--outer-padding` can be updated in `base.scss`. The value is changed based on screen width with media queries. One or two values can be used, if two values are used, the first is left padding and the second is right padding. For example:
+
 ```scss
 // outer padding mobile
 --outer-padding: #{rem(30)};
@@ -119,6 +102,7 @@ The inline padding (left and right) custom property values `--outer-padding` can
 ```
 
 Outer-pad is a placeholder selector (so that it can be re-used) and is applied in **placeholders.scss**:
+
 ```scss
 %outer-pad {
   padding-inline: var(--outer-padding);
@@ -132,6 +116,7 @@ Outer-pad is a placeholder selector (so that it can be re-used) and is applied i
   }
 }
 ```
+
 It's applied to `.outer-pad` in **layout.scss**:
 
 ```scss
@@ -141,7 +126,9 @@ It's applied to `.outer-pad` in **layout.scss**:
 ```
 
 ### Handling Outer Padding With a Subnav
+
 When a page (ie the [Kitchen Sink](https://staging2.idfive.com/idfive-pattern-lab-starter/public/patterns/pages-kitchen-sink-kitchen-sink/pages-kitchen-sink-kitchen-sink.rendered.html)) has a subnav, the above code `&:has(.subnav)` from **placeholders.scss** sets a grid layout with the subnav as the first column and the main content `<div class="page-content">` as the second column:
+
 ```scss
 %outer-pad {
   &:has(.subnav) {
@@ -165,7 +152,11 @@ Sometimes it's necessary to have a component take up the full width of the page 
   margin-inline: calc(var(--outer-padding) * -1);
   body:has(.subnav) & {
     @include mq($min, $lg_desktop) {
-      margin-inline: calc((var(--outer-pad-subnav-grid-gap) + var(--outer-padding) + var(--outer-pad-subnav-grid-width)) * -1) calc(var(--outer-padding) * -1);
+      margin-inline: calc(
+          (
+              var(--outer-pad-subnav-grid-gap) + var(--outer-padding) + var(--outer-pad-subnav-grid-width)
+            ) * -1
+        ) calc(var(--outer-padding) * -1);
     }
   }
 }

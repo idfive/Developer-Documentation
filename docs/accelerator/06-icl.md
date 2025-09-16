@@ -6,7 +6,7 @@ description: idfive Component Library (ICL) - Wireframe and component library fo
 
 The idfive Component Library (ICL) is a comprehensive wireframe and component library that serves as the foundation for Accelerator projects. It provides standardized design patterns, components, and layouts that ensure consistency across all idfive projects.
 
-For complete technical documentation on ICL implementation, build process, and development workflow, see the **[ICL Technical Documentation](/docs/front-end/pattern-lab)**.
+For complete technical documentation on ICL implementation, build process, and development workflow, see the **[ICL Technical Documentation](/docs/front-end/idfive-component-library)**.
 
 ## Design Resources
 
@@ -20,7 +20,7 @@ The ICL directly influences Accelerator project structure and provides the found
 
 - **Header Configuration**: Site Options reference ICL Header Types (Full vs Hybrid)
 - **Component Sync**: ICL components are manually synced to both [Drupal Accelerator](https://dev-idfive-drupal-accelerator.pantheonsite.io/) and [WordPress Accelerator](https://dev-idfive-accelerator.pantheonsite.io/) sites
-- **Pattern Library**: All Accelerator components follow ICL design patterns established in the [Pattern Lab environment](/docs/front-end/pattern-lab)
+- **Pattern Library**: All Accelerator components follow ICL design patterns established in the [Pattern Lab environment](/docs/front-end/idfive-component-library)
 - **Wireframe Foundation**: Project wireframes are built using ICL components
 - **Consistency Standards**: Ensures all projects maintain idfive design standards
 
@@ -29,7 +29,7 @@ The ICL directly influences Accelerator project structure and provides the found
 ### Header Types
 
 - **Full Header**: Complete navigation with all elements visible
-- **Hybrid Header**: Streamlined navigation with selective element display  
+- **Hybrid Header**: Streamlined navigation with selective element display
 - **Mobile Navigation**: Responsive navigation patterns for mobile devices
 
 ### Content Components
@@ -55,7 +55,7 @@ The ICL is built using modern frontend tools and is available as a Pattern Lab e
 - **Component Library**: TypeScript modules with accessibility utilities
 - **Staging Environment**: Available at [staging site](https://staging2.idfive.com/idfive-pattern-lab-starter/public/?p=pages-welcome) (username/password: `guest`)
 
-For complete setup instructions, build process, and component documentation, see **[ICL Technical Documentation](/docs/front-end/pattern-lab)**.
+For complete setup instructions, build process, and component documentation, see **[ICL Technical Documentation](/docs/front-end/idfive-component-library)**.
 
 ## Usage Guidelines
 
@@ -68,7 +68,7 @@ When working with Accelerator projects:
 
 ## Related Resources
 
-- **[ICL Technical Documentation](/docs/front-end/pattern-lab)** - Complete setup, build process, and component development guide
-- [Accelerator Overview](/docs/accelerator/overview) - Project overview and design resources  
+- **[ICL Technical Documentation](/docs/front-end/idfive-component-library)** - Complete setup, build process, and component development guide
+- [Accelerator Overview](/docs/accelerator/overview) - Project overview and design resources
 - [Site Options](/docs/accelerator/site-options) - Configuration options that reference ICL header types
 - [Customization Guidelines](/docs/accelerator/customization) - How to customize while maintaining ICL consistency
