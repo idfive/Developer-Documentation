@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="generator" content="Docusaurus v3.7.0">
 <title data-rh="true">idfive Component Library (ICL) | idfive Developer Documentation</title><meta data-rh="true" name="viewport" content="width=device-width,initial-scale=1"><meta data-rh="true" name="twitter:card" content="summary_large_image"><meta data-rh="true" property="og:image" content="https://developers.idfive.com/img/idfive-docusaurus-preview-image.png"><meta data-rh="true" name="twitter:image" content="https://developers.idfive.com/img/idfive-docusaurus-preview-image.png"><meta data-rh="true" property="og:url" content="https://developers.idfive.com/docs/accelerator/icl"><meta data-rh="true" property="og:locale" content="en"><meta data-rh="true" name="docusaurus_locale" content="en"><meta data-rh="true" name="docsearch:language" content="en"><meta data-rh="true" name="docusaurus_version" content="current"><meta data-rh="true" name="docusaurus_tag" content="docs-default-current"><meta data-rh="true" name="docsearch:version" content="current"><meta data-rh="true" name="docsearch:docusaurus_tag" content="docs-default-current"><meta data-rh="true" property="og:title" content="idfive Component Library (ICL) | idfive Developer Documentation"><meta data-rh="true" name="description" content="idfive Component Library (ICL) - Wireframe and component library for Accelerator projects"><meta data-rh="true" property="og:description" content="idfive Component Library (ICL) - Wireframe and component library for Accelerator projects"><link data-rh="true" rel="icon" href="/img/favicon.png"><link data-rh="true" rel="canonical" href="https://developers.idfive.com/docs/accelerator/icl"><link data-rh="true" rel="alternate" href="https://developers.idfive.com/docs/accelerator/icl" hreflang="en"><link data-rh="true" rel="alternate" href="https://developers.idfive.com/docs/accelerator/icl" hreflang="x-default"><link data-rh="true" rel="preconnect" href="https://2PJMDLEUFN-dsn.algolia.net" crossorigin="anonymous"><link rel="search" type="application/opensearchdescription+xml" title="idfive Developer Documentation" href="/opensearch.xml"><link rel="stylesheet" href="/assets/css/styles.9f069219.css">
-<script src="/assets/js/runtime~main.861f946f.js" defer="defer"></script>
+<script src="/assets/js/runtime~main.12c24b85.js" defer="defer"></script>
 <script src="/assets/js/main.06f52f91.js" defer="defer"></script>
 </head>
 <body class="navigation-with-keyboard">
@@ -21,9 +21,43 @@
 <ul>
 <li><strong>Header Configuration</strong>: Site Options reference ICL Header Types (Full vs Hybrid)</li>
 <li><strong>Component Sync</strong>: ICL components are manually synced to both <a href="https://dev-idfive-drupal-accelerator.pantheonsite.io/" target="_blank" rel="noopener noreferrer">Drupal Accelerator</a> and <a href="https://dev-idfive-accelerator.pantheonsite.io/" target="_blank" rel="noopener noreferrer">WordPress Accelerator</a> sites</li>
-<li><strong>Pattern Library</strong>: All Accelerator components follow ICL design patterns established in the <a href="/docs/front-end/idfive-component-library">Pattern Lab environment</a></li>
-<li><strong>Wireframe Foundation</strong>: Project wireframes are built using ICL components</li>
+<li><strong>Pattern Library</strong>: All Accelerator components follow ICL design markup</li>
 <li><strong>Consistency Standards</strong>: Ensures all projects maintain idfive design standards</li>
+</ul>
+<h2 class="anchor anchorWithStickyNavbar_LWe7" id="updating-the-icl-in-accelerator-projects">Updating the ICL in Accelerator Projects<a href="#updating-the-icl-in-accelerator-projects" class="hash-link" aria-label="Direct link to Updating the ICL in Accelerator Projects" title="Direct link to Updating the ICL in Accelerator Projects">​</a></h2>
+<p>To update an Accelerator Project to the latest version of the ICL:</p>
+<ul>
+<li><a href="https://bitbucket.org/idfivellc/idfive-component-library/downloads/?tab=tags" target="_blank" rel="noopener noreferrer">Download the latest tagged version as a zip file</a> from Bitbucket and unzip</li>
+<li>Replace the current ICL in Accelerator with this download:<!-- -->
+<ul>
+<li>In Drupal, this is at <code>/idfive-drupal-accelerator/web/themes/custom/idfive_accelerator/idfive-component-library</code></li>
+<li>In WordPress, this is at <code>/idfive-accelerator/wp-content/themes/idfive-rapid-starter/idfive-component-library</code></li>
+</ul>
+</li>
+<li>Update the <code>package.json</code> file to add in the CMS being used in <code>&quot;front-end-usage-intent&quot;: &quot;&quot;,</code>
+<ul>
+<li>In Drupal<!-- -->
+<ul>
+<li><code>package.json</code> is at <code>/idfive-drupal-accelerator/web/themes/custom/idfive_accelerator/idfive-component-library/package.json</code></li>
+<li>Update <code>front-end-usage-intent</code> to <code>&quot;front-end-usage-intent&quot;: &quot;drupal&quot;,</code> (case-sensitive, should be all lower case)</li>
+<li>Open terminal at <code>/idfive-drupal-accelerator/web/themes/custom/idfive_accelerator/idfive-component-library/</code></li>
+<li>Run <code>nvm use</code></li>
+<li>Run <code>npm install</code></li>
+<li>Run <code>npm run build</code></li>
+</ul>
+</li>
+<li>In Wordpress<!-- -->
+<ul>
+<li><code>package.json</code> is at <code>/idfive-accelerator/wp-content/themes/idfive-rapid-starter/idfive-component-library/package.json</code></li>
+<li>Update <code>front-end-usage-intent</code> to <code>&quot;front-end-usage-intent&quot;: &quot;wordpress&quot;,</code> (case-sensitive, should be all lower case)</li>
+<li>Open terminal at <code>/idfive-accelerator/wp-content/themes/idfive-rapid-starter/idfive-component-library/</code></li>
+<li>Run <code>nvm use</code></li>
+<li>Run <code>npm install</code></li>
+<li>Run <code>npm run build</code></li>
+</ul>
+</li>
+</ul>
+</li>
 </ul>
 <h2 class="anchor anchorWithStickyNavbar_LWe7" id="key-components-in-accelerator">Key Components in Accelerator<a href="#key-components-in-accelerator" class="hash-link" aria-label="Direct link to Key Components in Accelerator" title="Direct link to Key Components in Accelerator">​</a></h2>
 <h3 class="anchor anchorWithStickyNavbar_LWe7" id="header-types">Header Types<a href="#header-types" class="hash-link" aria-label="Direct link to Header Types" title="Direct link to Header Types">​</a></h3>
@@ -47,12 +81,12 @@
 <li><strong>Interactive Elements</strong>: Button styles, form elements, and user interface components</li>
 </ul>
 <h2 class="anchor anchorWithStickyNavbar_LWe7" id="technical-implementation">Technical Implementation<a href="#technical-implementation" class="hash-link" aria-label="Direct link to Technical Implementation" title="Direct link to Technical Implementation">​</a></h2>
-<p>The ICL is built using modern frontend tools and is available as a Pattern Lab environment. For developers working with Accelerator projects:</p>
+<p>The ICL is built using the <a href="https://astro.build/" target="_blank" rel="noopener noreferrer">Astro</a> static site generator framework. For developers working with Accelerator projects:</p>
 <ul>
-<li><strong>Pattern Lab Interface</strong>: View all components in isolation and in page context</li>
-<li><strong>Build System</strong>: Uses Vite/PostCSS (v2+) or SCSS (v1) depending on version</li>
-<li><strong>Component Library</strong>: TypeScript modules with accessibility utilities</li>
-<li><strong>Staging Environment</strong>: Available at <a href="https://staging2.idfive.com/idfive-pattern-lab-starter/public/?p=pages-welcome" target="_blank" rel="noopener noreferrer">staging site</a> (username/password: <code>guest</code>)</li>
+<li><strong>ICL Pages and Component list Interface</strong>: View all components in isolation and in page context</li>
+<li><strong>Build System</strong>: Uses Astro</li>
+<li><strong>Component Library</strong>: Modular components</li>
+<li><strong>Demo Site</strong>: Available at the <a href="https://idfive-component-library.netlify.app/" target="_blank" rel="noopener noreferrer">netlify ICL site</a> (password: <code>guest</code>)</li>
 </ul>
 <p>For complete setup instructions, build process, and component documentation, see <strong><a href="/docs/front-end/idfive-component-library">ICL Technical Documentation</a></strong>.</p>
 <h2 class="anchor anchorWithStickyNavbar_LWe7" id="usage-guidelines">Usage Guidelines<a href="#usage-guidelines" class="hash-link" aria-label="Direct link to Usage Guidelines" title="Direct link to Usage Guidelines">​</a></h2>
@@ -69,6 +103,6 @@
 <li><a href="/docs/accelerator/overview">Accelerator Overview</a> - Project overview and design resources</li>
 <li><a href="/docs/accelerator/site-options">Site Options</a> - Configuration options that reference ICL header types</li>
 <li><a href="/docs/accelerator/customization">Customization Guidelines</a> - How to customize while maintaining ICL consistency</li>
-</ul></div><footer class="theme-doc-footer docusaurus-mt-lg"><div class="row margin-top--sm theme-doc-footer-edit-meta-row"><div class="col"><a href="https://github.com/idfive/Developer-Documentation/tree/main/docs/accelerator/06-icl.md" target="_blank" rel="noopener noreferrer" class="theme-edit-this-page"><svg fill="currentColor" height="20" width="20" viewBox="0 0 40 40" class="iconEdit_Z9Sw" aria-hidden="true"><g><path d="m34.5 11.7l-3 3.1-6.3-6.3 3.1-3q0.5-0.5 1.2-0.5t1.1 0.5l3.9 3.9q0.5 0.4 0.5 1.1t-0.5 1.2z m-29.5 17.1l18.4-18.5 6.3 6.3-18.4 18.4h-6.3v-6.2z"></path></g></svg>Edit this page</a></div><div class="col lastUpdated_JAkA"></div></div></footer></article><nav class="pagination-nav docusaurus-mt-lg" aria-label="Docs pages"><a class="pagination-nav__link pagination-nav__link--prev" href="/docs/accelerator/unical"><div class="pagination-nav__sublabel">Previous</div><div class="pagination-nav__label">Unical</div></a><a class="pagination-nav__link pagination-nav__link--next" href="/docs/category/back-end"><div class="pagination-nav__sublabel">Next</div><div class="pagination-nav__label">Back End</div></a></nav></div></div><div class="col col--3"><div class="tableOfContents_bqdL thin-scrollbar theme-doc-toc-desktop"><ul class="table-of-contents table-of-contents__left-border"><li><a href="#design-resources" class="table-of-contents__link toc-highlight">Design Resources</a></li><li><a href="#icl-in-accelerator-context" class="table-of-contents__link toc-highlight">ICL in Accelerator Context</a><ul><li><a href="#integration-points" class="table-of-contents__link toc-highlight">Integration Points</a></li></ul></li><li><a href="#key-components-in-accelerator" class="table-of-contents__link toc-highlight">Key Components in Accelerator</a><ul><li><a href="#header-types" class="table-of-contents__link toc-highlight">Header Types</a></li><li><a href="#content-components" class="table-of-contents__link toc-highlight">Content Components</a></li><li><a href="#design-system-elements" class="table-of-contents__link toc-highlight">Design System Elements</a></li></ul></li><li><a href="#technical-implementation" class="table-of-contents__link toc-highlight">Technical Implementation</a></li><li><a href="#usage-guidelines" class="table-of-contents__link toc-highlight">Usage Guidelines</a></li><li><a href="#related-resources" class="table-of-contents__link toc-highlight">Related Resources</a></li></ul></div></div></div></div></main></div></div></div><footer class="footer footer--dark"><div class="container container-fluid"><div class="footer__bottom text--center"><div class="footer__copyright">Copyright © 2025 idfive.</div></div></div></footer></div>
+</ul></div><footer class="theme-doc-footer docusaurus-mt-lg"><div class="row margin-top--sm theme-doc-footer-edit-meta-row"><div class="col"><a href="https://github.com/idfive/Developer-Documentation/tree/main/docs/accelerator/06-icl.md" target="_blank" rel="noopener noreferrer" class="theme-edit-this-page"><svg fill="currentColor" height="20" width="20" viewBox="0 0 40 40" class="iconEdit_Z9Sw" aria-hidden="true"><g><path d="m34.5 11.7l-3 3.1-6.3-6.3 3.1-3q0.5-0.5 1.2-0.5t1.1 0.5l3.9 3.9q0.5 0.4 0.5 1.1t-0.5 1.2z m-29.5 17.1l18.4-18.5 6.3 6.3-18.4 18.4h-6.3v-6.2z"></path></g></svg>Edit this page</a></div><div class="col lastUpdated_JAkA"></div></div></footer></article><nav class="pagination-nav docusaurus-mt-lg" aria-label="Docs pages"><a class="pagination-nav__link pagination-nav__link--prev" href="/docs/accelerator/unical"><div class="pagination-nav__sublabel">Previous</div><div class="pagination-nav__label">Unical</div></a><a class="pagination-nav__link pagination-nav__link--next" href="/docs/category/back-end"><div class="pagination-nav__sublabel">Next</div><div class="pagination-nav__label">Back End</div></a></nav></div></div><div class="col col--3"><div class="tableOfContents_bqdL thin-scrollbar theme-doc-toc-desktop"><ul class="table-of-contents table-of-contents__left-border"><li><a href="#design-resources" class="table-of-contents__link toc-highlight">Design Resources</a></li><li><a href="#icl-in-accelerator-context" class="table-of-contents__link toc-highlight">ICL in Accelerator Context</a><ul><li><a href="#integration-points" class="table-of-contents__link toc-highlight">Integration Points</a></li></ul></li><li><a href="#updating-the-icl-in-accelerator-projects" class="table-of-contents__link toc-highlight">Updating the ICL in Accelerator Projects</a></li><li><a href="#key-components-in-accelerator" class="table-of-contents__link toc-highlight">Key Components in Accelerator</a><ul><li><a href="#header-types" class="table-of-contents__link toc-highlight">Header Types</a></li><li><a href="#content-components" class="table-of-contents__link toc-highlight">Content Components</a></li><li><a href="#design-system-elements" class="table-of-contents__link toc-highlight">Design System Elements</a></li></ul></li><li><a href="#technical-implementation" class="table-of-contents__link toc-highlight">Technical Implementation</a></li><li><a href="#usage-guidelines" class="table-of-contents__link toc-highlight">Usage Guidelines</a></li><li><a href="#related-resources" class="table-of-contents__link toc-highlight">Related Resources</a></li></ul></div></div></div></div></main></div></div></div><footer class="footer footer--dark"><div class="container container-fluid"><div class="footer__bottom text--center"><div class="footer__copyright">Copyright © 2025 idfive.</div></div></div></footer></div>
 </body>
 </html>
