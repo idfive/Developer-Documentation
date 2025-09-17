@@ -11,6 +11,35 @@ import TabItem from "@theme/TabItem";
 
 Using the "mobile first" methodology, where default CSS rules apply to the smallest screen size and are then progressively enhanced using media queries. Screen sizes are not an absolute, so responsiveness should be tested by resizing the browser vs. checking "standard" breakpoints (e.g. iPhone, iPad etc.).
 
+## Inclusion
+<Tabs groupId="icl-versions">
+  <TabItem value="v3.0" label="ICL Version 3+ (Astro)">
+    The main screen css file is linked to in `main.ts` at `src/assets/js/main.ts` using an import statement. This allows it to be processed correctly by Astro during development and build (it is not included in the main built js file). It is included as the last import statement: 
+    ```js
+    // Import the main CSS file for the application (keep this line here after other imports)
+    import "../css/index.css";
+    ```
+    The main print css file is linked to in `Layout.astro` at `src/layouts/Layout.astro`: 
+    ```html
+    <link rel="stylesheet" href="/print.css" media="print" />
+    ```
+  </TabItem>
+  <TabItem value="v2.0" label="ICL Version 2+ (Vite/PostCSS)">
+    The main screen and print css files are linked to in `_head.twig` at `source/_meta/_head.twig`: 
+    ```html
+    <link rel="stylesheet" href="../../dist/assets/style.css" media="screen">
+    <link rel="stylesheet" href="../../css/print.css?{{ cacheBuster }}" media="print">
+    ```
+  </TabItem>
+  <TabItem value="v1.0" label="ICL Version < 2 (SCSS)">
+    The main screen and print css files are linked to in `_head.twig` at `source/_meta/_head.twig`: 
+    ```html
+    <link rel="stylesheet" href="../../css/style.css?{{ cacheBuster }}" media="screen">
+    <link rel="stylesheet" href="../../css/print.css?{{ cacheBuster }}" media="print">
+    ```
+  </TabItem>
+</Tabs>
+
 ## Architecture
 
 <Tabs groupId="icl-versions">
