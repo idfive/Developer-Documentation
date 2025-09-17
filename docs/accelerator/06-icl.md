@@ -20,9 +20,30 @@ The ICL directly influences Accelerator project structure and provides the found
 
 - **Header Configuration**: Site Options reference ICL Header Types (Full vs Hybrid)
 - **Component Sync**: ICL components are manually synced to both [Drupal Accelerator](https://dev-idfive-drupal-accelerator.pantheonsite.io/) and [WordPress Accelerator](https://dev-idfive-accelerator.pantheonsite.io/) sites
-- **Pattern Library**: All Accelerator components follow ICL design patterns established in the [Pattern Lab environment](/docs/front-end/idfive-component-library)
-- **Wireframe Foundation**: Project wireframes are built using ICL components
+- **Pattern Library**: All Accelerator components follow ICL design markup
 - **Consistency Standards**: Ensures all projects maintain idfive design standards
+
+## Updating the ICL in Accelerator Projects
+To update an Accelerator Project to the latest version of the ICL:
+- [Download the latest tagged version as a zip file](https://bitbucket.org/idfivellc/idfive-component-library/downloads/?tab=tags) from Bitbucket and unzip
+- Replace the current ICL in Accelerator with this download:
+  - In Drupal, this is at `/idfive-drupal-accelerator/web/themes/custom/idfive_accelerator/idfive-component-library`
+  - In WordPress, this is at `/idfive-accelerator/wp-content/themes/idfive-rapid-starter/idfive-component-library`
+- Update the `package.json` file to add in the CMS being used in `"front-end-usage-intent": "",`
+  - In Drupal
+    - `package.json` is at `/idfive-drupal-accelerator/web/themes/custom/idfive_accelerator/idfive-component-library/package.json`
+    - Update `front-end-usage-intent` to `"front-end-usage-intent": "drupal",` (case-sensitive, should be all lower case)
+    - Open terminal at `/idfive-drupal-accelerator/web/themes/custom/idfive_accelerator/idfive-component-library/`
+    - Run `nvm use`
+    - Run `npm install`
+    - Run `npm run build`
+  - In Wordpress
+    - `package.json` is at `/idfive-accelerator/wp-content/themes/idfive-rapid-starter/idfive-component-library/package.json`
+    - Update `front-end-usage-intent` to `"front-end-usage-intent": "wordpress",` (case-sensitive, should be all lower case)
+    - Open terminal at `/idfive-accelerator/wp-content/themes/idfive-rapid-starter/idfive-component-library/`
+    - Run `nvm use`
+    - Run `npm install`
+    - Run `npm run build`
 
 ## Key Components in Accelerator
 
@@ -48,12 +69,12 @@ The ICL directly influences Accelerator project structure and provides the found
 
 ## Technical Implementation
 
-The ICL is built using modern frontend tools and is available as a Pattern Lab environment. For developers working with Accelerator projects:
+The ICL is built using the [Astro](https://astro.build/) static site generator framework. For developers working with Accelerator projects:
 
-- **Pattern Lab Interface**: View all components in isolation and in page context
-- **Build System**: Uses Vite/PostCSS (v2+) or SCSS (v1) depending on version
-- **Component Library**: TypeScript modules with accessibility utilities
-- **Staging Environment**: Available at [staging site](https://staging2.idfive.com/idfive-pattern-lab-starter/public/?p=pages-welcome) (username/password: `guest`)
+- **ICL Pages and Component list Interface**: View all components in isolation and in page context
+- **Build System**: Uses Astro
+- **Component Library**: Modular components
+- **Demo Site**: Available at the [netlify ICL site](https://idfive-component-library.netlify.app/) (password: `guest`)
 
 For complete setup instructions, build process, and component documentation, see **[ICL Technical Documentation](/docs/front-end/idfive-component-library)**.
 
