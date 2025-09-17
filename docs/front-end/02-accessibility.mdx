@@ -1,6 +1,8 @@
 ---
 description: Guidelines for Creating Accessible Sites
 ---
+import Tabs from "@theme/Tabs";
+import TabItem from "@theme/TabItem";
 
 # Accessibility
 
@@ -102,11 +104,22 @@ The relationship is enforced by a unique "id" on the `for` attribute of the labe
 
 ## Skip Link
 
-A skip link is required to allow assistive technologies to quickly let users navigate to main content sections. This is placed in **\_head.twig** (located at `source/_meta/_head.twig`). When focused, it becomes visible and links to the `<main>` section (also closes the site header when opened).
+<Tabs groupId="icl-versions">
+  <TabItem value="v3.0" label="ICL Version 3+ (Astro)">
+    A skip link is required to allow assistive technologies to quickly let users navigate to main content sections. This is placed in `Layout.astro` (located at `src/layouts/Layout.astro`) immediately after the body tag. When focused, it becomes visible, links to the `<main>` section and closes the site header when opened).
 
-```twig
-<a class="skip-link" href="#main-content">Skip To Main Content</a>
-```
+    ```twig
+    <a class="skip-link" href="#main-content">Skip To Main Content</a>
+    ```
+  </TabItem>
+  <TabItem value="v2.0" label="ICL Version < 3 (Pattern Lab)">
+    A skip link is required to allow assistive technologies to quickly let users navigate to main content sections. This is placed in `head.twig` (located at `source/_meta/_head.twig`) immediately after the body tag. When focused, it becomes visible, links to the `<main>` section and closes the site header when opened).
+
+    ```twig
+    <a class="skip-link" href="#main-content">Skip To Main Content</a>
+    ```
+  </TabItem>
+</Tabs>
 
 ## Sections
 
