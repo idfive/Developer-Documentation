@@ -11,12 +11,14 @@ import TabItem from "@theme/TabItem";
 <Tabs groupId="icl-versions">
   <TabItem value="v3.0" label="ICL Version 3+ (Astro)">
   Images should be placed in the `public/images` directory.
+
+  These will be copied to the `/dist` folder when the build command is run.
   </TabItem>
   <TabItem value="v2.0" label="ICL Version < 3 (Pattern Lab)">
     Images should be placed in the `source/images` directory.
   </TabItem>
 </Tabs>
-### Markup
+### Markup Guidelines
 
 - To reference an image in a component or page in json use `"../../images/image-name.jpg",`
 - Set `width` and `height` attributes for all images
@@ -34,8 +36,8 @@ import TabItem from "@theme/TabItem";
 ```
 
 ### Styling
-
-- Use the `object-fit` property as much as possible to maintain aspect ratios for images
+#### Responsive Images
+- Use the `object-fit` property to maintain aspect ratios for images
 - A helper class of `.responsive-img` can be extended to simplify image styling:
 
 ```css
@@ -52,38 +54,27 @@ import TabItem from "@theme/TabItem";
 }
 ```
 
-- To use this - apply to the `.hero__media` div and update the aspect-ratio to your needs:
+To use this - apply to the div that contains the image and update the aspect-ratio to your needs. The `aspect-ratio` css property [MDN Reference](https://developer.mozilla.org/en-US/docs/Web/CSS/aspect-ratio) can be used to size the image according to the design. Fractions can be used (ie `16/9`), but when more complicated ratios are needed, a decimal value can be used by dividing the width by the height (ie if the width is 606px by 340 tall, `606/340 = 1.78`).
 
 ```css
 .hero__media {
   @extend .responsive-img;
-  aspect-ratio: 1.78 // 16/9;
+  aspect-ratio: 1.78;
 }
 ```
 
+#### Background Images (Astro)
+To use a `background-image` in css, the path to use is `background-image: url("/images/image-name.jpg");`. This will ensure that it works when running the ICL alone, as well as when used in conjunction with the Drupal and Wordpress Accelerators.
+
 ## Icons (SVGs)
 
-- [IcoMoon](https://icomoon.io/) is used to create a sprite sheet to reference all icons
-- Also place a copy of the source svg icons in `source/images/icons` in case they need to be referenced/modified later
-- Modified files from IcoMoon will come in the form of a file called `symbol-defs.svg` stored/replaced-on-update at `source/images/icons/icomoon/symbol-defs.svg` and copied into a `iconset.svg` at `source/_patterns/core/iconset/iconset.svg`, which is included on all pages of the site in order to be referenced
-- Place (or replace if it already exists) a copy of the `selection.json` file from IcoMoon at `source/images/icons/icomoon/selection.json`, this will allow future developers to modify/update the iconset in IcoMoon
+[IcoMoon](https://icomoon.io/) is used to create a sprite sheet to reference all icons.
 
-
-### Preparation
-
-- Ensure with the designer of the project that all strokes in svgs have been outlined. Having one single path is the ideal configuration for an svg. If you have Adobe XD and access to the project source files and need to outline a stroke: select the svg and go to `Object - Path - Outline Stroke`
-  ![XD SVG](_media/xd-svg.jpg)
-
+### SVG Preparation
 - Remove any fill colors on elements in the svg, this will default colors to black so they can have color applied with css.
 - Provide a meaningful name for the icon (no need to include the word "icon" as it will be automatically added when using IcoMoon)
 - Optimize the `svg` by running it through [SVGOMG](https://jakearchibald.github.io/svgomg/). Make sure that the "Prefer viewBox over width/height" option is checked in the Global Settings panel. This will replace any usages of `width` and `height` attributes with `viewBox` which allows icons to be responsively scaled on a case-by-case basis.
   ![XD SVG](_media/svgomg.jpg)
-- Create a sub-directory in your projects `images` directory called `icons`: `your-project/source/images/icons`., then create another sub-directory in `icons` called `icomoon` (`your-project/source/images/icons/icomoon`)
-- Add your icon svgs here (not the sprite at this point, simply the source svgs if needed again later)
-- Create a sub folder called `icomoon` where the files `selection.json` and `symbol-defs.svg` will be placed and updated each time your icon set is updated through IcoMoon - this will allow for future usage and changes from other developers
-- The contents of the `symbol-defs.svg` will get copied into the file called `iconset.twig` (each time an update is made)
-
-This sheet should be included as close to the opening `body` tag as possible. Generally it's easiest to create a template that contains the sprite sheet that you can then include in your base layout.
 
 ### Using IcoMoon
 
@@ -107,12 +98,24 @@ This sheet should be included as close to the opening `body` tag as possible. Ge
 
 ### Adding to Your Project
 
-- Copy the contents of the `symbol-defs.svg` into a new file called `iconset.svg`. This ideally should exist (in Pattern Lab) at `your-project/source/_patterns/core/iconset/iconset.svg`. Each time you update and re-download from IcoMoon, update the contents of this file to match. Older projects (including fractal) may not have this directory or file, so create to match as needed.
-- Ensure that `symbol-defs.svg` is included on each page. In Pattern Lab in the `head.twig` file this is included after the `skip-link` after the opening `<body>` tag as `{% include "@core/iconset/iconset.svg"%}`. This allows usage of the sprites.
-- An example of using a sprite (note the use a `visible-for-screen-readers` class here in use if the icon is more than directory [i.e. if it's button to click, indicate what it does here]):
+<Tabs groupId="icl-versions">
+  <TabItem value="v3.0" label="ICL Version 3+ (Astro)">
+    - Place a copy of the source svg icons from the design file in `public/images/icons` in case they need to be referenced/modified later
+    - Modified files from IcoMoon will come in the form of a file called `symbol-defs.svg` stored/replaced-on-update at `source/images/icons/icomoon/symbol-defs.svg` and copied into a `iconset.svg` at `src/components/iconset/iconset.svg`, which is included on all pages of the site in order to be referenced
+    - Place (or replace if it already exists) a copy of the `selection.json` file from IcoMoon at `source/images/icons/icomoon/selection.json`, this will allow future developers to modify/update the iconset in IcoMoon
+  </TabItem>
+  <TabItem value="v2.0" label="ICL Version < 3 (Pattern Lab)">
+    - Place a copy of the source svg icons from the design file in `source/images/icons` in case they need to be referenced/modified later
+    - Modified files from IcoMoon will come in the form of a file called `symbol-defs.svg` stored/replaced-on-update at `source/images/icons/icomoon/symbol-defs.svg` and copied into a `iconset.svg` at `source/_patterns/core/iconset/iconset.svg`, which is included on all pages of the site in order to be referenced
+    - Place (or replace if it already exists) a copy of the `selection.json` file from IcoMoon at `source/images/icons/icomoon/selection.json`, this will allow future developers to modify/update the iconset in IcoMoon
+  </TabItem>
+</Tabs>
+
+### SVG Usage
+To use a sprite use the following syntax, where `#icon-id` matches the name of the `<symbol>` to the desired icon in `iconset.svg`
 
 ```html
-<span class="visible-for-screen-readers">Name of icon for screen readers (if applicable)</span>
+<span class="visible-for-screen-readers">Name of icon (acts as alt text for screen readers not a decorative image. Can be skipped if decorative)</span>
 <svg aria-hidden="true" width="20" height="20">
   <use xlink:href="#icon-id"></use>
 </svg>

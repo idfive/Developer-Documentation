@@ -78,11 +78,39 @@ This will open the "Welcome page", changes made in code will automatically be re
 
 <Tabs groupId="icl-versions">
   <TabItem value="v3.0" label="ICL Version 3+ (Astro)">
-    The ICL Pages and Component list is on the left side of the page:
-    - **Components** is a list of all available components - not in a page context
-    - **Pages** contains fully built out pages, this is typically where review occurs (opens in new tabs)
+    ### Overview
+    The ICL Pages and Component list is a custom interface created and maintained by idfive and contains:
+    - The idfive logo and link to site, and title of the library
+    - A list of all available components, each is clickable to view the rendered component in th elist
+    - A list of the pages available in the library (as well as variations if available) with links that open in new Tabs
+
+    ![XD SVG](_media/icl-interface.jpg)
+
+    ### Component
+    The Pages and Component list is a component file called `ICL-Component-Page-List.astro`, located at `src/components/_icl-component-page-list/ICL-Component-Page-List.astro`. 
+
+    The component does the following:
+    - Dynamically generates a list of components 
+    - Outputs the markup for the list of pages and components 
+    - Styles the component, all css is contained in `<style>` tags in this component, to prevent the styles from being added to the main css file output for the library. These styles are scoped by Astro.
+    - Adds JavaScript functionality to handle the `<details>` (accordion) elements that handle the collapsing of pages, comonents and variations in the list. This is contained in `<script>` tags to prevent this JS from being included in the main js output file for the library.
+
+    To add a component or page to the list, see [Adding A New Page to the ICL List](#adding-a-new-page-to-the-icl-list)
+
+    ### Welcome Page (index.astro)
+    - The component is called in the `index.astro` file at `src/pages/index.astro`. 
+    - This file also contains the "Welcome Page", as it is the root of the ICL. This page contains basic instructions regarding how to spin up the library locally.
+
+    ### Notes
+    - The ICL Pages and Component list uses the standard `<Layout>` that all pages of the site use
+    - The `Layout.astro` file contains some conditionals that occur when the ICL Pages and Component list is present on the page
+      - Emergency Alert hidden
+      - Site Header hidden
+      - Site Footer hidden
+      - The `<div class="outer-pad">` is not output within `<main>`
   </TabItem>
   <TabItem value="v2.0" label="ICL Version < 3 (Pattern Lab)">
+    The Pattern Lab and Fractal interfaces are created from these respective platforms and cannot be edited.
     The ICL Pages and Component list is typically on the left side of the page (it can be moved to the top by selecting "switch layout", but the left side is the default):
     - **Components** is a list of all available components - not in a page context
     - **Pages** contains fully built out pages, this is typically where review occurs
