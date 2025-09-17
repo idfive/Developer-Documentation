@@ -358,7 +358,7 @@ This will open the "Welcome page", changes made in code will automatically be re
   <TabItem value="v3.0" label="ICL Version 3+ (Astro)">
     **Currently only page variations are supported. Component variations may become supported at a later time.**
 
-    In order for an Astro page to support variations, the page name must be contained in brackets []. For example, the Kitchen Sink page is called `[kitchenSink].astro`. In the front matter (at the top of the template between the `---` and closing `---`), the following code is used to support and create variations:
+    In order for an Astro page to support variations, the page name must be contained in brackets []. For example, the Kitchen Sink page is called `[kitchenSink].astro`. In the frontmatter (at the top of the template between the `---` and closing `---`), the following code is used to support and create variations:
     ```jsx title="/src/pages/[examplePageName].astro"
       // import the deep merge utility to merge json files
       import { deepMerge } from '../icl-utils';
@@ -429,3 +429,93 @@ This will open the "Welcome page", changes made in code will automatically be re
     ```
   </TabItem>
 </Tabs>
+
+## Generating Components In Astro
+To create a new component in Astro, run the following command in a terminal at the root:
+```bash
+npm run create-component "component name"
+```
+Where "compoennt name" is the desired name of the component being created.
+This command will do perform a number of tasks:
+- Creates a new directory in `src/components` with spaces in the supplied name converted to hyphens
+- Creates a new `.astro` file in this directory using PascalCase for the supplied name
+- Creates a new `.json` file in this directory with spaces in the supplied name converted to hyphens
+- Imports the data to the `.astro` file
+- Creates a div with the component class (with spaces in the supplied name converted to hyphens) in the `.astro` file
+- Adds an empty object in the `.json` file with the supplied name spaces converted to underscores
+- Creates a new page for the component (in order for it to be viewed in the ICL Components/Pages list)
+
+The component will automatically be added ot the ICL Components/Page list
+
+### Creating a page for a component
+By default components in Astro do not have their own viewable pages, they need to be added to the page. 
+
+**Running the [command above](#generating-components-in-astro) will create this page. However, there may be some times when a page is needed to be created without running the above command.**
+
+In order to do this run:
+```bash
+npm run generate-component-pages
+```
+This will check for components that have pages. If a component does not have a page it will:
+- Creates a new `.astro` page in the `src/pages/components` directory using the component name converted to Kebab case 
+- Imports the layout and adds to the newly created page
+- Imports the component
+- Imports the ICL Component/Page list component
+- Outputs the component in the template
+
+The component will automatically be added ot the ICL Components/Page list.
+
+## Adding A New Page to the ICL List
+Creating a new page is manual process. The newly created page will need to be added to the ICL Components/Page list in the `ICL-Component-Page-List.astro` file.
+
+### Page Without Variations
+For example, adding the `all-stories.astro` to the list:
+```jsx title="src/components/_icl-component-page-list/ICL-Component-Page-List.astro" showLineNumbers
+<details class="icl-component-page-list__section-details" open>
+  <summary><h2>Pages</h2></summary>
+  <ul class="icl-component-page-list__section-details-list">
+    <li>
+      <a href={`${import.meta.env.BASE_URL}all-stories/index.html`} target="_blank">All Stories</a>
+    </li>
+    // rest of code
+```
+
+### Page With Variations
+Adding a page that has variations to the list requires viewing the urls from the `getStaticPaths` function in the frontmatter of the respective page. 
+
+For example, adding the `[kitchen-sink].astro` to the list requires viewing the `export async function getStaticPaths()` `params` in the template to get the urls:
+```jsx title="src/pages/[kitchenSink].astro" showLineNumbers
+// other code above - this is only showing a section
+{ params: { kitchenSink: 'kitchen-sink' }, props: { data: defaultData } },
+{ params: { kitchenSink: 'kitchen-sink-with-subnav' }, props: { 
+  data: deepMerge(defaultData, kitchenSinkWithSubnavData.default) 
+}},
+{ params: { kitchenSink: 'kitchen-sink-hero-no-image' }, props: { 
+  data: deepMerge(defaultData, kitchenSinkHeroNoImgData.default) 
+}}
+// other code below
+```
+- The `kitchenSink: 'kitchen-sink'` shows a path of `/kitchen-sink`
+- The second item `kitchenSink: 'kitchen-sink-with-subnav'` shows a path of `/kitchen-sink-with-subnav`
+— The third item `kitchenSink: 'kitchen-sink-hero-no-image'` shows a path of `/kitchen-sink-hero-no-image`
+- And so on...
+
+These urls can be added to `ICL-Component-Page-List.astro` [similarly to the above example](#page-without-variations), but in a nested `<details>` element:
+```jsx title="src/pages/[kitchenSink].astro" showLineNumbers
+<li>
+  <a href={`${import.meta.env.BASE_URL}kitchen-sink/`} target="_blank">Kitchen Sink</a>
+</li>
+<li>
+  <details class="icl-component-page-list__variations-details">
+    <summary class="icl-component-page-list__variations-summary"><span class="icl-component-page-list__variations-summary-icon">↓</span>Kitchen Sink Variations</summary>
+    <ul>
+      <li>
+        <a href={`${import.meta.env.BASE_URL}kitchen-sink-with-subnav/`} target="_blank">With Subnav</a>
+      </li>
+      <li>
+        <a href={`${import.meta.env.BASE_URL}kitchen-sink-hero-no-image/`} target="_blank">Hero No Image</a>
+      </li>
+      // rest of code
+```
+- `line 2`: Add a link to the "default" (or "non-variant") version of the page
+— `line 5` & Onward: Add a new `<details>` element with links in a nested `<ul>` with the variant links

@@ -14,7 +14,7 @@ Using the "mobile first" methodology, where default CSS rules apply to the small
 ## Architecture
 
 <Tabs groupId="icl-versions">
-  <TabItem value="v2.0" label="ICL Version 2+ (Vite/PostCSS)" default>
+  <TabItem value="v2.0" label="ICL Version 2+ (Astro & Pattern Lab Vite/PostCSS Version)">
     The **entrypoint file** is `index.css` (located at `source/css/index.css`)
 
     - The **core directory** contains root styles, layout and typography related partials:
@@ -70,7 +70,7 @@ Using the "mobile first" methodology, where default CSS rules apply to the small
 ## Print Styles
 
 <Tabs groupId="icl-versions">
-  <TabItem value="v2.0" label="ICL Version 2+ (Vite/PostCSS)" default>
+  <TabItem value="v2.0" label="ICL Version 2+ (Astro & Pattern Lab Vite/PostCSS Version)">
     A print-specific stylesheet is in use at `source/scss/print.css` to disable page elements irrelevant for printing (site header, site footer, subnav, etc) and to output the url of links within page body text.
   </TabItem>
 
@@ -82,7 +82,7 @@ Using the "mobile first" methodology, where default CSS rules apply to the small
 ## Custom Properties (Native CSS Variables)
 
 <Tabs groupId="icl-versions">
-  <TabItem value="v2.0" label="ICL Version 2+ (Vite/PostCSS)" default>
+  <TabItem value="v2.0" label="ICL Version 2+ (Astro & Pattern Lab Vite/PostCSS Version)">
     ### How To Use
 
     Globally scoped custom properties (aka variables) are added to the `:root` element in **core/variables.css**. For example, a color variable can be added with `--color-white: #fff;`. Then to apply the variable:
@@ -150,7 +150,7 @@ All interactive elements need a hover and focus state and should all be transiti
 ## General Styling Guidelines
 
 <Tabs groupId="icl-versions">
-  <TabItem value="v2.0" label="ICL Version 2+ (Vite/PostCSS)" default>
+  <TabItem value="v2.0" label="ICL Version 2+ (Astro & Pattern Lab Vite/PostCSS Version)">
   ### Using Pixels
   - In development, use pixels for _most_ fixed units (context matters here, there are exceptions, using viewport units for example)
   - A PostCSS plugin [postcss-pxtorem](https://github.com/cuth/postcss-pxtorem) automatically converts the pixel units to REM units
@@ -328,7 +328,7 @@ Sass has an option to utilize the `&` operator to create child element classes w
 ## Using `@extend`
 
 <Tabs groupId="icl-versions">
-  <TabItem value="v2.0" label="ICL Version 2+ (Vite/PostCSS)" default>
+  <TabItem value="v2.0" label="ICL Version 2+ (Astro & Pattern Lab Vite/PostCSS Version)">
     - A PostCSS plugin [postcss-extend-rule](https://github.com/csstools/postcss-extend-rule), allows usage of `@extend` to copy classes between selectors
     - Classes from any partial `.css` file can be extended, however - it's advisable to keep classess that are meant to be extended in **core/helpers.css** for consistency
     - Syntax:
@@ -382,7 +382,7 @@ These css tools can be used freely to create layouts. Flexbox is useful when the
 Example grid layout with 2 even columns (`minmax(0, 1fr)` can be used to ensure that longer pieces of content do not cause columns to grow or shrink disproportionately):
 
 <Tabs groupId="icl-versions">
-  <TabItem value="v2.0" label="ICL Version 2+ (Vite/PostCSS)" default>
+  <TabItem value="v2.0" label="ICL Version 2+ (Astro & Pattern Lab Vite/PostCSS Version)">
     ```css
     display: grid;
     grid-template-columns: repeat(2, minmax(0, 1fr));
@@ -425,7 +425,7 @@ flex: 0 1 auto; // Has a percentage width, scales responsively
 ### Media Queries
 
 <Tabs groupId="icl-versions">
-  <TabItem value="v2.0" label="ICL Version 2+ (Vite/PostCSS)" default>
+  <TabItem value="v2.0" label="ICL Version 2+ (Astro & Pattern Lab Vite/PostCSS Version)">
     PostCSS allows us to use [Custom Media Queries](https://drafts.csswg.org/mediaqueries-5/#custom-mq), which allows for variables to be set for mediq queries. Media queries are set in **core/variables.css** using `@custom-media`.
 
     ```css
@@ -486,7 +486,7 @@ The syntax to use the container query is as follows:
 When the browser reaches a width of 1800px and larger - site scaling will kick in to incrementally scale everything on the page as the width increases — there is no max-width for the site. In **base.scss**, this is controlled on the `html` tag by increasing the font size with a viewport unit:
 
 <Tabs groupId="icl-versions">
-  <TabItem value="v2.0" label="ICL Version 2+ (Vite/PostCSS)" default>
+  <TabItem value="v2.0" label="ICL Version 2+ (Astro & Pattern Lab Vite/PostCSS Version)">
     ```css
     html {
       font-size: 16px;

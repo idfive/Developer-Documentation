@@ -166,3 +166,74 @@ import { jsx } from "react/jsx-runtime";
     - If there is a chance that links or list items will be added to the `raw` section, the class of `text-content` should be added to the containing `div` in order to pick up the styles properly
   </TabItem>
 </Tabs>
+
+## Astro Specific Templating 
+  Frontmatter is used in `.astro` files, it begins with `---` and ends with `---`. This is JavaScript/TypeScript code that runs on build.
+
+  ### Component Frontmatter (Importing Data and Accepting Props)
+  All components should follow this structure to allow for props (customization per instance) and the components respective data json file (in the same directory as the component):
+  For example, the `Tag-List.astro` component file:
+  ```jsx title="src/components/tag-list/Tag-List.astro" showLineNumbers
+  ---
+  const { tagList } = Astro.props;
+  import data from './tag-list.json'
+  import Tag from '../tag/Tag.astro';
+  const tagListData = tagList || data.tag_list;
+  ---
+  ```
+  **Line by line breakdown:**
+  - `line 2`: begin frontmatter section
+  - `line 2`: extracts props passed to the component and sets a variable with the values. This is named with the camel case name of the component (`tag-list.astro` is tagList)
+  - `line 3`: imports the data from the respective json file. The import name should be `data`. 
+  - `line 4`: imports a component used within this component (to be used later in the template)
+  - `line 5`: sets a variable for the data with the logical `OR` operator. If props are passed `tagList`, this will be used as the data, if not the "default" `data` will be used (`tag_list` comes from the json structure in this instance). The variable name for the data (which allows for the props or the main data file) is the camel case name of the component followed by Data (tag-list.astro is tagListData).
+  - `line 6`: end frontmatter section
+
+### Page Templating
+#### Frontmatter for a page with no variations.
+For example the frontmatter for the `extras.astro` page:
+```jsx title="src/pages/extras.astro" showLineNumbers
+---
+import data from '../data/extras.json';
+import Layout from '../layouts/Layout.astro';
+import Hero from '../components/hero/Hero.astro';
+import Carousel from '../components/carousel/Carousel.astro';
+import Modal from '../components/modal/Modal.astro';
+import Pagination from '../components/pagination/Pagination.astro';
+import FormElements from '../components/form-elements/Form-Elements.astro';
+import TagList from '../components/tag-list/Tag-List.astro';
+import Tabs from '../components/tabs/Tabs.astro';
+---
+```
+- The data for the page needs to be imported from the respective `json` file in the `/data` directory, typically with the variable name `data`.
+- Import the page layout from `Layout.astro`
+- All components that will be used on the page will need to be imported.
+
+#### Frontmatter for a page with variations.
+In addition to the necessary frontmatter code [mentioned above](/docs/front-end/templating#page-templating) (except for data as it's handled differently), pages with variations `[page-name].astro` require more code to be added to allow for multiple data files and to handle the URLs being created.
+
+See the [Variants section in the main idfive Component Library dev docs page](/docs/front-end/idfive-component-library#variants-page--component) for how to accomplish this
+
+### Page Template (after the frontmatter)
+The first item on a page will be to use the `<Layout>` tag to slot the page content into the correct position in the page layout:
+```jsx
+<Layout title={data.title}></Layout> 
+```
+
+The `title` attribute here will pull from the respective data file to give the page a custom `<title>`.
+
+Components should be wrapped in the `.paragraph-widget` class as well as the additional `.paragraph-widget--component-name` class. For example: 
+```jsx
+<div class="paragraph-widget paragraph-widget--tag-list">
+```
+The component itself will be added within, matching the name imported above in the frontmatter. For example (putting it all together):
+```jsx
+<div class="paragraph-widget paragraph-widget--tag-list">
+  <TagList tagList={data.extras_tag_list.tag_list} />
+</div>
+```
+
+The `tagList` in `tagList={data...` matches the name given in the `Tag-List.astro` file for props:
+```jsx title="src/components/tag-list/Tag-List.astro"
+const { tagList } = Astro.props;
+```

@@ -1,29 +1,34 @@
 ---
 description: Guidelines & Icomoon How-To
 ---
+import Tabs from "@theme/Tabs";
+import TabItem from "@theme/TabItem";
+
 
 # Images & SVG Icons
 
 ## Images
+<Tabs groupId="icl-versions">
+  <TabItem value="v3.0" label="ICL Version 3+ (Astro)">
+  Images should be placed in the `public/images` directory.
+  </TabItem>
+  <TabItem value="v2.0" label="ICL Version < 3 (Pattern Lab)">
+    Images should be placed in the `source/images` directory.
+  </TabItem>
+</Tabs>
 ### Markup
 
-- Images should be placed in the `source/images` directory. To reference an image in a component or page in json use `"../../images/image-name.jpg",`
+- To reference an image in a component or page in json use `"../../images/image-name.jpg",`
 - Set `width` and `height` attributes for all images
 - Provide alt tags when appropriate - [see the accessibility page image section for more info](/docs/front-end/accessibility#images)
 - Use the native lazy loading attribute of `loading="lazy"` except for usage in sections that will appear at the top of the page (ie, Site Header or Heroes)
-- If different assets are needed depending on viewport width, a `<picture>` tag can be used. Here's an example that can be seen in the hero component at `source/_patterns/components/hero/hero.twig`:
+- If different assets are needed depending on viewport width, a `<picture>` tag can be used. Here's an example that can be seen in the hero component (the hero would not typically use the `loading="lazy"` attribute, but adding in for the example):
 
 ```html
 <div class="hero__media">
   <picture>
     <source srcset="{{ hero.image.desktop_src }}" media="(min-width: 768px)" />
-    <img
-      src="{{ hero.image.mobile_src }}"
-      alt=""
-      loading="lazy"
-      width="1434"
-      height="502"
-    />
+    <img src="{{ hero.image.mobile_src }}" alt="{{ hero.image.alt }}" loading="lazy" width="1434" height="502" />
   </picture>
 </div>
 ```
@@ -31,10 +36,10 @@ description: Guidelines & Icomoon How-To
 ### Styling
 
 - Use the `object-fit` property as much as possible to maintain aspect ratios for images
-- A placeholder selector exists called `%responsive-img` in most projects and should be used for all images
+- A helper class of `.responsive-img` can be extended to simplify image styling:
 
-```scss
-%responsive-img {
+```css
+.responsive-img {
   width: 100%;
   iframe,
   img {
@@ -49,10 +54,10 @@ description: Guidelines & Icomoon How-To
 
 - To use this - apply to the `.hero__media` div and update the aspect-ratio to your needs:
 
-```scss
+```css
 .hero__media {
+  @extend .responsive-img;
   aspect-ratio: 1.78 // 16/9;
-  @extend %responsive-img;
 }
 ```
 
@@ -107,9 +112,7 @@ This sheet should be included as close to the opening `body` tag as possible. Ge
 - An example of using a sprite (note the use a `visible-for-screen-readers` class here in use if the icon is more than directory [i.e. if it's button to click, indicate what it does here]):
 
 ```html
-<span class="visible-for-screen-readers"
-  >Name of icon for screen readers (if applicable)</span
->
+<span class="visible-for-screen-readers">Name of icon for screen readers (if applicable)</span>
 <svg aria-hidden="true" width="20" height="20">
   <use xlink:href="#icon-id"></use>
 </svg>
