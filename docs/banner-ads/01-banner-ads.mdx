@@ -1,0 +1,280 @@
+---
+description: Overview of Front-end Library
+---
+
+import Tabs from "@theme/Tabs";
+import TabItem from "@theme/TabItem";
+
+# Banner Ads
+
+## Overview
+
+HTML 5 Banner Ads are created in code (as opposed to a GUI tool) as a standard HTML file. It can have external css, js, and images, etc. The animation is handled primarly through CSS [@keyframes](https://developer.mozilla.org/en-US/docs/Web/CSS/@keyframes). Javascript is used to
+
+## HTML Structure
+This structure is a boilerplate that can be used to create a new ad. 
+
+See highlighted comments calling out unique aspects of the ad:
+
+```HTML showLineNumbers
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    
+    <!-- ad.size meta tag with correct sizing for ad dimensions -->
+    <meta name="ad.size" content="width=160,height=600" />
+    <title>Banner Ad Title - 160x600</title>
+    
+    <!-- link to external font (can be Google, Adobe Typekit, etc) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=font" rel="stylesheet"/>
+    
+    <!-- link to external css file -->
+    <link rel="stylesheet" href="css/style.css" />
+    
+    <!-- click tag -->
+    <script type="text/javascript">
+      var clickTag = "https://www.google.com/";
+    </script>
+  </head>
+  <body>
+    
+    <!-- container for ad -->
+    <div class="banner-ad">
+      
+      <!-- apply click tag in a link covering the ad -->
+      <a href="javascript:window.open(window.clickTag)" class="banner-ad__contact"></a>
+      
+      <!-- container for content -->
+      <div class="banner-ad__content">
+        
+        <!-- content that will not change with "slides" can go here -->
+        <div class="banner-ad__logo">
+          <img src="assets/logo.svg" width="140" height="27" alt="Logo Alt Text" />
+        </div>
+        <div class="button">Button Text</div>
+        
+        <!-- slide 1 -->
+        <div class="banner-ad__slide banner-ad__slide-1">
+          <span>Slide 1 Text Content</span>
+        </div>
+        
+        <!-- slide 2 -->
+        <div class="banner-ad__slide banner-ad__slide-2">
+          <span>Slide 2 Text Content</span>
+        </div>
+      </div>
+    </div>
+    
+    <!-- link to external js file -->
+    <script src="js/script.js"></script>
+  </body>
+</html>
+
+```
+
+## Clicktags
+
+Clicktags are used by Ad Networks to track clicks on the ads being served out. In the HTML file for the ad:
+
+```HTML
+  <script type="text/javascript">
+    var clickTag = "https://www.google.com/";
+  </script>
+</head>
+<body>
+  <div class="banner-ad">
+    <a href="javascript:window.open(window.clickTag)" class="banner-ad__contact"></a>
+    // Rest of ad markup
+```
+
+- In this example the `https://www.google.com/` would be replaced by the desired landing page URL where the ad should link, typically including trakcing parameters provided by the ad network.
+- The `clickTag` variable is setting the url.
+- The `<a>` tag covers the entire ad providing the click through.
+
+## Styling
+Styling can occur in an external stylesheet.
+
+This stylesheet is intended to be used starting point for structuring:
+```css
+/* General Setup */
+/* Main banner ad container */
+.banner-ad {
+  width: 160px;
+  height: 600px;
+  overflow: hidden;
+  position: relative;
+  outline: solid 1px black;
+}
+
+/* Contact overlay layer */
+.banner-ad__contact {
+  position: absolute;
+  inset: 0;
+  z-index: 5;
+}
+
+/* Main content container */
+.banner-ad__content {
+  position: absolute;
+  inset: 0;
+  z-index: 2;
+}
+
+/* Logo Styles */
+.banner-ad__logo {
+}
+
+/* Text Content Container */
+.banner-ad__slide {
+  position: absolute;
+  inset: 0;
+  opacity: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+}
+
+/* Button Styles */
+.button {
+}
+
+/* Specific Styling Per Ad */
+/* Slide One */
+.banner-ad__slide-` {
+  animation: opacity-in 0.5s ease-in-out 0.5ss forwards;
+}
+
+/* Text Styles  for slide 1 */
+.banner-ad__slide-1 span {
+}
+
+
+/* Slide 2 */
+.banner-ad__slide-2 {
+  animation: opacity-in 0.5s ease-in-out 8.5s forwards;
+}
+
+/* Text Styles  for slide 2 */
+.banner-ad__slide-2 span {
+}
+
+/* Image Styles */
+.banner-ad__image {
+}
+
+/* Animations */
+@keyframes opacity-out {
+  from {
+    opacity: 1;
+  }
+
+  to {
+    opacity: 0;
+  }
+}
+
+@keyframes opacity-in-with-slide {
+  0% {
+    opacity: 0;
+    translate: 0 30px;
+  }
+  75% {
+    translate: 0 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+@keyframes opacity-in {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes image-slide {
+  from {
+    translate: 100% 0;
+  }
+
+  to {
+    translate: 0 0;
+  }
+}
+
+```
+
+
+## Fonts
+External fonts can be linked to — for example [Google Webfonts](https://fonts.google.com/) and [Adobe Typekit](https://fonts.adobe.com/) can be used.
+
+## Javascript
+This javascript can be used as is. The only variables that may need to change are `this.totalCycles` and `this.cycleDuration` depending on the ad network specs. In this example the ad animations will run three times with each cycle lasting 15 seconds, for a total of 45 seconds. The CSS animations are set up to last for a total of 15 seconds.
+
+```js showLineNumbers
+// Banner ad animation controller
+class BannerAnimationController {
+  constructor() {
+    this.currentCycle = 0;
+    this.totalCycles = 3; // run the ad 3 times
+    this.cycleDuration = 15000; // 15 seconds per cycle
+    this.animatedElements = [];
+
+    this.init();
+  }
+
+  init() {
+
+    // Start the animation cycles
+    this.startAnimationCycle();
+  }
+
+  startAnimationCycle() {
+    if (this.currentCycle >= this.totalCycles) {
+      return; // Stop after 3 cycles
+    }
+
+    // Reset all animations by removing and re-adding animation classes
+    this.resetAnimations();
+
+    // Start the next cycle
+    setTimeout(() => {
+      this.currentCycle++;
+      this.startAnimationCycle();
+    }, this.cycleDuration);
+  }
+
+  resetAnimations() {
+    // Force reflow to restart CSS animations
+    const bannerAd = document.querySelector(".banner-ad");
+    const originalDisplay = bannerAd.style.display;
+    bannerAd.style.display = "none";
+    bannerAd.offsetHeight; // Trigger reflow
+    bannerAd.style.display = originalDisplay;
+  }
+}
+
+// Initialize the animation controller when the DOM is loaded
+document.addEventListener("DOMContentLoaded", () => {
+  new BannerAnimationController();
+});
+
+```
+
+## Ad Specs
+Review and confirm all ad specs from the ad netowrk that will be running the ad before starting.
+
+## Preview Page
+Typically a preview page needs to be created that contains links to the ads, so that the internal idfive team and clients can review. Follow the [Buddy deployment process](docs/general/documentation/buddy-pipeline.md) to push this up to the staging site. Here is an [example review page](https://staging2.idfive.com/umary-media/).
+
+## Git trakcing
+Add the ads to Bitbucket to keep tracked. Use the client name followed by "media" ("clientname_media").
