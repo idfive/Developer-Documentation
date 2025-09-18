@@ -1,0 +1,62 @@
+---
+description: Using Third-Party & Local Fonts
+---
+
+import Tabs from "@theme/Tabs";
+import TabItem from "@theme/TabItem";
+
+# Fonts
+
+## Third-Party (ie, Typekit, Google, etc.)
+
+- Fonts being hosted by a third-party can be added to the `<head>` in `source/_meta/_head.twig`, for example:
+
+```html
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link
+  href="https://fonts.googleapis.com/css2?family=Merriweather:ital,wght@0,400;0,700;1,400;1,700&family=Open+Sans:ital,wght@0,400;0,700;1,400;1,700&display=swap"
+  rel="stylesheet"
+/>
+```
+
+## Local Fonts
+
+<Tabs groupId="icl-versions">
+  <TabItem value="v3.0" label="ICL Version 3+ (Astro)">
+    - Fonts being served locally can be placed in `/public/fonts`.
+    - Font files to be referenced in `src/assets/css/core/typography.css` using `@font-face`. For example:
+
+    ```css title="src/assets/css/core/typography.css"
+    @font-face {
+      font-family: "Font Name";
+      src: url("/fonts/path-to-font.ttf.woff") format("woff"),
+        url("/fonts/path-to-font.ttf.svg#path-to-font") format("svg"), url("/fonts/path-to-font.ttf.eot"),
+        url("/fonts/path-to-font.ttf.eot?#iefix") format("embedded-opentype");
+      font-weight: normal;
+      font-style: normal;
+    }
+    ```
+    (the formats that are in use here and the particular `@font-face` code may vary - use the code that is typically provided by the webfont provider - above is just an example)
+
+    - Set `font-display: swap;` on all for performance reasons
+
+  </TabItem>
+  <TabItem value="v2.0" label="ICL Version < 3 (Pattern Lab)">
+    - Fonts being served locally can be placed in `source/fonts`.
+    - Font files need to be referenced in `source/css/core/_typography.scss` using `@font-face`. For example:
+
+    ```css
+    @font-face {
+      font-family: "Font Name";
+      src: url("path-to-font.woff") format("woff"), url("path-to-font.woff.ttf")
+          format("truetype");
+      font-style: normal;
+      font-weight: 400;
+      font-display: swap;
+    }
+    ```
+    - Set `font-display: swap;` on all for performance reasons
+    </TabItem>
+
+</Tabs>
