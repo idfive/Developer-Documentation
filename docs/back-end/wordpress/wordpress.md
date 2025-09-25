@@ -6,14 +6,13 @@ WordPress is a popular content management system used by idfive for various clie
 
 ### Getting Started
 
-- [WordPress Overview](/docs/back-end/wordpress/wordpress) - Core methodology and development approach
 - [WordPress Plugins](/docs/back-end/wordpress/wordpress-plugins) - Essential plugins and recommendations
 - [WordPress CLI](/docs/back-end/wordpress/wordpress-cli) - Command line tools and usage
+- [WordPress Maintenance](/docs/back-end/wordpress/wordpress-maintenance) - Ongoing maintenance and updates
 
 ### Development & AI Integration
 
 - [WordPress and AI](/docs/back-end/wordpress/wordpress-ai) - AI integration plugins and ecosystem overview
-- [WordPress Maintenance](/docs/back-end/wordpress/wordpress-maintenance) - Ongoing maintenance and updates
 
 ---
 
