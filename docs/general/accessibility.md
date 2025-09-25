@@ -154,7 +154,7 @@ Automated tools catch many issues, but human testing is essential:
 
 ### Component Library Accessibility Features
 
-Our [idfive Component Library (ICL)](/docs/front-end/pattern-lab) includes built-in accessibility features:
+Our [idfive Component Library (ICL)](/docs/front-end/idfive-component-library) includes built-in accessibility features:
 
 #### JavaScript Utilities
 
@@ -316,4 +316,4 @@ Our goal is to make the web more accessible, one project at a time. Whether you'
 
 ---
 
-_For technical implementation details, developers can reference our [Front-end Accessibility Guidelines](/docs/front-end/accessibility) and [Component Library documentation](/docs/front-end/pattern-lab)._
+_For technical implementation details, developers can reference our [Front-end Accessibility Guidelines](/docs/front-end/accessibility) and [Component Library documentation](/docs/front-end/idfive-component-library)._

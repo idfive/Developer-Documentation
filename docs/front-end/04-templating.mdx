@@ -1,0 +1,239 @@
+---
+description: Overview, Guidelines of Templating Language
+---
+
+import Tabs from "@theme/Tabs";
+import TabItem from "@theme/TabItem";
+import { jsx } from "react/jsx-runtime";
+
+
+# Templating
+
+<Tabs groupId="icl-versions">
+  <TabItem value="v3.0" label="ICL Version 3+ (Astro)">
+    Astro uses the uses JSX-like templating language ([documentation link](https://docs.astro.build/en/reference/astro-syntax/#jsx-like-expressions)).
+
+    For VSCode, the extension [Astro](https://marketplace.visualstudio.com/items?itemName=astro-build.astro-vscode) for language support for `.astro` files
+  </TabItem>
+  <TabItem value="v2.0" label="ICL Version < 3 (Pattern Lab)">
+    The Pattern Lab Starter uses the twig template language (version 2 - [documentation link](https://twig.symfony.com/doc/2.x/)).
+
+    For VSCode, the extension [Twig Language 2](https://marketplace.visualstudio.com/items?itemName=mblode.twig-language-2) is recommended for "_Snippets, Syntax Highlighting, Hover, and Formatting for Twig_"
+  </TabItem>
+</Tabs>
+## If Statements
+<Tabs groupId="icl-versions">
+  <TabItem value="v3.0" label="ICL Version 3+ (Astro)">
+    JavaScript expressions can be used directly in `.astro` files. 
+
+    To check if a piece of data exists:
+    ```jsx
+    {data.heading && (<h2>{data.heading}</h2>)}
+    ```
+
+    A more complex example showing evalauting statements can be found in the Button-Link-Set component:
+    ```jsx title="src/components/button-link-set/Button-Link-Set.astro" showLineNumbers
+    <div class="button-link-set">
+      <ul>
+        {buttonLinkSetData.type === "button" ? (
+          buttonLinkSetData.items.map((button: any) => (
+            <li>
+              <Button button={button.button} />
+            </li>
+          ))
+        ) : buttonLinkSetData.type === "link" ? (
+          buttonLinkSetData.items.map((link: any) => (
+            <li>
+              <PrimaryLink primaryLink={link.primary_link || link.button} />
+            </li>
+          ))
+        ) : null}
+      </ul>
+    </div>
+    ```
+  </TabItem>
+  <TabItem value="v2.0" label="ICL Version < 3 (Pattern Lab)">  
+    A common pattern in use with twig is an `if` statement in order to check if an item exists ([documentation link](https://twig.symfony.com/doc/2.x/tags/if.html))
+    
+    Some example use cases can be seen in the hero at `source/_patterns/components/hero/hero.twig`:
+    The image is optional in the hero:
+    ```html
+    {% if hero.image.desktop_src is not empty %}
+    ```
+    allows us to check if a part of the corresponding data is "not empty" (which can be helpful if a variant is needed so the data can be replicated "empty" as [variants](/docs/front-end/idfive-component-library#variants-page--component) pick up the data from their parents)
+    The subnav is also optional in the hero:
+    ```html
+    {% if hero.subnav.subnav.items|length > 0 %} {% include
+    "@components/subnav/subnav.twig" with hero.subnav %} {% endif %}
+    ```
+    checking if the array has content using the `length` filter is also useful for [variants](/docs/front-end/idfive-component-library#variants-page--component) by adding the "empty" array if the intention is to not output the subnav
+    </TabItem>
+</Tabs>
+
+## Looping Through Content
+
+<Tabs groupId="icl-versions">
+  <TabItem value="v3.0" label="ICL Version 3+ (Astro)">
+    The `map()` method can be used to loop through content in Astro. 
+    For example in the `Tag-List.astro` file:
+    ```jsx title="src/components/tag-list/Tag-List.astro" showLineNumbers
+    <ul>
+      {tagListData.tags.map((tag: any) => (
+        <li>
+          <Tag tag={tag.tag} />
+        </li>
+      ))}
+    </ul>
+    ```
+    
+    The above code will loop through the tags in the `tag-list.json` file:
+    ```json title="src/components/tag-list/tag-list.json"
+    // file abbreviated for simplicty
+    "tags": [
+      {
+        "tag": {
+          "text": "Tag-One",
+          "url": "https://idfive.com"
+        }
+      },
+      {
+        "tag": {
+          "text": "Tag-Two",
+          "url": "https://idfive.com"
+        }
+      },
+      // rest of json
+    ```
+  </TabItem>
+  <TabItem value="v2.0" label="ICL Version < 3 (Pattern Lab)">
+    To loop through content in Twig, ua `for-loop` ([documentation link](https://twig.symfony.com/doc/2.x/tags/for.html)) can be used. For example, in the Breadcrumbs component `source/_patterns/components/breadcrumbs/breadcrumbs.twig`:
+
+    ```html
+    {% for link in breadcrumbs.links %}
+    <li>
+      <a href="{{ link.url }}" {% if loop.last %} aria-current="page" {% endif %}
+        >{{ link.name }}</a
+      >
+    </li>
+    {% endfor %}
+    ```
+
+    This will loop through the data to output the links in the `breadcrumbs.links` array as `link` (where `link` is isued in the template to represent a single item in the loop):
+
+    ```json
+    {
+      "breadcrumbs": {
+        "links": [
+          {
+            "url": "https://idfive.com",
+            "name": "Home"
+          },
+          {
+            "url": "https://idfive.com",
+            "name": "Another Link"
+          },
+    // rest of JSON data
+    ```
+
+    - Notice in the breadcrumb example `{% if loop.last %}` in order to affect the last item in the loop
+    - There are many helpful tags and filters in twig that can be useful, see [official documentation](https://twig.symfony.com/doc/2.x/) for more
+  </TabItem>
+</Tabs>
+
+## Outputting "Raw" HTML
+
+<Tabs groupId="icl-versions">
+  <TabItem value="v3.0" label="ICL Version 3+ (Astro)">
+    To output HTML tags in data, `set:html` can be used.
+    
+    For example full HTML is desired when outputting accordion content:
+    ```jsx
+    <div class="accordion__content-wrap text-content" set:html={accordion.content}></div>
+    ```
+
+    - Wrap a `raw` element in a `div` as opposed to an explicitly text-based tag to allow for proper markup
+    - If there is a chance that links or list items will be added to the `raw` section, the class of `text-content` should be added to the containing `div` in order to pick up the styles properly
+  </TabItem>
+  <TabItem value="v2.0" label="ICL Version < 3 (Pattern Lab)">
+    To output HTML tags in data, the `raw` filter can be used. An example can be seen in the `Tag List` component at `source/_patterns/components/tags/tag-list.twig`:
+
+    ```html
+    <div class="tag-list__section-description">
+      {{ tag_list.section_description|raw }}
+    </div>
+    ```
+    - Wrap a `raw` element in a `div` as opposed to an explicitly text-based tag to allow for proper markup
+    - If there is a chance that links or list items will be added to the `raw` section, the class of `text-content` should be added to the containing `div` in order to pick up the styles properly
+  </TabItem>
+</Tabs>
+
+## Astro Specific Templating 
+  Frontmatter is used in `.astro` files, it begins with `---` and ends with `---`. This is JavaScript/TypeScript code that runs on build.
+
+  ### Component Frontmatter (Importing Data and Accepting Props)
+  All components should follow this structure to allow for props (customization per instance) and the components respective data json file (in the same directory as the component):
+  For example, the `Tag-List.astro` component file:
+  ```jsx title="src/components/tag-list/Tag-List.astro" showLineNumbers
+  ---
+  const { tagList } = Astro.props;
+  import data from './tag-list.json'
+  import Tag from '../tag/Tag.astro';
+  const tagListData = tagList || data.tag_list;
+  ---
+  ```
+  **Line by line breakdown:**
+  - `line 2`: begin frontmatter section
+  - `line 2`: extracts props passed to the component and sets a variable with the values. This is named with the camel case name of the component (`tag-list.astro` is tagList)
+  - `line 3`: imports the data from the respective json file. The import name should be `data`. 
+  - `line 4`: imports a component used within this component (to be used later in the template)
+  - `line 5`: sets a variable for the data with the logical `OR` operator. If props are passed `tagList`, this will be used as the data, if not the "default" `data` will be used (`tag_list` comes from the json structure in this instance). The variable name for the data (which allows for the props or the main data file) is the camel case name of the component followed by Data (tag-list.astro is tagListData).
+  - `line 6`: end frontmatter section
+
+### Page Templating
+#### Frontmatter for a page with no variations.
+For example the frontmatter for the `extras.astro` page:
+```jsx title="src/pages/extras.astro" showLineNumbers
+---
+import data from '../data/extras.json';
+import Layout from '../layouts/Layout.astro';
+import Hero from '../components/hero/Hero.astro';
+import Carousel from '../components/carousel/Carousel.astro';
+import Modal from '../components/modal/Modal.astro';
+import Pagination from '../components/pagination/Pagination.astro';
+import FormElements from '../components/form-elements/Form-Elements.astro';
+import TagList from '../components/tag-list/Tag-List.astro';
+import Tabs from '../components/tabs/Tabs.astro';
+---
+```
+- The data for the page needs to be imported from the respective `json` file in the `/data` directory, typically with the variable name `data`.
+- Import the page layout from `Layout.astro`
+- All components that will be used on the page will need to be imported.
+
+#### Frontmatter for a page with variations.
+In addition to the necessary frontmatter code [mentioned above](/docs/front-end/templating#page-templating) (except for data as it's handled differently), pages with variations `[page-name].astro` require more code to be added to allow for multiple data files and to handle the URLs being created.
+
+See the [Variants section in the main idfive Component Library dev docs page](/docs/front-end/idfive-component-library#variants-page--component) for how to accomplish this
+
+### Page Template (after the frontmatter)
+The first item on a page will be to use the `<Layout>` tag to slot the page content into the correct position in the page layout:
+```jsx
+<Layout title={data.title}></Layout> 
+```
+
+The `title` attribute here will pull from the respective data file to give the page a custom `<title>`.
+
+Components should be wrapped in the `.paragraph-widget` class as well as the additional `.paragraph-widget--component-name` class. For example: 
+```jsx
+<div class="paragraph-widget paragraph-widget--tag-list">
+```
+The component itself will be added within, matching the name imported above in the frontmatter. For example (putting it all together):
+```jsx
+<div class="paragraph-widget paragraph-widget--tag-list">
+  <TagList tagList={data.extras_tag_list.tag_list} />
+</div>
+```
+
+The `tagList` in `tagList={data...` matches the name given in the `Tag-List.astro` file for props:
+```jsx title="src/components/tag-list/Tag-List.astro"
+const { tagList } = Astro.props;
+```

@@ -1,0 +1,549 @@
+---
+description: Overview of Front-end Library
+---
+
+import Tabs from "@theme/Tabs";
+import TabItem from "@theme/TabItem";
+
+# idfive Component Library (ICL)
+
+**A collection of components to be used to begin new front-end development projects.** This library is synced-up manually to the [Drupal Accelerator](https://dev-idfive-drupal-accelerator.pantheonsite.io/) and to the [Wordpress Accelerator](https://dev-idfive-accelerator.pantheonsite.io/) sites.
+
+## Overview (What's Included)
+
+<Tabs groupId="icl-versions">
+  <TabItem value="v3.0" label="ICL Version 3+ (Astro)">
+    - [Astro](https://astro.build/) static site generator framework
+    - Includes (out of the box):
+      - [Vite](https://vite.dev/)
+      - [PostCSS](https://postcss.org/)
+      - [Typescript](https://www.typescriptlang.org/)
+  </TabItem>
+  
+  <TabItem value="v2.0" label="ICL Version 2+ (Vite/PostCSS)">
+    - [Pattern Lab](https://patternlab.io/) to display components and pages, specifically the [Node Version](https://github.com/pattern-lab/) with twig
+    - [Vite](https://vite.dev/) build tool, also includes:
+      - [PostCSS](https://postcss.org/)
+      - [Typescript](https://www.typescriptlang.org/)
+      - [ESBuild](https://esbuild.github.io/)
+  </TabItem>
+
+  <TabItem value="v1.0" label="ICL Version < 2 (SCSS)">
+  - [Pattern Lab](https://patternlab.io/) to display components and pages, specifically the [Node Version](https://github.com/pattern-lab/) with twig
+  - [Typescript](https://www.typescriptlang.org/)
+  - [ESBuild](https://esbuild.github.io/)
+  - [Dart-sass](https://github.com/sass/dart-sass)
+  </TabItem>
+</Tabs>
+
+## Staging Site
+
+The library can be viewed on our [Netlify site](https://idfive-component-library.netlify.app/).
+
+## Download A Copy
+
+To download the starter [visit the Bitbucket Repo Downloads - Tags](https://bitbucket.org/idfivellc/idfive-pattern-lab-starter/downloads/?tab=tags) and under "Download", select a zip file of the latest tag. Downloading this way as opposed to cloning the repo will remove the git tracking (so it can be connected to the new project) and ensure that the latest intended version is pulled (new versions tagged when ready for production).
+
+## Installation
+
+Node.js is the backbone of our frontend build process. Node Version Manager (NVM) is used to manage versioning [(install instructions from GitHub)](https://github.com/nvm-sh/nvm#installing-and-updating):
+
+- [Version 20.19.0](https://nodejs.org/en/blog/release/v20.19.0) is the latest version used with the Astro version of the ICL
+- [Version 19.0.0](https://nodejs.org/en/blog/release/v19.0.0) is used for last version of the Pattern Lab Starter (all Pattern Lab projects)
+- [Version 12.20.0](https://nodejs.org/en/blog/release/v12.20.0) Is used for most older Fractal projects
+
+**In a terminal window at the root of the ICL - run the following commands:**
+
+<Tabs groupId="icl-versions">
+  <TabItem value="v3.0" label="ICL Version 3+ (Astro)">
+    - `nvm use` 
+    - `npm install` 
+    - `npm run dev`
+  </TabItem>
+  <TabItem value="v2.0" label="ICL Version 2+ (Vite/PostCSS)">
+    - `nvm use` 
+    - `npm install` 
+    - `npm run develop`
+  </TabItem>
+  <TabItem value="v1.0" label="ICL Version < 2 (SCSS)">
+    - `nvm use` 
+    - `npm install` 
+    - `npm run fractal`
+  </TabItem>
+</Tabs>
+
+This will open the "Welcome page", changes made in code will automatically be refreshed/reflected in the browser.
+
+## Interface
+
+<Tabs groupId="icl-versions">
+  <TabItem value="v3.0" label="ICL Version 3+ (Astro)">
+    ### Overview
+    The ICL Pages and Component list is a custom interface created and maintained by idfive and contains:
+    - The idfive logo and link to site, and title of the library
+    - A list of all available components, each is clickable to view the rendered component in th elist
+    - A list of the pages available in the library (as well as variations if available) with links that open in new Tabs
+
+    ![XD SVG](_media/icl-interface.jpg)
+
+    ### Component
+    The Pages and Component list is a component file called `ICL-Component-Page-List.astro`, located at `src/components/_icl-component-page-list/ICL-Component-Page-List.astro`. 
+
+    The component does the following:
+    - Dynamically generates a list of components 
+    - Outputs the markup for the list of pages and components 
+    - Styles the component, all css is contained in `<style>` tags in this component, to prevent the styles from being added to the main css file output for the library. These styles are scoped by Astro.
+    - Adds JavaScript functionality to handle the `<details>` (accordion) elements that handle the collapsing of pages, comonents and variations in the list. This is contained in `<script>` tags to prevent this JS from being included in the main js output file for the library.
+
+    To add a component or page to the list, see [Adding A New Page to the ICL List](#adding-a-new-page-to-the-icl-list)
+
+    ### Welcome Page (index.astro)
+    - The component is called in the `index.astro` file at `src/pages/index.astro`. 
+    - This file also contains the "Welcome Page", as it is the root of the ICL. This page contains basic instructions regarding how to spin up the library locally.
+
+    ### Notes
+    - The ICL Pages and Component list uses the standard `<Layout>` that all pages of the site use
+    - The `Layout.astro` file contains some conditionals that occur when the ICL Pages and Component list is present on the page
+      - Emergency Alert hidden
+      - Site Header hidden
+      - Site Footer hidden
+      - The `<div class="outer-pad">` is not output within `<main>`
+  </TabItem>
+  <TabItem value="v2.0" label="ICL Version < 3 (Pattern Lab)">
+    The Pattern Lab and Fractal interfaces are created from these respective platforms and cannot be edited.
+    The ICL Pages and Component list is typically on the left side of the page (it can be moved to the top by selecting "switch layout", but the left side is the default):
+    - **Components** is a list of all available components - not in a page context
+    - **Pages** contains fully built out pages, this is typically where review occurs
+  </TabItem>
+</Tabs>
+## Build
+
+<Tabs groupId="icl-versions">
+  <TabItem value="v3.0" label="ICL Version 3+ (Astro)">
+    - Run `npm run build`  
+    - To preview the build (`/dist` directory) run `npm run preview`
+  </TabItem>
+  <TabItem value="v2.0" label="ICL Version 2+ (Vite/PostCSS)">
+    **No build step is needed** - the js and css are being built and optimized continuously. 
+    - Run `npm run develop` 
+  </TabItem>
+
+  <TabItem value="v1.0" label="ICL Version < 2 (SCSS)">
+    **To build for production**, ensure that `npm run develop` has been run initially to build the sass files. JS is minified using [terser](https://github.com/terser/terser). CSS is minified using [minify](https://github.com/coderaiser/minify):
+    - `npm run build:all`
+  </TabItem>
+</Tabs>
+
+## Folder Structure
+
+<Tabs groupId="icl-versions">
+  <TabItem value="v3.0" label="ICL Version 3+ (Astro)">
+    - **dist** is the build folder, the static assets and pages are re-created here when `npm run build` is run
+    - **public** static folder where images and favicons (any assets needed) can be placed and accessed as needed
+    - **src**:
+      - **assets**:
+        - **CSS** contains css partial files, compiled into `index.css` (see [css documentation](/docs/front-end/css) for more information)
+        - **JS** contains all typescript modules:
+          - **components** contains individual modules for respective components (when required for functionality)
+          - **utilities** contains helpful accessibility functions that can be used to simply certain tasks
+          - **main.ts** imports all functions and calls init functions for each (this file gets compiled into one on build)
+      - **components** contains the `.astro` source files for components
+      - **data**:
+        - **global.json** data for use throughout site that will not change, for example the site header and site footer data
+        - ***.json** data used for all pages of the site, as well as variations on pages (see kitchen sink or home for example)
+      - **icl-utils** contains utility scripts for ICL usage, not to intended to be edited unless absolutely needed
+      - **layouts/Layout.astro** the main page structure layout that is used on every page of the site
+      - **pages** contains the `.astro` source files for pages. The files in the `/components` subdirectory are solely for display in the ICL Pages/Component list view only and not intended to be edited
+  </TabItem>
+  <TabItem value="v2.0" label="ICL Version 2+ (Vite/PostCSS)">
+    - **Annotations** is not in use, but can be used as an alternate way of documenting components (insead of placing the documentation in the respective component folder)
+    - **Data** contains global data, currently the starter library consists of `data.json` which holds data for global components such as the site-header and site-footer (this prevents the data from needing to be repeated for multiple instances). This can be re-organized/customized to suit developer needs
+    - **Meta** contains the header and footer code that gets applied to all patterns and pages. `_head.twig` contains all of the html and header starting code and `_foot.twig` for footer and ending html code/tags - more info can be found [here](https://patternlab.io/docs/modifying-the-pattern-header-and-footer/)
+    - **Patterns** contains the bulk of the code in use (components, core & pages). The three directories in here correlate to what is seen in the browser interface and are documented [above](idfive-component-library#interface)
+    - **CSS** contains css partial files, compiled into `index.css` (see [css documentation](/docs/front-end/css) for more information)
+    - **Fonts** is empty by default (Google Fonts are linked to in `_head.twig` for the sarter version), but local fonts can be added to this directory
+    - **Images** contains all starter images, as well as icons and svgs
+    - **JS** contains all typescript modules:
+      - **components** contains individual modules for respective components (when required for functionality)
+      - **utilities** contains helpful accessibility functions that can be used to simply certain tasks
+      - **main.ts** imports all functions and calls init functions for each (this file gets compiled into one on build)
+  </TabItem>
+
+  <TabItem value="v1.0" label="ICL Version < 2 (SCSS)">
+    - **Annotations** is not in use, but can be used as an alternate way of documenting components (insead of placing the documentation in the respective component folder)
+    - **Data** contains global data, currently the starter library consists of `data.json` which holds data for global components such as the site-header and site-footer (this prevents the data from needing to be repeated for multiple instances). This can be re-organized/customized to suit developer needs
+    - **Meta** contains the header and footer code that gets applied to all patterns and pages. `_head.twig` contains all of the html and header starting code and `_foot.twig` for footer and ending html code/tags - more info can be found [here](https://patternlab.io/docs/modifying-the-pattern-header-and-footer/)
+    - **Patterns** contains the bulk of the code in use (components, core & pages). The three directories in here correlate to what is seen in the browser interface and are documented [above](idfive-component-library#interface)
+    - **CSS** contains the scss partial files, compiled into `index.scss` (see [css documentation](/docs/front-end/css) for more information)
+    - **Fonts** is empty by default (Google Fonts are linked to in `_head.twig` for the sarter version), but local fonts can be added to this directory
+    - **Images** contains all starter images, as well as icons and svgs
+    - **JS** contains all typescript modules:
+      - **components** contains individual modules for respective components (when required for functionality)
+      - **utilities** contains helpful accessibility functions that can be used to simply certain tasks
+      - **main.ts** imports all functions and calls init functions for each (this file gets compiled into one on build)
+  </TabItem>
+</Tabs>
+
+## Data
+
+### Component Data
+
+<Tabs groupId="icl-versions">
+  <TabItem value="v3.0" label="ICL Version 3+ (Astro)">
+    Data on the component level is structured in stored in the same directory as the component's `.astro` file. For example, the button-set component's astro template:
+    ```jsx title="src/components/button-link-set/Button-Link-Set.astro"
+      ---
+      const { buttonLinkSet } = Astro.props;
+      // highlight-next-line
+      import data from './button-link-set.json';
+      const buttonLinkSetData = buttonLinkSet || data.button_link_set;
+      import Button from '../button/Button.astro';
+      import PrimaryLink from '../primary-link/Primary-Link.astro';
+      ---
+
+      <div class="button-link-set">
+        <ul>
+          {buttonLinkSetData.type === "button" ? (
+            buttonLinkSetData.items.map((button: any) => (
+              <li>
+                <Button button={button.button} />
+              </li>
+            ))
+          ) : buttonLinkSetData.type === "link" ? (
+            buttonLinkSetData.items.map((link: any) => (
+              <li>
+                <PrimaryLink primaryLink={link.primary_link || link.button} />
+              </li>
+            ))
+          ) : null}
+        </ul>
+      </div>
+    ```
+    **Note:** as seen in the example, components can be nested within other components
+
+    The corresponding component data can be found in json file in the same directory at `./button-link-set.json`, called in the line `import data from './button-link-set.json';`
+
+    ```json title="src/components/button-link-set/button-link-set.json"
+    {
+      "button_set": {
+        "buttons": [
+          {
+            "button": {
+              "text": "Button One",
+              "url": "https://idfive.com/"
+            }
+          }
+          // rest of json data
+        ]
+      }
+    }
+    ```
+
+    The json data object should be named similarly to the component ("button_set" in this case), in order to call it properly when included on a page.
+
+  </TabItem>
+  <TabItem value="v2.0" label="ICL Version < 3 (Pattern Lab)">
+    Data on the component level is structured in stored in the same directory as the component's `twig` file. For example, the button-set component's twig template (at `source/_patterns/components/buttons-links/button-set.twig`):
+
+    ```html
+    <div class="button-set">
+      <ul>
+        {% for button in button_set.buttons %}
+        <li>{% include "@components/buttons-links/button.twig" with button %}</li>
+        {% endfor %}
+      </ul>
+    </div>
+    ```
+
+    **Note:** as seen in the example, components can be nested within other components
+
+    The corresponding component data can be found in json file in the same directory at `source/_patterns/components/buttons-links/button-set.json`:
+
+    ```json
+    {
+      "button_set": {
+        "buttons": [
+          {
+            "button": {
+              "text": "Button One",
+              "url": "https://idfive.com/"
+            }
+          }
+          // rest of json data
+        ]
+      }
+    }
+    ```
+
+    The json data object should be named similarly to the component ("button_set" in this case), in order to call it properly when included on a page.
+
+  </TabItem>
+</Tabs>
+
+### Page Data
+
+<Tabs groupId="icl-versions">
+  <TabItem value="v3.0" label="ICL Version 3+ (Astro)">
+    Each page has a corresponding json file. The Kitchen Sink page (`src/pages/[kitchenSink].astro`) data is in the same directory (`src/data/kitchen-sink/kitchen-sink.json`). The json file starts with:
+    ```json title="src/data/kitchen-sink/kitchen-sink.json"
+    {
+      "title": "Kitchen Sink",
+    // rest of json data
+    ```
+
+    - The title corresponds to the `<title>` attribute
+
+    #### Including Components on a Page With Unique Data
+    - To include a component on a page the syntax is `<ComponentName componentName={data.page_component_name.component_name}></ComponentName>`
+    - For example - calling the button-set component:
+    ```jsx
+    <ButtonLinkSet buttonLinkSet={data.kitchen_sink_button_set.button_link_set}></ButtonLinkSet>
+    ```
+    - The `with` portion allows for a unique instances of the data (so that multiple instances can be called with different data), give it a logical name (it can be the same name as the component itself - but depending on the context can be confusing)
+    - In the Kitchen Sink json file, this would appear as:
+
+    ```json title="src/data/kitchen-sink/kitchen-sink.json"
+    {
+      "title": "Kitchen Sink",
+      //  other json data
+      "kitchen_sink_button_set": {
+        "button_set": {
+          "buttons": [
+            {
+              "button": {
+                "text": "Button One",
+                "url": "https://idfive.com/"
+              }
+            },
+            {
+              "button": {
+                "text": "Button Two",
+                "url": "https://idfive.com/"
+              }
+            }
+          ]
+        }
+      }
+      // rest of json data
+    }
+    ```
+
+  </TabItem>
+  <TabItem value="v2.0" label="ICL Version < 3 (Pattern Lab)">
+    Each page has a corresponding json file. The Kitchen Sink page (`source/_patterns/pages/kitchen-sink.twig`) data is in the same directory (`source/_patterns/pages/kitchen-sink.json`). The json file starts with:
+    ```json
+    {
+      "title": "Kitchen Sink",
+    // rest of json data
+    ```
+
+    - The title corresponds to the `<title>` attribute
+
+    #### Including Components on a Page With Unique Data
+
+    - To include a component on a page the syntax is `{% include "@path-to-component" with name_of_data %}`
+    - For example - calling the button-set component:
+
+    ```html
+    {% include "@components/buttons-links/button-set.twig" with
+    kitchen_sink_button_set %}
+    ```
+
+    - The `with` portion allows for a unique instances of the data (so that multiple instances can be called with different data), give it a logical name (it can be the same name as the component itself - but depending on the context can be confusing)
+    - In the Kitchen Sink json file, this would appear as:
+
+    ```json
+    {
+      "title": "Kitchen Sink",
+      //  other json data
+      "kitchen_sink_button_set": {
+        "button_set": {
+          "buttons": [
+            {
+              "button": {
+                "text": "Button One",
+                "url": "https://idfive.com/"
+              }
+            },
+            {
+              "button": {
+                "text": "Button Two",
+                "url": "https://idfive.com/"
+              }
+            }
+          ]
+        }
+      }
+      // rest of json data
+    }
+    ```
+
+  </TabItem>
+</Tabs>
+
+## Variants (Page & Component)
+<Tabs groupId="icl-versions">
+  <TabItem value="v3.0" label="ICL Version 3+ (Astro)">
+    **Currently only page variations are supported. Component variations may become supported at a later time.**
+
+    In order for an Astro page to support variations, the page name must be contained in brackets []. For example, the Kitchen Sink page is called `[kitchenSink].astro`. In the frontmatter (at the top of the template between the `---` and closing `---`), the following code is used to support and create variations:
+    ```jsx title="/src/pages/[examplePageName].astro"
+      // import the deep merge utility to merge json files
+      import { deepMerge } from '../icl-utils';
+
+      export async function getStaticPaths() {
+        
+        // Import JSON files
+        const pageNameData = await import('../data/page-name/page-name.json');
+        const pageNameVariationData = await import('../data/page-name/page-name-variation.json');
+        
+        // Use the first declared data as the default/base data
+        const defaultData = pageNameData.default;
+
+        return [
+          // First page uses full default data
+          // in this example the urls created be /page-name and /page-name-variation
+          { params: { pageName: 'page-name' }, props: { data: defaultData } },
+          
+          // Other pages deep merge default with their overrides
+          { params: { pageName: 'page-name-variation' }, props: { 
+            data: deepMerge(defaultData, kitchenSinkWithSubnavData.default) 
+          }}
+        ];
+      }
+
+      // Save the merged data for use with components on page 
+      // for example the "data." here: <ComponentName componentName={data.page_component_name.component_name} />
+      const { data } = Astro.props;
+    ```
+  </TabItem>
+  <TabItem value="v2.0" label="ICL Version < 3 (Pattern Lab)">
+    Pages and components can have variants displayed without duplicating the twig file. This concept is referred to as a psuedo-pattern in the [Pattern Lab documentation](https://patternlab.io/docs/using-pseudo-patterns/). The syntax is:
+
+    ```html
+    patternName~pseudo-pattern-name.json
+    ```
+
+    An example in our library is the hero at `source/_patterns/components/hero/hero.twig`, which has variations (with and without image, with and without subnav, and all combinations). The hero json file outputs a subnav if it is present - so to output this in Pattern Lab a json file called `hero~no-subnav.json` is created in the same directory at `source/_patterns/components/hero/hero~no-subnav.json`, with an empty subnav:
+
+    ```json
+    {
+      "hero": {
+        "title": "Hero Title - No Subnav",
+        "subnav": {
+          "subnav": {
+            "items": []
+          }
+        }
+      }
+    }
+    ```
+
+    This can also be replicated at the page level - the Kitchen Sink pages are set up to display these hero variations using the same concept. The file `kitchen-sink~hero-no-image.json` contains:
+
+    ```json
+    {
+      "kitchen_sink_hero": {
+        "hero": {
+          "title": "Hero Title - No Image",
+          "image": {
+            "desktop_src": "",
+            "mobile_src": "",
+            "alt": ""
+          }
+        }
+      }
+    }
+    ```
+  </TabItem>
+</Tabs>
+
+## Generating Components In Astro
+To create a new component in Astro, run the following command in a terminal at the root:
+```bash
+npm run create-component "component name"
+```
+Where "compoennt name" is the desired name of the component being created.
+This command will do perform a number of tasks:
+- Creates a new directory in `src/components` with spaces in the supplied name converted to hyphens
+- Creates a new `.astro` file in this directory using PascalCase for the supplied name
+- Creates a new `.json` file in this directory with spaces in the supplied name converted to hyphens
+- Imports the data to the `.astro` file
+- Creates a div with the component class (with spaces in the supplied name converted to hyphens) in the `.astro` file
+- Adds an empty object in the `.json` file with the supplied name spaces converted to underscores
+- Creates a new page for the component (in order for it to be viewed in the ICL Components/Pages list)
+
+The component will automatically be added ot the ICL Components/Page list
+
+### Creating a page for a component
+By default components in Astro do not have their own viewable pages, they need to be added to the page. 
+
+**Running the [command above](#generating-components-in-astro) will create this page. However, there may be some times when a page is needed to be created without running the above command.**
+
+In order to do this run:
+```bash
+npm run generate-component-pages
+```
+This will check for components that have pages. If a component does not have a page it will:
+- Creates a new `.astro` page in the `src/pages/components` directory using the component name converted to Kebab case 
+- Imports the layout and adds to the newly created page
+- Imports the component
+- Imports the ICL Component/Page list component
+- Outputs the component in the template
+
+The component will automatically be added ot the ICL Components/Page list.
+
+## Adding A New Page to the ICL List
+Creating a new page is manual process. The newly created page will need to be added to the ICL Components/Page list in the `ICL-Component-Page-List.astro` file.
+
+### Page Without Variations
+For example, adding the `all-stories.astro` to the list:
+```jsx title="src/components/_icl-component-page-list/ICL-Component-Page-List.astro" showLineNumbers
+<details class="icl-component-page-list__section-details" open>
+  <summary><h2>Pages</h2></summary>
+  <ul class="icl-component-page-list__section-details-list">
+    <li>
+      <a href={`${import.meta.env.BASE_URL}all-stories/index.html`} target="_blank">All Stories</a>
+    </li>
+    // rest of code
+```
+
+### Page With Variations
+Adding a page that has variations to the list requires viewing the urls from the `getStaticPaths` function in the frontmatter of the respective page. 
+
+For example, adding the `[kitchen-sink].astro` to the list requires viewing the `export async function getStaticPaths()` `params` in the template to get the urls:
+```jsx title="src/pages/[kitchenSink].astro" showLineNumbers
+// other code above - this is only showing a section
+{ params: { kitchenSink: 'kitchen-sink' }, props: { data: defaultData } },
+{ params: { kitchenSink: 'kitchen-sink-with-subnav' }, props: { 
+  data: deepMerge(defaultData, kitchenSinkWithSubnavData.default) 
+}},
+{ params: { kitchenSink: 'kitchen-sink-hero-no-image' }, props: { 
+  data: deepMerge(defaultData, kitchenSinkHeroNoImgData.default) 
+}}
+// other code below
+```
+- The `kitchenSink: 'kitchen-sink'` shows a path of `/kitchen-sink`
+- The second item `kitchenSink: 'kitchen-sink-with-subnav'` shows a path of `/kitchen-sink-with-subnav`
+— The third item `kitchenSink: 'kitchen-sink-hero-no-image'` shows a path of `/kitchen-sink-hero-no-image`
+- And so on...
+
+These urls can be added to `ICL-Component-Page-List.astro` [similarly to the above example](#page-without-variations), but in a nested `<details>` element:
+```jsx title="src/pages/[kitchenSink].astro" showLineNumbers
+<li>
+  <a href={`${import.meta.env.BASE_URL}kitchen-sink/`} target="_blank">Kitchen Sink</a>
+</li>
+<li>
+  <details class="icl-component-page-list__variations-details">
+    <summary class="icl-component-page-list__variations-summary"><span class="icl-component-page-list__variations-summary-icon">↓</span>Kitchen Sink Variations</summary>
+    <ul>
+      <li>
+        <a href={`${import.meta.env.BASE_URL}kitchen-sink-with-subnav/`} target="_blank">With Subnav</a>
+      </li>
+      <li>
+        <a href={`${import.meta.env.BASE_URL}kitchen-sink-hero-no-image/`} target="_blank">Hero No Image</a>
+      </li>
+      // rest of code
+```
+- `line 2`: Add a link to the "default" (or "non-variant") version of the page
+— `line 5` & Onward: Add a new `<details>` element with links in a nested `<ul>` with the variant links

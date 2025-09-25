@@ -1,6 +1,9 @@
 ---
 description: Variations, Structure, Notes
 ---
+import Tabs from "@theme/Tabs";
+import TabItem from "@theme/TabItem";
+
 
 # Site Header
 
@@ -9,7 +12,16 @@ The site header comes with 2 built-in variations, a "Full" version wich displays
 
 ## Variations
 
-The default mode fort he site header is the "Full" version. To change to a different variation, go into **data.json** (at **source/\_data/data.json**) and change the "type_hybrid" under "site header".
+The default mode fort he site header is the "Full" version. 
+To change to a different variation: 
+<Tabs groupId="icl-versions">
+  <TabItem value="v3.0" label="ICL Version 3+ (Astro)">
+  In **global.json** (`src/data/global.json`) and change the `type_hybrid` under "site header".
+  </TabItem>
+  <TabItem value="v2.0" label="ICL Version < 3 (Pattern Lab)">
+  In **data.json** (`source/data/data.json`) and change the `type_hybrid` under "site header".
+  </TabItem>
+</Tabs>
 
 **When "type_hybrid" set to `false` - it will show the "full" version**:
 
@@ -54,25 +66,25 @@ The search trigger (and subsequent search form) are optional, the `display_searc
 
 ## Variables
 
-The partial file **\_variables.scss** (located at `source/scss/core/_variables.scss`) contains custom properties (variables) used in conjunction with the site header, to be updated per project based on design needs. These custom properties need to be kept in place as they are used in various formulas (for example, to determine the `padding-top` value of the `<main>` section). The relevant variables and default values are as follows:
+The partial file `variables.css` contains custom properties (variables) used in conjunction with the site header, to be updated per project based on design needs. These custom properties need to be kept in place as they are used in various formulas (for example, to determine the `padding-top` value of the `<main>` section). The relevant variables and default values are as follows:
 
 ```css
 :root {
-   --header-top-height: #{rem(90)};
-  --header-logo-width: #{rem(106)};
-  --header-main-menu-height: #{rem(164)};
+   --header-top-height: 90px;
+  --header-logo-width: 106px;
+  --header-main-menu-height: 164px;
   &:has(.site-header__top .site-header__utility),
   &:has(.site-header__top .site-header__audience),
   &:has(.site-header__top .site-header__ctas) {
-    --header-main-menu-height: #{rem(100)};
+    --header-main-menu-height: 100px;
   }
-  @include mq($min, $lg_desktop) {
+  @media (--lg_desktop) {
     --header-top-height: 0rem;
-    --header-logo-width: #{rem(212)};
+    --header-logo-width: 212px;
     &:has(.site-header__top .site-header__utility),
     &:has(.site-header__top .site-header__audience),
     &:has(.site-header__top .site-header__ctas) {
-      --header-top-height: #{rem(64)};
+      --header-top-height: 64px;
     }
   }
 }

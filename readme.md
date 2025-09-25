@@ -54,7 +54,7 @@ If you are using GitHub pages for hosting, this command is a convenient way to b
 
 - **`.mdx` vs `.md`**: Files containing React components (like `<Tabs>` and `<TabItem>`) must use the `.mdx` extension
 - **JSX in Markdown**: Docusaurus requires `.mdx` for any file that imports and uses React components
-- Example: `docs/front-end/01-pattern-lab.mdx` uses `.mdx` because it contains `<Tabs>` components
+- Example: `docs/front-end/01-idfive-component-library.mdx` uses `.mdx` because it contains `<Tabs>` components
 
 ### URL Structure and Link Patterns
 
@@ -62,7 +62,7 @@ If you are using GitHub pages for hosting, this command is a convenient way to b
   - File: `01-overview.md` → URL: `/overview`
   - File: `05-unical.md` → URL: `/unical`
 - **Internal Links**: Use full paths for cross-section links
-  - ✅ Correct: `/docs/front-end/pattern-lab`
+  - ✅ Correct: `/docs/front-end/idfive-component-library`
   - ❌ Incorrect: `../front-end/01-pattern-lab`
 - **Relative Links**: Within same section, use filename without prefix
   - ✅ Within accelerator folder: `/docs/accelerator/overview`
