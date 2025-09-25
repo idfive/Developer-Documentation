@@ -1,5 +1,22 @@
 # WordPress
 
+WordPress is a popular content management system used by idfive for various client projects. This section contains comprehensive documentation for WordPress development, customization, and maintenance.
+
+## Quick Navigation
+
+### Getting Started
+
+- [WordPress Overview](/docs/back-end/wordpress/wordpress) - Core methodology and development approach
+- [WordPress Plugins](/docs/back-end/wordpress/wordpress-plugins) - Essential plugins and recommendations
+- [WordPress CLI](/docs/back-end/wordpress/wordpress-cli) - Command line tools and usage
+
+### Development & AI Integration
+
+- [WordPress and AI](/docs/back-end/wordpress/wordpress-ai) - AI integration plugins and ecosystem overview
+- [WordPress Maintenance](/docs/back-end/wordpress/wordpress-maintenance) - Ongoing maintenance and updates
+
+---
+
 ## WP-Boilerplate
 
 idfive has a [WordPress Starter repo on bitbucket](https://bitbucket.org/idfivellc/wordpress-starter/src/develop/) which serves as a starting point for WordPress projects. This repository includes commonly used plugins. The detailed instructions to get started are included in that repo's [readme](https://bitbucket.org/idfivellc/wordpress-starter/src/develop/README.md) file and reflect the preferred methodology described in the subsequent sections.
