@@ -7,7 +7,17 @@ description: Overview of Search Engine Optimization
 ## Structured Data
 
 In order to have structured page content (ie, an event) display properly in Google Search Results, Schema Markup can be used.
-[Google Schema Markup Testing Tool](https://developers.google.com/search/docs/appearance/structured-data)
+
+For comprehensive information about Schema.org and its importance for SEO, AI, and machine readability, see our [Schema.org Structured Data Guide](/docs/general/schema-org).
+
+For platform-specific implementation guides:
+
+- [Schema.org Implementation in Drupal](/docs/back-end/drupal/drupal-schema-org) - Complete guide for Drupal sites
+- [Schema.org Implementation in WordPress](/docs/back-end/wordpress/wordpress-schema-org) - Complete guide for WordPress sites
+
+Additional resources:
+
+- [Google Schema Markup Testing Tool](https://developers.google.com/search/docs/appearance/structured-data)
 
 ## Event Tracking
 

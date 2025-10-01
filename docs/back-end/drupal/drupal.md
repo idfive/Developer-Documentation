@@ -15,6 +15,7 @@ Drupal is idfive's primary content management system for enterprise-level websit
 - [Custom Development](/docs/back-end/drupal/drupal-custom-development) - Theme and module development best practices
 - [Content Architecture](/docs/back-end/drupal/drupal-content-architecture) - Views, content types, and data structure
 - [Media & Images](/docs/back-end/drupal/drupal-media-images) - Image handling and optimization
+- [Schema.org Implementation](/docs/back-end/drupal/drupal-schema-org) - Structured data for SEO and search visibility
 - [Drupal and AI](/docs/back-end/drupal/drupal-ai) - AI integration modules and ecosystem overview
 - [Testing](/docs/back-end/drupal/drupal-testing) - Unit, functional, and behavioral testing
 

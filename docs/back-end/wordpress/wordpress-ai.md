@@ -19,7 +19,7 @@ AI in WordPress typically focuses on four key areas:
 
 - **AI-Powered SEO**: Generate meta descriptions, optimize content structure, and improve search rankings.
 - **Keyword Research**: AI-driven keyword suggestions and content optimization recommendations.
-- **Schema Markup**: Automatically generate and implement structured data for better search visibility.
+- **Schema Markup**: Automatically generate and implement structured data for better search visibility. For comprehensive Schema.org implementation, see our [WordPress Schema.org guide](/docs/back-end/wordpress/wordpress-schema-org).
 - **Content Analysis**: Real-time SEO feedback and suggestions during content creation.
 
 ### User Experience and Personalization

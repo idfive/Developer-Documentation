@@ -1,8 +1,8 @@
 {
-    "label": "Wordpress",
+    "label": "WordPress",
     "position": 3,
     "link": {
       "type": "generated-index",
-      "description": "Wordpress support"
+      "description": "WordPress development, maintenance, and best practices for content-focused websites and smaller-scale projects"
     }
   }

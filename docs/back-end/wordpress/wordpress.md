@@ -1,6 +1,27 @@
 # WordPress
 
-WordPress is a popular content management system used by idfive for various client projects. This section contains comprehensive documentation for WordPress development, customization, and maintenance.
+WordPress is used for content-focused websites and smaller-scale projects at idfive. This section contains comprehensive documentation for WordPress development, customization, and maintenance.
+
+## Overview
+
+WordPress serves as idfive's content management system for:
+
+- Content-focused websites with simpler requirements
+- Smaller-scale projects with limited custom development needs
+- Sites requiring rapid deployment and easy content management
+- Projects where extensive custom functionality is not required
+
+For enterprise-level sites with complex requirements, consider [Drupal](/docs/back-end/drupal) instead.
+
+## Platform Considerations
+
+WordPress development at idfive focuses on:
+
+- **Theme Development**: Custom themes following WordPress best practices
+- **Plugin Management**: Careful selection and maintenance of plugins
+- **Security**: Implementing security hardening and monitoring
+- **Performance**: Optimization for speed and scalability
+- **Maintenance**: Regular updates and backup procedures
 
 ## Quick Navigation
 
@@ -12,7 +33,14 @@ WordPress is a popular content management system used by idfive for various clie
 
 ### Development & AI Integration
 
+- [WordPress Schema.org Implementation](/docs/back-end/wordpress/wordpress-schema-org) - Structured data for SEO and search visibility
 - [WordPress and AI](/docs/back-end/wordpress/wordpress-ai) - AI integration plugins and ecosystem overview
+
+### Standards & Best Practices
+
+- [PHP Standards](/docs/back-end/php/standards) - General PHP coding standards that apply to WordPress
+- [General Best Practices](/docs/general/best-practices) - Cross-platform development standards
+- [SEO Guidelines](/docs/general/seo) - SEO best practices and structured data
 
 ---
 
