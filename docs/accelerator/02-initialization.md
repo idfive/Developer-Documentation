@@ -50,7 +50,7 @@ The first step is to create a new wordpress or drupal website in pantheon. In th
     - Make sure you have Terminus installed. Installation instructions are [found here](https://docs.pantheon.io/terminus/install).
     - Install terminus site clone plugin. The following code will use terminus itself to install the plugin. There are alternative install methods [listed here](https://github.com/pantheon-systems/terminus-site-clone-plugin/blob/master/README.md).
     - `terminus self:plugin:install pantheon-systems/terminus-site-clone-plugin`
-    - Make sure you are logged in to Pantheon on your machine via terminus with: `terminus auth:login --machine-token=yourreallylongmachinetokenstring`
+    - Make sure you are logged in to Pantheon on your machine via terminus with: `terminus auth:login`
     - Use the terminus site clone to copy the Accelerator projects’s dev environment to your new projects dev environment.
     - `terminus site:clone idfive-drupal-accelerator.dev your-new-idfive-project.dev`
     - It may take a few minutes before you’re able to see it after it is done.
