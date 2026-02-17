@@ -111,6 +111,259 @@ Most CMS editors include a format dropdown menu (often set to "Paragraph" by def
 - Use multiple H1 tags on a single page
 - Choose headings based on visual appearance rather than content hierarchy
 
+## Content Structure and Organization
+
+Beyond images and documents, how you structure and organize your content has a major impact on accessibility. This includes headings, links, tables, lists, formatting, and writing style.
+
+### Heading Structure
+
+#### Why Heading Structure Matters
+
+Proper heading structure creates a logical outline for your content, similar to how you might organize a document in Word or Google Docs. Screen reader users rely on this structure to navigate efficiently through content, often jumping from heading to heading to find specific information.
+
+#### Correct Heading Hierarchy
+
+Headings should follow a logical numerical sequence:
+
+- **Heading 1 (H1)**: Page title (should appear only once per page)
+- **Heading 2 (H2)**: Main sections
+- **Heading 3 (H3)**: Subsections under H2
+- **Heading 4 (H4)**: Subsections under H3
+- And so on...
+
+##### Example Structure:
+
+```
+H1: Annual Report 2024
+  H2: Executive Summary
+  H2: Financial Performance
+    H3: Revenue Analysis
+    H3: Expense Overview
+      H4: Operating Expenses
+      H4: Capital Investments
+  H2: Looking Forward
+    H3: Strategic Goals
+    H3: Budget Projections
+```
+
+#### Creating Headings in Your CMS
+
+Most CMS editors include a format dropdown menu (often set to "Paragraph" by default):
+
+1. **Select your text**: Highlight the text that should become a heading
+2. **Choose heading level**: Use the format dropdown to select the appropriate heading level (H2, H3, etc.)
+3. **Don't add additional styling**: Avoid making headings bold or italic—proper styling is handled automatically by your site's design
+
+#### Common Heading Mistakes to Avoid
+
+**Don't:**
+- Skip heading levels (jumping from H2 to H4)
+- Use headings to make text larger or more prominent if it's not actually a heading
+- Use multiple H1 tags on a single page
+- Choose headings based on visual appearance rather than content hierarchy
+
+### Link Accessibility
+
+#### Writing Effective Link Text
+
+Link text is crucial for accessibility because screen reader users often navigate by jumping from link to link. They need to understand where each link leads without relying on surrounding context.
+
+##### Link Text Best Practices:
+
+- **Be descriptive**: Link text should clearly indicate the destination or action
+- **Make sense out of context**: Users should understand the link's purpose even when read alone
+- **Keep it concise**: Aim for clear, brief descriptions that don't overwhelm
+- **Avoid generic phrases**: Never use "click here," "read more," "learn more," or "here"
+
+##### Examples:
+
+**Poor link text:**
+- "Click here for more information about our programs"
+- "To learn about financial aid, click here"
+- "Read more"
+
+**Better link text:**
+- "View our academic programs"
+- "Financial aid information"
+- "Read more about student life"
+
+**Best link text:**
+- "Academic Programs: Bachelor's and Master's Degrees"
+- "Financial Aid: Scholarships, Grants, and Loan Information"
+- "Student Life: Campus Activities and Housing Options"
+
+#### Link Context and Clarity
+
+##### When Generic Text Is Necessary
+
+Sometimes design or space constraints require generic link text. In these cases, work with your development team to provide additional context for screen readers.
+
+##### External Links
+
+Clearly indicate when links lead to external websites:
+
+- **Good**: "U.S. Department of Education website"
+- **Better**: "Apply for federal student aid (external site)"
+
+#### Links in Lists and Navigation
+
+When creating navigation menus or lists of links:
+
+- Ensure each link is unique and descriptive
+- Avoid repetitive link text like multiple "Learn more" links
+- Consider the reading order when links are accessed sequentially
+
+##### Example of Improved Link List:
+
+**Before:**
+- Undergraduate Programs - Learn more
+- Graduate Programs - Learn more  
+- Online Programs - Learn more
+
+**After:**
+- Undergraduate degree programs
+- Graduate degree programs
+- Online degree programs
+
+### Color and Visual Information
+
+#### Don't Rely on Color Alone
+
+Never use color as the only way to convey important information. Users who are colorblind or using screen readers won't receive information communicated through color alone.
+
+##### Examples:
+
+**Poor practice:**
+- "Items in red are required fields"
+- "Green text indicates approved applications"
+- Using only red/green indicators for pass/fail status
+
+**Better practice:**
+- "Required fields are marked with an asterisk (*) and shown in red"
+- "Approved applications are marked 'APPROVED' and highlighted in green"
+- Use icons, text labels, or formatting along with color
+
+### Text Formatting and Writing
+
+#### Emphasis and Important Information
+
+**Use semantic formatting appropriately:**
+
+- **Bold text**: For strong emphasis or key terms
+- *Italic text*: For mild emphasis, foreign words, or titles
+- Avoid using all caps for emphasis (screen readers may spell out each letter)
+
+**Avoid using formatting solely for visual appeal:**
+- Don't make text bold just to make it look bigger
+- Don't use italic text as a substitute for proper heading structure
+- Use proper heading styles instead of bold text for section headers
+
+#### Plain Language and Clarity
+
+##### Writing Accessible Content
+
+- **Use simple sentence structures**: Avoid overly complex sentences
+- **Define acronyms and abbreviations**: Spell out terms on first use
+- **Be consistent with terminology**: Use the same terms throughout your content
+- **Provide context**: Help users understand where they are and what they're reading
+
+##### Content Organization
+
+- **Use descriptive page titles**: Help users understand what each page contains
+- **Include summary information**: Provide overviews for complex topics
+- **Break up long content**: Use subheadings and shorter sections
+- **Logical reading order**: Ensure content flows naturally from beginning to end
+
+#### Text Length and Readability
+
+- **Keep paragraphs reasonably short**: Large blocks of text can be overwhelming
+- **Use bullet points and lists**: Break up dense information
+- **Write in plain language**: Avoid jargon when possible
+- **Provide definitions**: Explain technical terms when they're necessary
+
+### Tables and Data
+
+#### When to Use Tables
+
+Use tables only for tabular data, not for layout purposes. Tables should present information that has a logical relationship between rows and columns.
+
+**Appropriate table uses:**
+- Comparing data across categories
+- Showing schedules or timetables  
+- Displaying financial information
+- Course listings with credits, prerequisites, etc.
+
+#### Creating Accessible Tables
+
+##### Table Headers
+
+Always include header rows and/or columns that describe the data. Most CMS platforms provide options to designate header rows when creating tables.
+
+##### Table Captions and Context
+
+- **Add table captions**: Briefly describe what the table contains
+- **Provide context**: Explain complex data relationships when necessary
+- **Keep it simple**: Avoid overly complex table structures when possible
+
+**Example caption:** "Course Requirements: Shows required courses, credit hours, prerequisites, and semester availability"
+
+### Lists and Organization
+
+#### Using Lists Effectively
+
+Lists help organize information and make it easier for screen readers to navigate.
+
+##### When to Use Different List Types:
+
+**Bulleted lists (unordered):** For items where order doesn't matter
+- Course features
+- Available amenities  
+- Program benefits
+
+**Numbered lists (ordered):** For sequential steps or ranked items
+1. Application process steps
+2. Priority registration order
+3. Graduation requirements
+
+#### List Best Practices
+
+- **Keep list items parallel**: Use consistent grammar and structure
+- **Avoid single-item lists**: If there's only one item, consider using regular paragraph text
+- **Break up very long lists**: Consider organizing into categories or multiple shorter lists
+
+### Video and Media Content
+
+#### Video Accessibility Requirements
+
+When embedding videos on your website, ensure they include accessibility features:
+
+##### Captions and Transcripts
+
+**Captions** (synchronized text overlays):
+- Required for all video content with audio
+- Should include not just speech, but also important sound effects
+- Auto-generated captions often contain errors and should be reviewed and corrected
+
+**Transcripts** (full text versions):
+- Provide complete text of all spoken content
+- Include descriptions of important visual elements
+- Should be available on the same page or easily accessible from the video
+
+#### Embedding Media Responsibly
+
+##### Video Controls
+
+- Ensure videos don't auto-play with sound
+- Provide clear play/pause controls
+- Allow users to adjust volume
+
+##### Alternative Formats
+
+Consider providing multiple ways to access the same information:
+- Video + transcript
+- Audio podcast + transcript  
+- Written summary of video content
+
 ## Document Accessibility
 
 ### Why Document Accessibility Matters
@@ -274,210 +527,6 @@ Don't hesitate to communicate with your development team when you encounter:
 - Accessibility barriers you can't resolve
 - Requests for new content types or layouts
 - Questions about best practices for complex content
-
-## Link Accessibility
-
-### Writing Effective Link Text
-
-Link text is crucial for accessibility because screen reader users often navigate by jumping from link to link. They need to understand where each link leads without relying on surrounding context.
-
-#### Link Text Best Practices:
-
-- **Be descriptive**: Link text should clearly indicate the destination or action
-- **Make sense out of context**: Users should understand the link's purpose even when read alone
-- **Keep it concise**: Aim for clear, brief descriptions that don't overwhelm
-- **Avoid generic phrases**: Never use "click here," "read more," "learn more," or "here"
-
-#### Examples:
-
-**Poor link text:**
-- "Click here for more information about our programs"
-- "To learn about financial aid, click here"
-- "Read more"
-
-**Better link text:**
-- "View our academic programs"
-- "Financial aid information"
-- "Read more about student life"
-
-**Best link text:**
-- "Academic Programs: Bachelor's and Master's Degrees"
-- "Financial Aid: Scholarships, Grants, and Loan Information"
-- "Student Life: Campus Activities and Housing Options"
-
-### Link Context and Clarity
-
-#### When Generic Text Is Necessary
-
-Sometimes design or space constraints require generic link text. In these cases, work with your development team to provide additional context for screen readers.
-
-#### External Links
-
-Clearly indicate when links lead to external websites:
-
-- **Good**: "U.S. Department of Education website"
-- **Better**: "Apply for federal student aid (external site)"
-
-### Links in Lists and Navigation
-
-When creating navigation menus or lists of links:
-
-- Ensure each link is unique and descriptive
-- Avoid repetitive link text like multiple "Learn more" links
-- Consider the reading order when links are accessed sequentially
-
-#### Example of Improved Link List:
-
-**Before:**
-- Undergraduate Programs - Learn more
-- Graduate Programs - Learn more  
-- Online Programs - Learn more
-
-**After:**
-- Undergraduate degree programs
-- Graduate degree programs
-- Online degree programs
-
-## Color and Visual Information
-
-### Don't Rely on Color Alone
-
-Never use color as the only way to convey important information. Users who are colorblind or using screen readers won't receive information communicated through color alone.
-
-#### Examples:
-
-**Poor practice:**
-- "Items in red are required fields"
-- "Green text indicates approved applications"
-- Using only red/green indicators for pass/fail status
-
-**Better practice:**
-- "Required fields are marked with an asterisk (*) and shown in red"
-- "Approved applications are marked 'APPROVED' and highlighted in green"
-- Use icons, text labels, or formatting along with color
-
-### Text Formatting for Accessibility
-
-#### Emphasis and Important Information
-
-**Use semantic formatting appropriately:**
-
-- **Bold text**: For strong emphasis or key terms
-- *Italic text*: For mild emphasis, foreign words, or titles
-- Avoid using all caps for emphasis (screen readers may spell out each letter)
-
-**Avoid using formatting solely for visual appeal:**
-- Don't make text bold just to make it look bigger
-- Don't use italic text as a substitute for proper heading structure
-- Use proper heading styles instead of bold text for section headers
-
-#### Text Length and Readability
-
-- **Keep paragraphs reasonably short**: Large blocks of text can be overwhelming
-- **Use bullet points and lists**: Break up dense information
-- **Write in plain language**: Avoid jargon when possible
-- **Provide definitions**: Explain technical terms when they're necessary
-
-## Tables and Data
-
-### When to Use Tables
-
-Use tables only for tabular data, not for layout purposes. Tables should present information that has a logical relationship between rows and columns.
-
-**Appropriate table uses:**
-- Comparing data across categories
-- Showing schedules or timetables  
-- Displaying financial information
-- Course listings with credits, prerequisites, etc.
-
-### Creating Accessible Tables
-
-#### Table Headers
-
-Always include header rows and/or columns that describe the data. Most CMS platforms provide options to designate header rows when creating tables.
-
-#### Table Captions and Context
-
-- **Add table captions**: Briefly describe what the table contains
-- **Provide context**: Explain complex data relationships when necessary
-- **Keep it simple**: Avoid overly complex table structures when possible
-
-**Example caption:** "Course Requirements: Shows required courses, credit hours, prerequisites, and semester availability"
-
-## Lists and Organization
-
-### Using Lists Effectively
-
-Lists help organize information and make it easier for screen readers to navigate.
-
-#### When to Use Different List Types:
-
-**Bulleted lists (unordered):** For items where order doesn't matter
-- Course features
-- Available amenities  
-- Program benefits
-
-**Numbered lists (ordered):** For sequential steps or ranked items
-1. Application process steps
-2. Priority registration order
-3. Graduation requirements
-
-### List Best Practices
-
-- **Keep list items parallel**: Use consistent grammar and structure
-- **Avoid single-item lists**: If there's only one item, consider using regular paragraph text
-- **Break up very long lists**: Consider organizing into categories or multiple shorter lists
-
-## Video and Media Content
-
-### Video Accessibility Requirements
-
-When embedding videos on your website, ensure they include accessibility features:
-
-#### Captions and Transcripts
-
-**Captions** (synchronized text overlays):
-- Required for all video content with audio
-- Should include not just speech, but also important sound effects
-- Auto-generated captions often contain errors and should be reviewed and corrected
-
-**Transcripts** (full text versions):
-- Provide complete text of all spoken content
-- Include descriptions of important visual elements
-- Should be available on the same page or easily accessible from the video
-
-### Embedding Media Responsibly
-
-#### Video Controls
-
-- Ensure videos don't auto-play with sound
-- Provide clear play/pause controls
-- Allow users to adjust volume
-
-#### Alternative Formats
-
-Consider providing multiple ways to access the same information:
-- Video + transcript
-- Audio podcast + transcript  
-- Written summary of video content
-
-## Content Writing Best Practices
-
-### Plain Language and Clarity
-
-#### Writing Accessible Content
-
-- **Use simple sentence structures**: Avoid overly complex sentences
-- **Define acronyms and abbreviations**: Spell out terms on first use
-- **Be consistent with terminology**: Use the same terms throughout your content
-- **Provide context**: Help users understand where they are and what they're reading
-
-#### Content Organization
-
-- **Use descriptive page titles**: Help users understand what each page contains
-- **Include summary information**: Provide overviews for complex topics
-- **Break up long content**: Use subheadings and shorter sections
-- **Logical reading order**: Ensure content flows naturally from beginning to end
 
 ## Testing Your Content for Accessibility
 
