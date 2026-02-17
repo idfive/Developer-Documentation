@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="generator" content="Docusaurus v3.7.0">
 <title data-rh="true">Accessibility for CMS Editors | idfive Developer Documentation</title><meta data-rh="true" name="viewport" content="width=device-width,initial-scale=1"><meta data-rh="true" name="twitter:card" content="summary_large_image"><meta data-rh="true" property="og:image" content="https://developers.idfive.com/img/idfive-docusaurus-preview-image.png"><meta data-rh="true" name="twitter:image" content="https://developers.idfive.com/img/idfive-docusaurus-preview-image.png"><meta data-rh="true" property="og:url" content="https://developers.idfive.com/docs/accessibility/cms-editors"><meta data-rh="true" property="og:locale" content="en"><meta data-rh="true" name="docusaurus_locale" content="en"><meta data-rh="true" name="docsearch:language" content="en"><meta data-rh="true" name="docusaurus_version" content="current"><meta data-rh="true" name="docusaurus_tag" content="docs-default-current"><meta data-rh="true" name="docsearch:version" content="current"><meta data-rh="true" name="docsearch:docusaurus_tag" content="docs-default-current"><meta data-rh="true" property="og:title" content="Accessibility for CMS Editors | idfive Developer Documentation"><meta data-rh="true" name="description" content="Overview"><meta data-rh="true" property="og:description" content="Overview"><link data-rh="true" rel="icon" href="/img/favicon.png"><link data-rh="true" rel="canonical" href="https://developers.idfive.com/docs/accessibility/cms-editors"><link data-rh="true" rel="alternate" href="https://developers.idfive.com/docs/accessibility/cms-editors" hreflang="en"><link data-rh="true" rel="alternate" href="https://developers.idfive.com/docs/accessibility/cms-editors" hreflang="x-default"><link data-rh="true" rel="preconnect" href="https://2PJMDLEUFN-dsn.algolia.net" crossorigin="anonymous"><link rel="search" type="application/opensearchdescription+xml" title="idfive Developer Documentation" href="/opensearch.xml"><link rel="stylesheet" href="/assets/css/styles.9f069219.css">
-<script src="/assets/js/runtime~main.06ca4426.js" defer="defer"></script>
+<script src="/assets/js/runtime~main.aa2c9005.js" defer="defer"></script>
 <script src="/assets/js/main.f33db8a9.js" defer="defer"></script>
 </head>
 <body class="navigation-with-keyboard">
@@ -87,6 +87,219 @@
 <li>Use multiple H1 tags on a single page</li>
 <li>Choose headings based on visual appearance rather than content hierarchy</li>
 </ul>
+<h2 class="anchor anchorWithStickyNavbar_LWe7" id="content-structure-and-organization">Content Structure and Organization<a href="#content-structure-and-organization" class="hash-link" aria-label="Direct link to Content Structure and Organization" title="Direct link to Content Structure and Organization">​</a></h2>
+<p>Beyond images and documents, how you structure and organize your content has a major impact on accessibility. This includes headings, links, tables, lists, formatting, and writing style.</p>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="heading-structure-1">Heading Structure<a href="#heading-structure-1" class="hash-link" aria-label="Direct link to Heading Structure" title="Direct link to Heading Structure">​</a></h3>
+<h4 class="anchor anchorWithStickyNavbar_LWe7" id="why-heading-structure-matters-1">Why Heading Structure Matters<a href="#why-heading-structure-matters-1" class="hash-link" aria-label="Direct link to Why Heading Structure Matters" title="Direct link to Why Heading Structure Matters">​</a></h4>
+<p>Proper heading structure creates a logical outline for your content, similar to how you might organize a document in Word or Google Docs. Screen reader users rely on this structure to navigate efficiently through content, often jumping from heading to heading to find specific information.</p>
+<h4 class="anchor anchorWithStickyNavbar_LWe7" id="correct-heading-hierarchy-1">Correct Heading Hierarchy<a href="#correct-heading-hierarchy-1" class="hash-link" aria-label="Direct link to Correct Heading Hierarchy" title="Direct link to Correct Heading Hierarchy">​</a></h4>
+<p>Headings should follow a logical numerical sequence:</p>
+<ul>
+<li><strong>Heading 1 (H1)</strong>: Page title (should appear only once per page)</li>
+<li><strong>Heading 2 (H2)</strong>: Main sections</li>
+<li><strong>Heading 3 (H3)</strong>: Subsections under H2</li>
+<li><strong>Heading 4 (H4)</strong>: Subsections under H3</li>
+<li>And so on...</li>
+</ul>
+<h5 class="anchor anchorWithStickyNavbar_LWe7" id="example-structure-1">Example Structure:<a href="#example-structure-1" class="hash-link" aria-label="Direct link to Example Structure:" title="Direct link to Example Structure:">​</a></h5>
+<div class="codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#393A34;--prism-background-color:#f6f8fa"><div class="codeBlockContent_biex"><pre tabindex="0" class="prism-code language-text codeBlock_bY9V thin-scrollbar" style="color:#393A34;background-color:#f6f8fa"><code class="codeBlockLines_e6Vv"><span class="token-line" style="color:#393A34"><span class="token plain">H1: Annual Report 2024</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">  H2: Executive Summary</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">  H2: Financial Performance</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">    H3: Revenue Analysis</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">    H3: Expense Overview</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">      H4: Operating Expenses</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">      H4: Capital Investments</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">  H2: Looking Forward</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">    H3: Strategic Goals</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">    H3: Budget Projections</span><br></span></code></pre><div class="buttonGroup__atx"><button type="button" aria-label="Copy code to clipboard" title="Copy" class="clean-btn"><span class="copyButtonIcons_eSgA" aria-hidden="true"><svg viewBox="0 0 24 24" class="copyButtonIcon_y97N"><path fill="currentColor" d="M19,21H8V7H19M19,5H8A2,2 0 0,0 6,7V21A2,2 0 0,0 8,23H19A2,2 0 0,0 21,21V7A2,2 0 0,0 19,5M16,1H4A2,2 0 0,0 2,3V17H4V3H16V1Z"></path></svg><svg viewBox="0 0 24 24" class="copyButtonSuccessIcon_LjdS"><path fill="currentColor" d="M21,7L9,19L3.5,13.5L4.91,12.09L9,16.17L19.59,5.59L21,7Z"></path></svg></span></button></div></div></div>
+<h4 class="anchor anchorWithStickyNavbar_LWe7" id="creating-headings-in-your-cms-1">Creating Headings in Your CMS<a href="#creating-headings-in-your-cms-1" class="hash-link" aria-label="Direct link to Creating Headings in Your CMS" title="Direct link to Creating Headings in Your CMS">​</a></h4>
+<p>Most CMS editors include a format dropdown menu (often set to &quot;Paragraph&quot; by default):</p>
+<ol>
+<li><strong>Select your text</strong>: Highlight the text that should become a heading</li>
+<li><strong>Choose heading level</strong>: Use the format dropdown to select the appropriate heading level (H2, H3, etc.)</li>
+<li><strong>Don&#x27;t add additional styling</strong>: Avoid making headings bold or italic—proper styling is handled automatically by your site&#x27;s design</li>
+</ol>
+<h4 class="anchor anchorWithStickyNavbar_LWe7" id="common-heading-mistakes-to-avoid-1">Common Heading Mistakes to Avoid<a href="#common-heading-mistakes-to-avoid-1" class="hash-link" aria-label="Direct link to Common Heading Mistakes to Avoid" title="Direct link to Common Heading Mistakes to Avoid">​</a></h4>
+<p><strong>Don&#x27;t:</strong></p>
+<ul>
+<li>Skip heading levels (jumping from H2 to H4)</li>
+<li>Use headings to make text larger or more prominent if it&#x27;s not actually a heading</li>
+<li>Use multiple H1 tags on a single page</li>
+<li>Choose headings based on visual appearance rather than content hierarchy</li>
+</ul>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="link-accessibility">Link Accessibility<a href="#link-accessibility" class="hash-link" aria-label="Direct link to Link Accessibility" title="Direct link to Link Accessibility">​</a></h3>
+<h4 class="anchor anchorWithStickyNavbar_LWe7" id="writing-effective-link-text">Writing Effective Link Text<a href="#writing-effective-link-text" class="hash-link" aria-label="Direct link to Writing Effective Link Text" title="Direct link to Writing Effective Link Text">​</a></h4>
+<p>Link text is crucial for accessibility because screen reader users often navigate by jumping from link to link. They need to understand where each link leads without relying on surrounding context.</p>
+<h5 class="anchor anchorWithStickyNavbar_LWe7" id="link-text-best-practices">Link Text Best Practices:<a href="#link-text-best-practices" class="hash-link" aria-label="Direct link to Link Text Best Practices:" title="Direct link to Link Text Best Practices:">​</a></h5>
+<ul>
+<li><strong>Be descriptive</strong>: Link text should clearly indicate the destination or action</li>
+<li><strong>Make sense out of context</strong>: Users should understand the link&#x27;s purpose even when read alone</li>
+<li><strong>Keep it concise</strong>: Aim for clear, brief descriptions that don&#x27;t overwhelm</li>
+<li><strong>Avoid generic phrases</strong>: Never use &quot;click here,&quot; &quot;read more,&quot; &quot;learn more,&quot; or &quot;here&quot;</li>
+</ul>
+<h5 class="anchor anchorWithStickyNavbar_LWe7" id="examples-1">Examples:<a href="#examples-1" class="hash-link" aria-label="Direct link to Examples:" title="Direct link to Examples:">​</a></h5>
+<p><strong>Poor link text:</strong></p>
+<ul>
+<li>&quot;Click here for more information about our programs&quot;</li>
+<li>&quot;To learn about financial aid, click here&quot;</li>
+<li>&quot;Read more&quot;</li>
+</ul>
+<p><strong>Better link text:</strong></p>
+<ul>
+<li>&quot;View our academic programs&quot;</li>
+<li>&quot;Financial aid information&quot;</li>
+<li>&quot;Read more about student life&quot;</li>
+</ul>
+<p><strong>Best link text:</strong></p>
+<ul>
+<li>&quot;Academic Programs: Bachelor&#x27;s and Master&#x27;s Degrees&quot;</li>
+<li>&quot;Financial Aid: Scholarships, Grants, and Loan Information&quot;</li>
+<li>&quot;Student Life: Campus Activities and Housing Options&quot;</li>
+</ul>
+<h4 class="anchor anchorWithStickyNavbar_LWe7" id="link-context-and-clarity">Link Context and Clarity<a href="#link-context-and-clarity" class="hash-link" aria-label="Direct link to Link Context and Clarity" title="Direct link to Link Context and Clarity">​</a></h4>
+<h5 class="anchor anchorWithStickyNavbar_LWe7" id="when-generic-text-is-necessary">When Generic Text Is Necessary<a href="#when-generic-text-is-necessary" class="hash-link" aria-label="Direct link to When Generic Text Is Necessary" title="Direct link to When Generic Text Is Necessary">​</a></h5>
+<p>Sometimes design or space constraints require generic link text. In these cases, work with your development team to provide additional context for screen readers.</p>
+<h5 class="anchor anchorWithStickyNavbar_LWe7" id="external-links">External Links<a href="#external-links" class="hash-link" aria-label="Direct link to External Links" title="Direct link to External Links">​</a></h5>
+<p>Clearly indicate when links lead to external websites:</p>
+<ul>
+<li><strong>Good</strong>: &quot;U.S. Department of Education website&quot;</li>
+<li><strong>Better</strong>: &quot;Apply for federal student aid (external site)&quot;</li>
+</ul>
+<h4 class="anchor anchorWithStickyNavbar_LWe7" id="links-in-lists-and-navigation">Links in Lists and Navigation<a href="#links-in-lists-and-navigation" class="hash-link" aria-label="Direct link to Links in Lists and Navigation" title="Direct link to Links in Lists and Navigation">​</a></h4>
+<p>When creating navigation menus or lists of links:</p>
+<ul>
+<li>Ensure each link is unique and descriptive</li>
+<li>Avoid repetitive link text like multiple &quot;Learn more&quot; links</li>
+<li>Consider the reading order when links are accessed sequentially</li>
+</ul>
+<h5 class="anchor anchorWithStickyNavbar_LWe7" id="example-of-improved-link-list">Example of Improved Link List:<a href="#example-of-improved-link-list" class="hash-link" aria-label="Direct link to Example of Improved Link List:" title="Direct link to Example of Improved Link List:">​</a></h5>
+<p><strong>Before:</strong></p>
+<ul>
+<li>Undergraduate Programs - Learn more</li>
+<li>Graduate Programs - Learn more</li>
+<li>Online Programs - Learn more</li>
+</ul>
+<p><strong>After:</strong></p>
+<ul>
+<li>Undergraduate degree programs</li>
+<li>Graduate degree programs</li>
+<li>Online degree programs</li>
+</ul>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="color-and-visual-information">Color and Visual Information<a href="#color-and-visual-information" class="hash-link" aria-label="Direct link to Color and Visual Information" title="Direct link to Color and Visual Information">​</a></h3>
+<h4 class="anchor anchorWithStickyNavbar_LWe7" id="dont-rely-on-color-alone">Don&#x27;t Rely on Color Alone<a href="#dont-rely-on-color-alone" class="hash-link" aria-label="Direct link to Don&#x27;t Rely on Color Alone" title="Direct link to Don&#x27;t Rely on Color Alone">​</a></h4>
+<p>Never use color as the only way to convey important information. Users who are colorblind or using screen readers won&#x27;t receive information communicated through color alone.</p>
+<h5 class="anchor anchorWithStickyNavbar_LWe7" id="examples-2">Examples:<a href="#examples-2" class="hash-link" aria-label="Direct link to Examples:" title="Direct link to Examples:">​</a></h5>
+<p><strong>Poor practice:</strong></p>
+<ul>
+<li>&quot;Items in red are required fields&quot;</li>
+<li>&quot;Green text indicates approved applications&quot;</li>
+<li>Using only red/green indicators for pass/fail status</li>
+</ul>
+<p><strong>Better practice:</strong></p>
+<ul>
+<li>&quot;Required fields are marked with an asterisk (*) and shown in red&quot;</li>
+<li>&quot;Approved applications are marked &#x27;APPROVED&#x27; and highlighted in green&quot;</li>
+<li>Use icons, text labels, or formatting along with color</li>
+</ul>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="text-formatting-and-writing">Text Formatting and Writing<a href="#text-formatting-and-writing" class="hash-link" aria-label="Direct link to Text Formatting and Writing" title="Direct link to Text Formatting and Writing">​</a></h3>
+<h4 class="anchor anchorWithStickyNavbar_LWe7" id="emphasis-and-important-information">Emphasis and Important Information<a href="#emphasis-and-important-information" class="hash-link" aria-label="Direct link to Emphasis and Important Information" title="Direct link to Emphasis and Important Information">​</a></h4>
+<p><strong>Use semantic formatting appropriately:</strong></p>
+<ul>
+<li><strong>Bold text</strong>: For strong emphasis or key terms</li>
+<li><em>Italic text</em>: For mild emphasis, foreign words, or titles</li>
+<li>Avoid using all caps for emphasis (screen readers may spell out each letter)</li>
+</ul>
+<p><strong>Avoid using formatting solely for visual appeal:</strong></p>
+<ul>
+<li>Don&#x27;t make text bold just to make it look bigger</li>
+<li>Don&#x27;t use italic text as a substitute for proper heading structure</li>
+<li>Use proper heading styles instead of bold text for section headers</li>
+</ul>
+<h4 class="anchor anchorWithStickyNavbar_LWe7" id="plain-language-and-clarity">Plain Language and Clarity<a href="#plain-language-and-clarity" class="hash-link" aria-label="Direct link to Plain Language and Clarity" title="Direct link to Plain Language and Clarity">​</a></h4>
+<h5 class="anchor anchorWithStickyNavbar_LWe7" id="writing-accessible-content">Writing Accessible Content<a href="#writing-accessible-content" class="hash-link" aria-label="Direct link to Writing Accessible Content" title="Direct link to Writing Accessible Content">​</a></h5>
+<ul>
+<li><strong>Use simple sentence structures</strong>: Avoid overly complex sentences</li>
+<li><strong>Define acronyms and abbreviations</strong>: Spell out terms on first use</li>
+<li><strong>Be consistent with terminology</strong>: Use the same terms throughout your content</li>
+<li><strong>Provide context</strong>: Help users understand where they are and what they&#x27;re reading</li>
+</ul>
+<h5 class="anchor anchorWithStickyNavbar_LWe7" id="content-organization">Content Organization<a href="#content-organization" class="hash-link" aria-label="Direct link to Content Organization" title="Direct link to Content Organization">​</a></h5>
+<ul>
+<li><strong>Use descriptive page titles</strong>: Help users understand what each page contains</li>
+<li><strong>Include summary information</strong>: Provide overviews for complex topics</li>
+<li><strong>Break up long content</strong>: Use subheadings and shorter sections</li>
+<li><strong>Logical reading order</strong>: Ensure content flows naturally from beginning to end</li>
+</ul>
+<h4 class="anchor anchorWithStickyNavbar_LWe7" id="text-length-and-readability">Text Length and Readability<a href="#text-length-and-readability" class="hash-link" aria-label="Direct link to Text Length and Readability" title="Direct link to Text Length and Readability">​</a></h4>
+<ul>
+<li><strong>Keep paragraphs reasonably short</strong>: Large blocks of text can be overwhelming</li>
+<li><strong>Use bullet points and lists</strong>: Break up dense information</li>
+<li><strong>Write in plain language</strong>: Avoid jargon when possible</li>
+<li><strong>Provide definitions</strong>: Explain technical terms when they&#x27;re necessary</li>
+</ul>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="tables-and-data">Tables and Data<a href="#tables-and-data" class="hash-link" aria-label="Direct link to Tables and Data" title="Direct link to Tables and Data">​</a></h3>
+<h4 class="anchor anchorWithStickyNavbar_LWe7" id="when-to-use-tables">When to Use Tables<a href="#when-to-use-tables" class="hash-link" aria-label="Direct link to When to Use Tables" title="Direct link to When to Use Tables">​</a></h4>
+<p>Use tables only for tabular data, not for layout purposes. Tables should present information that has a logical relationship between rows and columns.</p>
+<p><strong>Appropriate table uses:</strong></p>
+<ul>
+<li>Comparing data across categories</li>
+<li>Showing schedules or timetables</li>
+<li>Displaying financial information</li>
+<li>Course listings with credits, prerequisites, etc.</li>
+</ul>
+<h4 class="anchor anchorWithStickyNavbar_LWe7" id="creating-accessible-tables">Creating Accessible Tables<a href="#creating-accessible-tables" class="hash-link" aria-label="Direct link to Creating Accessible Tables" title="Direct link to Creating Accessible Tables">​</a></h4>
+<h5 class="anchor anchorWithStickyNavbar_LWe7" id="table-headers">Table Headers<a href="#table-headers" class="hash-link" aria-label="Direct link to Table Headers" title="Direct link to Table Headers">​</a></h5>
+<p>Always include header rows and/or columns that describe the data. Most CMS platforms provide options to designate header rows when creating tables.</p>
+<h5 class="anchor anchorWithStickyNavbar_LWe7" id="table-captions-and-context">Table Captions and Context<a href="#table-captions-and-context" class="hash-link" aria-label="Direct link to Table Captions and Context" title="Direct link to Table Captions and Context">​</a></h5>
+<ul>
+<li><strong>Add table captions</strong>: Briefly describe what the table contains</li>
+<li><strong>Provide context</strong>: Explain complex data relationships when necessary</li>
+<li><strong>Keep it simple</strong>: Avoid overly complex table structures when possible</li>
+</ul>
+<p><strong>Example caption:</strong> &quot;Course Requirements: Shows required courses, credit hours, prerequisites, and semester availability&quot;</p>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="lists-and-organization">Lists and Organization<a href="#lists-and-organization" class="hash-link" aria-label="Direct link to Lists and Organization" title="Direct link to Lists and Organization">​</a></h3>
+<h4 class="anchor anchorWithStickyNavbar_LWe7" id="using-lists-effectively">Using Lists Effectively<a href="#using-lists-effectively" class="hash-link" aria-label="Direct link to Using Lists Effectively" title="Direct link to Using Lists Effectively">​</a></h4>
+<p>Lists help organize information and make it easier for screen readers to navigate.</p>
+<h5 class="anchor anchorWithStickyNavbar_LWe7" id="when-to-use-different-list-types">When to Use Different List Types:<a href="#when-to-use-different-list-types" class="hash-link" aria-label="Direct link to When to Use Different List Types:" title="Direct link to When to Use Different List Types:">​</a></h5>
+<p><strong>Bulleted lists (unordered):</strong> For items where order doesn&#x27;t matter</p>
+<ul>
+<li>Course features</li>
+<li>Available amenities</li>
+<li>Program benefits</li>
+</ul>
+<p><strong>Numbered lists (ordered):</strong> For sequential steps or ranked items</p>
+<ol>
+<li>Application process steps</li>
+<li>Priority registration order</li>
+<li>Graduation requirements</li>
+</ol>
+<h4 class="anchor anchorWithStickyNavbar_LWe7" id="list-best-practices">List Best Practices<a href="#list-best-practices" class="hash-link" aria-label="Direct link to List Best Practices" title="Direct link to List Best Practices">​</a></h4>
+<ul>
+<li><strong>Keep list items parallel</strong>: Use consistent grammar and structure</li>
+<li><strong>Avoid single-item lists</strong>: If there&#x27;s only one item, consider using regular paragraph text</li>
+<li><strong>Break up very long lists</strong>: Consider organizing into categories or multiple shorter lists</li>
+</ul>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="video-and-media-content">Video and Media Content<a href="#video-and-media-content" class="hash-link" aria-label="Direct link to Video and Media Content" title="Direct link to Video and Media Content">​</a></h3>
+<h4 class="anchor anchorWithStickyNavbar_LWe7" id="video-accessibility-requirements">Video Accessibility Requirements<a href="#video-accessibility-requirements" class="hash-link" aria-label="Direct link to Video Accessibility Requirements" title="Direct link to Video Accessibility Requirements">​</a></h4>
+<p>When embedding videos on your website, ensure they include accessibility features:</p>
+<h5 class="anchor anchorWithStickyNavbar_LWe7" id="captions-and-transcripts">Captions and Transcripts<a href="#captions-and-transcripts" class="hash-link" aria-label="Direct link to Captions and Transcripts" title="Direct link to Captions and Transcripts">​</a></h5>
+<p><strong>Captions</strong> (synchronized text overlays):</p>
+<ul>
+<li>Required for all video content with audio</li>
+<li>Should include not just speech, but also important sound effects</li>
+<li>Auto-generated captions often contain errors and should be reviewed and corrected</li>
+</ul>
+<p><strong>Transcripts</strong> (full text versions):</p>
+<ul>
+<li>Provide complete text of all spoken content</li>
+<li>Include descriptions of important visual elements</li>
+<li>Should be available on the same page or easily accessible from the video</li>
+</ul>
+<h4 class="anchor anchorWithStickyNavbar_LWe7" id="embedding-media-responsibly">Embedding Media Responsibly<a href="#embedding-media-responsibly" class="hash-link" aria-label="Direct link to Embedding Media Responsibly" title="Direct link to Embedding Media Responsibly">​</a></h4>
+<h5 class="anchor anchorWithStickyNavbar_LWe7" id="video-controls">Video Controls<a href="#video-controls" class="hash-link" aria-label="Direct link to Video Controls" title="Direct link to Video Controls">​</a></h5>
+<ul>
+<li>Ensure videos don&#x27;t auto-play with sound</li>
+<li>Provide clear play/pause controls</li>
+<li>Allow users to adjust volume</li>
+</ul>
+<h5 class="anchor anchorWithStickyNavbar_LWe7" id="alternative-formats">Alternative Formats<a href="#alternative-formats" class="hash-link" aria-label="Direct link to Alternative Formats" title="Direct link to Alternative Formats">​</a></h5>
+<p>Consider providing multiple ways to access the same information:</p>
+<ul>
+<li>Video + transcript</li>
+<li>Audio podcast + transcript</li>
+<li>Written summary of video content</li>
+</ul>
 <h2 class="anchor anchorWithStickyNavbar_LWe7" id="document-accessibility">Document Accessibility<a href="#document-accessibility" class="hash-link" aria-label="Direct link to Document Accessibility" title="Direct link to Document Accessibility">​</a></h2>
 <h3 class="anchor anchorWithStickyNavbar_LWe7" id="why-document-accessibility-matters">Why Document Accessibility Matters<a href="#why-document-accessibility-matters" class="hash-link" aria-label="Direct link to Why Document Accessibility Matters" title="Direct link to Why Document Accessibility Matters">​</a></h3>
 <p>Documents linked from your website—PDFs, Word documents, spreadsheets—must meet the same accessibility standards as web pages. Since these files exist outside your CMS, you have complete control over their accessibility compliance.</p>
@@ -155,17 +368,17 @@
 <li>Information you want to be easily searchable</li>
 </ul>
 <p><strong>Remember</strong>: Content formatted as web pages is generally more accessible and mobile-friendly than documents. When possible, prioritize web page content over downloadable documents.</p>
-<h2 class="anchor anchorWithStickyNavbar_LWe7" id="link-accessibility">Link Accessibility<a href="#link-accessibility" class="hash-link" aria-label="Direct link to Link Accessibility" title="Direct link to Link Accessibility">​</a></h2>
-<h3 class="anchor anchorWithStickyNavbar_LWe7" id="writing-effective-link-text">Writing Effective Link Text<a href="#writing-effective-link-text" class="hash-link" aria-label="Direct link to Writing Effective Link Text" title="Direct link to Writing Effective Link Text">​</a></h3>
+<h2 class="anchor anchorWithStickyNavbar_LWe7" id="link-accessibility-1">Link Accessibility<a href="#link-accessibility-1" class="hash-link" aria-label="Direct link to Link Accessibility" title="Direct link to Link Accessibility">​</a></h2>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="writing-effective-link-text-1">Writing Effective Link Text<a href="#writing-effective-link-text-1" class="hash-link" aria-label="Direct link to Writing Effective Link Text" title="Direct link to Writing Effective Link Text">​</a></h3>
 <p>Link text is crucial for accessibility because screen reader users often navigate by jumping from link to link. They need to understand where each link leads without relying on surrounding context.</p>
-<h4 class="anchor anchorWithStickyNavbar_LWe7" id="link-text-best-practices">Link Text Best Practices:<a href="#link-text-best-practices" class="hash-link" aria-label="Direct link to Link Text Best Practices:" title="Direct link to Link Text Best Practices:">​</a></h4>
+<h4 class="anchor anchorWithStickyNavbar_LWe7" id="link-text-best-practices-1">Link Text Best Practices:<a href="#link-text-best-practices-1" class="hash-link" aria-label="Direct link to Link Text Best Practices:" title="Direct link to Link Text Best Practices:">​</a></h4>
 <ul>
 <li><strong>Be descriptive</strong>: Link text should clearly indicate the destination or action</li>
 <li><strong>Make sense out of context</strong>: Users should understand the link&#x27;s purpose even when read alone</li>
 <li><strong>Keep it concise</strong>: Aim for clear, brief descriptions that don&#x27;t overwhelm</li>
 <li><strong>Avoid generic phrases</strong>: Never use &quot;click here,&quot; &quot;read more,&quot; &quot;learn more,&quot; or &quot;here&quot;</li>
 </ul>
-<h4 class="anchor anchorWithStickyNavbar_LWe7" id="examples-1">Examples:<a href="#examples-1" class="hash-link" aria-label="Direct link to Examples:" title="Direct link to Examples:">​</a></h4>
+<h4 class="anchor anchorWithStickyNavbar_LWe7" id="examples-3">Examples:<a href="#examples-3" class="hash-link" aria-label="Direct link to Examples:" title="Direct link to Examples:">​</a></h4>
 <p><strong>Poor link text:</strong></p>
 <ul>
 <li>&quot;Click here for more information about our programs&quot;</li>
@@ -184,24 +397,24 @@
 <li>&quot;Financial Aid: Scholarships, Grants, and Loan Information&quot;</li>
 <li>&quot;Student Life: Campus Activities and Housing Options&quot;</li>
 </ul>
-<h3 class="anchor anchorWithStickyNavbar_LWe7" id="link-context-and-clarity">Link Context and Clarity<a href="#link-context-and-clarity" class="hash-link" aria-label="Direct link to Link Context and Clarity" title="Direct link to Link Context and Clarity">​</a></h3>
-<h4 class="anchor anchorWithStickyNavbar_LWe7" id="when-generic-text-is-necessary">When Generic Text Is Necessary<a href="#when-generic-text-is-necessary" class="hash-link" aria-label="Direct link to When Generic Text Is Necessary" title="Direct link to When Generic Text Is Necessary">​</a></h4>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="link-context-and-clarity-1">Link Context and Clarity<a href="#link-context-and-clarity-1" class="hash-link" aria-label="Direct link to Link Context and Clarity" title="Direct link to Link Context and Clarity">​</a></h3>
+<h4 class="anchor anchorWithStickyNavbar_LWe7" id="when-generic-text-is-necessary-1">When Generic Text Is Necessary<a href="#when-generic-text-is-necessary-1" class="hash-link" aria-label="Direct link to When Generic Text Is Necessary" title="Direct link to When Generic Text Is Necessary">​</a></h4>
 <p>Sometimes design or space constraints require generic link text. In these cases, provide additional context:</p>
 <div class="language-html codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#393A34;--prism-background-color:#f6f8fa"><div class="codeBlockContent_biex"><pre tabindex="0" class="prism-code language-html codeBlock_bY9V thin-scrollbar" style="color:#393A34;background-color:#f6f8fa"><code class="codeBlockLines_e6Vv"><span class="token-line" style="color:#393A34"><span class="token comment" style="color:#999988;font-style:italic">&lt;!-- Add context for screen readers --&gt;</span><span class="token plain"></span><br></span><span class="token-line" style="color:#393A34"><span class="token plain"></span><span class="token tag punctuation" style="color:#393A34">&lt;</span><span class="token tag" style="color:#00009f">a</span><span class="token tag" style="color:#00009f"> </span><span class="token tag attr-name" style="color:#00a4db">href</span><span class="token tag attr-value punctuation attr-equals" style="color:#393A34">=</span><span class="token tag attr-value punctuation" style="color:#393A34">&quot;</span><span class="token tag attr-value" style="color:#e3116c">programs.html</span><span class="token tag attr-value punctuation" style="color:#393A34">&quot;</span><span class="token tag punctuation" style="color:#393A34">&gt;</span><span class="token plain">Learn more</span><span class="token tag punctuation" style="color:#393A34">&lt;</span><span class="token tag" style="color:#00009f">span</span><span class="token tag" style="color:#00009f"> </span><span class="token tag attr-name" style="color:#00a4db">class</span><span class="token tag attr-value punctuation attr-equals" style="color:#393A34">=</span><span class="token tag attr-value punctuation" style="color:#393A34">&quot;</span><span class="token tag attr-value" style="color:#e3116c">visually-hidden</span><span class="token tag attr-value punctuation" style="color:#393A34">&quot;</span><span class="token tag punctuation" style="color:#393A34">&gt;</span><span class="token plain"> about academic programs</span><span class="token tag punctuation" style="color:#393A34">&lt;/</span><span class="token tag" style="color:#00009f">span</span><span class="token tag punctuation" style="color:#393A34">&gt;</span><span class="token tag punctuation" style="color:#393A34">&lt;/</span><span class="token tag" style="color:#00009f">a</span><span class="token tag punctuation" style="color:#393A34">&gt;</span><span class="token plain"></span><br></span><span class="token-line" style="color:#393A34"><span class="token plain" style="display:inline-block"></span><br></span><span class="token-line" style="color:#393A34"><span class="token plain"></span><span class="token comment" style="color:#999988;font-style:italic">&lt;!-- Or use the title attribute as a last resort --&gt;</span><span class="token plain"></span><br></span><span class="token-line" style="color:#393A34"><span class="token plain"></span><span class="token tag punctuation" style="color:#393A34">&lt;</span><span class="token tag" style="color:#00009f">a</span><span class="token tag" style="color:#00009f"> </span><span class="token tag attr-name" style="color:#00a4db">href</span><span class="token tag attr-value punctuation attr-equals" style="color:#393A34">=</span><span class="token tag attr-value punctuation" style="color:#393A34">&quot;</span><span class="token tag attr-value" style="color:#e3116c">programs.html</span><span class="token tag attr-value punctuation" style="color:#393A34">&quot;</span><span class="token tag" style="color:#00009f"> </span><span class="token tag attr-name" style="color:#00a4db">title</span><span class="token tag attr-value punctuation attr-equals" style="color:#393A34">=</span><span class="token tag attr-value punctuation" style="color:#393A34">&quot;</span><span class="token tag attr-value" style="color:#e3116c">Learn more about academic programs</span><span class="token tag attr-value punctuation" style="color:#393A34">&quot;</span><span class="token tag punctuation" style="color:#393A34">&gt;</span><span class="token plain">Learn more</span><span class="token tag punctuation" style="color:#393A34">&lt;/</span><span class="token tag" style="color:#00009f">a</span><span class="token tag punctuation" style="color:#393A34">&gt;</span><br></span></code></pre><div class="buttonGroup__atx"><button type="button" aria-label="Copy code to clipboard" title="Copy" class="clean-btn"><span class="copyButtonIcons_eSgA" aria-hidden="true"><svg viewBox="0 0 24 24" class="copyButtonIcon_y97N"><path fill="currentColor" d="M19,21H8V7H19M19,5H8A2,2 0 0,0 6,7V21A2,2 0 0,0 8,23H19A2,2 0 0,0 21,21V7A2,2 0 0,0 19,5M16,1H4A2,2 0 0,0 2,3V17H4V3H16V1Z"></path></svg><svg viewBox="0 0 24 24" class="copyButtonSuccessIcon_LjdS"><path fill="currentColor" d="M21,7L9,19L3.5,13.5L4.91,12.09L9,16.17L19.59,5.59L21,7Z"></path></svg></span></button></div></div></div>
-<h4 class="anchor anchorWithStickyNavbar_LWe7" id="external-links">External Links<a href="#external-links" class="hash-link" aria-label="Direct link to External Links" title="Direct link to External Links">​</a></h4>
+<h4 class="anchor anchorWithStickyNavbar_LWe7" id="external-links-1">External Links<a href="#external-links-1" class="hash-link" aria-label="Direct link to External Links" title="Direct link to External Links">​</a></h4>
 <p>Clearly indicate when links lead to external websites:</p>
 <ul>
 <li><strong>Good</strong>: &quot;U.S. Department of Education website&quot;</li>
 <li><strong>Better</strong>: &quot;Apply for federal student aid (external site)&quot;</li>
 </ul>
-<h3 class="anchor anchorWithStickyNavbar_LWe7" id="links-in-lists-and-navigation">Links in Lists and Navigation<a href="#links-in-lists-and-navigation" class="hash-link" aria-label="Direct link to Links in Lists and Navigation" title="Direct link to Links in Lists and Navigation">​</a></h3>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="links-in-lists-and-navigation-1">Links in Lists and Navigation<a href="#links-in-lists-and-navigation-1" class="hash-link" aria-label="Direct link to Links in Lists and Navigation" title="Direct link to Links in Lists and Navigation">​</a></h3>
 <p>When creating navigation menus or lists of links:</p>
 <ul>
 <li>Ensure each link is unique and descriptive</li>
 <li>Avoid repetitive link text like multiple &quot;Learn more&quot; links</li>
 <li>Consider the reading order when links are accessed sequentially</li>
 </ul>
-<h4 class="anchor anchorWithStickyNavbar_LWe7" id="example-of-improved-link-list">Example of Improved Link List:<a href="#example-of-improved-link-list" class="hash-link" aria-label="Direct link to Example of Improved Link List:" title="Direct link to Example of Improved Link List:">​</a></h4>
+<h4 class="anchor anchorWithStickyNavbar_LWe7" id="example-of-improved-link-list-1">Example of Improved Link List:<a href="#example-of-improved-link-list-1" class="hash-link" aria-label="Direct link to Example of Improved Link List:" title="Direct link to Example of Improved Link List:">​</a></h4>
 <p><strong>Before:</strong></p>
 <ul>
 <li>Undergraduate Programs - Learn more</li>
@@ -237,189 +450,6 @@
 <li>Accessibility barriers you can&#x27;t resolve</li>
 <li>Requests for new content types or layouts</li>
 <li>Questions about best practices for complex content</li>
-</ul>
-<h2 class="anchor anchorWithStickyNavbar_LWe7" id="link-accessibility-1">Link Accessibility<a href="#link-accessibility-1" class="hash-link" aria-label="Direct link to Link Accessibility" title="Direct link to Link Accessibility">​</a></h2>
-<h3 class="anchor anchorWithStickyNavbar_LWe7" id="writing-effective-link-text-1">Writing Effective Link Text<a href="#writing-effective-link-text-1" class="hash-link" aria-label="Direct link to Writing Effective Link Text" title="Direct link to Writing Effective Link Text">​</a></h3>
-<p>Link text is crucial for accessibility because screen reader users often navigate by jumping from link to link. They need to understand where each link leads without relying on surrounding context.</p>
-<h4 class="anchor anchorWithStickyNavbar_LWe7" id="link-text-best-practices-1">Link Text Best Practices:<a href="#link-text-best-practices-1" class="hash-link" aria-label="Direct link to Link Text Best Practices:" title="Direct link to Link Text Best Practices:">​</a></h4>
-<ul>
-<li><strong>Be descriptive</strong>: Link text should clearly indicate the destination or action</li>
-<li><strong>Make sense out of context</strong>: Users should understand the link&#x27;s purpose even when read alone</li>
-<li><strong>Keep it concise</strong>: Aim for clear, brief descriptions that don&#x27;t overwhelm</li>
-<li><strong>Avoid generic phrases</strong>: Never use &quot;click here,&quot; &quot;read more,&quot; &quot;learn more,&quot; or &quot;here&quot;</li>
-</ul>
-<h4 class="anchor anchorWithStickyNavbar_LWe7" id="examples-2">Examples:<a href="#examples-2" class="hash-link" aria-label="Direct link to Examples:" title="Direct link to Examples:">​</a></h4>
-<p><strong>Poor link text:</strong></p>
-<ul>
-<li>&quot;Click here for more information about our programs&quot;</li>
-<li>&quot;To learn about financial aid, click here&quot;</li>
-<li>&quot;Read more&quot;</li>
-</ul>
-<p><strong>Better link text:</strong></p>
-<ul>
-<li>&quot;View our academic programs&quot;</li>
-<li>&quot;Financial aid information&quot;</li>
-<li>&quot;Read more about student life&quot;</li>
-</ul>
-<p><strong>Best link text:</strong></p>
-<ul>
-<li>&quot;Academic Programs: Bachelor&#x27;s and Master&#x27;s Degrees&quot;</li>
-<li>&quot;Financial Aid: Scholarships, Grants, and Loan Information&quot;</li>
-<li>&quot;Student Life: Campus Activities and Housing Options&quot;</li>
-</ul>
-<h3 class="anchor anchorWithStickyNavbar_LWe7" id="link-context-and-clarity-1">Link Context and Clarity<a href="#link-context-and-clarity-1" class="hash-link" aria-label="Direct link to Link Context and Clarity" title="Direct link to Link Context and Clarity">​</a></h3>
-<h4 class="anchor anchorWithStickyNavbar_LWe7" id="when-generic-text-is-necessary-1">When Generic Text Is Necessary<a href="#when-generic-text-is-necessary-1" class="hash-link" aria-label="Direct link to When Generic Text Is Necessary" title="Direct link to When Generic Text Is Necessary">​</a></h4>
-<p>Sometimes design or space constraints require generic link text. In these cases, work with your development team to provide additional context for screen readers.</p>
-<h4 class="anchor anchorWithStickyNavbar_LWe7" id="external-links-1">External Links<a href="#external-links-1" class="hash-link" aria-label="Direct link to External Links" title="Direct link to External Links">​</a></h4>
-<p>Clearly indicate when links lead to external websites:</p>
-<ul>
-<li><strong>Good</strong>: &quot;U.S. Department of Education website&quot;</li>
-<li><strong>Better</strong>: &quot;Apply for federal student aid (external site)&quot;</li>
-</ul>
-<h3 class="anchor anchorWithStickyNavbar_LWe7" id="links-in-lists-and-navigation-1">Links in Lists and Navigation<a href="#links-in-lists-and-navigation-1" class="hash-link" aria-label="Direct link to Links in Lists and Navigation" title="Direct link to Links in Lists and Navigation">​</a></h3>
-<p>When creating navigation menus or lists of links:</p>
-<ul>
-<li>Ensure each link is unique and descriptive</li>
-<li>Avoid repetitive link text like multiple &quot;Learn more&quot; links</li>
-<li>Consider the reading order when links are accessed sequentially</li>
-</ul>
-<h4 class="anchor anchorWithStickyNavbar_LWe7" id="example-of-improved-link-list-1">Example of Improved Link List:<a href="#example-of-improved-link-list-1" class="hash-link" aria-label="Direct link to Example of Improved Link List:" title="Direct link to Example of Improved Link List:">​</a></h4>
-<p><strong>Before:</strong></p>
-<ul>
-<li>Undergraduate Programs - Learn more</li>
-<li>Graduate Programs - Learn more</li>
-<li>Online Programs - Learn more</li>
-</ul>
-<p><strong>After:</strong></p>
-<ul>
-<li>Undergraduate degree programs</li>
-<li>Graduate degree programs</li>
-<li>Online degree programs</li>
-</ul>
-<h2 class="anchor anchorWithStickyNavbar_LWe7" id="color-and-visual-information">Color and Visual Information<a href="#color-and-visual-information" class="hash-link" aria-label="Direct link to Color and Visual Information" title="Direct link to Color and Visual Information">​</a></h2>
-<h3 class="anchor anchorWithStickyNavbar_LWe7" id="dont-rely-on-color-alone">Don&#x27;t Rely on Color Alone<a href="#dont-rely-on-color-alone" class="hash-link" aria-label="Direct link to Don&#x27;t Rely on Color Alone" title="Direct link to Don&#x27;t Rely on Color Alone">​</a></h3>
-<p>Never use color as the only way to convey important information. Users who are colorblind or using screen readers won&#x27;t receive information communicated through color alone.</p>
-<h4 class="anchor anchorWithStickyNavbar_LWe7" id="examples-3">Examples:<a href="#examples-3" class="hash-link" aria-label="Direct link to Examples:" title="Direct link to Examples:">​</a></h4>
-<p><strong>Poor practice:</strong></p>
-<ul>
-<li>&quot;Items in red are required fields&quot;</li>
-<li>&quot;Green text indicates approved applications&quot;</li>
-<li>Using only red/green indicators for pass/fail status</li>
-</ul>
-<p><strong>Better practice:</strong></p>
-<ul>
-<li>&quot;Required fields are marked with an asterisk (*) and shown in red&quot;</li>
-<li>&quot;Approved applications are marked &#x27;APPROVED&#x27; and highlighted in green&quot;</li>
-<li>Use icons, text labels, or formatting along with color</li>
-</ul>
-<h3 class="anchor anchorWithStickyNavbar_LWe7" id="text-formatting-for-accessibility">Text Formatting for Accessibility<a href="#text-formatting-for-accessibility" class="hash-link" aria-label="Direct link to Text Formatting for Accessibility" title="Direct link to Text Formatting for Accessibility">​</a></h3>
-<h4 class="anchor anchorWithStickyNavbar_LWe7" id="emphasis-and-important-information">Emphasis and Important Information<a href="#emphasis-and-important-information" class="hash-link" aria-label="Direct link to Emphasis and Important Information" title="Direct link to Emphasis and Important Information">​</a></h4>
-<p><strong>Use semantic formatting appropriately:</strong></p>
-<ul>
-<li><strong>Bold text</strong>: For strong emphasis or key terms</li>
-<li><em>Italic text</em>: For mild emphasis, foreign words, or titles</li>
-<li>Avoid using all caps for emphasis (screen readers may spell out each letter)</li>
-</ul>
-<p><strong>Avoid using formatting solely for visual appeal:</strong></p>
-<ul>
-<li>Don&#x27;t make text bold just to make it look bigger</li>
-<li>Don&#x27;t use italic text as a substitute for proper heading structure</li>
-<li>Use proper heading styles instead of bold text for section headers</li>
-</ul>
-<h4 class="anchor anchorWithStickyNavbar_LWe7" id="text-length-and-readability">Text Length and Readability<a href="#text-length-and-readability" class="hash-link" aria-label="Direct link to Text Length and Readability" title="Direct link to Text Length and Readability">​</a></h4>
-<ul>
-<li><strong>Keep paragraphs reasonably short</strong>: Large blocks of text can be overwhelming</li>
-<li><strong>Use bullet points and lists</strong>: Break up dense information</li>
-<li><strong>Write in plain language</strong>: Avoid jargon when possible</li>
-<li><strong>Provide definitions</strong>: Explain technical terms when they&#x27;re necessary</li>
-</ul>
-<h2 class="anchor anchorWithStickyNavbar_LWe7" id="tables-and-data">Tables and Data<a href="#tables-and-data" class="hash-link" aria-label="Direct link to Tables and Data" title="Direct link to Tables and Data">​</a></h2>
-<h3 class="anchor anchorWithStickyNavbar_LWe7" id="when-to-use-tables">When to Use Tables<a href="#when-to-use-tables" class="hash-link" aria-label="Direct link to When to Use Tables" title="Direct link to When to Use Tables">​</a></h3>
-<p>Use tables only for tabular data, not for layout purposes. Tables should present information that has a logical relationship between rows and columns.</p>
-<p><strong>Appropriate table uses:</strong></p>
-<ul>
-<li>Comparing data across categories</li>
-<li>Showing schedules or timetables</li>
-<li>Displaying financial information</li>
-<li>Course listings with credits, prerequisites, etc.</li>
-</ul>
-<h3 class="anchor anchorWithStickyNavbar_LWe7" id="creating-accessible-tables">Creating Accessible Tables<a href="#creating-accessible-tables" class="hash-link" aria-label="Direct link to Creating Accessible Tables" title="Direct link to Creating Accessible Tables">​</a></h3>
-<h4 class="anchor anchorWithStickyNavbar_LWe7" id="table-headers">Table Headers<a href="#table-headers" class="hash-link" aria-label="Direct link to Table Headers" title="Direct link to Table Headers">​</a></h4>
-<p>Always include header rows and/or columns that describe the data. Most CMS platforms provide options to designate header rows when creating tables.</p>
-<h4 class="anchor anchorWithStickyNavbar_LWe7" id="table-captions-and-context">Table Captions and Context<a href="#table-captions-and-context" class="hash-link" aria-label="Direct link to Table Captions and Context" title="Direct link to Table Captions and Context">​</a></h4>
-<ul>
-<li><strong>Add table captions</strong>: Briefly describe what the table contains</li>
-<li><strong>Provide context</strong>: Explain complex data relationships when necessary</li>
-<li><strong>Keep it simple</strong>: Avoid overly complex table structures when possible</li>
-</ul>
-<p><strong>Example caption:</strong> &quot;Course Requirements: Shows required courses, credit hours, prerequisites, and semester availability&quot;</p>
-<h2 class="anchor anchorWithStickyNavbar_LWe7" id="lists-and-organization">Lists and Organization<a href="#lists-and-organization" class="hash-link" aria-label="Direct link to Lists and Organization" title="Direct link to Lists and Organization">​</a></h2>
-<h3 class="anchor anchorWithStickyNavbar_LWe7" id="using-lists-effectively">Using Lists Effectively<a href="#using-lists-effectively" class="hash-link" aria-label="Direct link to Using Lists Effectively" title="Direct link to Using Lists Effectively">​</a></h3>
-<p>Lists help organize information and make it easier for screen readers to navigate.</p>
-<h4 class="anchor anchorWithStickyNavbar_LWe7" id="when-to-use-different-list-types">When to Use Different List Types:<a href="#when-to-use-different-list-types" class="hash-link" aria-label="Direct link to When to Use Different List Types:" title="Direct link to When to Use Different List Types:">​</a></h4>
-<p><strong>Bulleted lists (unordered):</strong> For items where order doesn&#x27;t matter</p>
-<ul>
-<li>Course features</li>
-<li>Available amenities</li>
-<li>Program benefits</li>
-</ul>
-<p><strong>Numbered lists (ordered):</strong> For sequential steps or ranked items</p>
-<ol>
-<li>Application process steps</li>
-<li>Priority registration order</li>
-<li>Graduation requirements</li>
-</ol>
-<h3 class="anchor anchorWithStickyNavbar_LWe7" id="list-best-practices">List Best Practices<a href="#list-best-practices" class="hash-link" aria-label="Direct link to List Best Practices" title="Direct link to List Best Practices">​</a></h3>
-<ul>
-<li><strong>Keep list items parallel</strong>: Use consistent grammar and structure</li>
-<li><strong>Avoid single-item lists</strong>: If there&#x27;s only one item, consider using regular paragraph text</li>
-<li><strong>Break up very long lists</strong>: Consider organizing into categories or multiple shorter lists</li>
-</ul>
-<h2 class="anchor anchorWithStickyNavbar_LWe7" id="video-and-media-content">Video and Media Content<a href="#video-and-media-content" class="hash-link" aria-label="Direct link to Video and Media Content" title="Direct link to Video and Media Content">​</a></h2>
-<h3 class="anchor anchorWithStickyNavbar_LWe7" id="video-accessibility-requirements">Video Accessibility Requirements<a href="#video-accessibility-requirements" class="hash-link" aria-label="Direct link to Video Accessibility Requirements" title="Direct link to Video Accessibility Requirements">​</a></h3>
-<p>When embedding videos on your website, ensure they include accessibility features:</p>
-<h4 class="anchor anchorWithStickyNavbar_LWe7" id="captions-and-transcripts">Captions and Transcripts<a href="#captions-and-transcripts" class="hash-link" aria-label="Direct link to Captions and Transcripts" title="Direct link to Captions and Transcripts">​</a></h4>
-<p><strong>Captions</strong> (synchronized text overlays):</p>
-<ul>
-<li>Required for all video content with audio</li>
-<li>Should include not just speech, but also important sound effects</li>
-<li>Auto-generated captions often contain errors and should be reviewed and corrected</li>
-</ul>
-<p><strong>Transcripts</strong> (full text versions):</p>
-<ul>
-<li>Provide complete text of all spoken content</li>
-<li>Include descriptions of important visual elements</li>
-<li>Should be available on the same page or easily accessible from the video</li>
-</ul>
-<h3 class="anchor anchorWithStickyNavbar_LWe7" id="embedding-media-responsibly">Embedding Media Responsibly<a href="#embedding-media-responsibly" class="hash-link" aria-label="Direct link to Embedding Media Responsibly" title="Direct link to Embedding Media Responsibly">​</a></h3>
-<h4 class="anchor anchorWithStickyNavbar_LWe7" id="video-controls">Video Controls<a href="#video-controls" class="hash-link" aria-label="Direct link to Video Controls" title="Direct link to Video Controls">​</a></h4>
-<ul>
-<li>Ensure videos don&#x27;t auto-play with sound</li>
-<li>Provide clear play/pause controls</li>
-<li>Allow users to adjust volume</li>
-</ul>
-<h4 class="anchor anchorWithStickyNavbar_LWe7" id="alternative-formats">Alternative Formats<a href="#alternative-formats" class="hash-link" aria-label="Direct link to Alternative Formats" title="Direct link to Alternative Formats">​</a></h4>
-<p>Consider providing multiple ways to access the same information:</p>
-<ul>
-<li>Video + transcript</li>
-<li>Audio podcast + transcript</li>
-<li>Written summary of video content</li>
-</ul>
-<h2 class="anchor anchorWithStickyNavbar_LWe7" id="content-writing-best-practices">Content Writing Best Practices<a href="#content-writing-best-practices" class="hash-link" aria-label="Direct link to Content Writing Best Practices" title="Direct link to Content Writing Best Practices">​</a></h2>
-<h3 class="anchor anchorWithStickyNavbar_LWe7" id="plain-language-and-clarity">Plain Language and Clarity<a href="#plain-language-and-clarity" class="hash-link" aria-label="Direct link to Plain Language and Clarity" title="Direct link to Plain Language and Clarity">​</a></h3>
-<h4 class="anchor anchorWithStickyNavbar_LWe7" id="writing-accessible-content">Writing Accessible Content<a href="#writing-accessible-content" class="hash-link" aria-label="Direct link to Writing Accessible Content" title="Direct link to Writing Accessible Content">​</a></h4>
-<ul>
-<li><strong>Use simple sentence structures</strong>: Avoid overly complex sentences</li>
-<li><strong>Define acronyms and abbreviations</strong>: Spell out terms on first use</li>
-<li><strong>Be consistent with terminology</strong>: Use the same terms throughout your content</li>
-<li><strong>Provide context</strong>: Help users understand where they are and what they&#x27;re reading</li>
-</ul>
-<h4 class="anchor anchorWithStickyNavbar_LWe7" id="content-organization">Content Organization<a href="#content-organization" class="hash-link" aria-label="Direct link to Content Organization" title="Direct link to Content Organization">​</a></h4>
-<ul>
-<li><strong>Use descriptive page titles</strong>: Help users understand what each page contains</li>
-<li><strong>Include summary information</strong>: Provide overviews for complex topics</li>
-<li><strong>Break up long content</strong>: Use subheadings and shorter sections</li>
-<li><strong>Logical reading order</strong>: Ensure content flows naturally from beginning to end</li>
 </ul>
 <h2 class="anchor anchorWithStickyNavbar_LWe7" id="testing-your-content-for-accessibility">Testing Your Content for Accessibility<a href="#testing-your-content-for-accessibility" class="hash-link" aria-label="Direct link to Testing Your Content for Accessibility" title="Direct link to Testing Your Content for Accessibility">​</a></h2>
 <h3 class="anchor anchorWithStickyNavbar_LWe7" id="quick-self-checks">Quick Self-Checks<a href="#quick-self-checks" class="hash-link" aria-label="Direct link to Quick Self-Checks" title="Direct link to Quick Self-Checks">​</a></h3>
@@ -463,6 +493,6 @@
 </ul>
 <p>Your role as a content creator is essential to making the web accessible for everyone. These practices not only support users with disabilities but often improve the experience for all users by creating clearer, more organized, and more findable content.</p>
 <hr>
-<p><em>This guide complements the broader <a href="/docs/accessibility/overview">Accessibility Overview</a>. For technical implementation details, developers can reference the <a href="/docs/accessibility/developers">Developer Guidelines</a>.</em></p></div><footer class="theme-doc-footer docusaurus-mt-lg"><div class="row margin-top--sm theme-doc-footer-edit-meta-row"><div class="col"><a href="https://github.com/idfive/Developer-Documentation/tree/main/docs/accessibility/02-cms-editors.md" target="_blank" rel="noopener noreferrer" class="theme-edit-this-page"><svg fill="currentColor" height="20" width="20" viewBox="0 0 40 40" class="iconEdit_Z9Sw" aria-hidden="true"><g><path d="m34.5 11.7l-3 3.1-6.3-6.3 3.1-3q0.5-0.5 1.2-0.5t1.1 0.5l3.9 3.9q0.5 0.4 0.5 1.1t-0.5 1.2z m-29.5 17.1l18.4-18.5 6.3 6.3-18.4 18.4h-6.3v-6.2z"></path></g></svg>Edit this page</a></div><div class="col lastUpdated_JAkA"></div></div></footer></article><nav class="pagination-nav docusaurus-mt-lg" aria-label="Docs pages"><a class="pagination-nav__link pagination-nav__link--prev" href="/docs/accessibility/overview"><div class="pagination-nav__sublabel">Previous</div><div class="pagination-nav__label">Accessibility at idfive</div></a><a class="pagination-nav__link pagination-nav__link--next" href="/docs/accessibility/developers"><div class="pagination-nav__sublabel">Next</div><div class="pagination-nav__label">Developer Accessibility Guidelines</div></a></nav></div></div><div class="col col--3"><div class="tableOfContents_bqdL thin-scrollbar theme-doc-toc-desktop"><ul class="table-of-contents table-of-contents__left-border"><li><a href="#overview" class="table-of-contents__link toc-highlight">Overview</a></li><li><a href="#images-and-alternative-text-alt-text" class="table-of-contents__link toc-highlight">Images and Alternative Text (Alt Text)</a><ul><li><a href="#what-is-alt-text" class="table-of-contents__link toc-highlight">What is Alt Text?</a></li><li><a href="#how-alt-text-supports-accessibility" class="table-of-contents__link toc-highlight">How Alt Text Supports Accessibility</a></li><li><a href="#writing-effective-alt-text" class="table-of-contents__link toc-highlight">Writing Effective Alt Text</a></li><li><a href="#decorative-images" class="table-of-contents__link toc-highlight">Decorative Images</a></li><li><a href="#adding-alt-text-in-your-cms" class="table-of-contents__link toc-highlight">Adding Alt Text in Your CMS</a></li><li><a href="#image-best-practices-for-accessibility" class="table-of-contents__link toc-highlight">Image Best Practices for Accessibility</a></li></ul></li><li><a href="#heading-structure" class="table-of-contents__link toc-highlight">Heading Structure</a><ul><li><a href="#why-heading-structure-matters" class="table-of-contents__link toc-highlight">Why Heading Structure Matters</a></li><li><a href="#correct-heading-hierarchy" class="table-of-contents__link toc-highlight">Correct Heading Hierarchy</a></li><li><a href="#creating-headings-in-your-cms" class="table-of-contents__link toc-highlight">Creating Headings in Your CMS</a></li><li><a href="#common-heading-mistakes-to-avoid" class="table-of-contents__link toc-highlight">Common Heading Mistakes to Avoid</a></li></ul></li><li><a href="#document-accessibility" class="table-of-contents__link toc-highlight">Document Accessibility</a><ul><li><a href="#why-document-accessibility-matters" class="table-of-contents__link toc-highlight">Why Document Accessibility Matters</a></li><li><a href="#key-document-accessibility-requirements" class="table-of-contents__link toc-highlight">Key Document Accessibility Requirements</a></li><li><a href="#creating-accessible-documents" class="table-of-contents__link toc-highlight">Creating Accessible Documents</a></li><li><a href="#pdf-accessibility-checking-and-remediation" class="table-of-contents__link toc-highlight">PDF Accessibility Checking and Remediation</a></li><li><a href="#when-to-use-documents-vs-web-pages" class="table-of-contents__link toc-highlight">When to Use Documents vs. Web Pages</a></li></ul></li><li><a href="#link-accessibility" class="table-of-contents__link toc-highlight">Link Accessibility</a><ul><li><a href="#writing-effective-link-text" class="table-of-contents__link toc-highlight">Writing Effective Link Text</a></li><li><a href="#link-context-and-clarity" class="table-of-contents__link toc-highlight">Link Context and Clarity</a></li><li><a href="#links-in-lists-and-navigation" class="table-of-contents__link toc-highlight">Links in Lists and Navigation</a></li></ul></li><li><a href="#cms-specific-accessibility-features" class="table-of-contents__link toc-highlight">CMS-Specific Accessibility Features</a><ul><li><a href="#modern-cms-accessibility-tools" class="table-of-contents__link toc-highlight">Modern CMS Accessibility Tools</a></li><li><a href="#working-with-your-development-team" class="table-of-contents__link toc-highlight">Working with Your Development Team</a></li></ul></li><li><a href="#link-accessibility-1" class="table-of-contents__link toc-highlight">Link Accessibility</a><ul><li><a href="#writing-effective-link-text-1" class="table-of-contents__link toc-highlight">Writing Effective Link Text</a></li><li><a href="#link-context-and-clarity-1" class="table-of-contents__link toc-highlight">Link Context and Clarity</a></li><li><a href="#links-in-lists-and-navigation-1" class="table-of-contents__link toc-highlight">Links in Lists and Navigation</a></li></ul></li><li><a href="#color-and-visual-information" class="table-of-contents__link toc-highlight">Color and Visual Information</a><ul><li><a href="#dont-rely-on-color-alone" class="table-of-contents__link toc-highlight">Don&#39;t Rely on Color Alone</a></li><li><a href="#text-formatting-for-accessibility" class="table-of-contents__link toc-highlight">Text Formatting for Accessibility</a></li></ul></li><li><a href="#tables-and-data" class="table-of-contents__link toc-highlight">Tables and Data</a><ul><li><a href="#when-to-use-tables" class="table-of-contents__link toc-highlight">When to Use Tables</a></li><li><a href="#creating-accessible-tables" class="table-of-contents__link toc-highlight">Creating Accessible Tables</a></li></ul></li><li><a href="#lists-and-organization" class="table-of-contents__link toc-highlight">Lists and Organization</a><ul><li><a href="#using-lists-effectively" class="table-of-contents__link toc-highlight">Using Lists Effectively</a></li><li><a href="#list-best-practices" class="table-of-contents__link toc-highlight">List Best Practices</a></li></ul></li><li><a href="#video-and-media-content" class="table-of-contents__link toc-highlight">Video and Media Content</a><ul><li><a href="#video-accessibility-requirements" class="table-of-contents__link toc-highlight">Video Accessibility Requirements</a></li><li><a href="#embedding-media-responsibly" class="table-of-contents__link toc-highlight">Embedding Media Responsibly</a></li></ul></li><li><a href="#content-writing-best-practices" class="table-of-contents__link toc-highlight">Content Writing Best Practices</a><ul><li><a href="#plain-language-and-clarity" class="table-of-contents__link toc-highlight">Plain Language and Clarity</a></li></ul></li><li><a href="#testing-your-content-for-accessibility" class="table-of-contents__link toc-highlight">Testing Your Content for Accessibility</a><ul><li><a href="#quick-self-checks" class="table-of-contents__link toc-highlight">Quick Self-Checks</a></li><li><a href="#browser-extensions-for-content-creators" class="table-of-contents__link toc-highlight">Browser Extensions for Content Creators</a></li><li><a href="#when-to-seek-help" class="table-of-contents__link toc-highlight">When to Seek Help</a></li></ul></li><li><a href="#conclusion" class="table-of-contents__link toc-highlight">Conclusion</a></li></ul></div></div></div></div></main></div></div></div><footer class="footer footer--dark"><div class="container container-fluid"><div class="footer__bottom text--center"><div class="footer__copyright">Copyright © 2026 idfive.</div></div></div></footer></div>
+<p><em>This guide complements the broader <a href="/docs/accessibility/overview">Accessibility Overview</a>. For technical implementation details, developers can reference the <a href="/docs/accessibility/developers">Developer Guidelines</a>.</em></p></div><footer class="theme-doc-footer docusaurus-mt-lg"><div class="row margin-top--sm theme-doc-footer-edit-meta-row"><div class="col"><a href="https://github.com/idfive/Developer-Documentation/tree/main/docs/accessibility/02-cms-editors.md" target="_blank" rel="noopener noreferrer" class="theme-edit-this-page"><svg fill="currentColor" height="20" width="20" viewBox="0 0 40 40" class="iconEdit_Z9Sw" aria-hidden="true"><g><path d="m34.5 11.7l-3 3.1-6.3-6.3 3.1-3q0.5-0.5 1.2-0.5t1.1 0.5l3.9 3.9q0.5 0.4 0.5 1.1t-0.5 1.2z m-29.5 17.1l18.4-18.5 6.3 6.3-18.4 18.4h-6.3v-6.2z"></path></g></svg>Edit this page</a></div><div class="col lastUpdated_JAkA"></div></div></footer></article><nav class="pagination-nav docusaurus-mt-lg" aria-label="Docs pages"><a class="pagination-nav__link pagination-nav__link--prev" href="/docs/accessibility/overview"><div class="pagination-nav__sublabel">Previous</div><div class="pagination-nav__label">Accessibility at idfive</div></a><a class="pagination-nav__link pagination-nav__link--next" href="/docs/accessibility/developers"><div class="pagination-nav__sublabel">Next</div><div class="pagination-nav__label">Developer Accessibility Guidelines</div></a></nav></div></div><div class="col col--3"><div class="tableOfContents_bqdL thin-scrollbar theme-doc-toc-desktop"><ul class="table-of-contents table-of-contents__left-border"><li><a href="#overview" class="table-of-contents__link toc-highlight">Overview</a></li><li><a href="#images-and-alternative-text-alt-text" class="table-of-contents__link toc-highlight">Images and Alternative Text (Alt Text)</a><ul><li><a href="#what-is-alt-text" class="table-of-contents__link toc-highlight">What is Alt Text?</a></li><li><a href="#how-alt-text-supports-accessibility" class="table-of-contents__link toc-highlight">How Alt Text Supports Accessibility</a></li><li><a href="#writing-effective-alt-text" class="table-of-contents__link toc-highlight">Writing Effective Alt Text</a></li><li><a href="#decorative-images" class="table-of-contents__link toc-highlight">Decorative Images</a></li><li><a href="#adding-alt-text-in-your-cms" class="table-of-contents__link toc-highlight">Adding Alt Text in Your CMS</a></li><li><a href="#image-best-practices-for-accessibility" class="table-of-contents__link toc-highlight">Image Best Practices for Accessibility</a></li></ul></li><li><a href="#heading-structure" class="table-of-contents__link toc-highlight">Heading Structure</a><ul><li><a href="#why-heading-structure-matters" class="table-of-contents__link toc-highlight">Why Heading Structure Matters</a></li><li><a href="#correct-heading-hierarchy" class="table-of-contents__link toc-highlight">Correct Heading Hierarchy</a></li><li><a href="#creating-headings-in-your-cms" class="table-of-contents__link toc-highlight">Creating Headings in Your CMS</a></li><li><a href="#common-heading-mistakes-to-avoid" class="table-of-contents__link toc-highlight">Common Heading Mistakes to Avoid</a></li></ul></li><li><a href="#content-structure-and-organization" class="table-of-contents__link toc-highlight">Content Structure and Organization</a><ul><li><a href="#heading-structure-1" class="table-of-contents__link toc-highlight">Heading Structure</a></li><li><a href="#link-accessibility" class="table-of-contents__link toc-highlight">Link Accessibility</a></li><li><a href="#color-and-visual-information" class="table-of-contents__link toc-highlight">Color and Visual Information</a></li><li><a href="#text-formatting-and-writing" class="table-of-contents__link toc-highlight">Text Formatting and Writing</a></li><li><a href="#tables-and-data" class="table-of-contents__link toc-highlight">Tables and Data</a></li><li><a href="#lists-and-organization" class="table-of-contents__link toc-highlight">Lists and Organization</a></li><li><a href="#video-and-media-content" class="table-of-contents__link toc-highlight">Video and Media Content</a></li></ul></li><li><a href="#document-accessibility" class="table-of-contents__link toc-highlight">Document Accessibility</a><ul><li><a href="#why-document-accessibility-matters" class="table-of-contents__link toc-highlight">Why Document Accessibility Matters</a></li><li><a href="#key-document-accessibility-requirements" class="table-of-contents__link toc-highlight">Key Document Accessibility Requirements</a></li><li><a href="#creating-accessible-documents" class="table-of-contents__link toc-highlight">Creating Accessible Documents</a></li><li><a href="#pdf-accessibility-checking-and-remediation" class="table-of-contents__link toc-highlight">PDF Accessibility Checking and Remediation</a></li><li><a href="#when-to-use-documents-vs-web-pages" class="table-of-contents__link toc-highlight">When to Use Documents vs. Web Pages</a></li></ul></li><li><a href="#link-accessibility-1" class="table-of-contents__link toc-highlight">Link Accessibility</a><ul><li><a href="#writing-effective-link-text-1" class="table-of-contents__link toc-highlight">Writing Effective Link Text</a></li><li><a href="#link-context-and-clarity-1" class="table-of-contents__link toc-highlight">Link Context and Clarity</a></li><li><a href="#links-in-lists-and-navigation-1" class="table-of-contents__link toc-highlight">Links in Lists and Navigation</a></li></ul></li><li><a href="#cms-specific-accessibility-features" class="table-of-contents__link toc-highlight">CMS-Specific Accessibility Features</a><ul><li><a href="#modern-cms-accessibility-tools" class="table-of-contents__link toc-highlight">Modern CMS Accessibility Tools</a></li><li><a href="#working-with-your-development-team" class="table-of-contents__link toc-highlight">Working with Your Development Team</a></li></ul></li><li><a href="#testing-your-content-for-accessibility" class="table-of-contents__link toc-highlight">Testing Your Content for Accessibility</a><ul><li><a href="#quick-self-checks" class="table-of-contents__link toc-highlight">Quick Self-Checks</a></li><li><a href="#browser-extensions-for-content-creators" class="table-of-contents__link toc-highlight">Browser Extensions for Content Creators</a></li><li><a href="#when-to-seek-help" class="table-of-contents__link toc-highlight">When to Seek Help</a></li></ul></li><li><a href="#conclusion" class="table-of-contents__link toc-highlight">Conclusion</a></li></ul></div></div></div></div></main></div></div></div><footer class="footer footer--dark"><div class="container container-fluid"><div class="footer__bottom text--center"><div class="footer__copyright">Copyright © 2026 idfive.</div></div></div></footer></div>
 </body>
 </html>
