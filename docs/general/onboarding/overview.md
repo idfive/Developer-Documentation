@@ -96,7 +96,7 @@ These are generally assigned via individual accounts, so this could be to an exi
 4. Javascript/Typescript - Review [Front End JS Page](/docs/front-end/javascript-typescript)
    1. If using an npm package - be aware that a “types” package may exist (install if available)
    2. Common packages (debounce, youtube, vimeo, flickity, masonry)
-5. Accessibility - review [Front End page](/docs/front-end/accessibility)
+5. Accessibility - review [Developer Guidelines](/docs/accessibility/developers)
 6. SVG - review [Front End page](/docs/front-end/images-svg-icons)
 
 7. Pattern Lab

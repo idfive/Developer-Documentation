@@ -201,6 +201,8 @@ We provide training for content managers on:
 - Using semantic markup in WYSIWYG editors
 - Understanding the importance of meaningful link text
 
+For comprehensive guidance on content accessibility, see our [CMS Editors Guide](/docs/accessibility/cms-editors).
+
 ### Client-Specific Requirements
 
 We understand that many organizations have their own accessibility testing protocols and compliance requirements. We work closely with client accessibility teams to ensure our deliverables meet specific organizational standards:
@@ -316,4 +318,4 @@ Our goal is to make the web more accessible, one project at a time. Whether you'
 
 ---
 
-_For technical implementation details, developers can reference our [Front-end Accessibility Guidelines](/docs/front-end/accessibility) and [Component Library documentation](/docs/front-end/idfive-component-library)._
+_For technical implementation details, developers can reference our [Developer Guidelines](/docs/accessibility/developers) and [Component Library documentation](/docs/front-end/idfive-component-library)._

@@ -31,7 +31,7 @@ For external vendors building projects for idfive, this page overviews our gener
 
 - HTML should be [W3C-validated](https://validator.w3.org/) and use proper semantics where applicable.
 - Templates are written in [Twig](https://twig.symfony.com/) and compiled to standard HTML.
-- Proper ARIA functionality is used to meet WCAG accessibility guidelines (see [Accessibility Requirements page](https://developers.idfive.com/docs/front-end/accessibility)).
+- Proper ARIA functionality is used to meet WCAG accessibility guidelines (see [Developer Guidelines](https://developers.idfive.com/docs/accessibility/developers)).
 - Components should include `component-name.json` data files to allow them to be easily imported and shared across other templates.
 
 ### JS
@@ -73,7 +73,7 @@ For external vendors building projects for idfive, this page overviews our gener
 ### Acceptance standards
 
 - Code meets best practice/coding standards for particular CMS.
-- Accessibility requirements met (see [Accessibility page](https://developers.idfive.com/docs/front-end/accessibility))
+- Accessibility requirements met (see [Accessibility Overview](https://developers.idfive.com/docs/accessibility/overview))
 - Code meets all functionality requirements outlined in wireframes.
 - Code free (or as free as can be) of proprietary, or paid modules/plugins.
 - Passes [WAVE](http://wave.webaim.org/) AA level testing.
