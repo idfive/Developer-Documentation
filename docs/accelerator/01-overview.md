@@ -17,10 +17,10 @@ In this manner, we are free to focus more budget on custom, unique items and fun
 
 ## Design Resources
 
-- [Templates, Content Types, and Views](https://www.figma.com/proto/J3ysB89ldPIQO0LTADpUaf/%F0%9F%8F%83%E2%80%8D%E2%99%80%E[…]-zoom&content-scaling=fixed&starting-point-node-id=355%3A13806).
-- [Navigation & Alert Documentation Prototype](https://www.figma.com/proto/J3ysB89ldPIQO0LTADpUaf/%F0%9F%8F%83%E2%80%8D%E2%99%80%E[…]zoom&content-scaling=fixed&starting-point-node-id=4439%3A10674Widget)
-- [Options Documentation Prototype](https://www.figma.com/proto/J3ysB89ldPIQO0LTADpUaf/%F0%9F%8F%83%E2%80%8D%E2%99%80%E[…]zoom&content-scaling=fixed&starting-point-node-id=4439%3A10896). Provides guidance on full-width displays and heading/intro field usage.
-- [Homepage Hero Documentation](https://www.figma.com/proto/J3ysB89ldPIQO0LTADpUaf/%F0%9F%8F%83%E2%80%8D%E2%99%80%E[…]zoom&content-scaling=fixed&starting-point-node-id=4455%3A13789). Shows the default video and image hero options.
+- [Templates, Content Types, and Views](https://www.figma.com/proto/J3ysB89ldPIQO0LTADpUaf/%F0%9F%8F%83%E2%80%8D%E2%99%80%EF%B8%8FAccelerator-Wireframes?page-id=1%3A98&node-id=355-13806&viewport=-497%2C541%2C0.13&t=Rfo9uecWYNUUKZfQ-1&scaling=min-zoom&content-scaling=fixed&starting-point-node-id=355%3A13806)
+- [Navigation & Alert Documentation Prototype](https://www.figma.com/proto/J3ysB89ldPIQO0LTADpUaf/%F0%9F%8F%83%E2%80%8D%E2%99%80%EF%B8%8FAccelerator-Wireframes?page-id=4053%3A7918&node-id=4439-10674&viewport=967%2C128%2C0.5&t=DdiJ5KxFMeYsJ201-1&scaling=min-zoom&content-scaling=fixed&starting-point-node-id=4439%3A10674)
+- [Widget Options Documentation Prototype](https://www.figma.com/proto/J3ysB89ldPIQO0LTADpUaf/%F0%9F%8F%83%E2%80%8D%E2%99%80%EF%B8%8FAccelerator-Wireframes?page-id=4430%3A10356&node-id=4439-10896&viewport=609%2C340%2C0.25&t=LQB1msG0PiPAkIPJ-1&scaling=min-zoom&content-scaling=fixed&starting-point-node-id=4439%3A10896). Provides guidance on full-width displays and heading/intro field usage.
+- [Homepage Hero Documentation](https://www.figma.com/proto/J3ysB89ldPIQO0LTADpUaf/%F0%9F%8F%83%E2%80%8D%E2%99%80%EF%B8%8FAccelerator-Wireframes?page-id=4261%3A17378&node-id=4455-13789&viewport=1111%2C151%2C0.5&t=6BXB1uIqZzA0SRXy-1&scaling=min-zoom&content-scaling=fixed&starting-point-node-id=4455%3A13789). Shows the default video and image hero options.
 
 ## Details
 
