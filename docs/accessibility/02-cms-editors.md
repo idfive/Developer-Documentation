@@ -43,6 +43,7 @@ Good alt text follows these principles:
 Some images are purely decorative and don't convey important information. These should be marked as decorative or given empty alt text so screen readers skip them entirely.
 
 **Use decorative marking for:**
+
 - Background patterns or textures
 - Divider lines or design elements
 - Images that are purely aesthetic and don't add content value
@@ -106,6 +107,7 @@ Most CMS editors include a format dropdown menu (often set to "Paragraph" by def
 ### Common Heading Mistakes to Avoid
 
 **Don't:**
+
 - Skip heading levels (jumping from H2 to H4)
 - Use headings to make text larger or more prominent if it's not actually a heading
 - Use multiple H1 tags on a single page
@@ -157,6 +159,7 @@ Most CMS editors include a format dropdown menu (often set to "Paragraph" by def
 #### Common Heading Mistakes to Avoid
 
 **Don't:**
+
 - Skip heading levels (jumping from H2 to H4)
 - Use headings to make text larger or more prominent if it's not actually a heading
 - Use multiple H1 tags on a single page
@@ -178,16 +181,19 @@ Link text is crucial for accessibility because screen reader users often navigat
 ##### Examples:
 
 **Poor link text:**
+
 - "Click here for more information about our programs"
 - "To learn about financial aid, click here"
 - "Read more"
 
 **Better link text:**
+
 - "View our academic programs"
 - "Financial aid information"
 - "Read more about student life"
 
 **Best link text:**
+
 - "Academic Programs: Bachelor's and Master's Degrees"
 - "Financial Aid: Scholarships, Grants, and Loan Information"
 - "Student Life: Campus Activities and Housing Options"
@@ -216,11 +222,13 @@ When creating navigation menus or lists of links:
 ##### Example of Improved Link List:
 
 **Before:**
+
 - Undergraduate Programs - Learn more
-- Graduate Programs - Learn more  
+- Graduate Programs - Learn more
 - Online Programs - Learn more
 
 **After:**
+
 - Undergraduate degree programs
 - Graduate degree programs
 - Online degree programs
@@ -234,12 +242,14 @@ Never use color as the only way to convey important information. Users who are c
 ##### Examples:
 
 **Poor practice:**
+
 - "Items in red are required fields"
 - "Green text indicates approved applications"
 - Using only red/green indicators for pass/fail status
 
 **Better practice:**
-- "Required fields are marked with an asterisk (*) and shown in red"
+
+- "Required fields are marked with an asterisk (\*) and shown in red"
 - "Approved applications are marked 'APPROVED' and highlighted in green"
 - Use icons, text labels, or formatting along with color
 
@@ -249,11 +259,12 @@ Never use color as the only way to convey important information. Users who are c
 
 **Use semantic formatting appropriately:**
 
-- **Bold text**: For strong emphasis or key terms
-- *Italic text*: For mild emphasis, foreign words, or titles
+- **Bold text**: For strong emphasis or key terms. Avoid overuse.
+- _Italic text_: For mild emphasis, foreign words, or titles. Avoid overuse.
 - Avoid using all caps for emphasis (screen readers may spell out each letter)
 
 **Avoid using formatting solely for visual appeal:**
+
 - Don't make text bold just to make it look bigger
 - Don't use italic text as a substitute for proper heading structure
 - Use proper heading styles instead of bold text for section headers
@@ -288,8 +299,9 @@ Never use color as the only way to convey important information. Users who are c
 Use tables only for tabular data, not for layout purposes. Tables should present information that has a logical relationship between rows and columns.
 
 **Appropriate table uses:**
+
 - Comparing data across categories
-- Showing schedules or timetables  
+- Showing schedules or timetables
 - Displaying financial information
 - Course listings with credits, prerequisites, etc.
 
@@ -316,11 +328,13 @@ Lists help organize information and make it easier for screen readers to navigat
 ##### When to Use Different List Types:
 
 **Bulleted lists (unordered):** For items where order doesn't matter
+
 - Course features
-- Available amenities  
+- Available amenities
 - Program benefits
 
 **Numbered lists (ordered):** For sequential steps or ranked items
+
 1. Application process steps
 2. Priority registration order
 3. Graduation requirements
@@ -340,11 +354,13 @@ When embedding videos on your website, ensure they include accessibility feature
 ##### Captions and Transcripts
 
 **Captions** (synchronized text overlays):
+
 - Required for all video content with audio
 - Should include not just speech, but also important sound effects
 - Auto-generated captions often contain errors and should be reviewed and corrected
 
 **Transcripts** (full text versions):
+
 - Provide complete text of all spoken content
 - Include descriptions of important visual elements
 - Should be available on the same page or easily accessible from the video
@@ -360,8 +376,9 @@ When embedding videos on your website, ensure they include accessibility feature
 ##### Alternative Formats
 
 Consider providing multiple ways to access the same information:
+
 - Video + transcript
-- Audio podcast + transcript  
+- Audio podcast + transcript
 - Written summary of video content
 
 ## Document Accessibility
@@ -373,20 +390,24 @@ Documents linked from your website—PDFs, Word documents, spreadsheets—must m
 ### Key Document Accessibility Requirements
 
 #### 1. Proper Structure
+
 - **Heading hierarchy**: Use the same logical heading structure described above
 - **Reading order**: Ensure content flows logically from beginning to end
 - **Lists and tables**: Use proper formatting for lists and include table headers
 
 #### 2. Alternative Text
+
 - All images within documents need descriptive alt text
 - Charts and graphs require detailed descriptions of the data they present
 
 #### 3. Interactive Elements
+
 - **Forms**: Must be "fillable" using only keyboard navigation
 - **Links**: Should have descriptive text that makes sense out of context
 - **Tables**: Require proper header rows to describe content
 
 #### 4. Technical Requirements
+
 - **Language**: Specify the document's primary language
 - **Title**: Include a meaningful title in the document properties
 - **File naming**: Use descriptive, accessible file names
@@ -417,12 +438,14 @@ If you have Adobe Acrobat Pro, you can check and fix many accessibility issues:
 ### When to Use Documents vs. Web Pages
 
 #### Best Use Cases for Documents:
+
 - Content intended for printing
 - Forms requiring signatures
 - Large reference materials (policies, contracts, extensive data sheets)
 - Content that users need to download and save
 
 #### Better as Web Pages:
+
 - Information meant to be read on electronic devices
 - Content consisting mainly of text and simple images
 - Shorter content that fits well on a webpage
@@ -447,16 +470,19 @@ Link text is crucial for accessibility because screen reader users often navigat
 #### Examples:
 
 **Poor link text:**
+
 - "Click here for more information about our programs"
 - "To learn about financial aid, click here"
 - "Read more"
 
 **Better link text:**
+
 - "View our academic programs"
 - "Financial aid information"
 - "Read more about student life"
 
 **Best link text:**
+
 - "Academic Programs: Bachelor's and Master's Degrees"
 - "Financial Aid: Scholarships, Grants, and Loan Information"
 - "Student Life: Campus Activities and Housing Options"
@@ -469,10 +495,14 @@ Sometimes design or space constraints require generic link text. In these cases,
 
 ```html
 <!-- Add context for screen readers -->
-<a href="programs.html">Learn more<span class="visually-hidden"> about academic programs</span></a>
+<a href="programs.html"
+  >Learn more<span class="visually-hidden"> about academic programs</span></a
+>
 
 <!-- Or use the title attribute as a last resort -->
-<a href="programs.html" title="Learn more about academic programs">Learn more</a>
+<a href="programs.html" title="Learn more about academic programs"
+  >Learn more</a
+>
 ```
 
 #### External Links
@@ -493,11 +523,13 @@ When creating navigation menus or lists of links:
 #### Example of Improved Link List:
 
 **Before:**
+
 - Undergraduate Programs - Learn more
-- Graduate Programs - Learn more  
+- Graduate Programs - Learn more
 - Online Programs - Learn more
 
 **After:**
+
 - Undergraduate degree programs
 - Graduate degree programs
 - Online degree programs
@@ -519,11 +551,12 @@ Most contemporary content management systems include accessibility features to h
 While content creators handle much of the day-to-day accessibility work, some issues require developer intervention:
 
 - **Complex interactive elements**: Custom widgets or advanced functionality
-- **Template modifications**: Changes to page layouts or component structures  
+- **Template modifications**: Changes to page layouts or component structures
 - **Third-party integrations**: External tools or plugins that may have accessibility issues
 - **Technical auditing**: Comprehensive accessibility testing and remediation
 
 Don't hesitate to communicate with your development team when you encounter:
+
 - Accessibility barriers you can't resolve
 - Requests for new content types or layouts
 - Questions about best practices for complex content
@@ -548,12 +581,13 @@ Before publishing content, consider these simple tests:
 Several free browser extensions can help identify accessibility issues:
 
 - **WAVE**: Highlights accessibility issues directly on your page
-- **Lighthouse**: Provides accessibility scores and specific recommendations  
+- **Lighthouse**: Provides accessibility scores and specific recommendations
 - **Axe DevTools**: Identifies common accessibility problems with detailed explanations
 
 ### When to Seek Help
 
 Content accessibility can be complex. Reach out to your accessibility team or developers when you encounter:
+
 - Contradictory accessibility requirements
 - Complex data presentations (charts, graphs, tables)
 - Interactive content beyond basic text and images
