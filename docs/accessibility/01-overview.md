@@ -111,9 +111,16 @@ We implement comprehensive focus management including:
 
 ## Testing and Quality Assurance
 
-### Automated Testing Tools
+### Overview
 
-We use industry-leading automated testing tools to catch accessibility issues early:
+We use industry-leading automated testing tools to catch accessibility issues early. However it's important to understand some points regarding testing:
+
+- No testing tools are the same and each will give different results
+- Some results from tools will give a false positive (ie color contrast issues can come up when there is not an issue, as some tools have difficulty accurately assessing the background color in certain areas)
+- There is not an _official_ testing tool
+- It is unlikely to get a site to zero issues [see below for more information](#understanding-cms-and-platform-limitations) on why this can occur
+
+### Automated Testing Tools
 
 #### Browser Extensions and Dev Tools
 
