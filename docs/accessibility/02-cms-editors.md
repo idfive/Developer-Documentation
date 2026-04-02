@@ -2,6 +2,8 @@
 
 ## Overview
 
+**This guide is accurate as of April 2026 and is not meant to be comprehensive.** Please refer to the official WCAG (Web Content Accessibility Guidelines) website for the full list: [WCAG Guidelines](https://www.w3.org/WAI/standards-guidelines/wcag/)
+
 Content managers and CMS editors play a crucial role in maintaining website accessibility. While developers handle the technical infrastructure, content creators directly impact three key areas that affect accessibility compliance:
 
 1. **Alternative Text** for images
