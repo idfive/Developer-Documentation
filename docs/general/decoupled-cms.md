@@ -10,6 +10,8 @@ Decoupled CMS architecture (also called "headless CMS") separates content manage
 
 This approach enables content to power multiple channels - websites, mobile apps, digital displays - from a single source while delivering superior performance and user experiences. This strategy is also sometimes referred to as the COPE model (Create Once, Publish Everywhere).
 
+As you will see below, there are a few diffent nuances, it is not always an "all or nothing" approach.
+
 ## When to Choose Decoupled Architecture
 
 ### Ideal Scenarios
