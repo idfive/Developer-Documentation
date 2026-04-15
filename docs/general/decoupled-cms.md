@@ -10,7 +10,7 @@ Decoupled CMS architecture (also called "headless CMS") separates content manage
 
 This approach enables content to power multiple channels - websites, mobile apps, digital displays - from a single source while delivering superior performance and user experiences. This strategy is also sometimes referred to as the COPE model (Create Once, Publish Everywhere).
 
-As you will see below, there are a few diffent nuances, it is not always an "all or nothing" approach.
+As you will see below, there are a few different nuances, it is not always an "all or nothing" approach.
 
 ## When to Choose Decoupled Architecture
 
@@ -41,7 +41,7 @@ As you will see below, there are a few diffent nuances, it is not always an "all
 - Multiple brands or properties sharing content infrastructure
 - Requires both frontend and backend development expertise (often separate teams)
 - Coordination needed between distinct technical specializations
-- Robust budgets for build, and maintenence
+- Robust budgets for build, and maintenance
 
 ### When Traditional CMS Works Better
 
@@ -50,7 +50,7 @@ As you will see below, there are a few diffent nuances, it is not always an "all
 - Straightforward informational sites with standard functionality
 - Limited budget or tight project timelines
 - Small teams managing both content and basic site updates
-- Limited budgets for build, and maintenence
+- Limited budgets for build, and maintenance
 
 #### Heavy Editorial Workflow Requirements
 
@@ -230,7 +230,7 @@ For most projects, a phased approach allows organizations to realize benefits wh
 
 ## Related Resources
 
-- [WordPress Implementation](/docs/back-end/wordpress/wordpress) - WordPress platform details
-- [Drupal Implementation](/docs/back-end/drupal/drupal) - Drupal platform capabilities  
+- [WordPress Implementation](/docs/back-end/wordpress) - WordPress platform details
+- [Drupal Implementation](/docs/back-end/drupal) - Drupal platform capabilities  
 - [Performance Optimization](/docs/front-end/performance) - Website performance strategies
 - [SEO Considerations](/docs/general/seo) - Search optimization best practices
