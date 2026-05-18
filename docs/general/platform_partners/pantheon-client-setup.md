@@ -15,7 +15,7 @@ The preferred workflow is for **idfive to create the site as a sandbox under the
 ### Preferred workflow: idfive creates, then transfers
 
 1. **idfive creates a sandbox** under the idfive Pantheon team at the start of the project.
-2. **Development proceeds** on that sandbox in the normal way (see [Accelerator Initialization](/docs/accelerator/02-initialization)).
+2. **Development proceeds** on that sandbox in the normal way (see [Accelerator Initialization](/docs/accelerator/initialization)).
 3. **When the client is ready to launch**, idfive provides an email address and the client uses it to accept a site ownership transfer from the Pantheon dashboard.
 4. **The client creates a Pantheon account** (if they don't already have one) at [https://pantheon.io](https://pantheon.io) using a company or team email address, and enters billing information to accept the transfer and upgrade to a paid plan.
 5. **The client chooses a plan** appropriate for their expected traffic. Common starting plans:
@@ -55,4 +55,4 @@ After the client adds idfive LLC, confirm internally that the site appears in th
 
 - The preferred workflow is for idfive to build under the **idfive Pantheon team** sandbox first, then transfer ownership to the client when a paid plan is in place at launch.
 - DNS issues (A/AAAA records) are common during launch. Refer to [Pantheon's DNS documentation](https://docs.pantheon.io/guides/launch/configure-dns/) for the correct records to provide to the client's DNS provider.
-- For idfive-side Pantheon setup steps (creating sandboxes, cloning the accelerator, etc.), see the [Accelerator Initialization](/docs/accelerator/02-initialization) doc.
+- For idfive-side Pantheon setup steps (creating sandboxes, cloning the accelerator, etc.), see the [Accelerator Initialization](/docs/accelerator/initialization) doc.
